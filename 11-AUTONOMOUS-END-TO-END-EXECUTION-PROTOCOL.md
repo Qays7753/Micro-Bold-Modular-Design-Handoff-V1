@@ -13,6 +13,14 @@ Autonomy does not convert hypotheses into facts. Final owner approval and real-u
 - Never deploy to production.
 - Never store credentials, access tokens, personal data, or private customer information.
 
+## Branch and review policy
+
+- Create `design/autonomous-v1` from the latest `main` before producing artifacts.
+- Commit all generated work to that branch, not directly to `main`.
+- Push coherent milestone commits and open one final pull request to `main`.
+- Do not merge the pull request automatically; final merge is an owner action.
+- If a separate Documents repository is later provided, mirror final reports there without removing the copies under `reports/`.
+
 ## Required working structure
 
 ```text
@@ -113,7 +121,7 @@ Refine the provisional winner into:
 
 ### Gate 7 — Final handoff
 
-Complete the final report, source manifest, exports, known limitations, unresolved owner decisions, and implementation-transfer notes. Verify links and filenames. Commit coherent milestones and leave the repository in a reproducible state.
+Complete the final report, source manifest, exports, known limitations, unresolved owner decisions, and implementation-transfer notes. Verify links and filenames. Commit coherent milestones, push `design/autonomous-v1`, open a final pull request to `main`, and leave the repository in a reproducible state.
 
 ## Commit policy
 
