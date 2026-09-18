@@ -19,7 +19,8 @@ It authorizes design work and design deliverables inside this handoff repository
 9. `09-SPECIALIZED-VISUAL-DESIGN-AGENT-PROMPT.md`
 10. `10-EVIDENCE-AND-CONSTRAINTS-MAP.md`
 11. `11-AUTONOMOUS-END-TO-END-EXECUTION-PROTOCOL.md`
-12. `AGENTS.md`
+12. `12-DOCUMENTS-REPOSITORY-DELIVERY.md`
+13. `AGENTS.md`
 
 ## Authority order
 
