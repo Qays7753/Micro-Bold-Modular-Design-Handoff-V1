@@ -23,6 +23,8 @@ Exploration variants:
 
 The assigned design agent completes the full workflow without waiting between stages. Mandatory internal gates require evidence, revision, and retesting. The final direction remains an expert recommendation until owner approval and real-user validation occur.
 
+Generated work belongs on `design/autonomous-v1`; the agent opens a final pull request and does not merge it automatically.
+
 ## Boundaries
 
 - This repository may contain design sources, prototypes, exports, evidence, and reports.
