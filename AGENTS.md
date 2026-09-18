@@ -13,6 +13,7 @@ This repository is the authoritative workspace for Micro's Bold Modular visual-d
 5. Use the fixed Arabic content and data fixtures. Do not improve a direction by changing content or numbers.
 6. Treat owner approval and real-user validation as pending unless explicit evidence is present.
 7. Keep credentials and private data out of the repository.
+8. Create `design/autonomous-v1` from current `main`, work only on that branch, and open one final pull request. Do not self-merge.
 
 ## Allowed changes
 
