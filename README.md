@@ -1,0 +1,32 @@
+# Micro Bold Modular Design Handoff V1
+
+Authoritative design workspace for Micro's Arabic-first visual direction exploration and autonomous end-to-end design handoff.
+
+## Start here
+
+1. Read [`00-START-HERE.md`](00-START-HERE.md).
+2. Read all numbered files in order.
+3. Follow [`AGENTS.md`](AGENTS.md).
+4. Execute Gates 0–7 in [`11-AUTONOMOUS-END-TO-END-EXECUTION-PROTOCOL.md`](11-AUTONOMOUS-END-TO-END-EXECUTION-PROTOCOL.md).
+
+## Approved parent direction
+
+**Bold Modular Micro** — C leads composition and expression, A contributes warmth, and B contributes financial discipline and trust.
+
+Exploration variants:
+
+- C1 — Warm Bold
+- C2 — Confident Bold
+- C3 — Dynamic Modular
+
+## Execution model
+
+The assigned design agent completes the full workflow without waiting between stages. Mandatory internal gates require evidence, revision, and retesting. The final direction remains an expert recommendation until owner approval and real-user validation occur.
+
+## Boundaries
+
+- This repository may contain design sources, prototypes, exports, evidence, and reports.
+- It must not modify or deploy the Micro production application.
+- No credentials or private customer data may be committed.
+
+Arabic usage guidance is available in [`README-AR.md`](README-AR.md).
