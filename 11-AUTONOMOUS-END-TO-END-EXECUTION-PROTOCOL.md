@@ -19,7 +19,7 @@ Autonomy does not convert hypotheses into facts. Final owner approval and real-u
 - Commit all generated work to that branch, not directly to `main`.
 - Push coherent milestone commits and open one final pull request to `main`.
 - Do not merge the pull request automatically; final merge is an owner action.
-- If a separate Documents repository is later provided, mirror final reports there without removing the copies under `reports/`.
+- At completion, mirror the full handoff to `https://github.com/Qays7753/Documents` under the isolated path and branch defined in `12-DOCUMENTS-REPOSITORY-DELIVERY.md`, without removing the copies in this repository.
 
 ## Required working structure
 
@@ -121,7 +121,7 @@ Refine the provisional winner into:
 
 ### Gate 7 — Final handoff
 
-Complete the final report, source manifest, exports, known limitations, unresolved owner decisions, and implementation-transfer notes. Verify links and filenames. Commit coherent milestones, push `design/autonomous-v1`, open a final pull request to `main`, and leave the repository in a reproducible state.
+Complete the final report, source manifest, exports, known limitations, unresolved owner decisions, and implementation-transfer notes. Verify links and filenames. Commit coherent milestones, push `design/autonomous-v1`, open a final pull request to `main`, mirror the completed handoff to the Documents repository according to file `12`, and leave both repositories in a reproducible state.
 
 ## Commit policy
 
