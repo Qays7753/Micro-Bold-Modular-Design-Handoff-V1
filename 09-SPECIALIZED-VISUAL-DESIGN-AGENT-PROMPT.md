@@ -16,7 +16,7 @@ Your task is to design three fair, high-quality visual variants of the approved 
 
 ## Mandatory first action
 
-Clone or open the repository, then read `00-START-HERE.md` and every numbered file through `11-AUTONOMOUS-END-TO-END-EXECUTION-PROTOCOL.md`, followed by `AGENTS.md`.
+Clone or open the repository, then read `00-START-HERE.md` and every numbered file through `12-DOCUMENTS-REPOSITORY-DELIVERY.md`, followed by `AGENTS.md`.
 
 Before creating deliverables, create and work on the branch `design/autonomous-v1`. Do not commit generated design work directly to `main`. At completion, push the branch and open a pull request to `main` containing the complete handoff and validation summary.
 
@@ -125,7 +125,9 @@ Evaluate all three directions using `08-DIRECTION-EVALUATION-RUBRIC.md`. Do not 
 
 - Commit all editable sources, exports, evidence, and reports to this repository using the structure in `11-AUTONOMOUS-END-TO-END-EXECUTION-PROTOCOL.md`.
 - Use milestone commits on `design/autonomous-v1` and open one final pull request to `main`.
-- If a separate Documents repository URL is explicitly provided and writable, mirror final reports there; otherwise keep the authoritative reports under `reports/` in this repository.
+- Mirror the complete final handoff to `https://github.com/Qays7753/Documents` exactly as specified in `12-DOCUMENTS-REPOSITORY-DELIVERY.md`.
+- Use only securely configured authentication. Never print, log, commit, echo, or include an access token in a URL, report, screenshot, command output, or file.
+- Keep the authoritative reports under `reports/` in this repository as well; the Documents delivery is a controlled final mirror, not the only copy.
 - Do not stop between stages unless access, missing source data, or a technically impossible requirement blocks execution.
 - If blocked, document the exact blocker, complete every unaffected task, and provide the smallest required owner decision.
 
