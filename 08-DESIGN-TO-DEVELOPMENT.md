@@ -1,6 +1,6 @@
 # Design-to-Development Handoff
 
-**حدود المرحلة الحالية:** هذا الملف قالب لعمل المصمم لاحقًا، وليس طلبًا لكتابة كود أو تغيير مستودع Micro. المرجع §§11–16 و21.4.
+**حدود المرحلة الحالية:** هذا الملف قالب لعمل المصمم لاحقًا، وليس طلبًا لكتابة كود أو تغيير مستودع تطبيق Micro. رفع مخرجات التصميم إلى مستودع هذا الـHandoff معتمد؛ المرجع §§11–16 و21.4 وملف المراحل `16-EXECUTION-STAGES-AND-PROOF-GATES.md`.
 
 ## لكل Screen ID معتمد
 
@@ -31,4 +31,4 @@
 
 ## التسلسل المستقبلي الموصى به
 
-Tokens → Typography/Icons → Core → Financial → Contextual → Global Shell → Critical Journeys → Remaining Screens → Stress Cases → Visual/Accessibility QA. لا ينفذ Agent شاشات متعددة بمكونات مستقلة ذات قيم عشوائية. لا يعني انتهاء كود الشاشة قبولها البصري.
+Foundations المرشحة → Minimal Core → ثلاث عينات ودليل مرئي → تعميم Core/Financial/Contextual المشروط → Global Shell والرحلات الحرجة → باقي الشاشات المثبتة → Stress Cases → Visual/Accessibility QA. لا ينفذ Agent شاشات متعددة بمكونات مستقلة ذات قيم عشوائية. لا يعني انتهاء كود الشاشة قبولها البصري.

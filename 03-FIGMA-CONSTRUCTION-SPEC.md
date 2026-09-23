@@ -20,7 +20,7 @@
 
 ابنِ Core ثم Financial ثم Contextual، ووثق لكل مكوّن: Anatomy، متى يستعمل/لا يستعمل، الحالة، التفاعل، Reflow، RTL، Focus، قارئ الشاشة، Motion، مثال صحيح ومرفوض. استخدم Component Properties للحالات ذات المعنى، وSlots للمحتوى المرن حيث تنطبق؛ لا تبن كل تقليب نظري بلا استخدام. المكوّن الأساسي `Candidate` ثم `Stable` بعد المراجعة؛ الاستبدال `Deprecated` موثق.
 
-على الأقل: أزرار وإجراءات، Input وأنواع الاختيار، صفوف وحاويات، Filter Command وPanel، تنقل وترويسة، Sheets وDialogs وMenus، Money Value، Snapshot Deck، Truth Layer، Transaction Row، Debt/Collection، Impact Preview، Chart System وHalf-Ring، Insights، Empty/Loading/Error/Offline/Success/Unavailable. قائمة الجرد التفصيلية في `06-COMPONENT-INVENTORY.csv`؛ لا تعتبر هذه القائمة مغلقة أمام ميزة جديدة.
+على الأقل عند وجود الحاجة المثبتة: أزرار وإجراءات، Input وأنواع الاختيار، صفوف وحاويات، Filter Command وPanel، تنقل وترويسة، Sheets وDialogs وMenus، Money Value، Snapshot Deck، Truth Layer، Transaction Row، Debt/Collection، Impact Preview، Insights، Empty/Loading/Error/Offline/Success/Unavailable. `Chart System` و`Half-Ring` أنماط مشروطة بسؤال وبيانات دقيقة، ولا يفرضان شاشة رسوم مستقلة. قائمة الجرد التفصيلية في `06-COMPONENT-INVENTORY.csv`؛ لا تعتبر هذه القائمة مغلقة أمام ميزة جديدة.
 
 ## التكوين والتسمية
 
@@ -32,7 +32,7 @@
 
 ## اختبار تصميم أولي قبل الانتشار
 
-اختبر 3 عينات ذات بنية مختلفة على الهاتف: ملخص `OVR-NOW`، عملية `OPS-SALE-CREATE`، وموقف مالي `FIN-OVERVIEW`. يجب أن تثبت الاختلاف في التكوين والهوية في Light Mode وRTL وبيانات طويلة مع الوصول؛ بعدها عمّم المكونات ولا تكرر شاشة واحدة مع عنوان مختلف.
+أنشئ قدرًا محدودًا من المكونات المرشحة اللازمة لثلاث عينات ذات بنية مختلفة على الهاتف: ملخص `OVR-NOW`، عملية `OPS-SALE-CREATE`، وموقف مالي `FIN-OVERVIEW`. اختبر الوظيفة والتميّز في Light Mode وRTL وبيانات طويلة وحالات نقص البيانات؛ افحص التكوين الملون ثم البنية دون لون. وثّق روابط ودليل `VISUAL-PROOF-REVIEW.md` حسب `16-EXECUTION-STAGES-AND-PROOF-GATES.md`؛ بعد نجاح البوابة عمّم المكونات ولا تكرر شاشة واحدة مع عنوان مختلف. تبقى العينات `Candidate/In Review` حتى يراجعها المالك.
 
 ## التصدير والتسليم
 

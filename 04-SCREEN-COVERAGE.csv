@@ -5,8 +5,8 @@ GLB-ACCOUNT,Global,Account details,Loaded|Incomplete|Error,11.9|21.3,See-05,Vali
 GLB-PROJECT,Global,Project details,Complete|Incomplete|Error,11.9|21.3,See-05,Validate,NotStarted,No fake completion percentage
 GLB-SETTINGS,Global,System settings,Loaded|Unavailable,11.9|21.3,See-05,Validate,NotStarted,No dark mode
 GLB-LOGOUT,Global,Logout confirmation,Dialog|Focus|Return,11.9|15.6,See-05,Validate,NotStarted,No immediate signout
-GLB-ASK,Global,Ask Micro entry,Loaded|Unavailable|Error,11.7|21.3,See-05,Validate,NotStarted,No invented AI response
-GLB-DELIVERY,Global,Delivery entry,Loaded|Unavailable|Error,11.7|21.3,See-05,Validate,NotStarted,Validate actual scope
+GLB-ASK,Global,Ask Micro entry,Loaded|Unavailable|Error,11.7|21.3,See-05,Validate,NotStarted,Entry approved; underlying service requires verified scope; no invented AI response
+GLB-DELIVERY,Global,Delivery entry,Loaded|Unavailable|Error,11.7|21.3,See-05,Validate,NotStarted,Entry approved; service scope and states require verification
 OVR-NOW,Overview,Owner status overview,Complete|Partial|Insufficient|FirstUse|Offline|Error,13.2|13.4|13.20|21.3,See-05,Validate,NotStarted,Cash and profit must not be conflated
 OVR-SNAPSHOT,Overview,Financial snapshot deck,Default|Swipe|Unknown|Text200,13.4|16.1,See-05,Validate,NotStarted,Primary value never hidden
 OVR-SNAPSHOT-ALL,Overview,All financial blocks,Loaded|Partial|Unknown,13.4|21.3,See-05,Validate,NotStarted,Full-screen hierarchy not card grid
@@ -38,10 +38,10 @@ FIN-TRANSFER,Finance,Wallet transfer,Empty|Impact|Saving|Failure|Success,12|13.8
 FIN-DEBTS,Finance,Debts and dues,Known|Unknown|Partial|Zero|FilteredEmpty,13.6|13.20,See-05,Validate,NotStarted,Separate receivables and payables
 FIN-ACTIVITY,Finance,Financial activity list,Loaded|FilteredEmpty|Loading|Offline|PendingSync,13.5|13.20,See-05,Validate,NotStarted,Open rows not card per item
 FIN-TRANSACTION-DETAIL,Finance,Transaction detail,Loaded|Partial|Error|SensitiveAction,13.10|15.6,See-05,Validate,NotStarted,Reversal not deletion
-FIN-CHARTS,Finance,Financial charts,Line|Bar|HalfRing|MissingData|DataView|Text200,13.13|13.14|16.4,See-05,Validate,NotStarted,No chart without accurate table
+FIN-CHARTS,Finance,Conditional chart presentation,Line|Bar|HalfRing|MissingData|DataView|Text200,13.13|13.14|16.4,See-05,ConditionalVerify,NotStarted,Pattern inventory only; separate V1 screen only if real route and question verified; accurate data and table required
 TOOL-HOME,Tools,Tools landing,Loaded|Empty|Unavailable,21.3,See-05,Validate,NotStarted,Not uniform card grid
 TOOL-CALCULATOR,Tools,Independent calculator,Entry|Result|Clear|Error,21.3,See-05,Validate,NotStarted,No implicit ledger mutation
-MKT-HOME,Market,Market home,ValueNow|Empty|Loading|Offline,11.6|21.3,See-05,Validate,NotStarted,Not Coming Soon only
-MKT-OFFER-DETAIL,Market,Market offering detail,Loaded|Unavailable|Error,11.6|21.3,See-05,Validate,NotStarted,Confirm real offerings before approval
+MKT-HOME,Market,Market home,ValueNow|Empty|Loading|Offline,11.6|21.3,See-05,Validate,NotStarted,Five-tab entry approved; launch value must be verified; never invent offering or show Coming Soon only
+MKT-OFFER-DETAIL,Market,Market offering detail,Loaded|Unavailable|Error,11.6|21.3,See-05,ConditionalVerify,NotStarted,Only design an offering proven to exist; otherwise log affected feature as blocked
 GLB-FILTER-PANEL,Global,Contextual filters,Default|Expanded|Applied|NoResults|Reset,10.3|11.13,See-05,Validate,NotStarted,Not chips by default
 GLB-ERROR-RECOVERY,Global,Error and recovery patterns,Inline|Local|Blocking|Retry|Offline,14.6|16.4,See-05,Validate,NotStarted,Embed in owning component

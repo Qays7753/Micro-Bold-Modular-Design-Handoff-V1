@@ -4,7 +4,7 @@ Action/Secondary,Core,Default|Pressed|Focused|Unavailable,10.1|16.4,NotProduced,
 Action/Destructive,Core,Default|Pressed|Focused|Loading,10.1|15.6,NotProduced,Candidate,Show consequence
 Action/IconOnly,Core,Default|Pressed|Focused|Unavailable,9|10.1|16.4,NotProduced,Candidate,44px accessible target
 Field/Text,Core,Empty|Filled|Focus|Error|Unavailable,12.3|16.4,NotProduced,Candidate,Persistent label
-Field/Amount,Core,Empty|Filled|Error|Text200|Keyboard,12.4|16.2,NotProduced,Candidate,English numerals and JOD
+Field/Amount,Core,Empty|Filled|Error|Text200|Keyboard,12.4|16.2,NotProduced,Candidate,English numerals and د.أ in Arabic UI
 Field/Search,Core,Empty|Query|NoResults|Error,10.3|12.4,NotProduced,Candidate,Do not force chips
 Select/Radio,Core,Default|Selected|Focus|Error,12.4|16.4,NotProduced,Candidate,Native semantics
 Select/Checkbox,Core,Default|Selected|Focus|Error,12.4|16.4,NotProduced,Candidate,Native semantics
@@ -25,9 +25,9 @@ Financial/TransactionRow,Financial,Default|LocalSaved|PendingSync|Error,13.5|13.
 Financial/DebtCollection,Financial,Known|Partial|Full|Unknown,13.6|13.8,NotProduced,Candidate,Before action after
 Financial/WalletAllocation,Financial,Complete|Remaining|Overallocated,13.7,NotProduced,Candidate,Financial effect from product
 Financial/ImpactPreview,Financial,Default|Sensitive|Error,13.8|15.6,NotProduced,Candidate,Identity and consequence
-Financial/ChartLine,Financial,Loaded|Partial|MissingData|DataView,13.13|16.4,NotProduced,Candidate,No line over missing data
-Financial/ChartBar,Financial,Loaded|Partial|Zero|DataView,13.13|16.4,NotProduced,Candidate,Accessible precise list
-Financial/HalfRing,Financial,Parts2|Parts3|Parts4|Selected|DataView,13.14|16.4,NotProduced,Candidate,Composition only not gauge
+Financial/ChartLine,Financial,Loaded|Partial|MissingData|DataView,13.13|16.4,NotProduced,Candidate,Conditional on verified trend question and data; no line over missing data
+Financial/ChartBar,Financial,Loaded|Partial|Zero|DataView,13.13|16.4,NotProduced,Candidate,Conditional on verified comparison and data; precise list required
+Financial/HalfRing,Financial,Parts2|Parts3|Parts4|Selected|DataView,13.14|16.4,NotProduced,Candidate,Conditional on verified parts of a whole; not a gauge
 Context/Insight,Contextual,Actionable|Informational|Partial,13.19|14.1,NotProduced,Candidate,Evidence then action
 Context/FirstMove,Contextual,FirstUse|Actioned,14.3,NotProduced,Candidate,Not generic empty card
 Context/FilteredEmpty,Contextual,NoResults|Reset,14.3,NotProduced,Candidate,Separate from first use

@@ -23,6 +23,8 @@
 | D-16 | Legacy Contamination and Template Audit | Not Produced | — | — | أمثلة مقارنة ودليل |
 | D-17 | Gap Conflict Change Logs | Template Only | — | — | تحديثات فعلية |
 | D-18 | Final Completion Report | Template Only | — | — | `12-FINAL-COMPLETION-REPORT.md` |
+| D-19 | Visual Proof Review للشاشات الثلاث | Not Produced | — | — | `VISUAL-PROOF-REVIEW.md` مع روابط Figma ودليل المرونة والتكوين؛ §16 |
+| D-20 | مخرجات التصميم المنشورة في هذا المستودع | Not Produced | — | — | رابط Commit وملفات فعلية قابلة للفتح؛ لا ZIP وحده |
 
 ## قاعدة الحالات
 

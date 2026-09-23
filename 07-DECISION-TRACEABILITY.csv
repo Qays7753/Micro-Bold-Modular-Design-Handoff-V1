@@ -14,7 +14,7 @@ DT-012,12,Form entry error save and unsaved exit,Form states,OPS-SALE-CREATE,Not
 DT-013,13.2|13.11|13.20,Financial truth and completeness,Truth layer variants,FIN-OVERVIEW,NotProduced,NotStarted
 DT-014,13.4,One financial card with visible all entry,Snapshot deck and all frame,OVR-SNAPSHOT,NotProduced,NotStarted
 DT-015,13.8|15.6,Impact before sensitive action,Impact preview states,Financial/ImpactPreview,NotProduced,NotStarted
-DT-016,13.13|13.14,Chart with exact data alternative,Chart system and data view,FIN-CHARTS,NotProduced,NotStarted
+DT-016,13.13|13.14,Conditional chart only for verified question and dataset,Chart pattern and exact data view when applicable,Financial/ChartLine|Financial/HalfRing,NotProduced,NotStarted
 DT-017,13.19,Insights evidence then action,Insight states,OVR-INSIGHTS,NotProduced,NotStarted
 DT-018,14,Contextual state from source with recovery,Contextual pattern docs,Context/ErrorRecovery,NotProduced,NotStarted
 DT-019,15|16.6,Motion cause and reduced motion,Motion map and reduced states,GLB-SHELL,NotProduced,NotStarted
