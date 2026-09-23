@@ -1,0 +1,209 @@
+/* Micro Visual System — Tokens V1
+   المرجع الأعلى: MICRO-VISUAL-DESIGN-DECISIONS-V1.md §§6–8، 10.1–10.2، 11، 15.1، 16.6 و21.2.
+   ثلاث طبقات: Core Primitives → Semantic → Component (عند حاجة حقيقية).
+   Light Mode فقط — لا Dark Tokens. لا Hex داخل المكونات.
+
+   ملاحظة --text-scale: مضاعف تكبير النص (1 / 1.5 / 2) تتحكم به طبقة المراجعة
+   لمحاكاة «تكبير النص» (§16.5) — أحجام الخطوط فقط تتضخم، ومقاييس التخطيط
+   الحدودية تبقى ثابتة فيرتد التدفق (Reflow) كما على الجهاز. */
+
+:root {
+  /* ===== Core Tokens: Color Primitives (§8) ===== */
+  --p-ink: #171923;            /* Deep Ink */
+  --p-canvas: #f4f6fa;         /* Canvas Cool Cloud */
+  --p-white: #ffffff;          /* Primary Surface White */
+  --p-surface-2: #eef1f7;      /* Secondary Surface */
+  --p-indigo: #4f46e5;         /* Electric Indigo */
+  --p-indigo-pressed: #3f37c9; /* Pressed Indigo */
+  --p-indigo-soft: #e8e7ff;    /* Soft Indigo */
+  --p-citrus: #d9f43b;         /* Citrus Lime */
+  --p-citrus-soft: #f3fbcb;    /* Soft Citrus */
+  --p-terracotta: #c45f46;     /* Terracotta — مساند فقط */
+  --p-terracotta-soft: #f7e4de;/* Soft Terracotta */
+  --p-text-2: #5e6472;         /* Secondary Text */
+  --p-text-disabled: #7d8596;  /* Disabled Text */
+  --p-muted: #9aa1ae;          /* Decorative Muted / Skeleton */
+  --p-border: #d8dde8;         /* Border زخرفي */
+  --p-boundary: #7a8292;       /* Interactive Boundary */
+  --p-soft-blue: #dfe9ff;
+  --p-soft-lavender: #ece7ff;
+  --p-soft-mint: #dff5e7;
+  --p-success: #137a55;
+  --p-success-surface: #dcf4e8;
+  --p-warning: #a65a00;
+  --p-warning-surface: #fff0d6;
+  --p-danger: #c2354b;
+  --p-danger-surface: #fde5e9;
+  --p-info: #1d64d8;
+  --p-info-surface: #e0ecff;
+  --p-partial: #6e5aa8;
+  --p-partial-surface: #eee9fa;
+  --p-unknown: #697386;
+  --p-unknown-surface: #eef0f4;
+  --p-local: #52657a;
+  --p-local-surface: #e7edf3;
+  --p-overlay: rgba(15, 17, 23, 0.55);
+  /* لوحة الرسوم عند الحاجة (§13.13) — غير مستخدمة في هذه الجولة */
+  --p-chart-1: #4f46e5;
+  --p-chart-2: #008c8c;
+  --p-chart-3: #d97706;
+  --p-chart-4: #b83b75;
+  --p-chart-5: #657c25;
+
+  /* ===== Core Tokens: Typography (§7) — قيم داخل النطاقات المعتمدة ===== */
+  --text-scale: 1;
+  --type-hero: calc(30px * var(--text-scale));            /* 28–32 Bold */
+  --type-screen-title: calc(24px * var(--text-scale));    /* 22–26 Bold */
+  --type-section-title: calc(19px * var(--text-scale));   /* 18–20 SemiBold */
+  --type-card-title: calc(16px * var(--text-scale));      /* 15–17 SemiBold */
+  --type-body: calc(15px * var(--text-scale));            /* 14–16 Regular */
+  --type-supporting: calc(13px * var(--text-scale));      /* 12–14 Regular */
+  --type-button: calc(16px * var(--text-scale));          /* 15–16 SemiBold */
+  --type-money-hero: calc(34px * var(--text-scale));      /* 28–36 Bold */
+  --type-money-list: calc(16px * var(--text-scale));      /* 15–18 SemiBold */
+  --type-nav: calc(12px * var(--text-scale));             /* 11–13 Medium */
+
+  --leading-tight: 1.25;
+  --leading-snug: 1.4;
+  --leading-normal: 1.6;
+
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+
+  /* ===== Core Tokens: Spacing (§10.2) ===== */
+  --space-inset-xs: 8px;   /* داخل العناصر 8–12 */
+  --space-inset-sm: 10px;
+  --space-inset-md: 12px;
+  --space-card-gap: 14px;  /* بين البطاقات 12–16 */
+  --space-section-gap: 28px;/* بين الأقسام 24–32 */
+  --space-screen: 18px;    /* Padding الشاشة 16–20 */
+  --space-2: 4px;
+  --space-3: 6px;
+  --space-4: 8px;
+  --space-5: 10px;
+  --space-6: 12px;
+  --space-8: 16px;
+  --space-10: 20px;
+  --space-12: 24px;
+  --space-16: 32px;
+
+  /* ===== Core Tokens: Radius (§6) ===== */
+  --radius-card-lg: 22px;   /* 20–24 */
+  --radius-card-md: 16px;   /* 14–18 */
+  --radius-card-sm: 14px;   /* 14–16 */
+  --radius-button: 16px;    /* 14–16 */
+  --radius-field: 14px;     /* 12–16 */
+  --radius-segmented: 12px; /* 12–14 */
+  --radius-filter: 12px;
+  --radius-menu: 16px;      /* 14–16 */
+  --radius-sheet: 24px;     /* علوي للSheet وسفلي للوحة الحساب */
+  --radius-dialog: 20px;
+
+  /* ===== Core Tokens: Stroke / Elevation ===== */
+  --stroke-hairline: 1px;
+  --stroke-focus: 2px;
+  --elevation-layer: 0 10px 30px rgba(23, 25, 35, 0.12); /* طبقة حقيقية فوق أخرى فقط */
+  --elevation-menu: 0 4px 14px rgba(23, 25, 35, 0.1);
+
+  /* ===== Core Tokens: Motion (§§10.4، 11.13، 15.1، 16.6) ===== */
+  --motion-press: 100ms;      /* 80–120 */
+  --motion-local: 150ms;      /* 120–180 */
+  --motion-expand: 200ms;     /* 180–240 */
+  --motion-screen: 280ms;     /* 240–320 RTL */
+  --motion-result: 280ms;     /* 240–320 */
+  --motion-sheet: 240ms;      /* 220–280 */
+  --motion-dialog: 190ms;     /* 160–220 */
+  --motion-dropdown: 200ms;   /* 180–220 */
+  --motion-selection: 160ms;  /* 140–180 */
+  --motion-crossfade: 180ms;  /* 160–220 (سكلتون→محتوى) */
+  --motion-reduced: 120ms;    /* 100–150 */
+  --ease-standard: cubic-bezier(0.2, 0, 0, 1);  /* بداية سريعة بلا Overshoot */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* ===== Core Tokens: Icon Sizes (§9) ===== */
+  --icon-nav: 24px;
+  --icon-action: 22px;
+  --icon-row: 22px;
+  --icon-inline: 20px;
+  --icon-small: 18px;
+  --icon-empty: 56px;
+
+  /* ===== Core Tokens: Touch / Structure (§§10.1، 11.2، 11.8، 12.3) ===== */
+  --size-touch: 44px;
+  --size-touch-lg: 48px;
+  --size-button: 48px;        /* المضغوط 44 */
+  --size-button-compact: 44px;
+  --size-field: 54px;         /* 52–56 */
+  --size-row: 56px;           /* أدنى ارتفاع صف */
+  --size-row-tx: 68px;        /* صف معاملة 64–72 */
+  --size-tabbar: 70px;        /* 68–74 + Safe Area */
+  --size-header: 56px;        /* + Safe Area العلوية */
+
+  /* ===== Semantic Tokens (§8 + §16.3) ===== */
+  --c-canvas: var(--p-canvas);
+  --c-surface: var(--p-white);
+  --c-surface-2: var(--p-surface-2);
+  --c-ink: var(--p-ink);
+  --c-ink-2: var(--p-text-2);
+  --c-ink-disabled: var(--p-text-disabled);
+  --c-muted: var(--p-muted);
+  --c-primary: var(--p-indigo);
+  --c-primary-pressed: var(--p-indigo-pressed);
+  --c-primary-soft: var(--p-indigo-soft);
+  --c-on-primary: var(--p-white);      /* On Indigo = White */
+  --c-accent: var(--p-citrus);
+  --c-accent-soft: var(--p-citrus-soft);
+  --c-on-accent: var(--p-ink);         /* On Citrus = Deep Ink */
+  --c-warm: var(--p-terracotta);
+  --c-warm-soft: var(--p-terracotta-soft);
+  --c-border: var(--p-border);
+  --c-boundary: var(--p-boundary);
+  --c-overlay: var(--p-overlay);
+  --c-focus: var(--p-indigo);          /* Focus on Light = Indigo */
+  --c-focus-on-primary: var(--p-citrus); /* Focus on Indigo = Citrus */
+  --c-success: var(--p-success);
+  --c-success-surface: var(--p-success-surface);
+  --c-warning: var(--p-warning);
+  --c-warning-surface: var(--p-warning-surface);
+  --c-danger: var(--p-danger);
+  --c-danger-surface: var(--p-danger-surface);
+  --c-info: var(--p-info);
+  --c-info-surface: var(--p-info-surface);
+  --c-partial: var(--p-partial);
+  --c-partial-surface: var(--p-partial-surface);
+  --c-unknown: var(--p-unknown);
+  --c-unknown-surface: var(--p-unknown-surface);
+  --c-local: var(--p-local);
+  --c-local-surface: var(--p-local-surface);
+  --c-soft-blue: var(--p-soft-blue);
+  --c-soft-lavender: var(--p-soft-lavender);
+  --c-soft-mint: var(--p-soft-mint);
+
+  /* ===== Component Tokens — حاجة حقيقية فقط (§21.2) ===== */
+  --nav-selected-surface: transparent;   /* لا خلفية للتبويب المحدد (§11.2) */
+  --nav-selected-ink: var(--c-primary);
+  --btn-primary-bg: var(--c-primary);
+  --btn-primary-ink: var(--c-on-primary);
+  --btn-secondary-bg: var(--c-surface);
+  --btn-secondary-ink: var(--c-ink);
+  --field-bg: var(--c-surface);
+  --field-boundary: var(--c-border);
+  --field-boundary-focus: var(--c-primary);
+  --signal-unit: 7px;        /* وحدة Micro Signal المرشحة */
+  --signal-gap: 3px;
+  --signal-radius: 2.5px;
+  --signal-unit-lg: 9px;
+  --signal-gap-lg: 4px;
+
+  /* ===== طبقات Z (ترتيب الطبقات فقط، لا هوية) ===== */
+  --z-content: 1;
+  --z-ribbon: 20;
+  --z-header: 30;
+  --z-nav: 40;
+  --z-scrim: 50;
+  --z-sheet: 60;
+  --z-dialog: 70;
+  --z-studio-drawer: 90;
+}

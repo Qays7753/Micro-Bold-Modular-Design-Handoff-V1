@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- Micro Visual System — studio favicon (علامة رباعية مرشحة — GAP-002، ليست أصلًا معتمدًا) -->
+  <rect x="1" y="1" width="14" height="14" rx="4" fill="#4F46E5"/>
+  <rect x="17" y="1" width="14" height="14" rx="4" fill="#D9F43B" stroke="#171923" stroke-width="1.5"/>
+  <rect x="1" y="17" width="14" height="14" rx="4" fill="#F4F6FA" stroke="#171923" stroke-width="1.5"/>
+  <rect x="17" y="17" width="14" height="14" rx="4" fill="#C45F46"/>
+</svg>

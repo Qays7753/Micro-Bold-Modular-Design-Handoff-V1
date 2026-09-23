@@ -1,0 +1,37 @@
+{
+  "$fixture": true,
+  "source": "14-JORDANIAN-CONTENT-FIXTURES.md — أسماء منتجات طويلة وقيم حدية",
+  "note": "منتجات وأسعار عرض فقط؛ المنتج ذو السعر غير المسجل يبقى «غير مسجل» ولا يتحول إلى 0.00.",
+  "products": [
+    {
+      "id": "PRD-01",
+      "name": "علبة معمول تمر منزلي بحجم عائلي مع تغليف خاص للمناسبات",
+      "unit": "علبة",
+      "price": { "value": 12.5, "state": "known", "decimals": 3, "display": "12.500" }
+    },
+    {
+      "id": "PRD-02",
+      "name": "قهوة عربية مطحونة 250 غرام",
+      "unit": "كيس",
+      "price": { "value": 4.25, "state": "known" }
+    },
+    {
+      "id": "PRD-03",
+      "name": "صينية كيك دونات منزلي",
+      "unit": "صينية",
+      "price": { "value": null, "state": "not-recorded", "note": "السعر غير مسجل لهذا المنتج" }
+    },
+    {
+      "id": "PRD-04",
+      "name": "خبز صاج منزلي",
+      "unit": "رغيف",
+      "price": { "value": 0.5, "state": "known" }
+    },
+    {
+      "id": "PRD-05",
+      "name": "حليب طازج",
+      "unit": "لتر",
+      "price": { "value": 1.25, "state": "known" }
+    }
+  ]
+}

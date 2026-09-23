@@ -1,25 +1,25 @@
 Trace_ID,Decision_Ref,Rule,Expected_Artifact,Example_Screen_or_Component,Production_Evidence,Review_Status
-DT-001,3,Behavioral familiarity with independent visual identity,Studio foundations and screen composition,GLB-SHELL,NotProduced,NotStarted
-DT-002,5|10.2,Hierarchical modular composition not uniform cards,Representative screens,OVR-NOW|OPS-HOME|FIN-OVERVIEW,NotProduced,NotStarted
-DT-003,6,Structured Soft Geometry,Radius and component docs,Action/Primary|Financial/SnapshotDeck,NotProduced,NotStarted
-DT-004,7|16.2,Alexandria and English digits and BiDi,Type styles and numeric fixtures,Financial/MoneyValue,NotProduced,NotStarted
-DT-005,8,Indigo Citrus Terracotta roles Light only,Color variables and pair matrix,GLB-SHELL,NotProduced,NotStarted
-DT-006,9,Phosphor icon rules and Micro custom glyphs,Icon asset inventory,Navigation/Bottom,NotProduced,NotStarted
-DT-007,10.3,Filter command and contextual panel,Filter component variants,Filter/ContextualPanel,NotProduced,NotStarted
-DT-008,11.1|11.2,Five visible tabs V1 and no floating CTA,Navigation variants,Navigation/Bottom,NotProduced,NotStarted
-DT-009,11.7|11.8,Unified header without page title,Header states with system area,Navigation/Header,NotProduced,NotStarted
-DT-010,11.9,Header connected account panel,Account panel states,Overlay/AccountPanel,NotProduced,NotStarted
-DT-011,11.12|16.1,Swipe follows finger and RTL visual order,Interaction annotations,GLB-SHELL,NotProduced,NotStarted
-DT-012,12,Form entry error save and unsaved exit,Form states,OPS-SALE-CREATE,NotProduced,NotStarted
-DT-013,13.2|13.11|13.20,Financial truth and completeness,Truth layer variants,FIN-OVERVIEW,NotProduced,NotStarted
-DT-014,13.4,One financial card with visible all entry,Snapshot deck and all screen,OVR-SNAPSHOT,NotProduced,NotStarted
-DT-015,13.8|15.6,Impact before sensitive action,Impact preview states,Financial/ImpactPreview,NotProduced,NotStarted
-DT-016,13.13|13.14,Conditional chart only for verified question and dataset,Chart pattern and exact data view when applicable,Financial/ChartLine|Financial/HalfRing,NotProduced,NotStarted
-DT-017,13.19,Insights evidence then action,Insight states,OVR-INSIGHTS,NotProduced,NotStarted
-DT-018,14,Contextual state from source with recovery,Contextual pattern docs,Context/ErrorRecovery,NotProduced,NotStarted
-DT-019,15|16.6,Motion cause and reduced motion,Motion map and reduced states,GLB-SHELL,NotProduced,NotStarted
-DT-020,16.3|16.4,Contrast targets focus and screen reader,Contrast report and annotations,Action/Primary,NotProduced,NotStarted
-DT-021,16.5,320 and 200 percent reflow,Stress states,OPS-SALE-CREATE,NotProduced,NotStarted
-DT-022,21.3,Domain screen IDs separate from nav,Screen coverage and mapping,CAT-ITEMS-LIST,NotProduced,NotStarted
-DT-023,21.4,No visual inheritance from current Micro,Legacy visual audit,OVR-NOW|FIN-OVERVIEW,NotProduced,NotStarted
-DT-024,21.5,Design delivery separate from real-world validation,Delivery manifest and open verification list,All,NotProduced,NotStarted
+DT-001,3,Behavioral familiarity with independent visual identity,Studio foundations and screen composition,GLB-SHELL,interactive-design-studio/src/foundations + src/app/AppFrame.tsx; evidence/screenshots/ovr-now_complete_360.png,In Review (Candidate)
+DT-002,5|10.2,Hierarchical modular composition not uniform cards,Representative screens,OVR-NOW|OPS-HOME|FIN-OVERVIEW,evidence/screenshots/fullpage-ovr_now_complete_360.png + fullpage-ops_sale_create_filled_360.png + fullpage-fin_overview_complete_360.png (three distinct compositions),In Review (Candidate)
+DT-003,6,Structured Soft Geometry,Radius and component docs,Action/Primary|Financial/SnapshotDeck,src/foundations/tokens.css (radius tokens) + DESIGN-SYSTEM.md §2,In Review (Candidate)
+DT-004,7|16.2,Alexandria and English digits and BiDi,Type styles and numeric fixtures,Financial/MoneyValue,src/foundations/typography.css + tokens.ts formatAmount + evidence/screenshots (VLM-checked 385.75 د.أ),In Review (Candidate)
+DT-005,8,Indigo Citrus Terracotta roles Light only,Color variables and pair matrix,GLB-SHELL,src/foundations/tokens.css (3 layers) + reports/CONTRAST-REPORT.md (17 approved pairs computed),In Review (Candidate)
+DT-006,9,Phosphor icon rules and Micro custom glyphs,Icon asset inventory,Navigation/Bottom,interactive-design-studio/assets/icons (MIT license) + src/components/icons; MicroSignal provisional (GAP-002/003),In Review (Candidate)
+DT-007,10.3,Filter command and contextual panel,Filter component variants,Filter/ContextualPanel,Period AnchoredMenu produced in FIN-OVERVIEW (interaction_period-menu_360.png); full panel deferred,Partial — In Review
+DT-008,11.1|11.2,Five visible tabs V1 and no floating CTA,Navigation variants,Navigation/Bottom,src/navigation/BottomNav.tsx; evidence/screenshots/interaction_tab-ops-deferred_360.png,In Review (Candidate)
+DT-009,11.7|11.8,Unified header without page title,Header states with system area,Navigation/Header,src/navigation/AppHeader.tsx; scrolled transition + simulated status bar documented in evidence/README.md,In Review (Candidate)
+DT-010,11.9,Header connected account panel,Account panel states,Overlay/AccountPanel,src/navigation/AppHeader.tsx (AccountPanel); evidence/screenshots/interaction_account-panel-open_360.png,In Review (Candidate)
+DT-011,11.12|16.1,Swipe follows finger and RTL visual order,Interaction annotations,GLB-SHELL,Arrow navigation between snapshot cards produced; finger-swipe behavior documented UNVERIFIED (TECH-001),Partial — UNVERIFIED on device
+DT-012,12,Form entry error save and unsaved exit,Form states,OPS-SALE-CREATE,src/screens/OpsSaleCreate.tsx; evidence/screenshots/interaction_sale-validation-errors_360.png + ops-sale-create_failure_360.png,In Review (Candidate)
+DT-013,13.2|13.11|13.20,Financial truth and completeness,Truth layer variants,FIN-OVERVIEW,src/components/financial/TruthNote.tsx + ResultBlock.tsx; evidence/screenshots/fullpage-fin_overview_partial_360.png + fin-overview_zero_360.png + fin-overview_negative_360.png,In Review (Candidate)
+DT-014,13.4,One financial card with visible all entry,Snapshot deck and all screen,OVR-SNAPSHOT,src/components/financial/SnapshotDeck.tsx; evidence/screenshots/ovr-now_complete_360.png + interaction_snapshot-deck-card2_360.png,In Review (Candidate)
+DT-015,13.8|15.6,Impact before sensitive action,Impact preview states,Financial/ImpactPreview,src/components/financial/ImpactPreview.tsx; evidence/screenshots/ops-sale-create_impact_360.png + ops-sale-create_impact-credit_360.png (fixture-tagged values GAP-004),In Review (Candidate)
+DT-016,13.13|13.14,Conditional chart only for verified question and dataset,Chart pattern and exact data view when applicable,Financial/ChartLine|Financial/HalfRing,Intentionally not produced; condition documented in SCREEN-CATALOG/STATE-MATRIX (FIN-CHARTS respected),Not Started — Deferred by design
+DT-017,13.19,Insights evidence then action,Insight states,OVR-INSIGHTS,src/components/contextual/Contextual.tsx (Insight); evidence/screenshots/ovr-now_partial_360.png (missing-data level),In Review (Candidate)
+DT-018,14,Contextual state from source with recovery,Contextual pattern docs,Context/ErrorRecovery,src/components/contextual/Contextual.tsx; evidence/screenshots/ovr-now_error_360.png,In Review (Candidate)
+DT-019,15|16.6,Motion cause and reduced motion,Motion map and reduced states,GLB-SHELL,MOTION-MAP.md + src/foundations/motion.css + rm=1 toggle (screenshots ovr-now_complete_360 gray/rm),In Review (Candidate)
+DT-020,16.3|16.4,Contrast targets focus and screen reader,Contrast report and annotations,Action/Primary,reports/CONTRAST-REPORT.md (17 pairs) + RTL-ACCESSIBILITY.md (focus contour + ARIA); TalkBack real UNVERIFIED,Partial — In Review
+DT-021,16.5,320 and 200 percent reflow,Stress states,OPS-SALE-CREATE,evidence/screenshots/ops-sale-create_filled_320.png + ops-sale-create_filled_360_z200.png; zero horizontal overflow automated,In Review (Candidate)
+DT-022,21.3,Domain screen IDs separate from nav,Screen coverage and mapping,CAT-ITEMS-LIST,04-SCREEN-COVERAGE.csv + 05-NAVIGATION-MAPPING.csv updated with studio routes,In Review (Candidate)
+DT-023,21.4,No visual inheritance from current Micro,Legacy visual audit,OVR-NOW|FIN-OVERVIEW,Executor never accessed current Micro UI; all visuals derived from decisions doc §§3–16; three distinct compositions + grayscale test documented in VISUAL-PROOF-REVIEW §6/§7,In Review (Candidate)
+DT-024,21.5,Design delivery separate from real-world validation,Delivery manifest and open verification list,All,interactive-design-studio/reports/DELIVERY-REPORT.md (D-01..D-23) + OPEN-ISSUES.md with UNVERIFIED list,Delivered for Owner Review

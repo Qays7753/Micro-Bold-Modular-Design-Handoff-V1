@@ -1,0 +1,81 @@
+{
+  "$fixture": true,
+  "source": "14-JORDANIAN-CONTENT-FIXTURES.md — سجل حركات لفحص صفوف القوائم",
+  "note": "حركات عرض فقط؛ حالات الحفظ/الإرسال تُعرض فقط لأن الـFixture يثبتها للعرض.",
+  "transactions": [
+    {
+      "id": "TX-1042",
+      "type": "بيع نقدي",
+      "party": "أبو محمد عطية الزيتون",
+      "amount": 27.5,
+      "direction": "in",
+      "when": "اليوم 1:40 م",
+      "date": "2026-09-23",
+      "valueState": "known",
+      "saveState": "saved",
+      "dataState": "complete"
+    },
+    {
+      "id": "TX-1041",
+      "type": "بيع آجل",
+      "party": "رنا محمود عبد القادر أبو خليل",
+      "amount": 40.0,
+      "direction": "in",
+      "when": "اليوم 11:20 ص",
+      "date": "2026-09-23",
+      "valueState": "partial-amount",
+      "paid": 15.0,
+      "remaining": 25.0,
+      "saveState": "saved",
+      "dataState": "partial"
+    },
+    {
+      "id": "TX-1040",
+      "type": "مصروف",
+      "party": "مواد تغليف للمناسبات",
+      "amount": 12.0,
+      "direction": "out",
+      "when": "اليوم 10:05 ص",
+      "date": "2026-09-23",
+      "valueState": "known",
+      "saveState": "saved",
+      "dataState": "complete"
+    },
+    {
+      "id": "TX-1039",
+      "type": "تحصيل دين",
+      "party": "أبو محمد عطية الزيتون",
+      "amount": 10.0,
+      "direction": "in",
+      "when": "أمس 4:10 م",
+      "date": "2026-09-22",
+      "valueState": "known",
+      "saveState": "saved",
+      "dataState": "complete"
+    },
+    {
+      "id": "TX-1038",
+      "type": "بيع نقدي",
+      "party": "زبائن متنوعة",
+      "amount": 8.25,
+      "direction": "in",
+      "when": "أمس 2:35 م",
+      "date": "2026-09-22",
+      "valueState": "known",
+      "saveState": "local-saved",
+      "dataState": "complete"
+    },
+    {
+      "id": "TX-1037",
+      "type": "دفعة مورد",
+      "party": "مؤسسة التوريدات الحديثة للمواد الغذائية",
+      "amount": 50.0,
+      "direction": "out",
+      "when": "أمس 11:00 ص",
+      "date": "2026-09-22",
+      "valueState": "known",
+      "saveState": "pending-send",
+      "dataState": "complete"
+    }
+  ]
+}

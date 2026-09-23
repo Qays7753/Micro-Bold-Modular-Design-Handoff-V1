@@ -1,24 +1,24 @@
 Screen_ID,Domain,Navigation_V1,Entry_Points,Return_Destination,Mapping_Status,Decision_Ref,Notes
-GLB-SHELL,Global,FiveTabs,AppEntry,PlatformBack,ApprovedBaseline,11.1|21.3,Five tabs V1 not permanent architecture
-OVR-NOW,Overview,مشروعي الآن,BottomTab,PreviousContext,ApprovedBaseline,11.1|13.2,Home for owner status
-OVR-SNAPSHOT-ALL,Overview,مشروعي الآن,OVR-NOW-عرض-الكل,OVR-NOW,ProvisionalVerify,13.4,Confirm navigation path
-OVR-INSIGHT-DETAIL,Overview,مشروعي الآن,OVR-INSIGHTS,PreviousContext,ProvisionalVerify,13.19,Entry may vary
-OPS-HOME,Operations,العمل,BottomTab,PreviousContext,ApprovedBaseline,11.1|21.3,Operations home
-OPS-ENTRY,Operations,العمل,OPS-HOME-Action,PreviousContext,ProvisionalVerify,12|21.3,Keep frequent action discoverable
-OPS-SALE-CREATE,Operations,العمل,OPS-ENTRY|QuickAction,PreviousContext,ProvisionalVerify,12|21.3,Validate actual entry
-OPS-ORDERS-LIST,Operations,العمل,OPS-HOME,OPS-HOME,ProvisionalVerify,21.3,Verify route
-OPS-ORDER-DETAIL,Operations,العمل,OPS-ORDERS-LIST,OPS-ORDERS-LIST-Position,ProvisionalVerify,11.10,Return to source position
-CAT-ITEMS-LIST,Catalog,ContextualFromWork,OPS-HOME|Order|Sale,SourceContext,ApprovedConceptVerifyRoute,11.1|21.3,Not tab six
-REL-CUSTOMERS,Relationships,ContextualFromWork,OPS-HOME|Sale|Debts,SourceContext,ProvisionalVerify,21.3,Domain independent of tab
-REL-SUPPLIERS,Relationships,ContextualFromWork,OPS-HOME|Purchase|Dues,SourceContext,ProvisionalVerify,21.3,Domain independent of tab
-FIN-OVERVIEW,Finance,المالية,BottomTab,PreviousContext,ApprovedBaseline,11.1|13.2,Financial meaning distinct
-FIN-WALLETS,Finance,المالية,FIN-OVERVIEW|OVR-NOW,SourceContext,ProvisionalVerify,13.7,Multiple entries possible
-FIN-DEBTS,Finance,المالية,FIN-OVERVIEW|OVR-NOW,SourceContext,ProvisionalVerify,13.6,Multiple entries possible
-FIN-ACTIVITY,Finance,المالية,FIN-OVERVIEW,FIN-OVERVIEW,ProvisionalVerify,13.5,Verify actual route
-TOOL-HOME,Tools,أدواتي,BottomTab,PreviousContext,ApprovedBaseline,11.1,Tools landing
-TOOL-CALCULATOR,Tools,أدواتي,TOOL-HOME,TOOL-HOME,ProvisionalVerify,21.3,Independent of ledger
-MKT-HOME,Market,السوق,BottomTab,PreviousContext,ApprovedBaseline,11.1|11.6,Useful content required
-MKT-OFFER-DETAIL,Market,السوق,MKT-HOME,MKT-HOME,ProvisionalVerify,11.6,Only if offering exists
-GLB-ACCOUNT-PANEL,Global,Header,UserCircleGear,SourceContext,ApprovedBaseline,11.9,Not side drawer
-GLB-DELIVERY,Global,Header,التوصيل,SourceContext,ApprovedBaseline,11.7,Scope to verify
-GLB-ASK,Global,Header,اسأل-Micro,SourceContext,ApprovedBaseline,11.7,No AI role invention
+GLB-SHELL,Global,FiveTabs,AppEntry,PlatformBack,ApprovedBaseline,11.1|21.3,Implemented as studio shell: five equal V1 tabs right-to-left no sixth button; swipe real-device UNVERIFIED
+OVR-NOW,Overview,مشروعي الآن,BottomTab,PreviousContext,ApprovedBaseline,11.1|13.2,Studio route #/OVR-NOW live with 6 review states; Candidate pending owner review
+OVR-SNAPSHOT-ALL,Overview,مشروعي الآن,OVR-NOW-عرض-الكل,OVR-NOW,ProvisionalVerify,13.4,عرض الكل rendered in studio; destination shows deferred card pending owner review
+OVR-INSIGHT-DETAIL,Overview,مشروعي الآن,OVR-INSIGHTS,PreviousContext,ProvisionalVerify,13.19,Entry may vary; deferred pending owner review
+OPS-HOME,Operations,العمل,BottomTab,PreviousContext,ApprovedBaseline,11.1|21.3,Tab active in studio; screen shows Not-Started documentation card with review link to OPS-SALE-CREATE sample
+OPS-ENTRY,Operations,العمل,OPS-HOME-Action,PreviousContext,ProvisionalVerify,12|21.3,Keep frequent action discoverable; deferred pending owner review
+OPS-SALE-CREATE,Operations,العمل,OPS-ENTRY|QuickAction,PreviousContext,ProvisionalVerify,12|21.3,Studio route #/OPS-SALE-CREATE live (level 3: no bottom nav + إلغاء right); reachable via review link from OPS-HOME card + studio home + deep links; Candidate pending owner review
+OPS-ORDERS-LIST,Operations,العمل,OPS-HOME,OPS-HOME,ProvisionalVerify,21.3,Verify route; deferred pending owner review
+OPS-ORDER-DETAIL,Operations,العمل,OPS-ORDERS-LIST,OPS-ORDERS-LIST-Position,ProvisionalVerify,11.10,Return to source position; deferred pending owner review
+CAT-ITEMS-LIST,Catalog,ContextualFromWork,OPS-HOME|Order|Sale,SourceContext,ApprovedConceptVerifyRoute,11.1|21.3,Not tab six; deferred pending owner review
+REL-CUSTOMERS,Relationships,ContextualFromWork,OPS-HOME|Sale|Debts,SourceContext,ProvisionalVerify,21.3,Selection Sheet with search exercised inside sale sample (fixtures); list screen deferred
+REL-SUPPLIERS,Relationships,ContextualFromWork,OPS-HOME|Purchase|Dues,SourceContext,ProvisionalVerify,21.3,Domain independent of tab; deferred pending owner review
+FIN-OVERVIEW,Finance,المالية,BottomTab,PreviousContext,ApprovedBaseline,11.1|13.2,Studio route #/FIN-OVERVIEW live with 6 review states; Candidate pending owner review
+FIN-WALLETS,Finance,المالية,FIN-OVERVIEW|OVR-NOW,SourceContext,ProvisionalVerify,13.7,Wallet rows live inside FIN-OVERVIEW cash block; dedicated screen deferred
+FIN-DEBTS,Finance,المالية,FIN-OVERVIEW|OVR-NOW,SourceContext,ProvisionalVerify,13.6,Obligations rows live inside FIN-OVERVIEW; dedicated screen deferred
+FIN-ACTIVITY,Finance,المالية,FIN-OVERVIEW,FIN-OVERVIEW,ProvisionalVerify,13.5,TransactionRow produced + recent list in OVR-NOW; full list screen deferred
+TOOL-HOME,Tools,أدواتي,BottomTab,PreviousContext,ApprovedBaseline,11.1,Tab visible/enabled in studio; screen shows documentation card
+TOOL-CALCULATOR,Tools,أدواتي,TOOL-HOME,TOOL-HOME,ProvisionalVerify,21.3,Deferred pending owner review
+MKT-HOME,Market,السوق,BottomTab,PreviousContext,ApprovedBaseline,11.1|11.6,Tab visible/enabled in studio (no Coming-Soon screen invented); content deferred pending verified launch value (GAP-005)
+MKT-OFFER-DETAIL,Market,السوق,MKT-HOME,MKT-HOME,ProvisionalVerify,11.6,Only if offering exists; deferred
+GLB-ACCOUNT-PANEL,Global,Header,UserCircleGear,SourceContext,ApprovedBaseline,11.9,Implemented header-connected (not drawer); opens from UserCircleGear in studio
+GLB-DELIVERY,Global,Header,التوصيل,SourceContext,ApprovedBaseline,11.7,Entry rendered in header; service scope to verify (GAP-006)
+GLB-ASK,Global,Header,اسأل-Micro,SourceContext,ApprovedBaseline,11.7,Entry rendered with provisional quad mark (GAP-002); no AI response invented (GAP-006)

@@ -1,0 +1,127 @@
+{
+  "$fixture": true,
+  "source": "14-JORDANIAN-CONTENT-FIXTURES.md + §12/§13.8 (بنية العرض) — قيم عرض فقط",
+  "note": "قيم «أثر العملية» هنا Fixtures توضح طريقة العرض فقط (قبل/بعد)؛ الأثر المالي الفعلي للبيع النقدي/الآجل يحدده منطق المنتج خارج الواجهة (GAP-004).",
+  "title": "تسجيل بيع",
+  "entryNote": "نمط سريع — نموذج من شاشة واحدة للعمليات المتكررة (§12.1)",
+  "paymentModes": [
+    { "id": "cash", "label": "نقدي" },
+    { "id": "credit", "label": "آجل" }
+  ],
+  "scenarios": {
+    "empty": {
+      "cart": [],
+      "mode": "cash",
+      "customer": null,
+      "notes": ""
+    },
+    "filled": {
+      "cart": [
+        { "productId": "PRD-01", "name": "علبة معمول تمر منزلي بحجم عائلي مع تغليف خاص للمناسبات", "unit": "علبة", "qty": 2, "price": 12.5, "displayPrice": "12.500", "lineTotal": 25.0, "priceState": "known" },
+        { "productId": "PRD-02", "name": "قهوة عربية مطحونة 250 غرام", "unit": "كيس", "qty": 1, "price": 4.25, "lineTotal": 4.25, "priceState": "known" }
+      ],
+      "mode": "cash",
+      "customer": null,
+      "notes": "طلب أم سامي للتوزيع على الأقارب",
+      "total": { "value": 29.25, "state": "known" }
+    },
+    "validation": {
+      "cart": [
+        { "productId": "PRD-03", "name": "صينية كيك دونات منزلي", "unit": "صينية", "qty": 1, "price": null, "lineTotal": null, "priceState": "not-recorded", "note": "السعر غير مسجل لهذا المنتج" }
+      ],
+      "mode": "credit",
+      "customer": null,
+      "notes": "",
+      "total": { "value": null, "state": "cannot-compute", "note": "سعر منتج غير مسجل — لا يمكن حساب الإجمالي" },
+      "errors": {
+        "customer": "اختر عميلًا لتسجيل البيع الآجل",
+        "amount": "أدخل مبلغًا أو أصلح سعر المنتج غير المسجل قبل المتابعة"
+      }
+    },
+    "impact": {
+      "cart": [
+        { "productId": "PRD-01", "name": "علبة معمول تمر منزلي بحجم عائلي مع تغليف خاص للمناسبات", "unit": "علبة", "qty": 2, "price": 12.5, "displayPrice": "12.500", "lineTotal": 25.0, "priceState": "known" },
+        { "productId": "PRD-02", "name": "قهوة عربية مطحونة 250 غرام", "unit": "كيس", "qty": 1, "price": 4.25, "lineTotal": 4.25, "priceState": "known" }
+      ],
+      "mode": "cash",
+      "customer": null,
+      "notes": "",
+      "total": { "value": 29.25, "state": "known" },
+      "impact": {
+        "cash": { "before": 385.75, "after": 415.0, "label": "الدرج النقدي" },
+        "salesToday": { "before": 412.5, "after": 441.75, "label": "مبيعات اليوم" }
+      }
+    },
+    "impact-credit": {
+      "cart": [
+        { "productId": "PRD-01", "name": "علبة معمول تمر منزلي بحجم عائلي مع تغليف خاص للمناسبات", "unit": "علبة", "qty": 2, "price": 12.5, "displayPrice": "12.500", "lineTotal": 25.0, "priceState": "known" },
+        { "productId": "PRD-04", "name": "خبز صاج منزلي", "unit": "رغيف", "qty": 5, "price": 0.5, "lineTotal": 2.5, "priceState": "known" }
+      ],
+      "mode": "credit",
+      "customer": "CUS-01",
+      "notes": "تسليم مسائي",
+      "total": { "value": 27.5, "state": "known" },
+      "impact": {
+        "debt": { "before": 62.5, "after": 90.0, "label": "دين أبو محمد عطية الزيتون" },
+        "salesToday": { "before": 412.5, "after": 440.0, "label": "مبيعات اليوم" }
+      }
+    },
+    "saving": {
+      "cart": [
+        { "productId": "PRD-01", "name": "علبة معمول تمر منزلي بحجم عائلي مع تغليف خاص للمناسبات", "unit": "علبة", "qty": 2, "price": 12.5, "displayPrice": "12.500", "lineTotal": 25.0, "priceState": "known" },
+        { "productId": "PRD-02", "name": "قهوة عربية مطحونة 250 غرام", "unit": "كيس", "qty": 1, "price": 4.25, "lineTotal": 4.25, "priceState": "known" }
+      ],
+      "mode": "cash",
+      "customer": null,
+      "notes": "",
+      "total": { "value": 29.25, "state": "known" },
+      "holding": true,
+      "holdingLabel": "جارٍ تسجيل البيع"
+    },
+    "failure": {
+      "cart": [
+        { "productId": "PRD-01", "name": "علبة معمول تمر منزلي بحجم عائلي مع تغليف خاص للمناسبات", "unit": "علبة", "qty": 2, "price": 12.5, "displayPrice": "12.500", "lineTotal": 25.0, "priceState": "known" },
+        { "productId": "PRD-02", "name": "قهوة عربية مطحونة 250 غرام", "unit": "كيس", "qty": 1, "price": 4.25, "lineTotal": 4.25, "priceState": "known" }
+      ],
+      "mode": "cash",
+      "customer": null,
+      "notes": "",
+      "total": { "value": 29.25, "state": "known" },
+      "failure": {
+        "title": "لم تُحفظ العملية",
+        "body": "تحقق من الاتصال وحاول مرة أخرى؛ القيم المدخلة ما زالت ظاهرة في هذه الشاشة.",
+        "action": "إعادة المحاولة"
+      }
+    },
+    "success": {
+      "cart": [],
+      "mode": "cash",
+      "customer": null,
+      "notes": "",
+      "echo": {
+        "headline": "تم تسجيل البيع",
+        "detail": "بيع نقدي 29.25 د.أ · رقم العملية TX-1043",
+        "impact": { "label": "الدرج النقدي", "before": 385.75, "after": 415.0 },
+        "viewAction": "عرض العملية",
+        "backAction": "العودة إلى العمل",
+        "note": "محاكاة عرض داخل الاستوديو — لا عملية حقيقية ولا أثر محاسبي (Fixtures)"
+      }
+    },
+    "offline-save": {
+      "cart": [],
+      "mode": "cash",
+      "customer": null,
+      "notes": "",
+      "echo": {
+        "headline": "تم تسجيل البيع",
+        "detail": "بيع نقدي 29.25 د.أ · رقم العملية TX-1043",
+        "localSaved": "محفوظ على هذا الهاتف",
+        "pending": "بانتظار الإرسال",
+        "impact": { "label": "الدرج النقدي", "before": 385.75, "after": 415.0 },
+        "viewAction": "عرض العملية",
+        "backAction": "العودة إلى العمل",
+        "note": "محاكاة عرض داخل الاستوديو — لا عملية حقيقية ولا أثر محاسبي (Fixtures)"
+      }
+    }
+  }
+}

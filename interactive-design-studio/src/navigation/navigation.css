@@ -1,0 +1,237 @@
+/* Micro Visual System — Navigation CSS (§11)
+   Header موحد Edge-to-Edge بلا اسم صفحة؛ انتقال Canvas→أبيض عند التمرير
+   (160–200ms). Bottom Nav مدمج بالحافة، أبيض، Divider علوي، 70px + Safe Area.
+   لوحة الحساب امتداد من Header بزوايا سفلية فقط 24px. */
+
+/* ===================== App Header (§11.7/§11.8) ===================== */
+.app-header {
+  position: relative;
+  z-index: var(--z-header);
+  background: var(--c-canvas);
+  transition: background-color 180ms var(--ease-standard),
+    box-shadow 180ms var(--ease-standard);
+  padding-block-start: var(--safe-top, 0px);
+}
+
+.app-header--task {
+  background: var(--c-canvas);
+}
+
+.app-header__row {
+  height: var(--size-header);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-inline: var(--space-4);
+}
+
+/* عند التمرير: أبيض + Divider خفيف أسفل المنطقة (§11.8) */
+.app-header.is-scrolled {
+  background: var(--c-surface);
+  box-shadow: 0 1px 0 var(--c-border);
+}
+
+.app-header.is-panel-open {
+  background: var(--c-surface);
+  box-shadow: 0 1px 0 var(--c-border);
+}
+
+.app-header__account {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: var(--size-touch);
+  min-height: var(--size-touch);
+  border-radius: var(--radius-card-sm);
+  color: var(--c-ink);
+  transition:
+    color var(--motion-press) var(--ease-standard),
+    background-color var(--motion-press) var(--ease-standard);
+}
+
+.app-header__account.is-open {
+  color: var(--c-primary);
+  background: var(--c-primary-soft);
+}
+
+.app-header__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.app-header__text-action {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: var(--size-touch);
+  padding-inline: var(--space-3);
+  color: var(--c-ink);
+  border-radius: var(--radius-card-sm);
+  transition: background-color var(--motion-press) var(--ease-standard);
+}
+
+.app-header__text-action:active {
+  background: var(--c-surface-2);
+}
+
+.app-header__ask {
+  color: var(--c-primary);
+}
+
+.app-header__ask .micro-quad i {
+  background: var(--c-primary);
+}
+
+/* ===================== Account Panel (§11.9) ===================== */
+.overlay--account {
+  align-items: flex-start;
+}
+
+.account-panel {
+  position: relative;
+  width: 100%;
+  background: var(--c-surface);
+  border-end-start-radius: var(--radius-sheet);
+  border-end-end-radius: var(--radius-sheet);
+  box-shadow: var(--elevation-layer);
+  z-index: var(--z-sheet);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  padding: var(--space-6) var(--space-screen) var(--space-8);
+}
+
+.account-panel__identity {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  align-items: flex-start;
+}
+
+.account-panel__identity h3 {
+  overflow-wrap: break-word;
+}
+
+.account-panel__signal {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.account-panel__complete {
+  margin-block-start: var(--space-2);
+}
+
+.account-panel__menu {
+  border-radius: var(--radius-card-md);
+  overflow: hidden;
+  background: var(--c-surface);
+  border: var(--stroke-hairline) solid var(--c-border);
+}
+
+.account-panel__logout {
+  border-block-start: var(--stroke-hairline) solid var(--c-border);
+  padding-block-start: var(--space-4);
+}
+
+.account-panel__logout-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  min-height: var(--size-touch);
+  color: var(--c-danger);
+  font-size: var(--type-body);
+  padding-inline: var(--space-2);
+  border-radius: var(--radius-card-sm);
+}
+
+/* ===================== Bottom Navigation (§11.2) ===================== */
+.bottom-nav {
+  position: relative;
+  z-index: var(--z-nav);
+  background: var(--c-surface);
+  border-block-start: var(--stroke-hairline) solid var(--c-border);
+  padding-block-end: var(--safe-bottom, 0px);
+}
+
+.bottom-nav__list {
+  display: flex;
+  height: var(--size-tabbar);
+}
+
+.bottom-nav__item {
+  flex: 1;
+  display: flex;
+}
+
+.bottom-nav__target {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  min-width: var(--size-touch-lg);
+  color: var(--c-ink-2);
+  transition: color var(--motion-selection) var(--ease-standard);
+}
+
+.bottom-nav__target.is-selected {
+  color: var(--nav-selected-ink);
+}
+
+.bottom-nav__icon {
+  position: relative;
+  display: inline-flex;
+  color: inherit;
+}
+
+.bottom-nav__target.is-selected .bottom-nav__icon {
+  color: var(--c-primary);
+}
+
+.bottom-nav__badge {
+  position: absolute;
+  top: -6px;
+  inset-inline-end: -10px;
+  min-width: 18px;
+  height: 18px;
+  padding-inline: 4px;
+  border-radius: 9px;
+  background: var(--c-primary);
+  color: var(--c-on-primary);
+  font-size: 11px;
+  font-weight: var(--weight-semibold);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-variant-numeric: tabular-nums;
+}
+
+.bottom-nav__label {
+  font-size: var(--type-nav);
+  font-weight: var(--weight-medium);
+  color: inherit;
+  text-align: center;
+  /* عند التكبير الكبير جدًا تصبح التسمية سطرين بدل القص (§11.14) */
+  overflow-wrap: break-word;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.bottom-nav__target.is-selected .bottom-nav__label {
+  font-weight: var(--weight-semibold);
+}
+
+.bottom-nav__target .micro-signal {
+  position: absolute;
+  inset-inline-start: 4px;
+  top: 0;
+  opacity: 0;
+}
+
+.bottom-nav__target.is-selected .micro-signal {
+  opacity: 1;
+}

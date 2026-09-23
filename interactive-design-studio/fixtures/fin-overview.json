@@ -1,0 +1,242 @@
+{
+  "$fixture": true,
+  "source": "14-JORDANIAN-CONTENT-FIXTURES.md + §13.2/§13.11/§13.12 (بنية العرض) — قيم عرض فقط",
+  "note": "كل قيمة Fixture لفحص العرض؛ الفروق المحاسبية للنتيجة يحددها منطق المنتج خارج الواجهة. لا Chart في هذه الجولة: النمط مشروط بسؤال منتج وبيانات مثبتة (FIN-CHARTS).",
+  "periods": ["اليوم", "هذا الأسبوع", "هذا الشهر", "الشهر الماضي", "فترة مخصصة"],
+  "scenarios": {
+    "complete": {
+      "period": "هذا الشهر",
+      "cash": {
+        "question": "كم معي الآن؟",
+        "value": { "value": 385.75, "state": "known" },
+        "wallets": [
+          { "name": "الدرج النقدي", "last": "آخر حركة اليوم 1:40 م", "value": 235.75 },
+          { "name": "محفظة إلكترونية", "last": "آخر حركة أمس 5:20 م", "value": 150.0 }
+        ],
+        "unallocated": { "value": 5.0, "note": "بانتظار تحديد المحفظة", "action": "تحديد المحفظة" },
+        "transferAction": "نقل بين المحافظ",
+        "distributionAction": "عرض التوزيع"
+      },
+      "flow": {
+        "question": "ماذا دخل وماذا خرج؟",
+        "rows": [
+          { "label": "إيرادات هذا الشهر", "value": { "value": 3250.75, "state": "known" }, "detail": "68 عملية بيع" },
+          { "label": "مصروفات هذا الشهر", "value": { "value": 2830.75, "state": "known" }, "detail": "المواد والتغليف والمساعدة" }
+        ],
+        "comparison": {
+          "text": "زادت الإيرادات 12% مقارنة بالشهر الماضي",
+          "detail": "الشهر الماضي 2,902.46 د.أ · الفرق +348.29 د.أ",
+          "state": "known"
+        }
+      },
+      "obligations": {
+        "question": "ما لي وما عليّ؟",
+        "forYou": { "label": "ديون لك", "value": { "value": 106.25, "state": "known" }, "detail": "4 عملاء · منها 62.50 د.أ مستحقة اليوم", "view": "عرض العملاء" },
+        "onYou": { "label": "ديون عليك", "value": { "value": 200.0, "state": "known" }, "detail": "مورد واحد", "view": "عرض الموردين" }
+      },
+      "result": {
+        "question": "هل أنا ربحان أم خسران؟",
+        "state": "complete",
+        "verdict": "ربح",
+        "value": { "value": 420.0, "state": "known" },
+        "completeness": "مكتملة — بحسب جميع البيانات المسجلة",
+        "detail": "الإيرادات 3,250.75 د.أ · المصروفات 2,830.75 د.أ",
+        "action": "عرض التفاصيل"
+      }
+    },
+    "partial": {
+      "period": "هذا الشهر",
+      "cash": {
+        "question": "كم معي الآن؟",
+        "value": { "value": 385.75, "state": "known" },
+        "wallets": [
+          { "name": "الدرج النقدي", "last": "آخر حركة اليوم 1:40 م", "value": 235.75 },
+          { "name": "محفظة إلكترونية", "last": "آخر حركة أمس 5:20 م", "value": 150.0 }
+        ],
+        "unallocated": null,
+        "transferAction": "نقل بين المحافظ",
+        "distributionAction": "عرض التوزيع"
+      },
+      "flow": {
+        "question": "ماذا دخل وماذا خرج؟",
+        "rows": [
+          { "label": "إيرادات هذا الشهر", "value": { "value": 3250.75, "state": "known" }, "detail": "68 عملية بيع" },
+          { "label": "مصروفات هذا الشهر", "value": { "value": 2820.75, "state": "partial" }, "detail": "تنقص تكاليف 3 منتجات غير مسجلة" }
+        ],
+        "comparison": {
+          "text": "لا توجد بيانات كافية للمقارنة",
+          "detail": "مصروفات الشهر الحالي جزئية — تُعرض القيمتان دون حكم دقيق",
+          "state": "insufficient"
+        }
+      },
+      "obligations": {
+        "question": "ما لي وما عليّ؟",
+        "forYou": { "label": "ديون لك", "value": { "value": 106.25, "state": "partial" }, "detail": "رصيد عميلين غير مسجل — الحساب جزئي", "view": "عرض العملاء" },
+        "onYou": { "label": "ديون عليك", "value": { "value": 200.0, "state": "known" }, "detail": "مورد واحد", "view": "عرض الموردين" }
+      },
+      "result": {
+        "question": "هل أنا ربحان أم خسران؟",
+        "state": "partial",
+        "verdict": "ربح تقريبًا",
+        "value": { "value": 380.0, "state": "estimated" },
+        "completeness": "جزئية — تنقص تكاليف 3 منتجات",
+        "detail": "تقديرية: الإيرادات 3,250.75 د.أ · المصروفات المسجلة 2,820.75 د.أ · تكاليف 3 منتجات غير مسجلة",
+        "action": "إضافة التكاليف"
+      }
+    },
+    "insufficient": {
+      "period": "هذا الشهر",
+      "cash": {
+        "question": "كم معي الآن؟",
+        "value": { "value": 385.75, "state": "known" },
+        "wallets": [
+          { "name": "الدرج النقدي", "last": "آخر حركة أمس 6:00 م", "value": 235.75 },
+          { "name": "محفظة إلكترونية", "last": "آخر حركة أمس 5:20 م", "value": 150.0 }
+        ],
+        "unallocated": null,
+        "transferAction": "نقل بين المحافظ",
+        "distributionAction": "عرض التوزيع"
+      },
+      "flow": {
+        "question": "ماذا دخل وماذا خرج؟",
+        "rows": [
+          { "label": "إيرادات هذا الشهر", "value": { "value": 3250.75, "state": "known" }, "detail": "68 عملية بيع" },
+          { "label": "مصروفات هذا الشهر", "value": { "value": null, "state": "cannot-compute", "note": "لم تُسجل أي تكاليف لهذا الشهر" }, "detail": "" }
+        ],
+        "comparison": null
+      },
+      "obligations": {
+        "question": "ما لي وما عليّ؟",
+        "forYou": { "label": "ديون لك", "value": { "value": null, "state": "unknown", "note": "بحاجة للمراجعة" }, "detail": "الربط غير مؤكد", "view": "عرض العملاء" },
+        "onYou": { "label": "دين عليك", "value": { "value": 200.0, "state": "known" }, "detail": "مورد واحد", "view": "عرض الموردين" }
+      },
+      "result": {
+        "question": "هل أنا ربحان أم خسران؟",
+        "state": "insufficient",
+        "verdict": "",
+        "value": { "value": null, "state": "cannot-compute" },
+        "completeness": "غير متاحة — لا يمكن حساب النتيجة قبل تسجيل التكاليف",
+        "detail": "سجلّ التكاليف أولًا ثم ستظهر النتيجة هنا",
+        "action": "إضافة التكاليف"
+      }
+    },
+    "zero": {
+      "period": "هذا الشهر",
+      "cash": {
+        "question": "كم معي الآن؟",
+        "value": { "value": 385.75, "state": "known" },
+        "wallets": [
+          { "name": "الدرج النقدي", "last": "آخر حركة أمس 6:00 م", "value": 235.75 },
+          { "name": "محفظة إلكترونية", "last": "آخر حركة أمس 5:20 م", "value": 150.0 }
+        ],
+        "unallocated": null,
+        "transferAction": "نقل بين المحافظ",
+        "distributionAction": "عرض التوزيع"
+      },
+      "flow": {
+        "question": "ماذا دخل وماذا خرج؟",
+        "rows": [
+          { "label": "إيرادات هذا الشهر", "value": { "value": 3250.75, "state": "known" }, "detail": "68 عملية بيع" },
+          { "label": "مصروفات هذا الشهر", "value": { "value": 0.0, "state": "true-zero" }, "detail": "صفر حقيقي — لا مصروفات مسجلة خلال الفترة" }
+        ],
+        "comparison": null
+      },
+      "obligations": {
+        "question": "ما لي وما عليّ؟",
+        "forYou": { "label": "ديون لك", "value": { "value": 0.0, "state": "true-zero" }, "detail": "", "view": "", "clearState": "لا توجد ديون قائمة" },
+        "onYou": { "label": "ديون عليك", "value": { "value": 200.0, "state": "known" }, "detail": "مورد واحد", "view": "عرض الموردين" }
+      },
+      "result": {
+        "question": "هل أنا ربحان أم خسران؟",
+        "state": "complete",
+        "verdict": "ربح",
+        "value": { "value": 3250.75, "state": "known" },
+        "completeness": "مكتملة — بحسب جميع البيانات المسجلة",
+        "detail": "الإيرادات 3,250.75 د.أ · المصروفات 0.00 د.أ",
+        "action": "عرض التفاصيل"
+      }
+    },
+    "negative": {
+      "period": "هذا الشهر",
+      "cash": {
+        "question": "كم معي الآن؟",
+        "value": { "value": 385.75, "state": "known" },
+        "wallets": [
+          { "name": "الدرج النقدي", "last": "آخر حركة اليوم 12:10 م", "value": 210.75 },
+          { "name": "محفظة إلكترونية", "last": "آخر حركة أمس 5:20 م", "value": 175.0 }
+        ],
+        "unallocated": null,
+        "transferAction": "نقل بين المحافظ",
+        "distributionAction": "عرض التوزيع"
+      },
+      "flow": {
+        "question": "ماذا دخل وماذا خرج؟",
+        "rows": [
+          { "label": "إيرادات هذا الشهر", "value": { "value": 2750.75, "state": "known" }, "detail": "54 عملية بيع" },
+          { "label": "مصروفات هذا الشهر", "value": { "value": 2830.75, "state": "known" }, "detail": "المواد والتغليف والمساعدة" }
+        ],
+        "comparison": {
+          "text": "انخفضت الإيرادات 15% مقارنة بالشهر الماضي",
+          "detail": "الشهر الماضي 3,236.18 د.أ · الفرق −485.43 د.أ",
+          "state": "known"
+        }
+      },
+      "obligations": {
+        "question": "ما لي وما عليّ؟",
+        "forYou": { "label": "ديون لك", "value": { "value": 106.25, "state": "known" }, "detail": "4 عملاء", "view": "عرض العملاء" },
+        "onYou": { "label": "ديون عليك", "value": { "value": 200.0, "state": "known" }, "detail": "مورد واحد", "view": "عرض الموردين" }
+      },
+      "result": {
+        "question": "هل أنا ربحان أم خسران؟",
+        "state": "complete",
+        "verdict": "خسارة",
+        "value": { "value": -80.0, "state": "negative" },
+        "completeness": "مكتملة — بحسب جميع البيانات المسجلة",
+        "detail": "سالب لأن المصروفات 2,830.75 د.أ أعلى من الإيرادات 2,750.75 د.أ",
+        "action": "عرض التفاصيل"
+      }
+    },
+    "offline": {
+      "ribbon": {
+        "text": "تعمل الآن دون اتصال",
+        "detail": "يمكنك متابعة التسجيل — تُحفظ العمليات على هذا الهاتف"
+      },
+      "pendingSend": { "count": 2, "summary": "عمليتان بانتظار الإرسال" },
+      "period": "هذا الشهر",
+      "cash": {
+        "question": "كم معي الآن؟",
+        "value": { "value": 377.5, "state": "known", "stale": true },
+        "wallets": [
+          { "name": "الدرج النقدي", "last": "آخر نسخة محفوظة 2:35 م", "value": 227.5 },
+          { "name": "محفظة إلكترونية", "last": "آخر نسخة محفوظة 2:35 م", "value": 150.0 }
+        ],
+        "unallocated": null,
+        "transferAction": "نقل بين المحافظ",
+        "distributionAction": "عرض التوزيع",
+        "staleTrace": "آخر نسخة محفوظة 2:35 م — قبل آخر عمليتين"
+      },
+      "flow": {
+        "question": "ماذا دخل وماذا خرج؟",
+        "rows": [
+          { "label": "إيرادات هذا الشهر", "value": { "value": 3242.5, "state": "known", "stale": true }, "detail": "67 عملية بيع — من آخر نسخة محفوظة" },
+          { "label": "مصروفات هذا الشهر", "value": { "value": 2780.75, "state": "known", "stale": true }, "detail": "من آخر نسخة محفوظة — بانتظار إرسال دفعة مورد" }
+        ],
+        "comparison": null
+      },
+      "obligations": {
+        "question": "ما لي وما عليّ؟",
+        "forYou": { "label": "ديون لك", "value": { "value": 106.25, "state": "known", "stale": true }, "detail": "4 عملاء · من آخر نسخة محفوظة", "view": "عرض العملاء" },
+        "onYou": { "label": "ديون عليك", "value": { "value": 150.0, "state": "known", "stale": true }, "detail": "مورد واحد · بانتظار إرسال دفعة 50.00 د.أ", "view": "عرض الموردين" }
+      },
+      "result": {
+        "question": "هل أنا ربحان أم خسران؟",
+        "state": "partial",
+        "verdict": "ربح تقريبًا",
+        "value": { "value": 412.5, "state": "estimated" },
+        "completeness": "تقديرية — من آخر نسخة محفوظة وبانتظار إرسال عمليتين",
+        "detail": "تُحدَّث النتيجة بعد إرسال العمليات المعلقة",
+        "action": "عرض العمليات المعلقة"
+      }
+    }
+  }
+}

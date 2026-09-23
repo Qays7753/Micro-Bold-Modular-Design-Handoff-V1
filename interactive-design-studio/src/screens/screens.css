@@ -1,0 +1,592 @@
+/* Micro Visual System — Screens CSS
+   تكوينات مختلفة بين المجالات (§21.3): Overview للقراءة والقرار،
+   Operations للإجراء، Finance للحقيقة والتفسير — لا نفس القالب. */
+
+/* ===================== بنية الشاشة المشتركة ===================== */
+.screen {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-section-gap);
+  padding: var(--space-5) var(--space-screen) var(--space-12);
+  min-height: 100%;
+}
+
+.screen__head {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.screen__head .type-screen-title {
+  overflow-wrap: break-word;
+}
+
+.screen__section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.screen__section-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+.screen__rows {
+  background: var(--c-surface);
+  border-radius: var(--radius-card-md);
+  overflow: hidden;
+}
+
+.screen__foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  margin-block-start: auto;
+  padding-block-start: var(--space-6);
+}
+
+.screen__fixtures-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--c-partial);
+  border: var(--stroke-hairline) solid var(--c-border);
+  border-radius: 999px;
+  padding: 2px var(--space-3);
+  background: var(--c-surface);
+}
+
+.screen__fixtures-badge .type-supporting {
+  color: var(--c-partial);
+}
+
+.screen__first-use {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+/* ===================== OVR-NOW — قراءة وقرار ===================== */
+.screen--ovr {
+  gap: var(--space-8);
+}
+
+.screen--ovr .snapshot-deck {
+  margin-block-start: var(--space-2);
+}
+
+.screen--ovr .insight {
+  margin-block-start: var(--space-2);
+}
+
+/* ===================== FIN-OVERVIEW — حقيقة وتفسير ===================== */
+.screen--fin .screen__head {
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+.period-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: 42px;
+  padding-inline: var(--space-4);
+  background: var(--c-surface);
+  border: var(--stroke-hairline) solid var(--c-boundary);
+  border-radius: var(--radius-filter);
+  color: var(--c-ink);
+  transition: background-color var(--motion-press) var(--ease-standard);
+}
+
+.period-btn:active {
+  background: var(--c-surface-2);
+}
+
+.fin-cash {
+  background: var(--c-primary);
+  color: var(--c-on-primary);
+  border-radius: var(--radius-card-lg);
+  padding: var(--space-10);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.fin-cash__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+.fin-cash .context-trace,
+.fin-cash__question {
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.fin-cash__title {
+  color: inherit;
+}
+
+.fin-cash .money-value {
+  color: var(--c-on-primary);
+}
+
+.fin-cash__actions {
+  display: flex;
+  gap: var(--space-6);
+}
+
+.fin-cash__actions .link-action {
+  color: var(--c-accent);
+}
+
+/* داخل الكتلة القوية: صفوف المحافظ بمظهر فاتح مندمج */
+.fin-cash .row-group {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-card-md);
+}
+
+.fin-cash .open-row__target {
+  color: inherit;
+}
+
+.fin-cash .open-row:not(:last-child).has-divider .open-row__target {
+  border-block-end-color: rgba(255, 255, 255, 0.18);
+}
+
+.fin-cash .open-row__supporting,
+.fin-cash .open-row__trailing {
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.fin-cash__unallocated {
+  padding: var(--space-3) var(--space-4);
+}
+
+.fin-cash__unallocated .context-seam {
+  background: var(--c-accent-soft);
+}
+
+.fin-cash__unallocated .context-seam__content {
+  color: var(--c-ink);
+}
+
+.fin-cash__truth {
+  border-block-start: var(--stroke-hairline) solid rgba(255, 255, 255, 0.24);
+  padding-block-start: var(--space-4);
+}
+
+.fin-cash .truth-note__trigger-text {
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.fin-cash .truth-note__panel {
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.fin-compare {
+  background: var(--c-surface);
+  border-radius: var(--radius-card-md);
+  padding: var(--space-5) var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.fin-compare.is-insufficient {
+  background: var(--c-partial-surface);
+}
+
+.fin-compare__text {
+  color: var(--c-ink);
+}
+
+.fin-clear {
+  padding: var(--space-4) var(--space-5);
+}
+
+.fin-debt-truth {
+  margin-block-start: var(--space-2);
+}
+
+/* ===================== OPS-SALE-CREATE — إجراء (مستوى 3) ===================== */
+.screen--sale {
+  padding-block-end: 140px; /* مساحة شريط الإجراء (§12.2) */
+}
+
+.screen--sale .screen__head {
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.screen__cancel {
+  align-self: flex-start;
+  min-height: var(--size-touch);
+  padding-inline: var(--space-2);
+  margin-inline-start: calc(var(--space-2) * -1);
+}
+
+.sale-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+.sale-form__customer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.sale-customer {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  width: 100%;
+  background: var(--c-surface);
+  border: var(--stroke-hairline) solid var(--c-border);
+  border-radius: var(--radius-field);
+  min-height: var(--size-field);
+  padding: var(--space-3) var(--space-4);
+  text-align: start;
+  transition: border-color var(--motion-local) var(--ease-standard);
+}
+
+.sale-customer.has-error {
+  border-color: var(--c-danger);
+}
+
+.sale-customer__body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.sale-customer__label {
+  color: var(--c-ink-2);
+}
+
+.sale-customer__name {
+  overflow-wrap: break-word;
+}
+
+.sale-customer__debt {
+  color: var(--c-ink-2);
+}
+
+.sale-lines {
+  display: flex;
+  flex-direction: column;
+}
+
+.sale-line {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  background: var(--c-surface);
+  padding: var(--space-4);
+}
+
+.sale-line + .sale-line {
+  border-block-start: var(--stroke-hairline) solid var(--c-border);
+}
+
+.sale-line__body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.sale-line__name {
+  overflow-wrap: break-word;
+}
+
+.sale-line__price {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--c-ink-2);
+}
+
+.sale-line__ctrl {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.qty-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: var(--size-touch);
+  min-height: var(--size-touch);
+  border-radius: var(--radius-card-sm);
+  color: var(--c-ink);
+  border: var(--stroke-hairline) solid var(--c-border);
+  background: var(--c-surface);
+  transition: background-color var(--motion-press) var(--ease-standard);
+}
+
+.qty-btn:active {
+  background: var(--c-surface-2);
+}
+
+.sale-line__qty {
+  min-width: 24px;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+}
+
+.sale-line__total {
+  flex-shrink: 0;
+  min-width: 84px;
+  text-align: end;
+}
+
+.sale-form__empty {
+  color: var(--c-ink-2);
+  padding: var(--space-6) 0;
+}
+
+/* تفاصيل إضافية — قسم قابل للطي (§12.1) */
+.sale-extras__toggle {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  width: 100%;
+  min-height: var(--size-touch);
+  padding-inline: var(--space-2);
+  color: var(--c-ink);
+}
+
+.sale-extras__body {
+  padding-block-start: var(--space-4);
+}
+
+/* الفشل: الحالة قرب الإجراء مع بقاء المدخلات (§14.6) */
+.sale-failure {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-4);
+  background: var(--c-danger-surface);
+  border-radius: var(--radius-card-md);
+  padding: var(--space-5) var(--space-6);
+}
+
+.sale-failure__body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+/* شريط الإجراء السفلي: أبيض مدمج + Divider علوي (§12.2) */
+.action-bar {
+  position: absolute;
+  inset-inline: 0;
+  inset-block-end: 0;
+  background: var(--c-surface);
+  border-block-start: var(--stroke-hairline) solid var(--c-border);
+  padding: var(--space-4) var(--space-screen) var(--space-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  z-index: var(--z-nav);
+}
+
+.action-bar__summary {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+
+.action-bar__error {
+  color: var(--c-danger);
+  flex-basis: 100%;
+}
+
+/* النجاح: Echo واحد (§14.5) */
+.sale-echo {
+  background: var(--c-surface);
+  border-radius: var(--radius-card-lg);
+  padding: var(--space-10);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  align-items: flex-start;
+}
+
+.sale-echo__signal {
+  margin-block-end: var(--space-2);
+}
+
+.sale-echo__save {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--c-local);
+}
+
+.sale-echo__actions {
+  display: flex;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+
+.sale-echo__note {
+  color: var(--c-partial);
+  border-block-start: var(--stroke-hairline) dashed var(--c-border);
+  padding-block-start: var(--space-3);
+  width: 100%;
+}
+
+/* أوراق الاختيار (§12.4) */
+.picker {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.picker__list {
+  display: flex;
+  flex-direction: column;
+}
+
+.picker__item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  width: 100%;
+  padding: var(--space-4);
+  min-height: var(--size-row);
+  text-align: start;
+  color: var(--c-ink);
+}
+
+.picker__item + .picker__item {
+  border-block-start: var(--stroke-hairline) solid var(--c-border);
+}
+
+.picker__item-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+/* ===================== Deferred / Studio Home ===================== */
+.deferred-card {
+  background: var(--c-surface);
+  border: 2px dashed var(--c-border);
+  border-radius: var(--radius-card-lg);
+  padding: var(--space-10);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.deferred-card__signal {
+  margin-block-end: var(--space-2);
+}
+
+.deferred-card__meta {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin: 0;
+  border-block-start: var(--stroke-hairline) solid var(--c-border);
+  padding-block-start: var(--space-4);
+}
+
+.deferred-card__meta > div {
+  display: grid;
+  grid-template-columns: 130px 1fr;
+  gap: var(--space-3);
+}
+
+.deferred-card__meta dt {
+  font-size: var(--type-supporting);
+  color: var(--c-ink-2);
+  font-weight: var(--weight-semibold);
+}
+
+.deferred-card__meta dd {
+  margin: 0;
+  font-size: var(--type-supporting);
+  color: var(--c-ink);
+  overflow-wrap: anywhere;
+}
+
+.deferred-card__note {
+  color: var(--c-ink-2);
+}
+
+.deferred-card__action {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  border-block-start: var(--stroke-hairline) solid var(--c-border);
+  padding-block-start: var(--space-4);
+}
+
+.home-intro {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.home-links {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.home-link {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  width: 100%;
+  background: var(--c-surface);
+  border-radius: var(--radius-card-md);
+  padding: var(--space-5) var(--space-6);
+  text-align: start;
+  min-height: var(--size-touch);
+  transition: background-color var(--motion-press) var(--ease-standard);
+}
+
+.home-link:active {
+  background: var(--c-surface-2);
+}
+
+.home-link__id {
+  font-size: var(--type-supporting);
+  font-weight: var(--weight-semibold);
+  color: var(--c-primary);
+  flex-shrink: 0;
+}
+
+.home-link__title {
+  flex: 1;
+  font-size: var(--type-body);
+  font-weight: var(--weight-semibold);
+  color: var(--c-ink);
+}
+
+.home-link__meta {
+  color: var(--c-ink-2);
+  flex-shrink: 0;
+}

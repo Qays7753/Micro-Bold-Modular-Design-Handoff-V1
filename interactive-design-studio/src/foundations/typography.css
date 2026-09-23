@@ -1,0 +1,109 @@
+/* Micro Visual System — Typography (§7 + §16.2)
+   Alexandria أساسي وNoto Sans Arabic fallback. أرقام إنجليزية 0–9 فقط،
+   Tabular Numbers للقيم المالية، وعزل LTR للأرقام داخل RTL. */
+
+/* الخطوط محلية من assets/fonts بمصدر وترخيص OFL موثقين في ASSET-MANIFEST.md */
+@font-face {
+  font-family: 'Alexandria';
+  src: url('../../assets/fonts/Alexandria-VF.ttf') format('truetype-variations');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Noto Sans Arabic';
+  src: url('../../assets/fonts/NotoSansArabic-VF.ttf') format('truetype-variations');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --font-primary: 'Alexandria', 'Noto Sans Arabic', 'Noto Sans', 'Segoe UI', Tahoma, sans-serif;
+}
+
+/* ===== الأنماط الوظيفية المسماة (§21.2) ===== */
+
+.type-hero {
+  font-size: var(--type-hero);
+  font-weight: var(--weight-bold);
+  line-height: var(--leading-tight);
+}
+
+.type-screen-title {
+  font-size: var(--type-screen-title);
+  font-weight: var(--weight-bold);
+  line-height: var(--leading-tight);
+}
+
+.type-section-title {
+  font-size: var(--type-section-title);
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-snug);
+}
+
+.type-card-title {
+  font-size: var(--type-card-title);
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-snug);
+}
+
+.type-body {
+  font-size: var(--type-body);
+  font-weight: var(--weight-regular);
+  line-height: var(--leading-normal);
+}
+
+.type-supporting {
+  font-size: var(--type-supporting);
+  font-weight: var(--weight-regular);
+  line-height: var(--leading-snug);
+}
+
+.type-button {
+  font-size: var(--type-button);
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-snug);
+}
+
+.type-nav {
+  font-size: var(--type-nav);
+  font-weight: var(--weight-medium);
+  line-height: var(--leading-snug);
+}
+
+.type-money-hero {
+  font-size: var(--type-money-hero);
+  font-weight: var(--weight-bold);
+  line-height: var(--leading-tight);
+  font-variant-numeric: tabular-nums;
+}
+
+.type-money-list {
+  font-size: var(--type-money-list);
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-snug);
+  font-variant-numeric: tabular-nums;
+}
+
+/* عزل السلاسل الرقمية والتقنية LTR داخل الجملة العربية (§16.1/16.2) */
+.ltr {
+  direction: ltr;
+  unicode-bidi: isolate;
+}
+
+/* المبلغ في السياق المالي: الجزء الرقمي جزيرة LTR داخل تدفق RTL،
+   والوحدة «د.أ» تبقى في التدفق العربي فتظهر يسار الرقم — ترتيب القراءة
+   «1,250.50 د.أ» صحيح: الرقم أولًا من اليمين ثم الوحدة (§13.3/§16.2). */
+.money-figure {
+  unicode-bidi: isolate;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+.money-figure .money-num {
+  direction: ltr;
+  unicode-bidi: isolate;
+  display: inline-block;
+}

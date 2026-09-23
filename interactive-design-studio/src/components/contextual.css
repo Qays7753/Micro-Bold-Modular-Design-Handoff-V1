@@ -1,0 +1,306 @@
+/* Micro Visual System — Contextual CSS (§14)
+   الحالات تحولات داخل بنية الواجهة: طبقات Seam وامتدادات من مصدرها،
+   لا Alert Cards. عنصر واحد عالي الحضور. الأسطح الدلالية خفيفة ومندمجة. */
+
+/* ===================== Micro Signal (§10.4) — أصل مرشح ===================== */
+.micro-signal {
+  display: inline-flex;
+  align-items: center;
+}
+
+.micro-signal__units {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--signal-gap);
+  padding: 3px;
+  border-radius: 6px;
+}
+
+.micro-signal__unit {
+  width: var(--signal-unit);
+  height: var(--signal-unit);
+  border-radius: var(--signal-radius);
+  background: transparent;
+  border: 1.5px solid var(--c-boundary);
+  display: inline-block;
+}
+
+.micro-signal--md .micro-signal__units {
+  gap: var(--signal-gap-lg);
+}
+
+.micro-signal--md .micro-signal__unit {
+  width: var(--signal-unit-lg);
+  height: var(--signal-unit-lg);
+}
+
+/* مكتمل: أربع وحدات ممتلئة */
+.micro-signal.is-complete .micro-signal__unit {
+  background: var(--c-primary);
+  border-color: var(--c-primary);
+}
+
+/* جزئي: وحدتان ممتلئتان ووحدتان Outline */
+.micro-signal.is-partial .u1,
+.micro-signal.is-partial .u2 {
+  background: var(--c-partial);
+  border-color: var(--c-partial);
+}
+
+.micro-signal.is-partial .u3,
+.micro-signal.is-partial .u4 {
+  border-color: var(--c-partial);
+  background: transparent;
+}
+
+/* قيد التنفيذ: وحدة نشطة وثلاث هادئة */
+.micro-signal.is-in-progress .u1 {
+  background: var(--c-primary);
+  border-color: var(--c-primary);
+}
+
+.micro-signal.is-in-progress .u2,
+.micro-signal.is-in-progress .u3,
+.micro-signal.is-in-progress .u4 {
+  border-color: var(--c-border);
+}
+
+/* غير معروف: أربع وحدات متقطعة */
+.micro-signal.is-unknown .micro-signal__unit {
+  border-style: dashed;
+  border-color: var(--c-unknown);
+}
+
+/* مسودة: وحدة ممتلئة والباقي فارغ */
+.micro-signal.is-draft .u1 {
+  background: var(--c-ink-2);
+  border-color: var(--c-ink-2);
+}
+
+/* خطأ: اختلال في انتظام الوحدات مع × صغيرة */
+.micro-signal.is-error .u1 {
+  transform: translateY(-2px) rotate(-6deg);
+  border-color: var(--c-danger);
+}
+
+.micro-signal.is-error .u2 {
+  transform: translateY(2px);
+  border-color: var(--c-danger);
+}
+
+.micro-signal.is-error .u3 {
+  transform: rotate(4deg);
+  border-color: var(--c-danger);
+}
+
+.micro-signal.is-error .u4 {
+  transform: translateY(-1px) rotate(8deg);
+  border-color: var(--c-danger);
+  background: var(--c-danger);
+}
+
+.micro-signal__x {
+  font-size: 10px;
+  color: var(--c-danger);
+  font-weight: var(--weight-bold);
+  margin-inline-start: 3px;
+  line-height: 1;
+}
+
+/* محفوظ محليًا: الوحدات داخل Outline جهاز */
+.micro-signal.is-local-saved .micro-signal__units {
+  border: 1.5px solid var(--c-local);
+  border-radius: 7px;
+  padding: 3px 4px;
+}
+
+.micro-signal.is-local-saved .micro-signal__unit {
+  border-color: var(--c-local);
+  background: var(--c-local-surface);
+}
+
+.micro-signal.is-local-saved .u1 {
+  background: var(--c-local);
+}
+
+/* علامة Micro الرباعية المرشحة (GAP-002) — للاستوديو والهوية */
+.micro-quad {
+  display: inline-grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2px;
+  width: 20px;
+  height: 20px;
+}
+
+.micro-quad i {
+  border-radius: 3px;
+  background: var(--c-primary);
+}
+
+.micro-quad--studio i:nth-child(2) {
+  background: var(--c-accent);
+  border: 1px solid var(--c-ink);
+}
+
+.micro-quad--studio i:nth-child(4) {
+  background: var(--c-warm);
+}
+
+/* ===================== Context Trace / Seam (§14.2) ===================== */
+.context-trace {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--c-ink-2);
+}
+
+.context-seam {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding: var(--space-4) var(--space-5);
+  border-radius: var(--radius-card-sm);
+  background: var(--c-surface-2);
+}
+
+.context-seam--warning {
+  background: var(--c-warning-surface);
+}
+
+.context-seam--info {
+  background: var(--c-info-surface);
+}
+
+.context-seam--partial {
+  background: var(--c-partial-surface);
+}
+
+.context-seam--local {
+  background: var(--c-local-surface);
+}
+
+.context-seam__content {
+  color: var(--c-ink);
+  font-size: var(--type-supporting);
+}
+
+/* ===================== System Ribbon (§14.2/§14.7) ===================== */
+.system-ribbon {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  background: var(--c-local-surface);
+  color: var(--c-local);
+  padding: var(--space-3) var(--space-screen);
+  border-block-end: var(--stroke-hairline) solid var(--c-border);
+  position: relative;
+  z-index: var(--z-ribbon);
+}
+
+.system-ribbon__text {
+  color: var(--c-local);
+  flex: 1;
+}
+
+.system-ribbon__detail {
+  color: var(--c-local);
+}
+
+.system-ribbon__action {
+  color: var(--c-local);
+  font-weight: var(--weight-semibold);
+  font-size: var(--type-supporting);
+}
+
+/* ===================== Recovery Stage (§14.2/§14.6) ===================== */
+.recovery-stage {
+  background: var(--c-surface);
+  border-radius: var(--radius-card-md);
+  padding: var(--space-8);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-3);
+  text-align: start;
+}
+
+.recovery-stage__signal {
+  margin-block-end: var(--space-2);
+}
+
+.recovery-stage__action {
+  margin-block-start: var(--space-2);
+}
+
+/* ===================== Empty states (§14.3) ===================== */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-3);
+  padding: var(--space-8) var(--space-2);
+  text-align: start;
+}
+
+.empty-state--continuation,
+.empty-state--clear-state {
+  padding-block: var(--space-6);
+}
+
+.empty-state .type-supporting {
+  color: var(--c-ink-2);
+}
+
+/* ===================== Insight — الأهم الآن (§13.19) ===================== */
+.insight {
+  border-radius: 18px;
+  padding: var(--space-5) var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.insight--citrus {
+  background: var(--c-accent-soft);
+}
+
+.insight--warning {
+  background: var(--c-warning-surface);
+}
+
+.insight--danger {
+  background: var(--c-danger-surface);
+}
+
+.insight--partial {
+  background: var(--c-partial-surface);
+}
+
+.insight--neutral {
+  background: var(--c-surface-2);
+}
+
+.insight__head {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.insight__category {
+  color: var(--c-ink-2);
+  font-weight: var(--weight-semibold);
+}
+
+.insight__title {
+  color: var(--c-ink);
+}
+
+.insight__evidence,
+.insight__completeness {
+  color: var(--c-ink-2);
+}
+
+.insight__action {
+  margin-block-start: var(--space-2);
+}

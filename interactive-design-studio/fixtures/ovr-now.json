@@ -1,0 +1,307 @@
+{
+  "$fixture": true,
+  "source": "14-JORDANIAN-CONTENT-FIXTURES.md + §13.4/§13.19 (بنية العرض) — قيم عرض فقط",
+  "note": "كل قيمة هنا Fixture لفحص العرض؛ لا تُقرأ كنتيجة مالية مؤكدة. القيم غير المكتملة تظهر بحالتها ولا تصبح صفرًا.",
+  "scenarios": {
+    "complete": {
+      "today": {
+        "label": "اليوم · الثلاثاء 23 سبتمبر 2026",
+        "cash": { "value": 385.75, "state": "known" },
+        "sales": { "value": 412.5, "state": "known", "count": 7 },
+        "collections": { "value": 45.0, "state": "known", "count": 2 },
+        "expenses": { "value": 12.0, "state": "known", "count": 1 }
+      },
+      "snapshot": {
+        "indicatorLabel": "نظرة مالية",
+        "allLabel": "عرض الكل",
+        "activeIndex": 0,
+        "cards": [
+          {
+            "id": "cash",
+            "question": "كم معي الآن؟",
+            "title": "الكاش المتاح",
+            "value": { "value": 385.75, "state": "known" },
+            "support": "في محفظتين · آخر حركة اليوم 1:40 م",
+            "note": "الكاش ليس ربحًا — يشمل رأس المال العامل",
+            "dataState": "complete"
+          },
+          {
+            "id": "result",
+            "question": "هل أنا ربحان أم خسران؟",
+            "title": "نتيجة هذا الشهر",
+            "value": { "value": 420.0, "state": "known", "verdict": "ربح" },
+            "support": "بحسب جميع البيانات المسجلة",
+            "note": "النتيجة ليست الكاش — تحسب من الإيرادات والتكاليف",
+            "dataState": "complete"
+          },
+          {
+            "id": "forYou",
+            "question": "ما لي؟",
+            "title": "ديون لك",
+            "value": { "value": 106.25, "state": "known" },
+            "support": "على 4 عملاء · منها 62.50 د.أ مستحقة اليوم",
+            "note": "",
+            "dataState": "complete"
+          },
+          {
+            "id": "onYou",
+            "question": "ما عليّ؟",
+            "title": "ديون عليك",
+            "value": { "value": 200.0, "state": "known" },
+            "support": "لمورد واحد",
+            "note": "",
+            "dataState": "complete"
+          }
+        ]
+      },
+      "insight": {
+        "level": "action-now",
+        "category": "يحتاج إجراء الآن",
+        "title": "دين أبو محمد عطية الزيتون مستحق اليوم",
+        "evidence": "المبلغ 62.50 د.أ · استحقاق اليوم · آخر حركة أمس",
+        "completeness": "مكتمل",
+        "action": "تسجيل التحصيل",
+        "dataState": "complete"
+      },
+      "recent": "transactions.json (أول 5)",
+      "footerTrace": "آخر تحديث اليوم 2:35 م · البيانات مكتملة"
+    },
+    "partial": {
+      "today": {
+        "label": "اليوم · الثلاثاء 23 سبتمبر 2026",
+        "cash": { "value": 385.75, "state": "known" },
+        "sales": { "value": 412.5, "state": "known", "count": 7 },
+        "collections": { "value": 45.0, "state": "known", "count": 2 },
+        "expenses": { "value": 12.0, "state": "known", "count": 1 }
+      },
+      "snapshot": {
+        "indicatorLabel": "نظرة مالية",
+        "allLabel": "عرض الكل",
+        "activeIndex": 1,
+        "cards": [
+          {
+            "id": "cash",
+            "question": "كم معي الآن؟",
+            "title": "الكاش المتاح",
+            "value": { "value": 385.75, "state": "known" },
+            "support": "في محفظتين · آخر حركة اليوم 1:40 م",
+            "note": "الكاش ليس ربحًا — يشمل رأس المال العامل",
+            "dataState": "complete"
+          },
+          {
+            "id": "result",
+            "question": "هل أنا ربحان أم خسران؟",
+            "title": "نتيجة تقديرية",
+            "value": { "value": 380.0, "state": "estimated", "verdict": "ربح تقريبًا" },
+            "support": "تنقص تكاليف 3 منتجات غير مسجلة",
+            "note": "النتيجة التقديرية ليست مؤكدة — أكمل التكاليف لتحديد النتيجة",
+            "dataState": "partial",
+            "missing": "تكاليف 3 منتجات غير مسجلة",
+            "action": "إضافة التكاليف"
+          },
+          {
+            "id": "forYou",
+            "question": "ما لي؟",
+            "title": "ديون لك",
+            "value": { "value": 106.25, "state": "partial" },
+            "support": "على 4 عملاء · رصيد عميلين غير مسجل — الحساب جزئي",
+            "note": "",
+            "dataState": "partial"
+          },
+          {
+            "id": "onYou",
+            "question": "ما عليّ؟",
+            "title": "ديون عليك",
+            "value": { "value": 200.0, "state": "known" },
+            "support": "لمورد واحد",
+            "note": "",
+            "dataState": "complete"
+          }
+        ]
+      },
+      "insight": {
+        "level": "missing-data",
+        "category": "بيانات ناقصة",
+        "title": "النتيجة التقديرية لا تشمل تكاليف 3 منتجات",
+        "evidence": "تكاليف غير مسجلة لـ3 منتجات هذا الشهر",
+        "completeness": "جزئي",
+        "action": "إضافة التكاليف",
+        "dataState": "partial"
+      },
+      "recent": "transactions.json (أول 5)",
+      "footerTrace": "آخر تحديث اليوم 2:35 م · بعض القيم جزئية"
+    },
+    "insufficient": {
+      "today": {
+        "label": "اليوم · الثلاثاء 23 سبتمبر 2026",
+        "cash": { "value": 385.75, "state": "known" },
+        "sales": { "value": null, "state": "cannot-compute", "note": "لم تُسجل أي عملية اليوم بعد" },
+        "collections": { "value": null, "state": "not-recorded" },
+        "expenses": { "value": null, "state": "not-recorded" }
+      },
+      "snapshot": {
+        "indicatorLabel": "نظرة مالية",
+        "allLabel": "عرض الكل",
+        "activeIndex": 1,
+        "cards": [
+          {
+            "id": "cash",
+            "question": "كم معي الآن؟",
+            "title": "الكاش المتاح",
+            "value": { "value": 385.75, "state": "known" },
+            "support": "في محفظتين",
+            "note": "الكاش ليس ربحًا",
+            "dataState": "complete"
+          },
+          {
+            "id": "result",
+            "question": "هل أنا ربحان أم خسران؟",
+            "title": "النتيجة غير متاحة بعد",
+            "value": { "value": null, "state": "cannot-compute", "note": "لم تُسجل أي تكاليف لهذا الشهر" },
+            "support": "لا يمكن حساب النتيجة قبل تسجيل التكاليف",
+            "note": "",
+            "dataState": "insufficient",
+            "action": "إضافة التكاليف"
+          },
+          {
+            "id": "forYou",
+            "question": "ما لي؟",
+            "title": "ديون لك",
+            "value": { "value": null, "state": "unknown", "note": "بحاجة للمراجعة" },
+            "support": "الربط بين الحركات والعملاء غير مؤكد",
+            "note": "",
+            "dataState": "unknown"
+          },
+          {
+            "id": "onYou",
+            "question": "ما عليّ؟",
+            "title": "دين عليك",
+            "value": { "value": 200.0, "state": "known" },
+            "support": "لمورد واحد",
+            "note": "",
+            "dataState": "complete"
+          }
+        ]
+      },
+      "insight": {
+        "level": "attention",
+        "category": "يحتاج انتباه",
+        "title": "لا يمكن حساب نتيجة الشهر قبل تسجيل التكاليف",
+        "evidence": "لا تكاليف مسجلة منذ بداية الشهر",
+        "completeness": "بيانات غير كافية",
+        "action": "إضافة التكاليف",
+        "dataState": "insufficient"
+      },
+      "recent": "transactions.json (أول 3)",
+      "footerTrace": "آخر تحديث اليوم 2:35 م · بيانات غير كافية للحكم"
+    },
+    "first-use": {
+      "today": null,
+      "snapshot": null,
+      "insight": null,
+      "firstUse": {
+        "title": "ابدأ بتسجيل أول عملية لمشروعك",
+        "body": "بعد أول بيع أو مصروف ستظهر هنا قراءة واضحة لوضع مشروعك اليوم.",
+        "action": "تسجيل أول عملية"
+      },
+      "recent": null,
+      "footerTrace": "بيانات المشروع غير مكتملة"
+    },
+    "offline": {
+      "ribbon": {
+        "text": "تعمل الآن دون اتصال",
+        "detail": "يمكنك متابعة التسجيل — تُحفظ العمليات على هذا الهاتف"
+      },
+      "pendingSend": { "count": 2, "summary": "عمليتان بانتظار الإرسال" },
+      "today": {
+        "label": "اليوم · آخر نسخة محفوظة 2:35 م",
+        "cash": { "value": 377.5, "state": "known", "stale": true },
+        "sales": { "value": 404.25, "state": "known", "count": 6, "stale": true },
+        "collections": { "value": 45.0, "state": "known", "count": 2, "stale": true },
+        "expenses": { "value": 12.0, "state": "known", "count": 1, "stale": true }
+      },
+      "snapshot": {
+        "indicatorLabel": "نظرة مالية",
+        "allLabel": "عرض الكل",
+        "activeIndex": 0,
+        "cards": [
+          {
+            "id": "cash",
+            "question": "كم معي الآن؟",
+            "title": "الكاش المتاح",
+            "value": { "value": 377.5, "state": "known" },
+            "support": "آخر نسخة محفوظة 2:35 م · قد تكون أقل من الواقع بعد آخر عمليتين",
+            "note": "الكاش ليس ربحًا",
+            "dataState": "complete",
+            "stale": true
+          },
+          {
+            "id": "result",
+            "question": "هل أنا ربحان أم خسران؟",
+            "title": "نتيجة هذا الشهر",
+            "value": { "value": 420.0, "state": "known", "verdict": "ربح" },
+            "support": "بحسب آخر نسخة محفوظة — بانتظار إرسال عمليتين",
+            "note": "النتيجة ليست الكاش",
+            "dataState": "complete"
+          },
+          {
+            "id": "forYou",
+            "question": "ما لي؟",
+            "title": "ديون لك",
+            "value": { "value": 106.25, "state": "known" },
+            "support": "على 4 عملاء",
+            "note": "",
+            "dataState": "complete"
+          },
+          {
+            "id": "onYou",
+            "question": "ما عليّ؟",
+            "title": "ديون عليك",
+            "value": { "value": 200.0, "state": "known" },
+            "support": "لمورد واحد",
+            "note": "",
+            "dataState": "complete"
+          }
+        ]
+      },
+      "insight": {
+        "level": "attention",
+        "category": "يحتاج انتباه",
+        "title": "عمليتان محفوظتان على هذا الهاتف بانتظار الإرسال",
+        "evidence": "بيع نقدي 8.25 د.أ · دفعة مورد 50.00 د.أ",
+        "completeness": "من آخر نسخة محفوظة",
+        "action": "عرض العمليات المعلقة",
+        "dataState": "offline"
+      },
+      "recent": "transactions.json (الكل — صفوف محفوظ محليًا/بانتظار الإرسال تظهر حالتها)",
+      "footerTrace": "دون اتصال · آخر نسخة 2:35 م"
+    },
+    "error": {
+      "summaryError": {
+        "title": "لم نتمكن من تحديث نظرة المالية",
+        "body": "بقيت آخر قيم معروضة. تحقق من الاتصال وحاول مرة أخرى.",
+        "action": "إعادة المحاولة",
+        "lastSync": "آخر تحديث ناجح 2:35 م"
+      },
+      "today": {
+        "label": "اليوم · آخر تحديث ناجح 2:35 م",
+        "cash": { "value": 385.75, "state": "known", "stale": true },
+        "sales": { "value": 412.5, "state": "known", "count": 7, "stale": true },
+        "collections": { "value": 45.0, "state": "known", "count": 2, "stale": true },
+        "expenses": { "value": 12.0, "state": "known", "count": 1, "stale": true }
+      },
+      "snapshot": null,
+      "insight": {
+        "level": "attention",
+        "category": "يحتاج انتباه",
+        "title": "دين أبو محمد عطية الزيتون مستحق اليوم",
+        "evidence": "المبلغ 62.50 د.أ · من آخر نسخة محفوظة",
+        "completeness": "مكتمل",
+        "action": "تسجيل التحصيل",
+        "dataState": "complete"
+      },
+      "recent": "transactions.json (أول 5)",
+      "footerTrace": "حدث خطأ في التحديث — تُعرض آخر قيم ناجحة"
+    }
+  }
+}

@@ -1,0 +1,449 @@
+/* Micro Visual System — Financial components CSS (§13)
+   Truth Layer واضح: القيمة وحالتها معًا؛ الكاش لا يبدو ربحًا؛ بطاقة قوية
+   واحدة (Indigo) في مساحة العرض؛ Partial سطح Lavender وInsufficient محايد. */
+
+/* ===================== MoneyValue (§13.3) ===================== */
+.money-value {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-2) var(--space-3);
+  color: var(--c-ink);
+}
+
+.money-value--hero .money-figure {
+  font-size: var(--type-money-hero);
+  font-weight: var(--weight-bold);
+  line-height: var(--leading-tight);
+  font-variant-numeric: tabular-nums;
+}
+
+.money-value--list .money-figure {
+  font-size: var(--type-money-list);
+  font-weight: var(--weight-semibold);
+}
+
+.money-value--body .money-figure {
+  font-size: var(--type-body);
+}
+
+.money-value__figure {
+  display: inline-flex;
+  align-items: baseline;
+  gap: var(--space-2);
+}
+
+.money-value__dash {
+  font-size: var(--type-money-list);
+  color: var(--c-unknown);
+}
+
+.money-value__state {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.money-value__state-text {
+  font-size: var(--type-supporting);
+  color: var(--c-ink-2);
+}
+
+.money-value__note {
+  flex-basis: 100%;
+  color: var(--c-ink-2);
+}
+
+.money-value__stale {
+  flex-basis: 100%;
+  color: var(--c-local);
+}
+
+.money-value.is-stale .money-figure {
+  color: var(--c-ink);
+}
+
+/* ===================== Snapshot Deck (§13.4) ===================== */
+.snapshot-deck {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.snapshot-deck__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.snapshot-card {
+  background: var(--c-surface);
+  border-radius: var(--radius-card-lg);
+  padding: var(--space-10);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  position: relative;
+  overflow: hidden;
+}
+
+/* الكتلة القوية الوحيدة: Indigo بنص أبيض (§13.4/§8) */
+.snapshot-card--strong {
+  background: var(--c-primary);
+  color: var(--c-on-primary);
+}
+
+.snapshot-card--strong .snapshot-card__support,
+.snapshot-card--strong .snapshot-card__question {
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.snapshot-card--strong .money-value {
+  color: var(--c-on-primary);
+}
+
+.snapshot-card--partial {
+  background: var(--c-soft-lavender);
+}
+
+.snapshot-card--insufficient,
+.snapshot-card--unknown {
+  background: var(--c-surface-2);
+}
+
+.snapshot-card__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+.snapshot-card__question {
+  color: var(--c-ink-2);
+}
+
+.snapshot-card__title {
+  color: inherit;
+}
+
+.snapshot-card__verdict {
+  color: var(--c-ink-2);
+}
+
+.snapshot-card__support {
+  color: var(--c-ink-2);
+}
+
+.snapshot-card__action {
+  align-self: flex-start;
+}
+
+.snapshot-card__seam {
+  margin-block-start: var(--space-3);
+  padding-block-start: var(--space-4);
+  border-block-start: var(--stroke-hairline) solid var(--c-border);
+}
+
+.snapshot-card--strong .snapshot-card__seam {
+  border-block-start-color: rgba(255, 255, 255, 0.24);
+}
+
+.snapshot-card--strong .truth-note__trigger-text {
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.snapshot-card--strong .truth-note__def {
+  color: inherit;
+}
+
+/* مؤشر التنقل بين البطاقات + تلميح السحب تحته (لا يغطي الأزرار) */
+.snapshot-deck__nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.snapshot-deck__nav-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-6);
+}
+
+.snapshot-deck__arrow {
+  min-width: var(--size-touch);
+  min-height: var(--size-touch);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  color: var(--c-ink-2);
+  font-size: 22px;
+  transition: background-color var(--motion-press) var(--ease-standard);
+}
+
+.snapshot-deck__arrow:active {
+  background: var(--c-surface-2);
+}
+
+.snapshot-deck__arrow:disabled {
+  color: var(--c-muted);
+  cursor: default;
+}
+
+.snapshot-deck__indicator {
+  font-size: var(--type-supporting);
+  color: var(--c-ink-2);
+  font-variant-numeric: tabular-nums;
+}
+
+.snapshot-deck__hint {
+  color: var(--c-muted);
+}
+
+/* ===================== TruthNote (§13.2/§13.11) ===================== */
+.truth-note {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.truth-note__trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  align-self: flex-start;
+  padding-block: var(--space-2);
+  border-radius: 8px;
+}
+
+.truth-note__trigger-text {
+  color: var(--c-ink-2);
+  text-decoration: underline dotted;
+  text-underline-offset: 4px;
+}
+
+.truth-note__panel {
+  background: var(--c-surface-2);
+  border-radius: var(--radius-card-sm);
+  padding: var(--space-4) var(--space-5);
+}
+
+.truth-note__defs {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin: 0;
+}
+
+.truth-note__def {
+  display: grid;
+  grid-template-columns: 96px 1fr;
+  gap: var(--space-3);
+}
+
+.truth-note__def dt {
+  font-size: var(--type-supporting);
+  color: var(--c-ink-2);
+  font-weight: var(--weight-semibold);
+}
+
+.truth-note__def dd {
+  margin: 0;
+  font-size: var(--type-supporting);
+  color: var(--c-ink);
+}
+
+.truth-note__def--warn dd {
+  color: var(--c-warning);
+}
+
+.snapshot-card--strong .truth-note__panel {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+/* ===================== Transaction rows (§13.5) ===================== */
+.tx-row {
+  background: var(--c-surface);
+}
+
+.tx-row + .tx-row {
+  border-block-start: var(--stroke-hairline) solid var(--c-border);
+}
+
+.tx-row__target {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-4);
+  width: 100%;
+  min-height: var(--size-row-tx);
+  padding: var(--space-4);
+  text-align: start;
+  transition: background-color var(--motion-press) var(--ease-standard);
+}
+
+.tx-row__target:active {
+  background: var(--c-surface-2);
+}
+
+.tx-row__icon {
+  display: inline-flex;
+  color: var(--c-ink);
+  padding-block-start: 2px;
+  flex-shrink: 0;
+}
+
+.tx-row__body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.tx-row__party,
+.tx-row__meta,
+.tx-row__partial {
+  font-size: var(--type-supporting);
+  color: var(--c-ink-2);
+  overflow-wrap: break-word;
+}
+
+.tx-row__save {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-block-start: 2px;
+}
+
+.tx-row__save .type-supporting {
+  color: var(--c-local);
+}
+
+.tx-row__trailing {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+  flex-shrink: 0;
+}
+
+.tx-row__direction {
+  color: var(--c-ink-2);
+}
+
+/* ===================== ResultBlock (§13.11) ===================== */
+.result-block {
+  border-radius: var(--radius-card-lg);
+  padding: var(--space-10);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.result-block--complete {
+  background: var(--c-primary);
+  color: var(--c-on-primary);
+}
+
+.result-block--complete .result-block__question,
+.result-block--complete .result-block__verdict,
+.result-block--complete .result-block__detail,
+.result-block--complete .result-block__reason {
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.result-block--complete .money-value {
+  color: var(--c-on-primary);
+}
+
+.result-block--partial {
+  background: var(--c-soft-lavender);
+}
+
+.result-block--insufficient {
+  background: var(--c-surface-2);
+}
+
+.result-block__question {
+  color: var(--c-ink-2);
+}
+
+.result-block__main {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.result-block__title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+.result-block__verdict,
+.result-block__reason,
+.result-block__detail {
+  color: var(--c-ink-2);
+}
+
+/* ===================== ImpactPreview (§13.8) ===================== */
+.impact-preview {
+  background: var(--c-surface-2);
+  border-radius: var(--radius-card-md);
+  padding: var(--space-5) var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.impact-preview__head {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.impact-preview__lead {
+  color: var(--c-ink-2);
+}
+
+.impact-preview__rows {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.impact-preview__row {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.impact-preview__label {
+  color: var(--c-ink-2);
+}
+
+.impact-preview__values {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-3);
+}
+
+.impact-preview__arrow {
+  color: var(--c-primary);
+  font-weight: var(--weight-bold);
+}
+
+.impact-preview__unknown {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.impact-preview__fixture {
+  color: var(--c-partial);
+  border-block-start: var(--stroke-hairline) dashed var(--c-border);
+  padding-block-start: var(--space-3);
+}

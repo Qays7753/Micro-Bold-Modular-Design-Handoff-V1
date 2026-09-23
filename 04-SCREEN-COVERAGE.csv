@@ -1,47 +1,47 @@
 Screen_ID,Domain,Scenario,Required_Visual_States,Decision_Ref,Navigation_V1,Product_Existence,Design_Status,Agent_Notes
-GLB-SHELL,Global,Global mobile shell,Default|Scrolled|SafeArea|Text200,11|16.5|21.3,See-05,Validate,NotStarted,Five tabs in V1 only
-GLB-ACCOUNT-PANEL,Global,Header connected account panel,Complete|Incomplete|Closed|Focus,11.9|16.4,See-05,Validate,NotStarted,Not a drawer
-GLB-ACCOUNT,Global,Account details,Loaded|Incomplete|Error,11.9|21.3,See-05,Validate,NotStarted,Account access even incomplete
-GLB-PROJECT,Global,Project details,Complete|Incomplete|Error,11.9|21.3,See-05,Validate,NotStarted,No fake completion percentage
-GLB-SETTINGS,Global,System settings,Loaded|Unavailable,11.9|21.3,See-05,Validate,NotStarted,No dark mode
-GLB-LOGOUT,Global,Logout confirmation,Dialog|Focus|Return,11.9|15.6,See-05,Validate,NotStarted,No immediate signout
-GLB-ASK,Global,Ask Micro entry,Loaded|Unavailable|Error,11.7|21.3,See-05,Validate,NotStarted,Entry approved; underlying service requires verified scope; no invented AI response
-GLB-DELIVERY,Global,Delivery entry,Loaded|Unavailable|Error,11.7|21.3,See-05,Validate,NotStarted,Entry approved; service scope and states require verification
-OVR-NOW,Overview,Owner status overview,Complete|Partial|Insufficient|FirstUse|Offline|Error,13.2|13.4|13.20|21.3,See-05,Validate,NotStarted,Cash and profit must not be conflated
-OVR-SNAPSHOT,Overview,Financial snapshot deck,Default|Swipe|Unknown|Text200,13.4|16.1,See-05,Validate,NotStarted,Primary value never hidden
-OVR-SNAPSHOT-ALL,Overview,All financial blocks,Loaded|Partial|Unknown,13.4|21.3,See-05,Validate,NotStarted,Full-screen hierarchy not card grid
-OVR-INSIGHTS,Overview,Insight prioritization,Actionable|Informational|Clear|Partial,13.19|14.1|21.3,See-05,Validate,NotStarted,No generic advice
-OVR-INSIGHT-DETAIL,Overview,Insight evidence,Loaded|Partial|Error,13.19|14.1,See-05,Validate,NotStarted,Explain evidence not invented figures
-OPS-HOME,Operations,Work center,Loaded|FirstUse|Busy|Offline,11|21.3,See-05,Validate,NotStarted,Distinct rhythm from overview
-OPS-ENTRY,Operations,Operation type entry,Default|Unavailable|Error,12.1|21.3,See-05,Validate,NotStarted,Verify actual quick-entry affordance
-OPS-SALE-CREATE,Operations,Cash or credit sale,Empty|Filled|Validation|Impact|Saving|Failure|Success,12|13.8|21.3,See-05,Validate,NotStarted,Financial logic supplied externally
-OPS-EXPENSE-CREATE,Operations,Expense entry,Empty|Filled|Validation|Saving|Failure|Success,12|21.3,See-05,Validate,NotStarted,Do not assume wallet effect
-OPS-COLLECTION,Operations,Debt collection,Partial|Full|Impact|Failure|Success,12|13.6|13.8,See-05,Validate,NotStarted,Before and after data from product
-OPS-SUPPLIER-PAY,Operations,Supplier payment,Partial|Full|Impact|Failure|Success,12|13.6|13.8,See-05,Validate,NotStarted,No fabricated balance
-OPS-PURCHASE,Operations,Purchase entry,Empty|Filled|Validation|Impact|Failure|Success,12|13.8,See-05,Validate,NotStarted,Validate product fields
-OPS-OWNER-MONEY,Operations,Owner money in or out,Entry|Impact|Failure|Success,12|13.8,See-05,Validate,NotStarted,Keep separate from revenue
-OPS-ORDERS-LIST,Operations,Orders list,Loaded|FirstUse|FilteredEmpty|Loading|Offline,10.5|21.3,See-05,Validate,NotStarted,Status coverage by real workflow
-OPS-ORDER-DETAIL,Operations,Order detail,Active|Ready|Delivered|Due|Partial|Error,11.10|21.3,See-05,Validate,NotStarted,Do not invent status transition
-OPS-ORDER-EDIT,Operations,Order entry or edit,Empty|Filled|Validation|UnsavedExit|Saving|Failure,12|21.3,See-05,Validate,NotStarted,Long task may be full-screen
-CAT-ITEMS-LIST,Catalog,Products and services,Loaded|FirstUse|FilteredEmpty|LowStock,10.2|21.3,See-05,Validate,NotStarted,Contextual screen not tab six
-CAT-ITEM-DETAIL,Catalog,Product or service detail,Product|Service|Incomplete|Error,21.3,See-05,Validate,NotStarted,Separate applicable inventory state
-CAT-ITEM-EDIT,Catalog,Add or edit item,Empty|Filled|Validation|UnsavedExit,12|21.3,See-05,Validate,NotStarted,No assumed required fields
-REL-CUSTOMERS,Relationships,Customer list,Loaded|FirstUse|FilteredEmpty|Offline,10.2|21.3,See-05,Validate,NotStarted,One person may have multiple movements
-REL-CUSTOMER-DETAIL,Relationships,Customer detail and debt,Known|Unknown|Partial|Zero|Error,13.6|13.20|21.3,See-05,Validate,NotStarted,Zero not missing
-REL-SUPPLIERS,Relationships,Supplier list,Loaded|FirstUse|FilteredEmpty|Offline,10.2|21.3,See-05,Validate,NotStarted,Validate actual product scope
-REL-SUPPLIER-DETAIL,Relationships,Supplier detail,Known|Unknown|Partial|Zero|Error,13.6|13.20|21.3,See-05,Validate,NotStarted,Do not assume settlement logic
-FIN-OVERVIEW,Finance,Finance overview,Complete|Partial|Insufficient|Zero|Negative|Offline,13.2|13.11|13.20,See-05,Validate,NotStarted,Truthful result by completeness
-FIN-WALLETS,Finance,Wallets and cash list,Loaded|Empty|Unavailable|Offline,13.7|21.3,See-05,Validate,NotStarted,Cash not equal revenue
-FIN-WALLET-DETAIL,Finance,Wallet movement detail,Loaded|Empty|LocalSaved|PendingSync|Error,13.7|13.20,See-05,Validate,NotStarted,Sync states must be truthful
-FIN-ALLOCATION,Finance,Allocation interface,Complete|Remaining|Overallocated|Validation,13.7|21.3,See-05,Validate,NotStarted,Amounts from product rules
-FIN-TRANSFER,Finance,Wallet transfer,Empty|Impact|Saving|Failure|Success,12|13.8|21.3,See-05,Validate,NotStarted,No invented effect
-FIN-DEBTS,Finance,Debts and dues,Known|Unknown|Partial|Zero|FilteredEmpty,13.6|13.20,See-05,Validate,NotStarted,Separate receivables and payables
-FIN-ACTIVITY,Finance,Financial activity list,Loaded|FilteredEmpty|Loading|Offline|PendingSync,13.5|13.20,See-05,Validate,NotStarted,Open rows not card per item
-FIN-TRANSACTION-DETAIL,Finance,Transaction detail,Loaded|Partial|Error|SensitiveAction,13.10|15.6,See-05,Validate,NotStarted,Reversal not deletion
-FIN-CHARTS,Finance,Conditional chart presentation,Line|Bar|HalfRing|MissingData|DataView|Text200,13.13|13.14|16.4,See-05,ConditionalVerify,NotStarted,Pattern inventory only; separate V1 screen only if real route and question verified; accurate data and table required
-TOOL-HOME,Tools,Tools landing,Loaded|Empty|Unavailable,21.3,See-05,Validate,NotStarted,Not uniform card grid
-TOOL-CALCULATOR,Tools,Independent calculator,Entry|Result|Clear|Error,21.3,See-05,Validate,NotStarted,No implicit ledger mutation
-MKT-HOME,Market,Market home,ValueNow|Empty|Loading|Offline,11.6|21.3,See-05,Validate,NotStarted,Five-tab entry approved; launch value must be verified; never invent offering or show Coming Soon only
-MKT-OFFER-DETAIL,Market,Market offering detail,Loaded|Unavailable|Error,11.6|21.3,See-05,ConditionalVerify,NotStarted,Only design an offering proven to exist; otherwise log affected feature as blocked
-GLB-FILTER-PANEL,Global,Contextual filters,Default|Expanded|Applied|NoResults|Reset,10.3|11.13,See-05,Validate,NotStarted,Not chips by default
-GLB-ERROR-RECOVERY,Global,Error and recovery patterns,Inline|Local|Blocking|Retry|Offline,14.6|16.4,See-05,Validate,NotStarted,Embed in owning component
+GLB-SHELL,Global,Global mobile shell,Default|Scrolled|SafeArea|Text200,11|16.5|21.3,See-05,Validate,In Review,Studio shell implemented as host of samples: 5 tabs + unified header + scrolled transition + simulated status bar; route #/ any built screen; evidence interaction_account-panel-open; Text200 verified (z200 screenshots); real-device SafeArea UNVERIFIED
+GLB-ACCOUNT-PANEL,Global,Header connected account panel,Complete|Incomplete|Closed|Focus,11.9|16.4,See-05,Validate,In Review,Implemented with header-connected expansion + incomplete project data + logout dialog; evidence interaction_account-panel-open_360.png
+GLB-ACCOUNT,Global,Account details,Loaded|Incomplete|Error,11.9|21.3,See-05,Validate,NotStarted,Screen deferred pending owner review of the three samples
+GLB-PROJECT,Global,Project details,Complete|Incomplete|Error,11.9|21.3,See-05,Validate,NotStarted,Screen deferred pending owner review
+GLB-SETTINGS,Global,System settings,Loaded|Unavailable,11.9|21.3,See-05,Validate,NotStarted,Screen deferred pending owner review
+GLB-LOGOUT,Global,Logout confirmation,Dialog|Focus|Return,11.9|15.6,See-05,Validate,In Review,Dialog implemented inside AccountPanel (explicit actions; no yes/no); screen-level states deferred
+GLB-ASK,Global,Ask Micro entry,Loaded|Unavailable|Error,11.7|21.3,See-05,Validate,NotStarted,Header entry position approved and rendered; underlying service unverified (GAP-006) — screen deferred
+GLB-DELIVERY,Global,Delivery entry,Loaded|Unavailable|Error,11.7|21.3,See-05,Validate,NotStarted,Header entry position approved and rendered; service scope unverified (GAP-006) — screen deferred
+OVR-NOW,Overview,Owner status overview,Complete|Partial|Insufficient|FirstUse|Offline|Error,13.2|13.4|13.20|21.3,See-05,Validate,In Review,Studio: interactive-design-studio #/OVR-NOW — 6 states (complete/partial/insufficient/first-use/offline/error); SnapshotDeck + Insight + TruthNote; cash not profit; evidence screenshots ovr-now_*.png + fullpage-*; Candidate pending owner review
+OVR-SNAPSHOT,Overview,Financial snapshot deck,Default|Swipe|Unknown|Text200,13.4|16.1,See-05,Validate,In Review,Implemented inside OVR-NOW (one strong card + n-of-4 indicator + arrow nav; finger-swipe real-device UNVERIFIED); not a separate studio route
+OVR-SNAPSHOT-ALL,Overview,All financial blocks,Loaded|Partial|Unknown,13.4|21.3,See-05,Validate,NotStarted,Deferred pending owner review; عرض الكل entry rendered pointing to deferred card
+OVR-INSIGHTS,Overview,Insight prioritization,Actionable|Informational|Partial,13.19|14.1|21.3,See-05,Validate,In Review,Single actionable Insight (Evidence→Action) implemented in OVR-NOW all states incl. missing-data level
+OVR-INSIGHT-DETAIL,Overview,Insight evidence,Loaded|Partial|Error,13.19|14.1,See-05,Validate,NotStarted,Deferred pending owner review
+OPS-HOME,Operations,Work center,Loaded|FirstUse|Busy|Offline,11|21.3,See-05,Validate,NotStarted,Studio shows documentation card (Not Started/Deferred) with review link to OPS-SALE-CREATE sample; screen itself not started
+OPS-ENTRY,Operations,Operation type entry,Default|Unavailable|Error,12.1|21.3,See-05,Validate,NotStarted,Deferred pending owner review
+OPS-SALE-CREATE,Operations,Cash or credit sale,Empty|Filled|Validation|Impact|Saving|Failure|Success,12|13.8|21.3,See-05,Validate,In Review,Studio: #/OPS-SALE-CREATE — 9 states (empty/filled/validation/impact/impact-credit/saving/failure/success/offline-save); quick form + customer/product Sheets + ImpactPreview (fixture-tagged) + action bar; live interactions verified; evidence ops-sale-create_*.png + interaction_sale_*; Candidate pending owner review
+OPS-EXPENSE-CREATE,Operations,Expense entry,Empty|Filled|Validation|Saving|Failure|Success,12|21.3,See-05,Validate,NotStarted,Deferred pending owner review
+OPS-COLLECTION,Operations,Debt collection,Partial|Full|Impact|Failure|Success,12|13.6|13.8,See-05,Validate,NotStarted,Deferred pending owner review
+OPS-SUPPLIER-PAY,Operations,Supplier payment,Partial|Full|Impact|Failure|Success,12|13.6|13.8,See-05,Validate,NotStarted,Deferred pending owner review
+OPS-PURCHASE,Operations,Purchase entry,Empty|Filled|Validation|Impact|Failure|Success,12|13.8|21.3,See-05,Validate,NotStarted,Deferred pending owner review
+OPS-OWNER-MONEY,Operations,Owner money in or out,Entry|Impact|Failure|Success,12|13.8,See-05,Validate,NotStarted,Deferred pending owner review
+OPS-ORDERS-LIST,Operations,Orders list,Loaded|FirstUse|FilteredEmpty|Loading|Offline,10.5|21.3,See-05,Validate,NotStarted,Deferred pending owner review
+OPS-ORDER-DETAIL,Operations,Order detail,Active|Ready|Delivered|Due|Partial|Error,11.10|21.3,See-05,Validate,NotStarted,Deferred pending owner review
+OPS-ORDER-EDIT,Operations,Order entry or edit,Empty|Filled|Validation|UnsavedExit|Saving|Failure,12|21.3,See-05,Validate,NotStarted,Deferred pending owner review
+CAT-ITEMS-LIST,Catalog,Products and services,Loaded|FirstUse|FilteredEmpty|LowStock,10.2|21.3,See-05,Validate,NotStarted,Contextual screen not tab six; deferred pending owner review
+CAT-ITEM-DETAIL,Catalog,Product or service detail,Product|Service|Incomplete|Error,21.3,See-05,Validate,NotStarted,Deferred pending owner review
+CAT-ITEM-EDIT,Catalog,Add or edit item,Empty|Filled|Validation|UnsavedExit,12|21.3,See-05,Validate,NotStarted,Deferred pending owner review
+REL-CUSTOMERS,Relationships,Customer list,Loaded|FirstUse|FilteredEmpty|Offline,10.2|21.3,See-05,Validate,NotStarted,Customer data exists as fixtures + selection Sheet inside sale sample; list screen deferred
+REL-CUSTOMER-DETAIL,Relationships,Customer detail and debt,Known|Unknown|Partial|Zero|Error,13.6|13.20|21.3,See-05,Validate,NotStarted,Deferred pending owner review
+REL-SUPPLIERS,Relationships,Supplier list,Loaded|FirstUse|FilteredEmpty|Offline,10.2|21.3,See-05,Validate,NotStarted,Deferred pending owner review
+REL-SUPPLIER-DETAIL,Relationships,Supplier detail,Known|Unknown|Partial|Zero|Error,13.6|13.20|21.3,See-05,Validate,NotStarted,Deferred pending owner review
+FIN-OVERVIEW,Finance,Finance overview,Complete|Partial|Insufficient|Zero|Negative|Offline,13.2|13.11|13.20,See-05,Validate,In Review,Studio: #/FIN-OVERVIEW — 6 states (complete/partial/insufficient/zero/negative/offline); Question-First sections + wallets + unallocated seam + ResultBlock + period menu; no chart (conditional FIN-CHARTS respected); evidence fin-overview_*.png + fullpage-*; Candidate pending owner review
+FIN-WALLETS,Finance,Wallets and cash list,Loaded|Empty|Unavailable|Offline,13.7|21.3,See-05,Validate,NotStarted,Wallet rows + unallocated pattern shown inside FIN-OVERVIEW cash block; dedicated screen deferred
+FIN-WALLET-DETAIL,Finance,Wallet movement detail,Loaded|Empty|LocalSaved|PendingSync|Error,13.7|13.20,See-05,Validate,NotStarted,Deferred pending owner review
+FIN-ALLOCATION,Finance,Allocation interface,Complete|Remaining|Overallocated|Validation,13.7|21.3,See-05,Validate,NotStarted,Deferred pending owner review
+FIN-TRANSFER,Finance,Wallet transfer,Empty|Impact|Saving|Failure|Success,12|13.8|21.3,See-05,Validate,NotStarted,Deferred pending owner review
+FIN-DEBTS,Finance,Debts and dues,Known|Unknown|Partial|Zero|FilteredEmpty,13.6|13.20,See-05,Validate,NotStarted,Debt values with states (known/partial/not-recorded) exercised as fixtures in FIN-OVERVIEW obligations; dedicated screen deferred
+FIN-ACTIVITY,Finance,Financial activity list,Loaded|FilteredEmpty|Loading|Offline|PendingSync,13.5|13.20,See-05,Validate,NotStarted,TransactionRow component produced + recent movements rendered in OVR-NOW; list screen deferred
+FIN-TRANSACTION-DETAIL,Finance,Transaction detail,Loaded|Partial|Error|SensitiveAction,13.10|15.6,See-05,Validate,NotStarted,Deferred pending owner review
+FIN-CHARTS,Finance,Conditional chart presentation,Line|Bar|HalfRing|MissingData|DataView|Text200,13.13|13.14|16.4,See-05,ConditionalVerify,NotStarted,Respected as conditional: no chart produced (no verified product question/data); pattern documented in SCREEN-CATALOG/STATE-MATRIX
+TOOL-HOME,Tools,Tools landing,Loaded|Empty|Unavailable,21.3,See-05,Validate,NotStarted,Studio shows documentation card; screen deferred
+TOOL-CALCULATOR,Tools,Independent calculator,Entry|Result|Clear|Error,21.3,See-05,Validate,NotStarted,Deferred pending owner review
+MKT-HOME,Market,Market home,ValueNow|Empty|Loading|Offline,11.6|21.3,See-05,Validate,NotStarted,Tab rendered visible/enabled in nav (approved); screen deferred — no invented offerings (GAP-005)
+MKT-OFFER-DETAIL,Market,Market offering detail,Loaded|Unavailable|Error,11.6|21.3,See-05,ConditionalVerify,NotStarted,Deferred — only design an offering proven to exist
+GLB-FILTER-PANEL,Global,Contextual filters,Default|Expanded|Applied|NoResults|Reset,10.3|11.13,See-05,Validate,NotStarted,Period AnchoredMenu produced in FIN-OVERVIEW; full filter panel deferred with its screens
+GLB-ERROR-RECOVERY,Global,Error and recovery patterns,Inline|Local|Blocking|Retry|Offline,14.6|16.4,See-05,Validate,In Review,Patterns produced and embedded in owning components: RecoveryStage (OVR error) + sale failure + SystemRibbon offline + local-saved/pending rows

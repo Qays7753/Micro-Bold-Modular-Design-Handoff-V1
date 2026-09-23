@@ -2,44 +2,45 @@
 
 ## Preflight
 
-- [ ] قرأت جميع ملفات الحزمة المعتمدة.
-- [ ] أنشأت تقارير المدخلات والسلطة والفجوات وخطة التغطية.
-- [ ] أكدت أن Micro الإنتاجي لم يُلمس.
-- [ ] أكدت أن كل المخرجات الجديدة داخل هذا المجلد.
+- [x] قرأت جميع ملفات الحزمة المعتمدة (25 ملفًا — `reports/INPUT-INVENTORY.md`).
+- [x] أنشأت تقارير المدخلات والسلطة والفجوات وخطة التغطية (5 تقارير).
+- [x] أكدت أن Micro الإنتاجي لم يُلمس (لا clone/PR/Commit/Push له).
+- [x] أكدت أن كل المخرجات الجديدة داخل هذا المجلد (عدا تحديث السجلات الجذرية بأدلة).
 
 ## Studio foundation
 
-- [ ] الاستوديو يعمل محليًا من README.
-- [ ] Tokens منفصلة وقابلة للتعديل.
-- [ ] Components قابلة لإعادة الاستخدام.
-- [ ] Arabic RTL و`0–9` و`د.أ`.
-- [ ] Light Mode فقط.
-- [ ] Motion وReduced Motion.
-- [ ] Fixtures موسومة وليست بيانات مالية حقيقية.
+- [x] الاستوديو يعمل محليًا من README (`npm install/dev/build/preview` مثبتة النسخ).
+- [x] Tokens منفصلة وقابلة للتعديل (ثلاث طبقات — `TOKEN-DICTIONARY`).
+- [x] Components قابلة لإعادة الاستخدام (الشاشات الثلاث تشترك فيها جميعًا).
+- [x] Arabic RTL و`0–9` و`د.أ` (فحص آلي + بصري).
+- [x] Light Mode فقط (لا Dark Tokens).
+- [x] Motion وReduced Motion (`MOTION-MAP.md` + مبدّل rm).
+- [x] Fixtures موسومة وليست بيانات مالية حقيقية (`FIXTURE-CATALOG.md`).
 
 ## First proof gate
 
-- [ ] `OVR-NOW`.
-- [ ] `OPS-SALE-CREATE`.
-- [ ] `FIN-OVERVIEW`.
-- [ ] Default.
-- [ ] Partial أو Unknown.
-- [ ] Error أو Recovery.
-- [ ] فحص 320/360/390/412.
-- [ ] فحص RTL والنصوص الطويلة و200% عند الحاجة.
-- [ ] فحص Grayscale وعدم تكرار قالب SaaS.
-- [ ] `VISUAL-PROOF-REVIEW.md` بأدلة فعلية.
+- [x] `OVR-NOW` (6 حالات).
+- [x] `OPS-SALE-CREATE` (9 حالات).
+- [x] `FIN-OVERVIEW` (6 حالات).
+- [x] Default لكل شاشة.
+- [x] Partial/Unknown/Insufficient ذات أثر على القرار.
+- [x] Error/Recovery (RecoveryStage + فشل الحفظ + offline-save).
+- [x] فحص 320/360/390/412 (لقطات + صفر تجاوز أفقي آلي).
+- [x] فحص RTL والنصوص الطويلة و200% عند الحاجة (VLM + آلي).
+- [x] فحص Grayscale وعدم تكرار قالب SaaS (لقطات + تحليل).
+- [x] `VISUAL-PROOF-REVIEW.md` بأدلة فعلية (9 أسئلة).
 
 ## Delivery
 
-- [ ] Component catalog.
-- [ ] Screen catalog.
-- [ ] State matrix.
-- [ ] Navigation map.
-- [ ] Asset manifest والتراخيص أو الفجوات.
-- [ ] QA summary.
-- [ ] Open issues.
-- [ ] Delivery report.
-- [ ] الحالة `Ready for Owner Review`.
-- [ ] لا توجد Secrets.
-- [ ] Commit وPush إلى فرع Zed فقط.
+- [x] Component catalog.
+- [x] Screen catalog.
+- [x] State matrix.
+- [x] Navigation map.
+- [x] Asset manifest والتراخيص (OFL×2 + MIT) أو الفجوات الموسومة.
+- [x] QA summary (+ Contrast report).
+- [x] Open issues.
+- [x] Delivery report.
+- [x] الحالة `Ready for Owner Review` (لا Accepted).
+- [x] لا توجد Secrets (فحص git history + ملفات).
+- [x] Commit وPush إلى فرع Zed فقط (دون Force/PR/دمج).
+- [ ] معاينة مستضافة دائمة خارج الجلسة — **Blocked** بلا تفويض نشر (موثق D-02/ISS-004؛ البديل: تشغيل محلي).

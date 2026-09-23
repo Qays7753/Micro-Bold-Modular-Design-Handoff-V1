@@ -1,0 +1,20 @@
+{
+  "$fixture": true,
+  "source": "14-JORDANIAN-CONTENT-FIXTURES.md — عينات نصية لفحص العرض فقط",
+  "note": "بيانات عرض للاختبار البصري — ليست بيانات مشروع فعلي ولا سياسة محاسبية.",
+  "project": {
+    "name": "مشروع المخبوزات المنزلية في جبل الحسين",
+    "activityType": "مخبوزات منزلية",
+    "accountState": "partial",
+    "accountMissing": "نوع النشاط غير مسجل بعد",
+    "accountAction": "إكمال البيانات",
+    "ownerInitials": "أ م"
+  },
+  "projectComplete": {
+    "name": "مشروع المخبوزات المنزلية في جبل الحسين",
+    "activityType": "مخبوزات منزلية",
+    "accountState": "complete",
+    "accountMissing": "",
+    "accountAction": ""
+  }
+}

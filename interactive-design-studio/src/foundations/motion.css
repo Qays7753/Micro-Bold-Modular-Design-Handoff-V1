@@ -1,0 +1,163 @@
+/* Micro Visual System — Motion (§§10.4، 11.13، 15.1، 16.6)
+   حركة ذات سبب: مصدر ووجهة وعنصر ثابت. إغلاق أسرع من فتح بـ40ms.
+   Reduced Motion: تُزال الاتجاهية والـScale وتستبدل بتغير محلي/Fade 100–150ms
+   دون فقدان معنى الحالة. مؤشر متحرك واحد فقط في مساحة العرض. */
+
+/* يعمل مع إعداد النظام + مع مبدّل طبقة المراجعة (data-motion="reduced") */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --motion-press: 0ms;
+    --motion-local: var(--motion-reduced);
+    --motion-expand: var(--motion-reduced);
+    --motion-screen: var(--motion-reduced);
+    --motion-result: var(--motion-reduced);
+    --motion-sheet: var(--motion-reduced);
+    --motion-dialog: var(--motion-reduced);
+    --motion-dropdown: var(--motion-reduced);
+    --motion-selection: var(--motion-reduced);
+    --motion-crossfade: var(--motion-reduced);
+    --ease-standard: linear;
+    --ease-out: linear;
+  }
+}
+
+[data-motion='reduced'] {
+  --motion-press: 0ms;
+  --motion-local: var(--motion-reduced);
+  --motion-expand: var(--motion-reduced);
+  --motion-screen: var(--motion-reduced);
+  --motion-result: var(--motion-reduced);
+  --motion-sheet: var(--motion-reduced);
+  --motion-dialog: var(--motion-reduced);
+  --motion-dropdown: var(--motion-reduced);
+  --motion-selection: var(--motion-reduced);
+  --motion-crossfade: var(--motion-reduced);
+  --ease-standard: linear;
+  --ease-out: linear;
+}
+
+/* الحركات الاتجاهية تتحول إلى ظهور في الموضع النهائي عند Reduced Motion */
+[data-motion='reduced'] .anim-slide-in-rtl,
+[data-motion='reduced'] .anim-sheet,
+[data-motion='reduced'] .anim-dialog-scale {
+  animation: none !important;
+  transition-duration: var(--motion-reduced) !important;
+  transform: none !important;
+}
+
+/* انتقال شاشة باتجاه RTL (دخول مستوى أعمق): Rooted Motion */
+@keyframes micro-screen-in-rtl {
+  from {
+    opacity: 0;
+    transform: translateX(calc(-1 * 24px)); /* يتحرك من اليسار ناحية اليمين: مستوى أعمق في RTL */
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.anim-slide-in-rtl {
+  animation: micro-screen-in-rtl var(--motion-screen) var(--ease-standard) both;
+}
+
+/* Sheet من الأسفل (11.13) */
+@keyframes micro-sheet-in {
+  from {
+    transform: translateY(24px);
+    opacity: 0.4;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.anim-sheet {
+  animation: micro-sheet-in var(--motion-sheet) var(--ease-standard) both;
+}
+
+/* Dialog: Fade مع Scale خفيف 98%→100% بلا Bounce (10.6) */
+@keyframes micro-dialog-in {
+  from {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.anim-dialog-scale {
+  animation: micro-dialog-in var(--motion-dialog) var(--ease-standard) both;
+}
+
+/* Crossfade محلي: سكلتون → محتوى (10.5) */
+@keyframes micro-crossfade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.anim-crossfade {
+  animation: micro-crossfade-in var(--motion-crossfade) var(--ease-out) both;
+}
+
+/* بروز نتيجة/قيمة في موضعها مرة واحدة ثم استقرار — Action Echo (14.5) */
+@keyframes micro-echo-highlight {
+  0% {
+    background-color: transparent;
+  }
+  30% {
+    background-color: var(--c-primary-soft);
+  }
+  100% {
+    background-color: transparent;
+  }
+}
+
+.anim-echo {
+  animation: micro-echo-highlight var(--motion-result) var(--ease-out) both;
+}
+
+/* وحدات Micro Signal: الامتلاء المتتابع للنجاح (10.4) */
+@keyframes micro-signal-fill {
+  from {
+    opacity: 0.35;
+    transform: scaleY(0.6);
+  }
+  to {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+}
+
+.anim-signal-unit {
+  transform-origin: center;
+  animation: micro-signal-fill 160ms var(--ease-out) both;
+}
+
+/* مؤشر انتظار واحد فقط (One Active Motion Rule): نبض هادئ للوحدة النشطة */
+@keyframes micro-wait-breathe {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.45;
+  }
+}
+
+.anim-wait {
+  animation: micro-wait-breathe 900ms var(--ease-standard) infinite;
+}
+
+/* في Reduced Motion يتحول مؤشر الانتظار إلى حالة ثابتة */
+[data-motion='reduced'] .anim-wait {
+  animation: none;
+  opacity: 0.8;
+}

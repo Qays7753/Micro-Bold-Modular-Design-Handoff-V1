@@ -1,0 +1,55 @@
+{
+  "$fixture": true,
+  "source": "14-JORDANIAN-CONTENT-FIXTURES.md — أسماء وهواتف أردنية لفحص العرض",
+  "note": "أسماء وعلاقات وديون عرض فقط — ليست ديون فعلية؛ القيم الناقصة تبقى ناقصة ولا تتحول إلى صفر.",
+  "customers": [
+    {
+      "id": "CUS-01",
+      "name": "أبو محمد عطية الزيتون",
+      "role": "عميل",
+      "phone": "079 123 4567",
+      "debt": { "value": 62.5, "state": "known", "due": "today" },
+      "lastMovement": "تحصيل 10.00 د.أ · أمس 4:10 م"
+    },
+    {
+      "id": "CUS-02",
+      "name": "رنا محمود عبد القادر أبو خليل",
+      "role": "عميلة",
+      "phone": "078 654 3210",
+      "debt": {
+        "value": 25.0,
+        "original": 40.0,
+        "paid": 15.0,
+        "state": "partial",
+        "due": "no-date"
+      },
+      "lastMovement": "بيع آجل 40.00 د.أ · اليوم 11:20 ص"
+    },
+    {
+      "id": "CUS-03",
+      "name": "محمد خالد السعدي",
+      "role": "عميل",
+      "phone": "077 000 1122",
+      "debt": { "value": null, "state": "not-recorded", "note": "بحاجة للمراجعة — لا يوجد ربط مؤكد للحركات" },
+      "lastMovement": "غير مسجل"
+    },
+    {
+      "id": "CUS-04",
+      "name": "أم عارف",
+      "role": "عميلة",
+      "phone": "غير مسجل",
+      "debt": { "value": 18.75, "state": "known", "due": "no-date" },
+      "lastMovement": "بيع آجل 18.75 د.أ · 12/09/2026"
+    }
+  ],
+  "suppliers": [
+    {
+      "id": "SUP-01",
+      "name": "مؤسسة التوريدات الحديثة للمواد الغذائية",
+      "role": "مورد",
+      "phone": "06 555 0100",
+      "due": { "value": 200.0, "state": "known" },
+      "lastMovement": "شراء بالآجل 200.00 د.أ · 18/09/2026"
+    }
+  ]
+}

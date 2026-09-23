@@ -1,0 +1,385 @@
+/* Micro Visual System — Studio Chrome CSS
+   طبقة المراجعة مفصولة بصريًا ودلاليًا عن واجهة Micro. خلفية الاستوديو
+   محايدة داكنة قليلًا لتمييز إطار الهاتف، وشريط الأدوات موسوم «Studio
+   Chrome». لا تعتمد واجهة Micro على أي قيمة من هذا الملف. */
+
+:root {
+  --studio-bg: #e7ebf2;
+  --studio-ink: #171923;
+  --studio-ink-2: #5e6472;
+  --studio-surface: #ffffff;
+  --studio-border: #d8dde8;
+  --studio-accent: #4f46e5;
+}
+
+body {
+  background: var(--studio-bg);
+}
+
+.studio {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* إزاحة التمرير بحيث لا تختبئ العناصر خلف الشريط الثابت عند scrollIntoView */
+html {
+  scroll-padding-block-start: 300px;
+}
+
+/* ===================== شريط الاستوديو ===================== */
+.studio-bar {
+  background: var(--studio-surface);
+  border-block-end: var(--stroke-hairline) solid var(--studio-border);
+  padding: var(--space-5) var(--space-8);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  position: sticky;
+  top: 0;
+  z-index: var(--z-studio-drawer);
+}
+
+.studio-bar__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-6);
+  flex-wrap: wrap;
+}
+
+.studio-bar__identity {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.studio-bar__title {
+  font-size: var(--type-card-title);
+  font-weight: var(--weight-bold);
+  color: var(--studio-ink);
+  margin: 0;
+}
+
+.studio-bar__sub {
+  font-size: var(--type-supporting);
+  color: var(--studio-ink-2);
+  margin: 0;
+}
+
+.studio-bar__tools {
+  display: flex;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+
+.studio-bar__chrome-note {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--studio-ink-2);
+  margin: 0;
+}
+
+.studio-bar__chrome-note strong {
+  color: var(--studio-accent);
+}
+
+.studio-about {
+  background: #f4f6fa;
+  border-radius: var(--radius-card-sm);
+  padding: var(--space-4) var(--space-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.studio-about p {
+  margin: 0;
+}
+
+/* ===================== أدوات التحكم ===================== */
+.studio-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-5) var(--space-10);
+}
+
+.studio-controls__group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.studio-controls__label {
+  font-size: 12px;
+  font-weight: var(--weight-semibold);
+  color: var(--studio-ink-2);
+}
+
+.studio-chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.studio-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: 34px;
+  padding-inline: var(--space-4);
+  border-radius: 10px;
+  border: var(--stroke-hairline) solid var(--studio-border);
+  background: var(--studio-surface);
+  color: var(--studio-ink);
+  font-size: 13px;
+  font-weight: var(--weight-medium);
+  transition:
+    background-color 100ms var(--ease-standard),
+    border-color 100ms var(--ease-standard),
+    color 100ms var(--ease-standard);
+}
+
+.studio-chip:active {
+  background: #eef1f7;
+}
+
+.studio-chip.is-active {
+  background: var(--studio-accent);
+  border-color: var(--studio-accent);
+  color: #ffffff;
+}
+
+.studio-chip.is-deferred {
+  border-style: dashed;
+  color: var(--studio-ink-2);
+}
+
+.studio-chip__tag {
+  font-size: 11px;
+  border-radius: 6px;
+  background: #eef1f7;
+  padding: 1px 6px;
+  color: var(--studio-ink-2);
+}
+
+.studio-chip.is-deferred.is-active {
+  background: #5e6472;
+  border-color: #5e6472;
+  color: #ffffff;
+}
+
+.studio-chip.is-deferred.is-active .studio-chip__tag {
+  background: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+}
+
+/* ===================== المسرح وإطار الهاتف ===================== */
+.studio-stage {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-10) var(--space-6) var(--space-12);
+}
+
+.device-frame {
+  width: var(--frame-w, 360px);
+  max-width: 100%;
+  background: var(--c-canvas);
+  border: 1px solid #c9d0dc;
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: 0 18px 48px rgba(23, 25, 35, 0.14);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  min-height: 720px;
+}
+
+.device-frame--full {
+  width: 100%;
+  max-width: 480px;
+  min-height: 760px;
+}
+
+/* شريط النظام المحاكى (توضيح الحدود في device-caption أدناه) */
+.device-statusbar {
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-inline: var(--space-6);
+  color: var(--c-ink);
+  background: var(--c-canvas);
+  font-size: 12px;
+  font-weight: var(--weight-semibold);
+}
+
+.device-statusbar__icons {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.device-caption {
+  color: var(--studio-ink-2);
+  margin: 0;
+  text-align: center;
+}
+
+/* إطار التطبيق نفسه */
+.app-viewport {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  background: var(--c-canvas);
+  overflow: hidden;
+}
+
+/* فحص إزالة اللون (§16.7) */
+.studio[data-gray='1'] .app-viewport {
+  filter: grayscale(1);
+}
+
+.app-root {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  position: relative;
+}
+
+.app-content {
+  flex: 1;
+  overflow-y: auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  scrollbar-width: thin;
+}
+
+.app-content > * {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-content.is-dimmed {
+  opacity: 0.6;
+}
+
+/* شريط تمرير أنعم داخل الإطار */
+.app-content::-webkit-scrollbar,
+.sheet__body::-webkit-scrollbar,
+.picker__list-container::-webkit-scrollbar {
+  width: 4px;
+}
+
+.app-content::-webkit-scrollbar-thumb {
+  background: var(--c-muted);
+  border-radius: 4px;
+}
+
+/* ===================== درج معلومات الشاشة ===================== */
+.studio-drawer {
+  position: fixed;
+  inset-block: 0;
+  inset-inline-end: 0;
+  width: min(400px, 92vw);
+  background: var(--studio-surface);
+  border-inline-start: var(--stroke-hairline) solid var(--studio-border);
+  box-shadow: -12px 0 40px rgba(23, 25, 35, 0.12);
+  z-index: calc(var(--z-studio-drawer) + 5);
+  display: flex;
+  flex-direction: column;
+  animation: drawer-in 220ms var(--ease-standard) both;
+}
+
+@keyframes drawer-in {
+  from {
+    transform: translateX(-24px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.studio-drawer__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-5) var(--space-6);
+  border-block-end: var(--stroke-hairline) solid var(--studio-border);
+}
+
+.studio-drawer__head h3 {
+  margin: 0;
+  font-size: var(--type-card-title);
+  color: var(--studio-ink);
+}
+
+.studio-drawer__head button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: var(--size-touch);
+  min-height: var(--size-touch);
+  color: var(--studio-ink-2);
+  border-radius: 50%;
+}
+
+.studio-drawer__body {
+  overflow-y: auto;
+  padding: var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.studio-drawer__defs {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  margin: 0;
+}
+
+.studio-drawer__defs > div {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: var(--space-3);
+}
+
+.studio-drawer__defs dt {
+  font-size: var(--type-supporting);
+  color: var(--studio-ink-2);
+  font-weight: var(--weight-semibold);
+}
+
+.studio-drawer__defs dd {
+  margin: 0;
+  font-size: var(--type-supporting);
+  color: var(--studio-ink);
+  overflow-wrap: anywhere;
+}
+
+.studio-drawer__note,
+.studio-drawer__fixtures {
+  margin: 0;
+  color: var(--studio-ink-2);
+}
+
+.studio-drawer__fixtures {
+  border-block-start: var(--stroke-hairline) dashed var(--studio-border);
+  padding-block-start: var(--space-4);
+}
+
+/* شاشة الاستوديو الرئيسية داخل الإطار */
+.screen--home .home-intro {
+  gap: var(--space-5);
+}

@@ -1,0 +1,582 @@
+/* Micro Visual System — Core components CSS (§§10، 12)
+   المرجع: tokens.css لكل القيم. لا Hex هنا — Tokens فقط. RTL عبر خصائص
+   منطقية. اللمس ≥44px. الظل للطبقات الحقيقية فقط. */
+
+/* ===================== Buttons (§10.1) ===================== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-4);
+  min-height: var(--size-button);
+  padding-inline: var(--space-8);
+  border-radius: var(--radius-button);
+  font-size: var(--type-button);
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-snug);
+  transition:
+    background-color var(--motion-press) var(--ease-standard),
+    color var(--motion-press) var(--ease-standard),
+    border-color var(--motion-press) var(--ease-standard),
+    transform var(--motion-press) var(--ease-standard);
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.btn--compact {
+  min-height: var(--size-button-compact);
+  padding-inline: var(--space-6);
+}
+
+.btn--block {
+  width: 100%;
+}
+
+.btn--primary {
+  background: var(--btn-primary-bg);
+  color: var(--btn-primary-ink);
+}
+
+.btn--primary:active {
+  background: var(--c-primary-pressed);
+  transform: scale(0.985);
+}
+
+.btn--primary.is-loading {
+  background: var(--c-primary-pressed);
+  cursor: progress;
+}
+
+.btn--accent {
+  background: var(--c-accent);
+  color: var(--c-on-accent);
+}
+
+.btn--accent:active {
+  transform: scale(0.985);
+}
+
+.btn--secondary {
+  background: var(--btn-secondary-bg);
+  color: var(--btn-secondary-ink);
+  border: var(--stroke-hairline) solid var(--c-boundary);
+}
+
+.btn--secondary:active {
+  background: var(--c-surface-2);
+  transform: scale(0.985);
+}
+
+.btn--tertiary {
+  background: transparent;
+  color: var(--c-primary);
+  padding-inline: var(--space-4);
+}
+
+.btn--tertiary:active {
+  color: var(--c-primary-pressed);
+}
+
+.btn--destructive {
+  background: var(--c-danger);
+  color: var(--c-surface);
+}
+
+.btn--destructive:active {
+  transform: scale(0.985);
+}
+
+.btn:focus-visible,
+.icon-btn:focus-visible,
+.segmented__option:focus-visible,
+.open-row__target:focus-visible,
+.bottom-nav__target:focus-visible,
+.field__input:focus-visible,
+.sale-customer:focus-visible,
+.qty-btn:focus-visible,
+.period-btn:focus-visible,
+.picker__item:focus-visible,
+.link-action:focus-visible,
+.app-header__account:focus-visible,
+.app-header__text-action:focus-visible,
+.studio-chip:focus-visible,
+.snapshot-deck__arrow:focus-visible,
+.account-panel__logout-btn:focus-visible,
+.sheet__close:focus-visible,
+.anchored-menu__item:focus-visible,
+.dialog__action:focus-visible,
+.home-link:focus-visible,
+.truth-note__trigger:focus-visible,
+.sale-extras__toggle:focus-visible {
+  /* Focus Contour (§16.4): Indigo على الفاتح، ~2px، بلا Glow */
+  outline: var(--stroke-focus) solid var(--c-focus);
+  outline-offset: 2px;
+}
+
+.btn:disabled,
+.icon-btn.is-disabled {
+  color: var(--c-ink-disabled);
+  cursor: not-allowed;
+}
+
+.btn--primary:disabled {
+  background: var(--c-surface-2);
+  color: var(--c-ink-disabled);
+}
+
+.icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: var(--size-touch);
+  min-height: var(--size-touch);
+  color: var(--c-ink);
+  border-radius: var(--radius-card-sm);
+  transition: color var(--motion-press) var(--ease-standard);
+}
+
+.icon-btn:active {
+  color: var(--c-primary-pressed);
+}
+
+.icon-btn.is-active {
+  color: var(--c-primary);
+  background: var(--c-primary-soft);
+}
+
+.link-action {
+  color: var(--c-primary);
+  font-size: var(--type-supporting);
+  font-weight: var(--weight-semibold);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding-block: var(--space-2);
+  padding-inline: var(--space-2);
+  border-radius: 8px;
+  transition: color var(--motion-press) var(--ease-standard);
+}
+
+.link-action:active {
+  color: var(--c-primary-pressed);
+}
+
+/* ===================== Segmented (§10.3/§12.4) ===================== */
+.segmented {
+  display: flex;
+  background: var(--c-surface-2);
+  border-radius: var(--radius-segmented);
+  padding: 3px;
+  gap: 2px;
+}
+
+.segmented__option {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  min-height: 40px;
+  border-radius: calc(var(--radius-segmented) - 3px);
+  color: var(--c-ink-2);
+  font-size: var(--type-body);
+  font-weight: var(--weight-medium);
+  transition:
+    background-color var(--motion-selection) var(--ease-standard),
+    color var(--motion-selection) var(--ease-standard);
+}
+
+.segmented__option.is-selected {
+  background: var(--c-surface);
+  color: var(--c-ink);
+  font-weight: var(--weight-semibold);
+  box-shadow: var(--elevation-menu);
+}
+
+.segmented__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: 2px solid var(--c-boundary);
+  display: none;
+}
+
+.segmented__option.is-selected .segmented__dot {
+  display: inline-block;
+  border-color: var(--c-primary);
+  background: var(--c-primary);
+}
+
+/* ===================== Fields (§12.3/§12.4) ===================== */
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.field__label {
+  font-size: var(--type-supporting);
+  font-weight: var(--weight-semibold);
+  color: var(--c-ink);
+}
+
+.field__optional {
+  color: var(--c-ink-2);
+  font-weight: var(--weight-regular);
+}
+
+.field__box {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  background: var(--field-bg);
+  border: var(--stroke-hairline) solid var(--field-boundary);
+  border-radius: var(--radius-field);
+  min-height: var(--size-field);
+  padding-inline: var(--space-4);
+  transition:
+    border-color var(--motion-local) var(--ease-standard),
+    box-shadow var(--motion-local) var(--ease-standard);
+}
+
+.field__box:focus-within {
+  border-color: var(--field-boundary-focus);
+  box-shadow: 0 0 0 3px var(--c-primary-soft);
+}
+
+.has-error .field__box {
+  border-color: var(--c-danger);
+}
+
+.field__input {
+  flex: 1;
+  border: 0;
+  background: transparent;
+  font-size: var(--type-body);
+  color: var(--c-ink);
+  min-width: 0;
+}
+
+.field__input:focus {
+  outline: none;
+}
+
+.field__input::placeholder {
+  color: var(--c-ink-disabled);
+}
+
+.field__box--amount {
+  justify-content: space-between;
+}
+
+.field__input--amount {
+  font-size: var(--type-money-list);
+  font-weight: var(--weight-semibold);
+  font-variant-numeric: tabular-nums;
+  text-align: start;
+}
+
+.field__unit {
+  color: var(--c-ink-2);
+  font-size: var(--type-supporting);
+  font-weight: var(--weight-semibold);
+}
+
+.field__clear {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: var(--size-touch);
+  min-height: var(--size-touch);
+  margin-inline-start: auto;
+  color: var(--c-ink-2);
+  border-radius: 50%;
+}
+
+.field__hint {
+  color: var(--c-ink-2);
+}
+
+.field__error {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--c-danger);
+  font-size: var(--type-supporting);
+}
+
+.field__error .icon {
+  flex-shrink: 0;
+}
+
+/* ===================== Open rows (§10.2) ===================== */
+.row-group {
+  background: var(--c-surface);
+  border-radius: var(--radius-card-md);
+  overflow: hidden;
+}
+
+.open-row:not(:last-child).has-divider .open-row__target {
+  border-block-end: var(--stroke-hairline) solid var(--c-border);
+}
+
+.open-row__target {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  width: 100%;
+  min-height: var(--size-row);
+  padding: var(--space-4) var(--space-4);
+  text-align: start;
+  transition: background-color var(--motion-press) var(--ease-standard);
+}
+
+.open-row__target:active {
+  background: var(--c-surface-2);
+}
+
+.open-row__icon {
+  display: inline-flex;
+  color: var(--c-ink);
+  flex-shrink: 0;
+}
+
+.open-row__body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.open-row__title {
+  font-size: var(--type-body);
+  font-weight: var(--weight-semibold);
+  color: var(--c-ink);
+  overflow-wrap: break-word;
+}
+
+.open-row__supporting {
+  font-size: var(--type-supporting);
+  color: var(--c-ink-2);
+  overflow-wrap: break-word;
+}
+
+.open-row__trailing {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  color: var(--c-ink-2);
+  flex-shrink: 0;
+}
+
+.open-row.is-unavailable .open-row__target {
+  opacity: 1;
+}
+
+.open-row.is-unavailable .open-row__title,
+.open-row.is-unavailable .open-row__trailing {
+  color: var(--c-ink-disabled);
+}
+
+/* ===================== Overlays: Sheet / Dialog / Menu (§10.6) ===================== */
+.overlay {
+  position: absolute;
+  inset: 0;
+  z-index: var(--z-scrim);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.overlay__scrim {
+  position: absolute;
+  inset: 0;
+  background: var(--c-overlay);
+}
+
+.overlay__scrim--light {
+  background: rgba(15, 17, 23, 0.18);
+}
+
+.overlay--menu {
+  z-index: var(--z-sheet);
+}
+
+.sheet {
+  position: relative;
+  width: 100%;
+  max-height: 85%;
+  display: flex;
+  flex-direction: column;
+  background: var(--c-surface);
+  border-start-start-radius: var(--radius-sheet);
+  border-start-end-radius: var(--radius-sheet);
+  box-shadow: var(--elevation-layer);
+  z-index: var(--z-sheet);
+}
+
+.sheet__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-5) var(--space-screen);
+  border-block-end: var(--stroke-hairline) solid var(--c-border);
+}
+
+.sheet__title {
+  color: var(--c-ink);
+}
+
+.sheet__close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: var(--size-touch);
+  min-height: var(--size-touch);
+  color: var(--c-ink-2);
+  border-radius: 50%;
+}
+
+.sheet__body {
+  overflow-y: auto;
+  padding: var(--space-5) var(--space-screen);
+}
+
+.sheet__footer {
+  padding: var(--space-4) var(--space-screen);
+  border-block-start: var(--stroke-hairline) solid var(--c-border);
+  display: flex;
+  gap: var(--space-4);
+}
+
+.dialog-wrap,
+.dialog {
+  position: relative;
+}
+
+.overlay .dialog {
+  align-self: center;
+  width: 90%;
+  background: var(--c-surface);
+  border-radius: var(--radius-dialog);
+  padding: var(--space-8);
+  box-shadow: var(--elevation-layer);
+  z-index: var(--z-dialog);
+  margin-block-end: auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.overlay:has(.dialog) {
+  align-items: center;
+  justify-content: center;
+}
+
+.dialog__title {
+  color: var(--c-ink);
+}
+
+.dialog__body {
+  color: var(--c-ink-2);
+}
+
+.dialog__actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.dialog__action {
+  min-height: var(--size-button-compact);
+  border-radius: var(--radius-button);
+  font-size: var(--type-button);
+  font-weight: var(--weight-semibold);
+  transition: background-color var(--motion-press) var(--ease-standard);
+}
+
+.dialog__action--secondary {
+  background: transparent;
+  color: var(--c-ink);
+  border: var(--stroke-hairline) solid var(--c-boundary);
+}
+
+.dialog__action--primary {
+  background: var(--c-primary);
+  color: var(--c-on-primary);
+}
+
+.dialog__action--primary.is-destructive {
+  background: var(--c-danger);
+}
+
+.anchored-menu {
+  position: absolute;
+  inset-inline: var(--space-screen);
+  inset-block-end: auto;
+  top: 120px;
+  background: var(--c-surface);
+  border-radius: var(--radius-menu);
+  box-shadow: var(--elevation-menu);
+  border: var(--stroke-hairline) solid var(--c-border);
+  z-index: var(--z-sheet);
+  overflow: hidden;
+}
+
+.anchored-menu__item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  min-height: 48px;
+  padding-inline: var(--space-6);
+  font-size: var(--type-body);
+  color: var(--c-ink);
+  transition: background-color var(--motion-press) var(--ease-standard);
+}
+
+.anchored-menu__item:active {
+  background: var(--c-surface-2);
+}
+
+.anchored-menu__item.is-selected {
+  font-weight: var(--weight-semibold);
+  color: var(--c-primary);
+}
+
+/* ===================== Skeletons (§14.4) ===================== */
+.skeleton {
+  display: block;
+  border-radius: 8px;
+  background: var(--c-muted);
+  opacity: 0.35;
+  height: 14px;
+}
+
+.skeleton--title {
+  height: 20px;
+}
+
+.skeleton--money {
+  height: 40px;
+  width: 70%;
+}
+
+.skeleton--row {
+  height: 52px;
+  border-radius: var(--radius-card-sm);
+}
+
+.structural-load {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  padding: var(--space-6);
+  background: var(--c-surface);
+  border-radius: var(--radius-card-md);
+}
+
+.structural-load__row + .structural-load__row {
+  margin-block-start: var(--space-3);
+}
