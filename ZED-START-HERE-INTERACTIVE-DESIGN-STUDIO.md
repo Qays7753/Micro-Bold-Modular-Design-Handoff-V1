@@ -11,7 +11,7 @@
 - Implementation folder: `interactive-design-studio/`
 - Revision baseline: latest remote commit on this branch; the old initial-execution base commit is superseded by the revision documents.
 
-> **تعديل لاحق على التكليف الأصلي:** لتصحيح النسخة المنفذة اقرأ أولًا `17-COLOR-DECISION-2026-09-23.md` و`18-ZAI-STUDIO-REVISION-BRIEF-2026-09-23.md`. هذان الملفان يقدمان على أي لون أو وصف Indigo/Citrus في هذا التكليف القديم. أعِد إنتاج أدلة الإصدار الجديد ولا تعتبر الصور والتقارير القديمة مطابقة للألوان الجديدة.
+> **تعديل لاحق على التكليف الأصلي:** لتصحيح النسخة المنفذة اقرأ أولًا `17-COLOR-DECISION-2026-09-23.md` و`18-ZAI-STUDIO-REVISION-BRIEF-2026-09-23.md` و`19-STUDIO-COMPLETE-COVERAGE-GATE-2026-09-23.md`. تتقدم هذه الملفات على أي لون أو وصف Indigo/Citrus في هذا التكليف القديم، وتشمل المراجعة **كل مكونات الاستوديو المنفذة وحالاتها وهيكله وواجهة مراجعته ووثائقه**، وليس الشاشات الثلاث الافتراضية وحدها. أعِد إنتاج أدلة الإصدار الجديد ولا تعتبر الصور والتقارير القديمة مطابقة للألوان الجديدة.
 
 لا تعدّل مستودع `Qays7753/Micro` بأي شكل. لا تنشئ له Commit أو PR أو Push. لا تعدّل `main` مباشرة.
 
@@ -37,6 +37,9 @@ Figma اختياري. لا تتوقف بسببه. إذا لم تكن لديك أ
 
 اقرأ قبل التعديل:
 
+- `17-COLOR-DECISION-2026-09-23.md`
+- `18-ZAI-STUDIO-REVISION-BRIEF-2026-09-23.md`
+- `19-STUDIO-COMPLETE-COVERAGE-GATE-2026-09-23.md`
 - `AGENTS.md`
 - هذا الملف
 - `README.md`

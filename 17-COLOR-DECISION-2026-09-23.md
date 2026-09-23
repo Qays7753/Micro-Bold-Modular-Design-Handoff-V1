@@ -4,6 +4,8 @@
 
 **Scope:** Light Mode, Arabic RTL mobile UI only. Do not modify production Micro. `#D97757` is the owner's explicit fixed brand choice. The other HEX values are the design lead's coherent **implementation baseline**, delegated for the studio revision; do not represent them as individually approved by the owner or as user-tested. The owner wants the agent to implement and report, without another palette-approval round. Change a baseline value only when a documented contrast or visual defect requires it; record the replacement and its evidence.
 
+**Application:** Every implemented component and its variants, all rendered screen and global states, existing studio review controls, current token dictionaries and documentation must reflect the complete palette, not only the three default screen views. `19-STUDIO-COMPLETE-COVERAGE-GATE-2026-09-23.md` is the required coverage inventory and acceptance gate; the previously delivered studio remains visually historical until its source and evidence are regenerated.
+
 ## 1. Design intent
 
 Micro should feel awake, competent and comfortable to a Jordanian small business owner seeking an answer quickly. A large color field is allowed when its content and purpose justify it. **No 70/20/10, 70–80% neutral, 1–5% brand, or 5–8% terracotta quota applies.** No requirement to paint the same block on every screen. Distinctiveness depends on the relation between color, typography, space, content and interaction; changing Indigo to another HEX without changing the composition fails this brief.
