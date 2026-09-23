@@ -9,9 +9,19 @@
 - Repository: `Qays7753/Micro-Bold-Modular-Design-Handoff-V1`
 - Branch: `exec/interactive-design-studio-zed-20260923`
 - Implementation folder: `interactive-design-studio/`
-- Base commit: `5988e77d6b024480c38d0744d364b89a82e89630`
+- Base commit: `7911c100f4a00f1a025389e53c6c8cfaeda0eac6`
 
 لا تعدّل مستودع `Qays7753/Micro` بأي شكل. لا تنشئ له Commit أو PR أو Push. لا تعدّل `main` مباشرة.
+
+## عقد محادثة المتصفح — هذه الرسالة مكتفية ذاتيًا
+
+أنت تعمل مع المالك من خلال محادثة ZAI في المتصفح. اعتبر هذا الملف كامل التعليمات؛ لا تفترض وجود Prompt آخر أو سياق سابق أو تعليمات لاحقة خارج هذا الملف. لا تطلب من المالك إعادة شرح المستودع أو الهدف أو مسار التنفيذ؛ اقرأ الملفات المحددة هنا ثم نفّذ وفقها.
+
+في أول رد وقبل أي تعديل أو أمر يغيّر الملفات، قدم Preflight موجزًا يثبت: اسم المستودع، الفرع الحالي، Commit الأساس، مجلد التنفيذ، ما إذا كانت Figma متاحة فعليًا، ما الذي ستنتجه، وخطة البوابة الأولى. بعد هذا الرد تابع العمل على نفس المهمة؛ لا تنتظر رسالة منفصلة لإعادة إرسال هذه التعليمات.
+
+قد يرسل المالك GitHub Fine-grained Personal Access Token داخل هذه المحادثة حتى تستطيع الرفع. إذا حدث ذلك، عامله كسر مؤقت: استخدمه فقط مع المستودع المحدد هنا وللدفع إلى الفرع المحدد هنا، ولا تطبعه أو تلخصه أو تضعه في Prompt أو ملف أو Commit أو URL أو Log أو Screenshot أو تقرير نهائي. لا تستخدمه للوصول إلى مستودع آخر، ولا تطلب صلاحيات إضافية. إذا لم يصل Token أو فشل الدفع، أكمل التنفيذ محليًا وسجل `PUSH BLOCKED` دون كشف السر.
+
+لا تعتبر إرسال هذا الملف موافقة على دمج الفرع. لا تفتح Pull Request ولا تدمج إلى `main`. نهاية مهمتك هي `Ready for Owner Review` على فرع التنفيذ.
 
 ## النتيجة المطلوبة
 
@@ -248,7 +258,8 @@ git diff --stat
 أنشئ Commit واحدًا أو عدة Commits مفهومة على هذا الفرع، ثم ادفع إلى الفرع نفسه دون Force Push:
 
 ```bash
-git add AGENTS.md ZED-START-HERE-INTERACTIVE-DESIGN-STUDIO.md interactive-design-studio/ [السجلات الجذرية التي تغيرت فعليًا فقط]
+git add AGENTS.md ZED-START-HERE-INTERACTIVE-DESIGN-STUDIO.md interactive-design-studio/
+# If and only if you updated a root delivery registry with real evidence, stage the exact changed registry files separately.
 git commit -m "design(studio): build independent interactive design reference"
 git push origin HEAD:exec/interactive-design-studio-zed-20260923
 ```
