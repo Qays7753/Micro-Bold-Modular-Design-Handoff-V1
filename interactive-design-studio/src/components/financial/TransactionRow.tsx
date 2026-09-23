@@ -10,6 +10,7 @@ import { MicroSignal, dataStateToSignal, SIGNAL_STATE_TEXT } from '../contextual
 import { Icon, type IconName } from '../icons/Icon'
 import { SAVE_STATE_LABELS } from '../../states/types'
 import type { TransactionFixture } from '../../fixtures/types'
+import { formatAmount } from '../../foundations/tokens'
 
 const TYPE_ICON: Record<string, IconName> = {
   'بيع نقدي': 'basket',
@@ -41,7 +42,19 @@ export function TransactionRow({ tx, chevron = true, onClick }: { tx: Transactio
           </span>
           {tx.valueState === 'partial-amount' && typeof tx.paid === 'number' && typeof tx.remaining === 'number' ? (
             <span className="tx-row__partial type-supporting">
-              الأصل 40.00 د.أ · المدفوع 15.00 د.أ · المتبقي 25.00 د.أ
+              {([
+                ['الأصل', tx.amount],
+                ['المدفوع', tx.paid],
+                ['المتبقي', tx.remaining],
+              ] as const).map(([label, value]) => (
+                <span className="tx-row__partial-item" key={label}>
+                  {label}{' '}
+                  <span className="money-figure">
+                    <span className="money-num">{value === null ? '—' : formatAmount(value)}</span>{' '}
+                    {value !== null ? <span className="money-unit">د.أ</span> : null}
+                  </span>
+                </span>
+              ))}
             </span>
           ) : null}
           {saveLabel ? (

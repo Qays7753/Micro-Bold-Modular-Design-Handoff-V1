@@ -380,6 +380,32 @@
   flex-shrink: 0;
 }
 
+/* ترتيب قابل للقراءة عند 200%: الاسم والشرح بعرض الصف، والقيمة تحتهما.
+   يبقى الصف كله هدف لمس واحد، من دون تغيير بنيته عند حجم النص العادي. */
+.app-viewport[data-text-scale='200'] .open-row__target {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: start;
+}
+
+.app-viewport[data-text-scale='200'] .open-row__icon {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.app-viewport[data-text-scale='200'] .open-row__body {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.app-viewport[data-text-scale='200'] .open-row__trailing {
+  grid-column: 2;
+  grid-row: 2;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  margin-block-start: var(--space-2);
+}
+
 .open-row.is-unavailable .open-row__target {
   opacity: 1;
 }

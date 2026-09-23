@@ -100,6 +100,7 @@ export default function App() {
           <div
             className="app-viewport"
             data-motion={params.rm ? 'reduced' : 'normal'}
+            data-text-scale={params.z}
             style={{ '--text-scale': zoomScale } as React.CSSProperties}
           >
             <AppFrame screenId={params.screenId} onNavigate={onNavigate} badges={{ ops: 3 }}>

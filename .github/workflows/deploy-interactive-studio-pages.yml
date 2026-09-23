@@ -38,6 +38,13 @@ jobs:
       - name: Build studio
         run: npm run build
 
+      # Keep a downloadable build even if Pages enablement is unavailable to this integration.
+      - name: Upload independent build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: micro-studio-built-site
+          path: interactive-design-studio/dist
+
       - name: Configure Pages
         uses: actions/configure-pages@v5
         with:
