@@ -6,7 +6,7 @@
 
 | البند | ماذا يسلم المصمم |
 |---|---|
-| المرجع | Screen ID، رابط Frame بحالة Approved، أقسام القرار |
+| المرجع | Screen ID، رابط Route في الاستوديو بحالة Approved by Owner، أقسام القرار |
 | البنية | منطقة أعلى، محتوى، أسفل، Safe Areas، طبقات وظروف ظهورها |
 | التكوين | مقاسات مرجعية ونطاقات Reflow وHierarchy وشكل المحتوى الطويل |
 | النص والمال | نصوص عربية فعلية، حالات صفر/غير مسجل/جزئي، وحدة د.أ، BiDi |
@@ -19,7 +19,7 @@
 
 ## Design-to-Code Map — ينشئه المنفذ
 
-| Design ID | Figma Component URL | Token IDs | Variant/State | Code counterpart | Owner | Status |
+| Design ID | Studio Component URL/ID | Token IDs | Variant/State | Production counterpart | Owner | Status |
 |---|---|---|---|---|---|---|
 | `Financial/MoneyValue` | يُملأ بعد الإنتاج | يرجع لـ§7/8/13 | Positive/Negative/Unknown | يعينه فريق التنفيذ | يعين | Not Started |
 
@@ -27,7 +27,7 @@
 
 ## Design Gap Protocol
 
-أي عنصر ناقص يسجل في `10-GAP-CONFLICT-CHANGE-LOGS.md` بمعرف الشاشة والأثر والمصدر، ويوقف الجزء المتأثر. لا يستخدم Default UI أو نسخة Micro القديمة أو عنصر مكتبة جاهزة لتغطية النقص. التغيير المطلوب في Navigation أو هوية أو Component Contract يدخل Change Request، بينما مخالفة Frame المعتمدة تعد Defect.
+أي عنصر ناقص يسجل في `10-GAP-CONFLICT-CHANGE-LOGS.md` بمعرف الشاشة والأثر والمصدر، ويوقف الجزء المتأثر. لا يستخدم Default UI أو نسخة Micro القديمة أو عنصر مكتبة جاهزة لتغطية النقص. التغيير المطلوب في Navigation أو هوية أو Component Contract يدخل Change Request، بينما مخالفة شاشة الاستوديو المعتمدة تعد Defect.
 
 ## التسلسل المستقبلي الموصى به
 

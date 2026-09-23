@@ -1,5 +1,5 @@
 Trace_ID,Decision_Ref,Rule,Expected_Artifact,Example_Screen_or_Component,Production_Evidence,Review_Status
-DT-001,3,Behavioral familiarity with independent visual identity,Figma foundations and screen composition,GLB-SHELL,NotProduced,NotStarted
+DT-001,3,Behavioral familiarity with independent visual identity,Studio foundations and screen composition,GLB-SHELL,NotProduced,NotStarted
 DT-002,5|10.2,Hierarchical modular composition not uniform cards,Representative screens,OVR-NOW|OPS-HOME|FIN-OVERVIEW,NotProduced,NotStarted
 DT-003,6,Structured Soft Geometry,Radius and component docs,Action/Primary|Financial/SnapshotDeck,NotProduced,NotStarted
 DT-004,7|16.2,Alexandria and English digits and BiDi,Type styles and numeric fixtures,Financial/MoneyValue,NotProduced,NotStarted
@@ -7,19 +7,19 @@ DT-005,8,Indigo Citrus Terracotta roles Light only,Color variables and pair matr
 DT-006,9,Phosphor icon rules and Micro custom glyphs,Icon asset inventory,Navigation/Bottom,NotProduced,NotStarted
 DT-007,10.3,Filter command and contextual panel,Filter component variants,Filter/ContextualPanel,NotProduced,NotStarted
 DT-008,11.1|11.2,Five visible tabs V1 and no floating CTA,Navigation variants,Navigation/Bottom,NotProduced,NotStarted
-DT-009,11.7|11.8,Unified header without page title,Header frames with system area,Navigation/Header,NotProduced,NotStarted
+DT-009,11.7|11.8,Unified header without page title,Header states with system area,Navigation/Header,NotProduced,NotStarted
 DT-010,11.9,Header connected account panel,Account panel states,Overlay/AccountPanel,NotProduced,NotStarted
 DT-011,11.12|16.1,Swipe follows finger and RTL visual order,Interaction annotations,GLB-SHELL,NotProduced,NotStarted
 DT-012,12,Form entry error save and unsaved exit,Form states,OPS-SALE-CREATE,NotProduced,NotStarted
 DT-013,13.2|13.11|13.20,Financial truth and completeness,Truth layer variants,FIN-OVERVIEW,NotProduced,NotStarted
-DT-014,13.4,One financial card with visible all entry,Snapshot deck and all frame,OVR-SNAPSHOT,NotProduced,NotStarted
+DT-014,13.4,One financial card with visible all entry,Snapshot deck and all screen,OVR-SNAPSHOT,NotProduced,NotStarted
 DT-015,13.8|15.6,Impact before sensitive action,Impact preview states,Financial/ImpactPreview,NotProduced,NotStarted
 DT-016,13.13|13.14,Conditional chart only for verified question and dataset,Chart pattern and exact data view when applicable,Financial/ChartLine|Financial/HalfRing,NotProduced,NotStarted
 DT-017,13.19,Insights evidence then action,Insight states,OVR-INSIGHTS,NotProduced,NotStarted
 DT-018,14,Contextual state from source with recovery,Contextual pattern docs,Context/ErrorRecovery,NotProduced,NotStarted
 DT-019,15|16.6,Motion cause and reduced motion,Motion map and reduced states,GLB-SHELL,NotProduced,NotStarted
 DT-020,16.3|16.4,Contrast targets focus and screen reader,Contrast report and annotations,Action/Primary,NotProduced,NotStarted
-DT-021,16.5,320 and 200 percent reflow,Stress frames,OPS-SALE-CREATE,NotProduced,NotStarted
+DT-021,16.5,320 and 200 percent reflow,Stress states,OPS-SALE-CREATE,NotProduced,NotStarted
 DT-022,21.3,Domain screen IDs separate from nav,Screen coverage and mapping,CAT-ITEMS-LIST,NotProduced,NotStarted
 DT-023,21.4,No visual inheritance from current Micro,Legacy visual audit,OVR-NOW|FIN-OVERVIEW,NotProduced,NotStarted
 DT-024,21.5,Design delivery separate from real-world validation,Delivery manifest and open verification list,All,NotProduced,NotStarted

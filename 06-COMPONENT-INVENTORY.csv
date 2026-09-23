@@ -1,4 +1,4 @@
-Component_ID,Family,Required_States,Decision_Ref,Figma_Link,Maturity,Notes
+Component_ID,Family,Required_States,Decision_Ref,Studio_Component_Reference,Maturity,Notes
 Action/Primary,Core,Default|Pressed|Focused|Loading|Unavailable,10.1|16.4,NotProduced,Candidate,No preset ripple
 Action/Secondary,Core,Default|Pressed|Focused|Unavailable,10.1|16.4,NotProduced,Candidate,Preserve hierarchy
 Action/Destructive,Core,Default|Pressed|Focused|Loading,10.1|15.6,NotProduced,Candidate,Show consequence
