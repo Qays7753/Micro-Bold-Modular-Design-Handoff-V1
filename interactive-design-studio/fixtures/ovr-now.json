@@ -1,6 +1,6 @@
 {
   "$fixture": true,
-  "source": "14-JORDANIAN-CONTENT-FIXTURES.md + §13.4/§13.19 (بنية العرض) — قيم عرض فقط",
+  "source": "JORDANIAN-FIXTURES.md + §13.4/§13.19 (بنية العرض) — قيم عرض فقط",
   "note": "كل قيمة هنا Fixture لفحص العرض؛ لا تُقرأ كنتيجة مالية مؤكدة. القيم غير المكتملة تظهر بحالتها ولا تصبح صفرًا.",
   "scenarios": {
     "complete": {

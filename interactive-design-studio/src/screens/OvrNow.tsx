@@ -1,6 +1,6 @@
 // Micro Visual System — Screen: OVR-NOW (مشروعي الآن) — مراجعة V2
 // المرجع: §13.2/§13.4/§13.19/§13.20 + 04-SCREEN-COVERAGE (OVR-NOW)
-// + 17-COLOR-DECISION + 18 §1.5.
+// + COLOR-STANDARD-V2 + 18 §1.5.
 // الحالات: Complete|Partial|Insufficient|FirstUse|Offline|Error.
 // التكوين V2: بطاقة النتيجة واكتمالها هي الكتلة القوية الأولى (الهوية)
 // والكاش بطاقة ثانوية بيضاء — الربح لا يختلط بالكاش. كل صف وإجراء يوصل

@@ -1,6 +1,6 @@
 {
   "$fixture": true,
-  "source": "14-JORDANIAN-CONTENT-FIXTURES.md — سجل حركات لفحص صفوف القوائم",
+  "source": "JORDANIAN-FIXTURES.md — سجل حركات لفحص صفوف القوائم",
   "note": "حركات عرض فقط؛ حالات الحفظ/الإرسال تُعرض فقط لأن الـFixture يثبتها للعرض.",
   "transactions": [
     {

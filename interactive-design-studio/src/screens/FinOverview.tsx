@@ -1,6 +1,6 @@
 // Micro Visual System — Screen: FIN-OVERVIEW (المالية) — مراجعة V2
 // المرجع: §13.2 (Question-First) + §13.3 + §13.7 + §13.11 + §13.12 + §13.20
-// + 17-COLOR-DECISION + 18 §1.2/§1.4.
+// + COLOR-STANDARD-V2 + 18 §1.2/§1.4.
 // الحالات: Complete|Partial|Insufficient|Zero|Negative|Offline.
 // التكوين: لا كتلة ملونة مهيمنة — أسئلة على Canvas بسطر فاصل رقيق ولوحات
 // بيضاء هادئة وأرقام Ink كبيرة (إيقاع «بيان» مميز عن OVR). المحافظ خارج
@@ -110,7 +110,7 @@ export function FinOverview({ scenario, scenarioId, onNavigate }: FinOverviewPro
             period={period}
             dataState={isOffline ? 'offline' : 'complete'}
             stateText={isOffline ? 'من آخر نسخة محفوظة (دون اتصال)' : undefined}
-            fixtureSource="Fixtures — 14-JORDANIAN-CONTENT-FIXTURES.md"
+            fixtureSource="Fixtures — JORDANIAN-FIXTURES.md"
           />
         </div>
       </section>
@@ -197,7 +197,7 @@ export function FinOverview({ scenario, scenarioId, onNavigate }: FinOverviewPro
                   ? 'بحاجة للمراجعة — الربط غير مؤكد'
                   : undefined
             }
-            fixtureSource="Fixtures — 14-JORDANIAN-CONTENT-FIXTURES.md"
+            fixtureSource="Fixtures — JORDANIAN-FIXTURES.md"
           />
         </div>
       </section>

@@ -206,7 +206,7 @@ export function ScreenInfoDrawer({
               {route.studioOnly
                 ? 'Studio QA — مساحة مراجعة مكوّنات داخل الاستوديو (ليست شاشة منتج)'
                 : route.status === 'built'
-                  ? 'Candidate — منفذة بانتظار مراجعة المالك'
+                  ? 'اللغة المرئية معتمدة — التحقق على الجهاز لاحقًا'
                   : 'Not Started — Deferred'}
             </dd>
           </div>
@@ -291,13 +291,13 @@ export function StudioBar({
       </div>
       <p className="studio-bar__chrome-note type-supporting">
         <Icon name="info" size={16} /> شريط الأدوات أعلاه هو Studio Chrome لأغراض المراجعة — ليس جزءًا من واجهة Micro.{' '}
-        <MicroSignal state="complete" size="sm" /> الحالة: <strong>Candidate — Ready for Owner Review</strong>
+        <MicroSignal state="complete" size="sm" /> الحالة: <strong>Visual V2 approved — device QA pending</strong>
       </p>
       {aboutOpen ? (
         <div className="studio-about anim-crossfade">
           <p className="type-supporting">
             استوديو مرجعي مستقل لتصميم Micro يُشغَّل من مصدره داخل مستودع الـHandoff. بيانات العرض (Fixtures) موسومة
-            ومصدرها <span className="ltr">14-JORDANIAN-CONTENT-FIXTURES.md</span>؛ لا يوجد اتصال بأي API أو بيانات حقيقية،
+            ومصدرها <span className="ltr">JORDANIAN-FIXTURES.md</span>؛ لا يوجد اتصال بأي API أو بيانات حقيقية،
             ولا كود من تطبيق Micro الإنتاجي. الفحوص هنا فحوص متصفح داخل بيئة التنفيذ؛ اختبار Android فعلي وقارئ الشاشة
             ومستخدمون أردنيون <strong>UNVERIFIED</strong> حتى إجرائها.
           </p>

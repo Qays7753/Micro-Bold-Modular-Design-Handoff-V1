@@ -1,9 +1,9 @@
 // Micro Visual System — STUDIO-COMPONENTS: مساحة مراجعة المكوّنات
-// (19-STUDIO-COMPLETE-COVERAGE-GATE §2.3). مساحة استوديو لأغراض QA فقط —
+// (IMPLEMENTED-COVERAGE-V2 §2.3). مساحة استوديو لأغراض QA فقط —
 // ليست شاشة من Micro وتظهر موسومة كذلك. تجعل كل مكوّن وVariant منفذ
 // قابلًا للفحص على أسطحه الحقيقية، بما فيه ما لا يظهر في السيناريوهات
 // الافتراضية (AmountField وSkeleton وEmptyState بأنواعها…). حالات الضغط
-// والتركيز تُفحص بالتفاعل المباشر وتوثق في REVISION-COVERAGE-LEDGER.
+// والتركيز تُفحص بالتفاعل المباشر وتوثق في IMPLEMENTED-COVERAGE-V2.
 
 import { useState } from 'react'
 import { Button, IconButton } from '../components/core/Button'
@@ -175,7 +175,7 @@ export function StudioComponents() {
             notWhat="الكاش ليس ربحًا ولا إيرادًا — يشمل رأس المال العامل"
             period="هذا الشهر"
             dataState="complete"
-            fixtureSource="Fixtures — 14-JORDANIAN-CONTENT-FIXTURES.md"
+            fixtureSource="Fixtures — JORDANIAN-FIXTURES.md"
           />
         </div>
       </Section>
@@ -279,7 +279,7 @@ export function StudioComponents() {
 
       <footer className="screen__foot">
         <ContextTrace state="complete">
-          كل مكوّن منفذ قابل للفحص هنا أو داخل السيناريوهات — راجع REVISION-COVERAGE-LEDGER
+          كل مكوّن منفذ قابل للفحص هنا أو داخل السيناريوهات — راجع IMPLEMENTED-COVERAGE-V2
         </ContextTrace>
         <span className="screen__fixtures-badge" title="بيانات عرض فقط">
           <Icon name="info" size={16} />

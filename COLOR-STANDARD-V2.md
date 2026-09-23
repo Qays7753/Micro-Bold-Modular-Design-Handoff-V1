@@ -1,14 +1,12 @@
-# Micro — color decision and execution baseline, 2026-09-23
+# Micro — Color Standard V2
 
-**Authority:** This document supersedes every older color value, color ratio and color distribution rule in `MICRO-VISUAL-DESIGN-DECISIONS-V1.md`, the numbered handoff files, and the delivered studio. Existing screenshots, contrast reports and token files describe the **old build** until ZAI regenerates them; they are not proof of this new baseline. Non-color decisions remain in force.
+**الحالة:** مرجع اللون المعتمد لاتجاه Micro V2 المرئي، بتاريخ 2026-09-23. الأرقام والأزواج أدناه مرجع للأدوار؛ قيم التوكنز الحية في `interactive-design-studio/src/foundations/tokens.css` و`interactive-design-studio/src/foundations/tokens.ts`. المالك اعتمد اتجاه V2 الظاهر و`#D97757` تحديدًا؛ هذا لا يعني اختبار جميع الشاشات المستقبلية على مستخدمين.
 
-**Scope:** Light Mode, Arabic RTL mobile UI only. Do not modify production Micro. `#D97757` is the owner's explicit fixed brand choice. The other HEX values are the design lead's coherent **implementation baseline**, delegated for the studio revision; do not represent them as individually approved by the owner or as user-tested. The owner wants the agent to implement and report, without another palette-approval round. Change a baseline value only when a documented contrast or visual defect requires it; record the replacement and its evidence.
-
-**Application:** Every implemented component and its variants, all rendered screen and global states, existing studio review controls, current token dictionaries and documentation must reflect the complete palette, not only the three default screen views. `19-STUDIO-COMPLETE-COVERAGE-GATE-2026-09-23.md` is the required coverage inventory and acceptance gate; the previously delivered studio remains visually historical until its source and evidence are regenerated.
+**النطاق:** واجهة عربية RTL، Light Mode فقط. اللون ليس إثباتًا للربح أو الخسارة وحده. لا تحوّل جميع المكونات إلى لون الهوية؛ حافظ على أدوار الفعل والدلالة والمعلومة وحدود التفاعل.
 
 ## 1. Design intent
 
-Micro should feel awake, competent and comfortable to a Jordanian small business owner seeking an answer quickly. A large color field is allowed when its content and purpose justify it. **No 70/20/10, 70–80% neutral, 1–5% brand, or 5–8% terracotta quota applies.** No requirement to paint the same block on every screen. Distinctiveness depends on the relation between color, typography, space, content and interaction; changing Indigo to another HEX without changing the composition fails this brief.
+Micro should feel awake, competent and comfortable to a Jordanian small business owner seeking an answer quickly. A large color field is allowed when its content and purpose justify it. **No 70/20/10, 70–80% neutral, 1–5% brand, or 5–8% terracotta quota applies.** No requirement to paint the same block on every screen. Distinctiveness depends on the relation between color, typography, space, content and interaction; changing one HEX without changing the composition fails this brief.
 
 `#D97757` is the **lead brand color**, not an auxiliary accent and not a profit/loss/collection signal. It may frame a meaningful section, support a distinctive top-level area or be used for a strong module when visual hierarchy warrants it. It need not be confined to a logo or tiny touch. The important financial label, number, qualifier and period must stay clearly legible and truthful; a large branded background must not imply that sales, cash or debt are profit. Place detailed figures on a readable surface within or beside the block if needed.
 
@@ -32,7 +30,7 @@ Micro should feel awake, competent and comfortable to a Jordanian small business
 | Pressed / Disabled | **Derived and documented by ZAI** | Pressed must be discernible, contrast-valid, reversible and consistent. Disabled must not look like unknown data and must not conceal the reason for an unavailable action. Do not use opacity to create unmeasured text pairs. |
 | Chart series | `#305968` (current), `#5B6770` (prior) | Direct labels + solid versus dotted/marker pattern, separate intersecting strokes as needed. These two colors have only ~1.31:1 contrast *against one another*; shape/labels and neighboring background must make comparisons perceivable. Verified success/danger colors are reserved for a chart that actually encodes those semantic states. |
 
-Do not retain the previous `#4F46E5` Indigo, `#3F37C9` pressed Indigo, `#E8E7FF` soft Indigo, `#D9F43B` Citrus, `#F3FBCB` soft Citrus, or legacy `#C45F46` terracotta as active tokens or visible UI. Remove legacy decorative purple/blue/green chart palettes unless justified and measured under the new chart role. Do not silently map white-on-Indigo to white-on-`#D97757`.
+لا تعِد ألوان الاتجاهات السابقة إلى التوكنز أو الشاشات. استخدم أدوار اللون الحالية وقياس التباين الفعلي لكل سطح وحالة.
 
 ## 3. Checked contrast pairs (sRGB WCAG 2.2)
 
@@ -52,11 +50,7 @@ Do not retain the previous `#4F46E5` Indigo, `#3F37C9` pressed Indigo, `#E8E7FF`
 
 These are checks on specified solid pairs, **not** a declaration that current or future screens pass WCAG. ZAI must recalculate actual pairs after replacing tokens, including hover/pressed/focus, navigation, overlays, charts and all relevant states. For ordinary text use 4.5:1, genuinely large text 3:1, and necessary non-text elements 3:1 against adjacent color. Do not rely on color alone for meaning. A measured minimum does not prove daytime comfort or pleasure.
 
-## 4. Explicit decisions and boundaries
 
-- Owner-approved: `#D97757` is the Micro brand lead. Light Mode only. Distinctive, active, comfortable design; avoid generic AI/template layouts. Do not ask the owner to re-approve the brand color to start the revision.
-- Design execution baseline: the remaining values and roles in §2. They are an accountable professional recommendation for the immediate studio update, not individual owner approvals or final user research findings.
-- Do not use fixed percentages for coverage; choose size by screen purpose and what the user must learn or do.
-- Do not automatically make every financial headline black-on-white: a colored module is viable with correctly chosen foreground and clear financial semantics.
-- The studio is still a candidate until its actual phone screens and interaction are reviewed. A design-direction decision does not imply owner acceptance of the resulting visuals.
-- Existing screenshots and reports showing Indigo or Citrus are historical evidence only; ZAI must replace and regenerate them, not edit their claim from the past to pretend the updated UI has already been verified.
+## 4. التطبيق
+
+انتقل بالأدوار عبر التوكنز والمكونات المشتركة أولًا، ثم افحص كل حالة في موضعها الحقيقي. امنع نقل قيم Fixtures أو استنتاج منطق مالي من لون. تقرير الأزواج المنفذة هو `interactive-design-studio/reports/CONTRAST-REPORT.md`، وقيم الضغط والحالات المشتقة تقرأ من ملفات التوكنز؛ تحتاج الحالات والشاشات الجديدة فحصًا مستقلًا. لا وضع ليلي في هذه المرحلة.

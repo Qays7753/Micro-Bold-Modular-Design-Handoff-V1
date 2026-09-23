@@ -1,6 +1,6 @@
 {
   "$fixture": true,
-  "source": "14-JORDANIAN-CONTENT-FIXTURES.md — عينات نصية لفحص العرض فقط",
+  "source": "JORDANIAN-FIXTURES.md — عينات نصية لفحص العرض فقط",
   "note": "بيانات عرض للاختبار البصري — ليست بيانات مشروع فعلي ولا سياسة محاسبية.",
   "project": {
     "name": "مشروع المخبوزات المنزلية في جبل الحسين",

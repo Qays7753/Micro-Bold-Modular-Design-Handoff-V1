@@ -1,6 +1,6 @@
-// Micro Visual System — DeferredScreen (بوابة العينات §16: لا توسع قبل المراجعة)
+// Micro Visual System — DeferredScreen (مسار توثيقي لشاشة لم تُصمم بعد)
 // بطاقة توثيق داخل الاستوديو — ليست شاشة منتج: تعرض Screen ID وحالاته
-// المطلوبة من 04-CSV وسبب التأجيل، وتربط إلى العينة المنفذة عند وجودها.
+// المطلوبة من SCREEN-COVERAGE-V2.csv وسبب التأجيل، وتربط إلى العينة المنفذة عند وجودها.
 
 import { Button } from '../components/core/Button'
 import { MicroSignal } from '../components/contextual/MicroSignal'
@@ -23,12 +23,11 @@ export function DeferredScreen({ route, onNavigate }: { route: ScreenRoute; onNa
           <MicroSignal state="draft" size="md" label="لم تبدأ بعد" />
         </div>
         <h2 id="deferred-title" className="type-card-title">
-          هذه الشاشة لم تبدأ بعد — مؤجلة بانتظار مراجعة المالك
+          هذه الشاشة لم تُصمّم بعد
         </h2>
         <p className="type-body">
-          وفق بوابة العينات الثلاث في <span className="ltr">16-EXECUTION-STAGES-AND-PROOF-GATES.md</span>، لا يتم التوسع
-          إلى بقية الشاشات قبل مراجعة العينات الثلاث وتقريرها في{' '}
-          <span className="ltr">VISUAL-PROOF-REVIEW.md</span>. هذه البطاقة وثيقة تنفيذ داخل الاستوديو وليست واجهة منتج.
+          اتجاه التصميم المرئي V2 معتمد؛ هذه الوجهة تحتاج تصميمًا خاصًا بمهمتها وبياناتها الحقيقية. هذه البطاقة
+          وثيقة داخل الاستوديو وليست واجهة منتج.
         </p>
         <dl className="deferred-card__meta">
           <div>
@@ -41,7 +40,7 @@ export function DeferredScreen({ route, onNavigate }: { route: ScreenRoute; onNa
           </div>
           <div>
             <dt>الحالة</dt>
-            <dd>Not Started — Deferred pending owner review</dd>
+            <dd>Not Started — يحتاج تصميم شاشة</dd>
           </div>
           <div>
             <dt>مرجع القرار</dt>

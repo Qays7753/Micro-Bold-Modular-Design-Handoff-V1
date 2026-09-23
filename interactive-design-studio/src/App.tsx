@@ -146,9 +146,8 @@ function StudioHome() {
             ))}
         </ul>
         <p className="type-supporting">
-          بقية الشاشات <strong>Not Started — Deferred pending owner review</strong> وفق بوابة العينات في ملف{' '}
-          <span className="ltr">16-EXECUTION-STAGES-AND-PROOF-GATES.md</span>، وتظهر كبطاقات توثيق عند اختيارها من مبدّل
-          الشاشة أو النقر على إجراءاتها داخل الواجهة.
+          بقية الشاشات <strong>لم تُصمّم بعد</strong> رغم اعتماد الاتجاه المرئي V2، وتظهر كبطاقات توثيق عند اختيارها
+          من مبدّل الشاشة أو النقر على إجراءاتها داخل الواجهة.
         </p>
       </section>
     </div>

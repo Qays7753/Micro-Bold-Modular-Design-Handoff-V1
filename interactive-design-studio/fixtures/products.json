@@ -1,6 +1,6 @@
 {
   "$fixture": true,
-  "source": "14-JORDANIAN-CONTENT-FIXTURES.md — أسماء منتجات طويلة وقيم حدية",
+  "source": "JORDANIAN-FIXTURES.md — أسماء منتجات طويلة وقيم حدية",
   "note": "منتجات وأسعار عرض فقط؛ المنتج ذو السعر غير المسجل يبقى «غير مسجل» ولا يتحول إلى 0.00.",
   "products": [
     {

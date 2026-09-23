@@ -1,6 +1,6 @@
 {
   "$fixture": true,
-  "source": "14-JORDANIAN-CONTENT-FIXTURES.md — أسماء وهواتف أردنية لفحص العرض",
+  "source": "JORDANIAN-FIXTURES.md — أسماء وهواتف أردنية لفحص العرض",
   "note": "أسماء وعلاقات وديون عرض فقط — ليست ديون فعلية؛ القيم الناقصة تبقى ناقصة ولا تتحول إلى صفر.",
   "customers": [
     {

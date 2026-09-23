@@ -1,78 +1,41 @@
-# Micro Interactive Design Reference Studio — Micro Visual System V2 (مراجعة الألوان والتكوين 2026-09-23)
+# Micro — Interactive Design Reference Studio V2
 
-استوديو تصميم مرجعي **مستقل وقابل للتشغيل والتعديل** لتصميم Micro. **النسخة الحالية هي المراجعة V2:** منظومة الألوان الجديدة وفق `../17-COLOR-DECISION-2026-09-23.md` (الهوية القائدة `#D97757` المعتمدة من المالك، بلا عائلة Indigo/Citrus في أي مصدر نشط)، وتكوينات معاد تصميمها وفق `../18-ZAI-STUDIO-REVISION-BRIEF-2026-09-23.md`، وتغطية كاملة وفق `../19-STUDIO-COMPLETE-COVERAGE-GATE-2026-09-23.md`. هذا ليس كود Micro الإنتاجي ولا صفحة HTML ثابتة — إنه نظام Tokens ومكونات وشاشات وحالات حية.
-
-**الحالة:** `Owner-approved visual baseline — phased transfer` · **الإصدار:** 0.2.0 · **التاريخ:** 2026-09-23 · **المنفذ:** ZAI (GLM)
+استوديو مستقل للمراجعة البصرية والتفاعلية. **الاتجاه المرئي المعروض معتمد من المالك؛ الاستوديو ليس تطبيق Micro الإنتاجي.** لقراءة سياسة النقل ابدأ من `../TRANSFER-READINESS-V2.md` ثم `DESIGN-SYSTEM.md` و`COMPONENT-CATALOG.md`.
 
 ## التشغيل
 
-المتطلبات: Node.js ≥ 18. الاعتماديات مثبتة النسخ في `package.json` (Vite 5 + React 18 + TypeScript فقط — أصغر Stack مستقر؛ لا مكتبة UI ولا Tailwind ولا مكتبة رسوم).
+يتطلب Node.js ≥18. من هذا المجلد:
 
 ```bash
-cd interactive-design-studio
-npm install        # مرة واحدة
-npm run dev        # خادم تطوير: http://localhost:5173
-npm run build      # فحص أنواع + بناء إنتاجي إلى dist/
-npm run preview    # معاينة نسخة البناء: http://localhost:4173
+npm ci
+npm run dev
+npm run build
+npm run preview
 ```
 
-كل البيانات **Fixtures موسومة** من `fixtures/` — لا اتصال بأي API ولا بيانات حقيقية، وأي «حفظ» في نموذج البيع محاكاة عرض موسومة لا عملية حقيقية.
+يعرض خادم التطوير عادة `http://localhost:5173`، والمعاينة بعد البناء `http://localhost:4173`. استعمل أدوات الاستوديو لاختيار عرض 320/360/390/412 أو تكبير 150/200% أو الرمادي أو الحركة المخفضة. تلك الأدوات وخلفية إطار الهاتف وعلامة Fixtures **ليست عناصر إنتاج**.
 
-## طريقة المراجعة (شريط الأدوات المدمج أعلى الشاشة)
+## ما هو موجود بالفعل
 
-- **الشاشة والحالة ظاهران دائمًا:** التبديل بين الشاشات المنفذة (3 عينات + كل البطاقات + مساحة مراجعة المكوّنات) والشاشات المؤجلة، وكل شاشة بحالاتها.
-- **أدوات العرض خلف زر ملخص قابل للطي** (`360 · 100% · رمادي…`): العرض 320/360/390/412/متجاوب · تكبير النص 100/150/200% · رمادي · حركة مخفضة — كي لا يهيمن كروم المراجعة على واجهة الهاتف (18 §1.7).
-- **معلومات الشاشة:** درج يعرض Screen ID والقرارات والمصدر وملف Fixtures والرابط العميق.
-- **روابط عميقة قابلة للمشاركة:** مثل `#/FIN-OVERVIEW?state=partial&w=320&z=150&gray=1&rm=1`.
-
-شريط الأدوات **Studio Chrome** (بلون Information الداكن المنفصل عن هوية الهاتف) لأغراض المراجعة فقط وليس جزءًا من واجهة Micro (§21.2)، وشريط النظام داخل الإطار محاكاة عرض موثقة الحدود.
-
-## بنية المجلد
-
-| المسار | الغرض |
-|---|---|
-| `src/foundations/` | Tokens ثلاث طبقات + طباعة + حركة + reset — المصدر الحقيقي للقيم |
-| `src/components/core/` | Buttons، SegmentedControl، Fields، OpenRow، Overlays (Sheet/Dialog/Menu)، Skeleton |
-| `src/components/financial/` | MoneyValue، TruthNote، SnapshotDeck، TransactionRow، ResultBlock، ImpactPreview |
-| `src/components/contextual/` | MicroSignal، ContextTrace/Seam، SystemRibbon، RecoveryStage، EmptyState، Insight |
-| `src/components/icons/` | Icon (Phosphor MIT) + سجل مولد من أصول `assets/icons/` |
-| `src/navigation/` | الهيكل: AppHeader + AccountPanel + BottomNav (خمسة تبويبات V1) + navModel |
-| `src/app/` | AppFrame (GLB-SHELL) + سجل المسارات routes.tsx |
-| `src/screens/` | OVR-NOW، OPS-SALE-CREATE، FIN-OVERVIEW، OVR-SNAPSHOT-ALL + DeferredScreen + StudioHome |
-| `src/states/` | نموذج الحالات (DataState/ValueState/SaveState + تسمياتها) |
-| `src/studio/` | طبقة المراجعة: urlState (راوتر Hash) + StudioShell + StudioComponents (مساحة مراجعة المكوّنات) |
-| `src/fixtures/` | أنواع وتحميل Fixtures الموسومة |
-| `fixtures/` | بيانات JSON بحقل provenance لكل ملف |
-| `assets/fonts/` | Alexandria + Noto Sans Arabic (OFL) مع التراخيص |
-| `assets/icons/` | Phosphor SVG (MIT) مع الترخيص |
-| `evidence/screenshots/` | لقطات الفحص للنسخة V2 (عنصرية مقروئة لإطار الهاتف) + ورقة مقارنة قبل/بعد |
-| `evidence/history-v1-indigo/` | لقطات الإصدار الأول (Indigo) — **تاريخية موسومة، ليست دليلًا للنسخة الحالية** |
-| `reports/` | تقارير Preflight وQA والتسليم والفجوات والتباين + `REVISION-COVERAGE-LEDGER.md` |
-| `TOKEN-DICTIONARY.md/.json` | قاموس Tokens مولّد آليًا من `tokens.css` |
-| `DESIGN-SYSTEM.md` … `DESIGN-TO-DEVELOPMENT.md` | توثيق النظام (انظر الفهرس أدناه) |
-
-## الشاشات المنفذة
-
-| Screen ID | العنوان | الحالات |
+| المسار | المعنى | الحالات |
 |---|---|---|
-| `OVR-NOW` | مشروعي الآن | complete · partial · insufficient · first-use · offline · error |
-| `OPS-SALE-CREATE` | تسجيل بيع | empty · filled · validation · impact · impact-credit · saving · failure · success · offline-save |
-| `FIN-OVERVIEW` | المالية | complete · partial · insufficient · zero · negative · offline |
-| `OVR-SNAPSHOT-ALL` | كل البطاقات المالية (عرض استوديو حقيقي) | complete · partial · insufficient · offline |
-| `STUDIO-COMPONENTS` | مراجعة المكوّنات (استوديو فقط — ليست شاشة منتج) | all |
+| `#/OVR-NOW` | مشروعي الآن | 6 |
+| `#/OPS-SALE-CREATE` | تسجيل بيع (قيم عرض) | 9 |
+| `#/FIN-OVERVIEW` | المالية | 6 |
+| `#/OVR-SNAPSHOT-ALL` | عرض كل بطاقات الملخص في الاستوديو | 4؛ تصميمه كشاشة منتج كاملة غير منجز |
+| `#/STUDIO-COMPONENTS` | فحص المكونات | أداة استوديو فقط |
 
-بقية شاشات 04-CSV **Not Started — Deferred pending owner review** وتظهر كبطاقات توثيق، وكل إجراء مرئي داخل الواجهة يوصل لمساره المؤجل الصادق (لا نقر ميت).
+الوجهات الأخرى تظهر كبطاقات **مؤجلة** وليست شاشات Micro مصممة. افحص جرد المنتج `../SCREEN-COVERAGE-V2.csv` قبل تكليف شاشة جديدة. جميع بيانات `fixtures/` أمثلة أردنية موسومة، وليست أرقام مشروع أو حسابات مالية فعلية.
 
-## حدود الاستوديو (اقرأها قبل المراجعة)
+## أين توجد المعايير
 
-1. **Figma: NOT AVAILABLE** في بيئة التنفيذ — لم يُنشأ ملف أو رابط Figma، والاستوديو التفاعلي هو المرجع.
-2. كل القيم **Fixtures** من `fixtures/` بمصدر موثق؛ «أثر العملية» في نموذج البيع يعرض **تنسيق** قبل/بعد بقيم عرض فقط (GAP-004).
-3. الفحوص المنفذة فحوص **متصفح داخل بيئة التنفيذ** (بناء نظيف، صفر أخطاء Console، صفر تجاوز أفقي بعد تحميل الخطوط، 21 سيناريو + عروض وتكبير ورمادي وحركة مخفضة، سحب بطاقات وصفحات فعلي بالPointer، تبديل سيناريو بلا تسرب — راجع `reports/QA-SUMMARY.md`). اختبار Android فعلي وTalkBack ومستخدمون أردنيون **UNVERIFIED** (§21.5).
-4. علامة Micro الرباعية وMicro Financial Glyphs **أصول مرشحة (GAP-002/003)**.
-5. لا Dark Mode. الأرقام إنجليزية `0–9` والعملة `د.أ` والسالب `−`. RTL أصلي بخصائص منطقية لا Mirror.
-6. هذا المصدر داخل مستودع الـHandoff فقط؛ لم يُلمس مستودع `Qays7753/Micro` ولا كوده الإنتاجي، ولا `main`.
-7. **حكم المالك في هذه المحادثة بتاريخ 2026-09-23:** وافق على مظهر V2 المعروض بوصفه مرجعًا بصريًا للنقل التدريجي. لا يُفهم ذلك اعتماد بقية الشاشات غير المنفذة، أو بيانات Fixtures، أو قبول التطبيق الإنتاجي بعد النقل. راجع `../20-V2-DESIGN-TRANSFER-READINESS-2026-09-23.md`.
+- `src/foundations/`: أدوار اللون والخطوط والحركة والتوكنز المصدرية. اللون `#D97757` للهوية، وأدوار منفصلة للأفعال والمعاني المالية.
+- `src/components/`, `COMPONENT-CATALOG.md`, `STATE-MATRIX.md`: عقود المكونات والحالات.
+- `src/navigation/`, `NAVIGATION-MAP.md`, `MOTION-MAP.md`: التنقل والحركة.
+- `SCREEN-CATALOG.md`, `RTL-ACCESSIBILITY.md`, `DESIGN-TO-DEVELOPMENT.md`: تركيب الأمثلة، اتجاه القراءة وعقد النقل.
+- `ASSET-MANIFEST.md`: مصادر الخطوط والأيقونات وتراخيصها؛ الأصول الرباعية والمالية مرشحة وليست شعارًا نهائيًا.
+- `reports/CONTRAST-REPORT.md`, `reports/QA-SUMMARY.md`, `reports/OPEN-ISSUES.md`: التباين والدليل والحدود المفتوحة.
 
-## فهرس التوثيق
+## حدود الدليل
 
-`DESIGN-SYSTEM.md` · `TOKEN-DICTIONARY.md` · `COMPONENT-CATALOG.md` · `SCREEN-CATALOG.md` · `NAVIGATION-MAP.md` · `STATE-MATRIX.md` · `MOTION-MAP.md` · `RTL-ACCESSIBILITY.md` · `FIXTURE-CATALOG.md` · `ASSET-MANIFEST.md` · `DESIGN-TO-DEVELOPMENT.md` · `reports/` (Preflight الخمسة + `VISUAL-PROOF-REVIEW` + `QA-SUMMARY` + `CONTRAST-REPORT` + `OPEN-ISSUES` + `DELIVERY-REPORT` + **`REVISION-COVERAGE-LEDGER`**) · `evidence/README.md`
+اللقطات داخل `evidence/screenshots/` من V2، لكن عند تكبير 200% صُحح تخطيط بعض الصفوف بعدها، وأزيلت اللقطات التي لا تمثل الشفرة الحالية. بناء TypeScript/Vite بعد التصحيح نجح، وإعادة اختبار الشكل على الهاتف وقارئ الشاشة **لم تحدث بعد**. لا تعتمد لقطات شاشة وحدها لإغلاق QA. النشر العام Pages محجوب بصلاحية إعداد المستودع؛ يمكن تشغيل المصدر محليًا، وملف البناء متاح عبر Actions.

@@ -1,13 +1,13 @@
 # TOKEN-DICTIONARY — قاموس Tokens (V2)
 
-**المرجع الأعلى للألوان:** `17-COLOR-DECISION-2026-09-23.md` (يعتمد #D97757 هوية قائدة من المالك؛ بقية القيم خط أساس تنفيذي مفوض). بقية القرارات: `MICRO-VISUAL-DESIGN-DECISIONS-V1.md` §§6–7، 10–12، 15–16، 21.2.
+**المرجع الأعلى للألوان:** `COLOR-STANDARD-V2.md` (يعتمد #D97757 هوية قائدة من المالك؛ بقية القيم خط أساس تنفيذي مفوض). بقية القرارات: `DESIGN-DECISIONS-V2.md` §§6–7، 10–12، 15–16، 21.2.
 **ملف القيم الحقيقي:** `src/foundations/tokens.css` — هذا التوثيق مولّد منه آليًا بواسطة `scripts/export-tokens.mjs` (خارج المستودع) لضمان التطابق.
 **الوضع:** Light Mode فقط — لا Dark Tokens ولا Hex داخل المكونات.
 **قيم مشتقة وموثقة:** `#C4663F` (عمق هوية، غير نصي)، `#8F3B27` (مضغوط Action)، `#E4EAEC` (سطح ثانٍ)، `#8A959C` (نص معطل)، `#A6AEB4` (زخرفي) — من 17 §2 «Derived and documented by ZAI».
-**دور Local (دون اتصال) = دور Information** `#305968/#DFEDF1` لأنه حالة نظام لا حالة جودة بيانات — موثق في REVISION-COVERAGE-LEDGER.md.
+**دور Local (دون اتصال) = دور Information** `#305968/#DFEDF1` لأنه حالة نظام لا حالة جودة بيانات — موثق في IMPLEMENTED-COVERAGE-V2.md.
 **تكبير النص:** `--text-scale` (1/1.5/2) تتحكم به طبقة المراجعة لأحجام الخطوط فقط — محاكاة تكبير النص على الجهاز (§16.5) مع ثبات مقاييس التخطيط.
 
-## Core Tokens: Color Primitives (17-COLOR-DECISION §2)
+## Core Tokens: Color Primitives (COLOR-STANDARD-V2 §2)
 
 | Token | القيمة |
 |---|---|
@@ -154,7 +154,7 @@
 | `--size-tabbar` | `70px` |
 | `--size-header` | `56px` |
 
-## Semantic Tokens (17-COLOR-DECISION §2)
+## Semantic Tokens (COLOR-STANDARD-V2 §2)
 
 | Token | القيمة |
 |---|---|

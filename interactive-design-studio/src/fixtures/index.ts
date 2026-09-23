@@ -37,4 +37,4 @@ export function getProduct(id: string) {
 
 /** الترويسة الموحدة لبيانات العرض — تظهر في طبقة المراجعة ودروات المعلومات. */
 export const FIXTURE_DISCLAIMER =
-  'بيانات عرض (Fixtures) لأغراض مراجعة التصميم فقط — ليست بيانات مالية حقيقية، ومصدرها 14-JORDANIAN-CONTENT-FIXTURES.md.'
+  'بيانات عرض (Fixtures) لأغراض مراجعة التصميم فقط — ليست بيانات مالية حقيقية، ومصدرها JORDANIAN-FIXTURES.md.'

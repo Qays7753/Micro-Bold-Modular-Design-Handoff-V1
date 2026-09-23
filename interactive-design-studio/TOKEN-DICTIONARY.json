@@ -1,11 +1,11 @@
 {
   "$schema": "Micro Visual System — Token Dictionary V2 (مشتق من src/foundations/tokens.css)",
-  "source_of_truth": "الألوان: 17-COLOR-DECISION-2026-09-23.md (تقدم §§6/8/16.3 القديمة) · بقية القرارات: MICRO-VISUAL-DESIGN-DECISIONS-V1.md §§6–7، 10–12، 15–16، 21.2",
+  "source_of_truth": "الألوان: COLOR-STANDARD-V2.md · بقية القرارات: DESIGN-DECISIONS-V2.md · القيم الحية: src/foundations/tokens.css",
   "mode": "Light only — لا Dark Tokens",
   "generated_from": "src/foundations/tokens.css",
   "layers": [
     {
-      "layer": "Core Tokens: Color Primitives (17-COLOR-DECISION §2)",
+      "layer": "Core Tokens: Color Primitives (COLOR-STANDARD-V2 §2)",
       "tokens": {
         "--p-ink": "#1d2930",
         "--p-ink-2": "#53616a",
@@ -152,7 +152,7 @@
       }
     },
     {
-      "layer": "Semantic Tokens (17-COLOR-DECISION §2)",
+      "layer": "Semantic Tokens (COLOR-STANDARD-V2 §2)",
       "tokens": {
         "--c-canvas": "var(--p-canvas)",
         "--c-surface": "var(--p-white)",
