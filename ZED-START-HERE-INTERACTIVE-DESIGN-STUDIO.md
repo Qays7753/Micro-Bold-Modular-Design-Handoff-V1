@@ -9,7 +9,9 @@
 - Repository: `Qays7753/Micro-Bold-Modular-Design-Handoff-V1`
 - Branch: `exec/interactive-design-studio-zed-20260923`
 - Implementation folder: `interactive-design-studio/`
-- Base commit: `7911c100f4a00f1a025389e53c6c8cfaeda0eac6`
+- Revision baseline: latest remote commit on this branch; the old initial-execution base commit is superseded by the revision documents.
+
+> **تعديل لاحق على التكليف الأصلي:** لتصحيح النسخة المنفذة اقرأ أولًا `17-COLOR-DECISION-2026-09-23.md` و`18-ZAI-STUDIO-REVISION-BRIEF-2026-09-23.md`. هذان الملفان يقدمان على أي لون أو وصف Indigo/Citrus في هذا التكليف القديم. أعِد إنتاج أدلة الإصدار الجديد ولا تعتبر الصور والتقارير القديمة مطابقة للألوان الجديدة.
 
 لا تعدّل مستودع `Qays7753/Micro` بأي شكل. لا تنشئ له Commit أو PR أو Push. لا تعدّل `main` مباشرة.
 

@@ -16,7 +16,7 @@
 
 ## 3. بناء النظام
 
-ابدأ بـFoundations والهوية والـTokens المرشحة، ثم أثبت التكوين بثلاث شاشات مختلفة (`OVR-NOW` و`OPS-SALE-CREATE` و`FIN-OVERVIEW`) قبل تعميم Core وFinancial وContextual Components وبقية المجال. اتبع `03-STUDIO-CONSTRUCTION-SPEC.md` وبوابة الدليل في `16`. استخدم العربية RTL وأرقام `0–9` والوحدة `د.أ`. Light Mode فقط، وTerracotta مساند لا قائد. خذ الـSpacing والـType والـColors من المرجع؛ لا تنشئ لونًا جديدًا لمجرد التنويع. إن بقي أصل مخصص غير معتمد، عالجه `Asset Gap` ولا تبتكر شعارًا نهائيًا أو توقف مناطق لا تعتمد عليه.
+ابدأ لـ**مراجعة الإصدار الموجود** بـ`17-COLOR-DECISION-2026-09-23.md` و`18-ZAI-STUDIO-REVISION-BRIEF-2026-09-23.md`؛ `#D97757` لون الهوية القائد، ولا تعيد Indigo/Citrus أو تقيد حضور الهوية بنسبة مسبقة. حدّث Foundations والـTokens وركّب الشاشات الثلاث (`OVR-NOW` و`OPS-SALE-CREATE` و`FIN-OVERVIEW`) وفق دور كل شاشة، ثم حدّث Core وFinancial وContextual Components والمخرجات المتأثرة. اتبع `03-STUDIO-CONSTRUCTION-SPEC.md` وبوابة الدليل في `16`. استخدم العربية RTL وأرقام `0–9` والوحدة `د.أ`. Light Mode فقط. خذ الـSpacing والـType من المرجع والـColors من ملف 17؛ لا تنشئ لونًا جديدًا لمجرد التنويع. إن بقي أصل مخصص غير معتمد، عالجه `Asset Gap` ولا تبتكر شعارًا نهائيًا أو توقف مناطق لا تعتمد عليه.
 
 ## 4. التغطية دون جمود
 

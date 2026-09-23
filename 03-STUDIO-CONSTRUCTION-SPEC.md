@@ -11,7 +11,7 @@
 ## Foundations
 
 - أنشئ Color Primitives ثم Semantic Tokens ثم Component Tokens عند حاجة متكررة. `Light` فقط؛ لا Dark Mode أو Dark Tokens وهمية.
-- أدخل القيم المعتمدة وأزواج Foreground/Background من §8، ولا تحوّل نسب 70/20/10 أو 5–8% إلى حدود آلية لكل شاشة.
+- أدخل القيم وأزواج Foreground/Background من `17-COLOR-DECISION-2026-09-23.md` و§8 بعد التحديث؛ نسب التوزيع القديمة 70/20/10 أو 5–8% ملغاة، وليست حدودًا آلية أو أهدافًا.
 - Alexandria أساسي، Noto Sans Arabic fallback؛ الأرقام الإنجليزية `0–9` مع Tabular Numbers للقيم. راجع التراخيص والإتاحة قبل تسليم الخطوط.
 - سلم Typography وظيفي من §7؛ Spacing وRadius من §§6 و10؛ Motion من §15/16.6. إذا بدا قياس في ملف القرار إرشاديًا كنطاق لا تخترع قيمة «معتمدة» جديدة من دون توثيق اختيارها داخل النطاق وسببها.
 - العرض المرجعي 360 مع Reflow على 320/390/412، والارتفاع حسب المحتوى وSafe Areas؛ يدعم تكبير 200%.

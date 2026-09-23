@@ -1,10 +1,28 @@
-# Asset and Token Register — محدّث بالأدلة بعد إنتاج الاستوديو
+# Asset and Token Register — قرار الألوان الجديد مقابل التنفيذ السابق
 
-هذا السجل محدّث بعد تنفيذ بوابة العينات الثلاث (2026-09-23). القيم المعتمدة في §§6–9؛ المرجع الأعلى يتقدم على هذا الملخص عند أي اختلاف.
+السجل أدناه يميز ما **نفذ سابقًا** عما **يجب تنفيذه**؛ لا يجعل تغيير الوثائق الاستوديو محدّثًا بحد ذاته. المرجع الحاكم الجديد `17-COLOR-DECISION-2026-09-23.md`، وأمر التحديث `18-ZAI-STUDIO-REVISION-BRIEF-2026-09-23.md`.
 
-## ألوان أساسية — مطابقة مطبقة داخل الاستوديو
+## خط الأساس الجديد المطلوب — التنفيذ لم يُتحقق منه بعد
 
-| Semantic role | Current approved value | ملاحظة |
+| الدور | القيمة الجديدة | الحالة |
+|---|---|---|
+| `Brand/Lead` | `#D97757` | قرار مالك معتمد؛ توزيع اللون في الشاشات لا يزال مرشحًا للمراجعة البصرية. |
+| `Action/Primary` / `OnAction` | `#A94630` / `#FFFFFF` | خط أساس التنفيذ؛ لا يعني ملاحظة نجاح مالي. |
+| `Brand/Soft` | `#FBE9E2` | خط أساس التنفيذ، لا سطح لكل بطاقة. |
+| `Text/Primary` / `Text/Secondary` | `#1D2930` / `#53616A` | خط أساس التنفيذ. |
+| `Canvas` / `Surface` | `#F0F3F4` / `#FFFFFF` | خط أساس التنفيذ. |
+| `Information` / `Surface` | `#305968` / `#DFEDF1` | خط أساس التنفيذ. |
+| `Success` / `Surface` | `#16765A` / `#DFF3E9` | خط أساس التنفيذ. |
+| `Attention` / `Surface` | `#95590C` / `#FFF0D7` | خط أساس التنفيذ. |
+| `Danger` / `Surface` | `#B0324F` / `#FFE7EB` | خط أساس التنفيذ. |
+| `Partial/Unknown` / `Surface` | `#5B6770` / `#EDF1F2` | خط أساس التنفيذ. |
+| `Boundary/Interactive` / `Divider` | `#78868D` / `#DCE3E5` | خط أساس التنفيذ؛ حالات التركيز والضغط والمعطل تقاس بعد التنفيذ. |
+
+القيم بخلاف Brand يختارها التصميم المهني لهذه الجولة، وليست موافقات فردية من المالك. البيانات التطبيقية في الجدول التالي **إصدار سابق** فقط؛ يجب على ZAI تحديث دليل التطبيق بعد تعديل الكود وتشغيل الفحوص.
+
+## ألوان أساسية — رصد تاريخي للإصدار السابق لا قيم سارية
+
+| Semantic role | Old observed value | ملاحظة تاريخية |
 |---|---|---|
 | `Text/Primary` | `#171923` | Deep Ink — مطبق عبر `--c-ink` |
 | `Canvas` | `#F4F6FA` | Cool Cloud — مطبق |
@@ -19,7 +37,7 @@
 | `Boundary/Interactive` | `#7A8292` | مطبق للحدود الوظيفية (زر Secondary/حقول) |
 | `Boundary/Decorative` | `#D8DDE8` | مطبق للـDividers |
 
-أزواج النص المطبقة حرفيًا (White/Indigo، Deep Ink/Citrus، Deep Ink/Soft Semantic) ومحسوبة برمجيًا في `interactive-design-studio/reports/CONTRAST-REPORT.md` (17 زوجًا؛ زوج Danger-على-سطحه عند حده 4.5:1 موثق قيده من §16.3). لا Hex داخل Component Instances — ثلاث طبقات Tokens (174 توكن) في `interactive-design-studio/src/foundations/tokens.css` والقاموس `TOKEN-DICTIONARY.md/.json`. Light Mode فقط.
+الأزواج القديمة محسوبة في `interactive-design-studio/reports/CONTRAST-REPORT.md` **للإصدار القديم فقط**؛ لا يُنقل حكم نجاحها إلى اللوحة الجديدة. المكونات القديمة لا تحوي Hex مباشرًا؛ يعيد ZAI توليد Tokens والقاموس والتقرير من النسخة المنفذة الجديدة. Light Mode فقط.
 
 ## Asset Manifest — محدّث بالإنتاج
 

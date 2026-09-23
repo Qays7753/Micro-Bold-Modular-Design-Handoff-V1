@@ -1,5 +1,7 @@
 # TOKEN-DICTIONARY — قاموس Tokens (V1)
 
+> **Old generated dictionary:** القيم أدناه تصف الإصدار السابق ولا تشكل سلطة ألوان. يعيد ZAI التوليد من كود جديد وفق `../17-COLOR-DECISION-2026-09-23.md`.
+
 **المصدر الأعلى:** `MICRO-VISUAL-DESIGN-DECISIONS-V1.md` §§6–8، 10–12، 15–16، 21.2.
 **ملف القيم الحقيقي:** `src/foundations/tokens.css` — هذا التوثيق مولّد منه آليًا بواسطة `scripts/export-tokens.mjs` (خارج المستودع) لضمان التطابق.
 **الوضع:** Light Mode فقط — لا Dark Tokens ولا Hex داخل المكونات.
@@ -233,4 +235,3 @@
 | `--z-sheet` | `60` |
 | `--z-dialog` | `70` |
 | `--z-studio-drawer` | `90` |
-

@@ -1,5 +1,7 @@
 # DELIVERY-REPORT — تقرير تسليم الاستوديو (بوابة العينات الثلاث)
 
+> **Historical 0.1.0 delivery:** يصف نسخة Indigo/Citrus قبل قرار `#D97757`. يجب تحديث التقرير بعد تنفيذ `../../17-COLOR-DECISION-2026-09-23.md` و`../../18-ZAI-STUDIO-REVISION-BRIEF-2026-09-23.md`، لا نقل PASS القديم.
+
 **الحزمة:** Micro Visual System — V1 (Interactive Design Reference Studio) · **الإصدار:** 0.1.0
 **التاريخ:** 2026-09-23 · **المنفذ:** Zed AI (GLM) · **الفرع:** `exec/interactive-design-studio-zed-20260923`
 **حالة التسليم:** `Design Delivered for Owner Review` · **حالة التحقق الواقعي:** `Pending` (UNVERIFIED موسومة — §21.5)

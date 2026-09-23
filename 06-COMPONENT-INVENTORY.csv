@@ -11,7 +11,7 @@ Select/Checkbox,Core,Default|Selected|Focus|Error,12.4|16.4,NotProduced,Candidat
 Select/Toggle,Core,On|Off|Focus|Unavailable,12.4|16.4,NotProduced,Candidate,Deferred with its screens (settings)
 Filter/CommandButton,Core,Default|Active|Focus,10.3,NotProduced,Candidate,Full filter command deferred; period button + anchored menu produced in FIN-OVERVIEW (Menu/Contextual)
 Filter/ContextualPanel,Core,Closed|Expanded|Applied|Reset,10.3|11.13,NotProduced,Candidate,Deferred with list screens
-Navigation/Bottom,Core,Selected|Unselected|Badge|Text200,11.2|16.5,src/navigation/BottomNav.tsx,Candidate,Produced; five equal V1 tabs; Fill+Indigo+SemiBold+Micro mark for selected; badge 3 on العمل only; Text200 verified
+Navigation/Bottom,Core,Selected|Unselected|Badge|Text200,11.2|16.5,src/navigation/BottomNav.tsx,Candidate,Produced; five equal V1 tabs; Old candidate: Fill+Indigo+SemiBold+Micro mark; badge 3; Text200 checked against old palette; revise under color decision 17
 Navigation/Header,Core,Default|Scrolled|SafeArea,11.7|11.8,src/navigation/AppHeader.tsx,Candidate,Produced; no page name; canvas→white on scroll 180ms + divider; SafeArea simulated (real device UNVERIFIED)
 Overlay/AccountPanel,Core,Closed|Open|IncompleteAccount,11.9|16.4,src/navigation/AppHeader.tsx (AccountPanel),Candidate,Produced; header-connected full-width panel; incomplete project identity + logout dialog
 Overlay/Sheet,Core,Closed|Open|Keyboard|Text200,10.6|11.13|16.5,src/components/core/Overlays.tsx (Sheet),Candidate,Produced; radius 24 top; title right/close left; footer decision; no sheet-over-sheet; physical keyboard UNVERIFIED

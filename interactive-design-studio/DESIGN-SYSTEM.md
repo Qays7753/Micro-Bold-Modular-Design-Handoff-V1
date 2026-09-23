@@ -1,5 +1,7 @@
 # DESIGN-SYSTEM — Micro Visual System V1
 
+> **Historical implementation, superseded for active colors:** تصف هذه الوثيقة بناء Indigo/Citrus القديم فقط. المطلوب من ZAI إعادة توليدها بعد تعديل الكود وفق `../17-COLOR-DECISION-2026-09-23.md` و`../18-ZAI-STUDIO-REVISION-BRIEF-2026-09-23.md`، مع الأدلة الجديدة. لا تعادل موافقة المالك على هذه النسخة.
+
 **المرجع الأعلى:** `MICRO-VISUAL-DESIGN-DECISIONS-V1.md` (§§3–16). هذا التوثيق يصف **كيف نُفذت** القرارات داخل الاستوديو، لا قرارات جديدة. كل قيمة موصولة بـTokens من `src/foundations/tokens.css` (انظر `TOKEN-DICTIONARY.md`).
 
 ## 1. الفلسفة المنفذة
