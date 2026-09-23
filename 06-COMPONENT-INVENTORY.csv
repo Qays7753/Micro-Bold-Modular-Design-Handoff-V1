@@ -1,0 +1,37 @@
+Component_ID,Family,Required_States,Decision_Ref,Figma_Link,Maturity,Notes
+Action/Primary,Core,Default|Pressed|Focused|Loading|Unavailable,10.1|16.4,NotProduced,Candidate,No preset ripple
+Action/Secondary,Core,Default|Pressed|Focused|Unavailable,10.1|16.4,NotProduced,Candidate,Preserve hierarchy
+Action/Destructive,Core,Default|Pressed|Focused|Loading,10.1|15.6,NotProduced,Candidate,Show consequence
+Action/IconOnly,Core,Default|Pressed|Focused|Unavailable,9|10.1|16.4,NotProduced,Candidate,44px accessible target
+Field/Text,Core,Empty|Filled|Focus|Error|Unavailable,12.3|16.4,NotProduced,Candidate,Persistent label
+Field/Amount,Core,Empty|Filled|Error|Text200|Keyboard,12.4|16.2,NotProduced,Candidate,English numerals and JOD
+Field/Search,Core,Empty|Query|NoResults|Error,10.3|12.4,NotProduced,Candidate,Do not force chips
+Select/Radio,Core,Default|Selected|Focus|Error,12.4|16.4,NotProduced,Candidate,Native semantics
+Select/Checkbox,Core,Default|Selected|Focus|Error,12.4|16.4,NotProduced,Candidate,Native semantics
+Select/Toggle,Core,On|Off|Focus|Unavailable,12.4|16.4,NotProduced,Candidate,Use only for immediate setting
+Filter/CommandButton,Core,Default|Active|Focus,10.3,NotProduced,Candidate,Opens contextual panel
+Filter/ContextualPanel,Core,Closed|Expanded|Applied|Reset,10.3|11.13,NotProduced,Candidate,Source anchored
+Navigation/Bottom,Core,Selected|Unselected|Badge|Text200,11.2|16.5,NotProduced,Candidate,Five V1 tabs without dominant center
+Navigation/Header,Core,Default|Scrolled|SafeArea,11.7|11.8,NotProduced,Candidate,No page name top bar
+Overlay/AccountPanel,Core,Closed|Open|IncompleteAccount,11.9|16.4,NotProduced,Candidate,Header connected
+Overlay/Sheet,Core,Closed|Open|Keyboard|Text200,10.6|11.13|16.5,NotProduced,Candidate,No stacked sheets
+Overlay/Dialog,Core,Closed|Open|Focus|Sensitive,10.6|15.6,NotProduced,Candidate,Explicit action names
+Menu/Contextual,Core,Closed|Open|Focus,10.6|16.4,NotProduced,Candidate,Only contextual choices
+Content/OpenRow,Core,Default|Pressed|Focus|Unavailable,10.2|14.2,NotProduced,Candidate,Not card per row
+Financial/MoneyValue,Financial,Known|TrueZero|Negative|Unknown|Estimated,13.3|13.20|16.2,NotProduced,Candidate,Never false zero
+Financial/TruthLayer,Financial,Complete|Partial|Insufficient,13.2|13.11,NotProduced,Candidate,Do not invent finance logic
+Financial/SnapshotDeck,Financial,Default|Swipe|Unknown|Text200,13.4|16.1,NotProduced,Candidate,One main card visible
+Financial/TransactionRow,Financial,Default|LocalSaved|PendingSync|Error,13.5|13.20,NotProduced,Candidate,Open row
+Financial/DebtCollection,Financial,Known|Partial|Full|Unknown,13.6|13.8,NotProduced,Candidate,Before action after
+Financial/WalletAllocation,Financial,Complete|Remaining|Overallocated,13.7,NotProduced,Candidate,Financial effect from product
+Financial/ImpactPreview,Financial,Default|Sensitive|Error,13.8|15.6,NotProduced,Candidate,Identity and consequence
+Financial/ChartLine,Financial,Loaded|Partial|MissingData|DataView,13.13|16.4,NotProduced,Candidate,No line over missing data
+Financial/ChartBar,Financial,Loaded|Partial|Zero|DataView,13.13|16.4,NotProduced,Candidate,Accessible precise list
+Financial/HalfRing,Financial,Parts2|Parts3|Parts4|Selected|DataView,13.14|16.4,NotProduced,Candidate,Composition only not gauge
+Context/Insight,Contextual,Actionable|Informational|Partial,13.19|14.1,NotProduced,Candidate,Evidence then action
+Context/FirstMove,Contextual,FirstUse|Actioned,14.3,NotProduced,Candidate,Not generic empty card
+Context/FilteredEmpty,Contextual,NoResults|Reset,14.3,NotProduced,Candidate,Separate from first use
+Context/Loading,Contextual,Local|Waiting|ReducedMotion,14.4|16.6,NotProduced,Candidate,One main motion zone
+Context/ErrorRecovery,Contextual,Inline|Local|Blocking|Retry,14.6|16.4,NotProduced,Candidate,Preserve input
+Context/OfflineSync,Contextual,Offline|LocalSaved|PendingSync|Failed,14.7|13.20,NotProduced,Candidate,Do not conflate saved and sent
+Context/Unavailable,Contextual,ReadOnly|Prerequisite|Blocked,14.8,NotProduced,Candidate,Explain path

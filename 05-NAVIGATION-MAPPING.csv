@@ -1,0 +1,24 @@
+Screen_ID,Domain,Navigation_V1,Entry_Points,Return_Destination,Mapping_Status,Decision_Ref,Notes
+GLB-SHELL,Global,FiveTabs,AppEntry,PlatformBack,ApprovedBaseline,11.1|21.3,Five tabs V1 not permanent architecture
+OVR-NOW,Overview,مشروعي الآن,BottomTab,PreviousContext,ApprovedBaseline,11.1|13.2,Home for owner status
+OVR-SNAPSHOT-ALL,Overview,مشروعي الآن,OVR-NOW-عرض-الكل,OVR-NOW,ProvisionalVerify,13.4,Confirm navigation path
+OVR-INSIGHT-DETAIL,Overview,مشروعي الآن,OVR-INSIGHTS,PreviousContext,ProvisionalVerify,13.19,Entry may vary
+OPS-HOME,Operations,العمل,BottomTab,PreviousContext,ApprovedBaseline,11.1|21.3,Operations home
+OPS-ENTRY,Operations,العمل,OPS-HOME-Action,PreviousContext,ProvisionalVerify,12|21.3,Keep frequent action discoverable
+OPS-SALE-CREATE,Operations,العمل,OPS-ENTRY|QuickAction,PreviousContext,ProvisionalVerify,12|21.3,Validate actual entry
+OPS-ORDERS-LIST,Operations,العمل,OPS-HOME,OPS-HOME,ProvisionalVerify,21.3,Verify route
+OPS-ORDER-DETAIL,Operations,العمل,OPS-ORDERS-LIST,OPS-ORDERS-LIST-Position,ProvisionalVerify,11.10,Return to source position
+CAT-ITEMS-LIST,Catalog,ContextualFromWork,OPS-HOME|Order|Sale,SourceContext,ApprovedConceptVerifyRoute,11.1|21.3,Not tab six
+REL-CUSTOMERS,Relationships,ContextualFromWork,OPS-HOME|Sale|Debts,SourceContext,ProvisionalVerify,21.3,Domain independent of tab
+REL-SUPPLIERS,Relationships,ContextualFromWork,OPS-HOME|Purchase|Dues,SourceContext,ProvisionalVerify,21.3,Domain independent of tab
+FIN-OVERVIEW,Finance,المالية,BottomTab,PreviousContext,ApprovedBaseline,11.1|13.2,Financial meaning distinct
+FIN-WALLETS,Finance,المالية,FIN-OVERVIEW|OVR-NOW,SourceContext,ProvisionalVerify,13.7,Multiple entries possible
+FIN-DEBTS,Finance,المالية,FIN-OVERVIEW|OVR-NOW,SourceContext,ProvisionalVerify,13.6,Multiple entries possible
+FIN-ACTIVITY,Finance,المالية,FIN-OVERVIEW,FIN-OVERVIEW,ProvisionalVerify,13.5,Verify actual route
+TOOL-HOME,Tools,أدواتي,BottomTab,PreviousContext,ApprovedBaseline,11.1,Tools landing
+TOOL-CALCULATOR,Tools,أدواتي,TOOL-HOME,TOOL-HOME,ProvisionalVerify,21.3,Independent of ledger
+MKT-HOME,Market,السوق,BottomTab,PreviousContext,ApprovedBaseline,11.1|11.6,Useful content required
+MKT-OFFER-DETAIL,Market,السوق,MKT-HOME,MKT-HOME,ProvisionalVerify,11.6,Only if offering exists
+GLB-ACCOUNT-PANEL,Global,Header,UserCircleGear,SourceContext,ApprovedBaseline,11.9,Not side drawer
+GLB-DELIVERY,Global,Header,التوصيل,SourceContext,ApprovedBaseline,11.7,Scope to verify
+GLB-ASK,Global,Header,اسأل-Micro,SourceContext,ApprovedBaseline,11.7,No AI role invention

@@ -1,68 +1,47 @@
-# Micro Bold Modular Design Handoff V1
+# Micro AI Design Execution Package V1 — ابدأ هنا
 
-## Purpose
+**نوع الحزمة:** تعليمات ومصفوفات تشغيل لمصمم أو Agent تصميم؛ ليست ملف Figma منجزًا ولا Prototype ولا أمرًا بتعديل تطبيق Micro الحالي.  
+**المرجع الأعلى:** `MICRO-VISUAL-DESIGN-DECISIONS-V1.md` المرفق داخل الحزمة.  
+**حالة الاعتماد:** جميع المحاور مكتملة، وقاعدة §21.5 معتمدة على مرحلتين: تسليم ملف التصميم كاملًا، ثم التحقق الواقعي؛ عدم تحقق الأخير لا يمنع وصول الملفات للمالك.  
+**النطاق:** الواجهات المرئية، المكونات، الحركات، RTL، الوصول، وتسليم التصميم. لا تغيّر قواعد مالية أو بيانات أو صلاحيات أو كودًا قائمًا.
 
-This package is the authoritative foundation for producing three comparable visual directions for Micro: C1, C2, and C3. It fixes product strategy, user priority, information hierarchy, content, required states, accessibility, and evaluation criteria before visual exploration begins.
+## طريقة التشغيل
 
-It authorizes design work and design deliverables inside this handoff repository. It does **not** authorize changes to the Micro production repository, production deployment, or claims of owner/user approval that did not occur.
+1. شارك الحزمة كاملة مع Agent قادر فعليًا على إنتاج ملف Figma قابل للتحرير تحت صلاحيات تتيح لك الوصول إليه. لا تقدم ملفات Benchmark أو نسخ تصميم Micro القديمة مصدرًا موازيًا.
+2. أرسل `01-MASTER-EXECUTION-PROMPT.md` كما هو، واطلب من الـAgent قراءة ملف القرارات كاملًا أولًا ثم هذه الحزمة.
+3. يجب أن يسلم Preflight المنصوص عليه في `02-AUTHORITY-AND-QUARANTINE.md` قبل التصميم؛ يتابع أجزاء العمل غير المحجوبة، ويسجل الفجوات بدل تخمينها.
+4. تستخدم جداول CSV هنا كبذرة قابلة للتحقق لا كإثبات أن كل Route موجود فعليًا. يجب أن يراجع Agent المنتج وظيفيًا قبل تحويل الصفوف إلى Frames نهائية.
+5. لا تطلب HTML أو Prototype كبديل عن Figma. إذا تعذرت قدرة Figma، يصرح Agent بذلك صراحة ولا يزعم تسليم التصميم المطلوب.
+6. بعد التسليم راجع `11-DELIVERY-MANIFEST.md` ثم الأدلة وحالة الصلاحيات، قبل اعتبار العمل جاهزًا لمراجعتك.
 
-## Read in this order
+## خريطة الملفات
 
-1. `01-APPROVED-DESIGN-DECISIONS.md`
-2. `02-MICRO-DESIGN-DIRECTION-BRIEF-V1.md`
-3. `03-SCREEN-ARCHITECTURE-AND-HIERARCHY.md`
-4. `04-CONTENT-AND-DATA-FIXTURES.md`
-5. `05-BOLD-MODULAR-VISUAL-RULES.md`
-6. `06-C1-C2-C3-DIRECTION-SPECIFICATIONS.md`
-7. `07-REQUIRED-SCREENS-AND-DELIVERABLES.md`
-8. `08-DIRECTION-EVALUATION-RUBRIC.md`
-9. `09-SPECIALIZED-VISUAL-DESIGN-AGENT-PROMPT.md`
-10. `10-EVIDENCE-AND-CONSTRAINTS-MAP.md`
-11. `11-AUTONOMOUS-END-TO-END-EXECUTION-PROTOCOL.md`
-12. `12-DOCUMENTS-REPOSITORY-DELIVERY.md`
-13. `AGENTS.md`
+| الملف | الغرض | حالته الآن |
+|---|---|---|
+| `MICRO-VISUAL-DESIGN-DECISIONS-V1.md` | المرجع الأعلى بكامل القرارات | مصدر معتمد؛ لا يثبت إنجاز ملفات التصميم |
+| `01-MASTER-EXECUTION-PROMPT.md` | أمر العمل الجاهز للـAgent | تعليمات |
+| `02-AUTHORITY-AND-QUARANTINE.md` | حدود السلطة وعزل واجهة Micro الحالية | تعليمات |
+| `03-FIGMA-CONSTRUCTION-SPEC.md` | بنية Figma والمكونات والـTokens | تعليمات |
+| `04-SCREEN-COVERAGE.csv` | Baseline المجال والحالة والنطاق | بذرة للتحقق والملء |
+| `05-NAVIGATION-MAPPING.csv` | ربط المجال بالتبويب الحالي دون تجميده | بذرة للتحقق والملء |
+| `06-COMPONENT-INVENTORY.csv` | المكونات المعتمدة وحالاتها | بذرة للتحقق والملء |
+| `07-DECISION-TRACEABILITY.csv` | أثر كل قرار على المخرجات | بذرة للتحقق والملء |
+| `08-DESIGN-TO-DEVELOPMENT.md` | تسليم التنفيذ البصري دون فرض التقنية | تعليمات وقالب |
+| `09-QA-AND-ACCEPTANCE.md` | خطط أدلة الجودة وحدود الموافقة | قاعدة تسليم مرحلي معتمدة |
+| `10-GAP-CONFLICT-CHANGE-LOGS.md` | نماذج الفجوات والتعارضات والتغيير | قوالب |
+| `11-DELIVERY-MANIFEST.md` | ما يجب أن يعيده الـAgent وكيف تتحقق منه | قالب تسليم |
+| `12-FINAL-COMPLETION-REPORT.md` | تقرير النتائج الحقيقي | قالب تسليم |
+| `13-ASSET-TOKEN-REGISTER.md` | حصر الأصول والـTokens والتراخيص | قالب مع القيم المعتمدة |
+| `14-JORDANIAN-CONTENT-FIXTURES.md` | حالات محتوى وتجربة اختبار محلية | أمثلة اختبار لا حقائق مالية |
+| `15-PACKAGE-VALIDATION.md` | فحص اتساق الحزمة وحدود ما تم التحقق منه | سجل تحقق لهذا التسليم |
 
-## Authority order
+## ما تعتبره هذه الحزمة منجزًا
 
-When two statements appear to conflict, use this order:
+الملفات أعلاه وحزمة ZIP فقط. **لا يوجد الآن** Figma أو أصل شعار نهائي أو نتائج فحوص أجهزة أو مقابلات مستخدمين أو تصميمات شاشات. كل هذه مخرجات مستقبلية للـAgent، ولا تُعلّم `Delivered` قبل وجودها وتحققك من فتحها.
 
-1. Approved owner decisions.
-2. User success and financial truth.
-3. Screen architecture and fixed content.
-4. Accessibility and Arabic RTL requirements.
-5. Direction-specific visual exploration.
-6. Designer preference.
+## قاعدتان عند الالتباس
 
-The designer may flag a conflict, but may not silently override a higher-authority decision.
+- أولوية السلوك المألوف للمنصة على التعبير البصري إذا تعارضا؛ التكوين والهوية يجب أن يكونا خاصين بـMicro، من دون نسخ قالب جاهز.
+- واجهة Micro الحالية مصدر وظيفي فقط؛ اللون والشكل والترتيب القديم ليست مرجعًا. تصاميم C1/C2/C3 السابقة وأوامرها ليست جزءًا من هذه الحزمة.
 
-## Required working method
-
-- One senior visual/UI designer creates C1, C2, and C3.
-- Every direction uses the same screen dimensions, Arabic content, figures, and information architecture.
-- Present the three directions separately before proposing any combination.
-- Foundation boards must pass the documented internal gate before full screen production. The agent continues automatically and records the result.
-- Claims about Jordanian users that have not been field-tested remain hypotheses.
-- Every color pair used for text, icons, controls, and status surfaces must be measured.
-- Use Arabic RTL in the actual concept screens; English wireframes are not accepted.
-
-## Non-goals
-
-- No edits to the Micro production repository.
-- Design-source, prototype, evidence, and report files may be committed to this handoff repository.
-- No production deployment.
-- No final token migration.
-- No sixth navigation tab.
-- No redesign of product scope.
-- No imitation of a single reference product.
-- No full design system until a direction is selected and tested.
-
-## Primary approval gates
-
-1. Foundation boards pass the internal rubric gate.
-2. Critical concept screens pass task, RTL, contrast, and financial-truth gates.
-3. Full direction set is completed for all three directions.
-4. C1/C2/C3 are evaluated with written evidence.
-5. A recommended direction is selected provisionally by the agent.
-6. The selected direction is prototyped and technically stress-tested.
-7. Visual foundations and a candidate design system are documented.
-8. Final owner approval and real-user validation remain explicitly pending.
+**ملاحظة أمنية:** لا تحتوي هذه الحزمة أي رمز وصول أو سر أو إذن دفع أو نشر. أي مشاركة لمستودع أو خدمة خارجية تتطلب الصلاحية والقناة التي يختارها المالك لاحقًا.

@@ -1,0 +1,47 @@
+Screen_ID,Domain,Scenario,Required_Visual_States,Decision_Ref,Navigation_V1,Product_Existence,Design_Status,Agent_Notes
+GLB-SHELL,Global,Global mobile shell,Default|Scrolled|SafeArea|Text200,11|16.5|21.3,See-05,Validate,NotStarted,Five tabs in V1 only
+GLB-ACCOUNT-PANEL,Global,Header connected account panel,Complete|Incomplete|Closed|Focus,11.9|16.4,See-05,Validate,NotStarted,Not a drawer
+GLB-ACCOUNT,Global,Account details,Loaded|Incomplete|Error,11.9|21.3,See-05,Validate,NotStarted,Account access even incomplete
+GLB-PROJECT,Global,Project details,Complete|Incomplete|Error,11.9|21.3,See-05,Validate,NotStarted,No fake completion percentage
+GLB-SETTINGS,Global,System settings,Loaded|Unavailable,11.9|21.3,See-05,Validate,NotStarted,No dark mode
+GLB-LOGOUT,Global,Logout confirmation,Dialog|Focus|Return,11.9|15.6,See-05,Validate,NotStarted,No immediate signout
+GLB-ASK,Global,Ask Micro entry,Loaded|Unavailable|Error,11.7|21.3,See-05,Validate,NotStarted,No invented AI response
+GLB-DELIVERY,Global,Delivery entry,Loaded|Unavailable|Error,11.7|21.3,See-05,Validate,NotStarted,Validate actual scope
+OVR-NOW,Overview,Owner status overview,Complete|Partial|Insufficient|FirstUse|Offline|Error,13.2|13.4|13.20|21.3,See-05,Validate,NotStarted,Cash and profit must not be conflated
+OVR-SNAPSHOT,Overview,Financial snapshot deck,Default|Swipe|Unknown|Text200,13.4|16.1,See-05,Validate,NotStarted,Primary value never hidden
+OVR-SNAPSHOT-ALL,Overview,All financial blocks,Loaded|Partial|Unknown,13.4|21.3,See-05,Validate,NotStarted,Full-screen hierarchy not card grid
+OVR-INSIGHTS,Overview,Insight prioritization,Actionable|Informational|Clear|Partial,13.19|14.1|21.3,See-05,Validate,NotStarted,No generic advice
+OVR-INSIGHT-DETAIL,Overview,Insight evidence,Loaded|Partial|Error,13.19|14.1,See-05,Validate,NotStarted,Explain evidence not invented figures
+OPS-HOME,Operations,Work center,Loaded|FirstUse|Busy|Offline,11|21.3,See-05,Validate,NotStarted,Distinct rhythm from overview
+OPS-ENTRY,Operations,Operation type entry,Default|Unavailable|Error,12.1|21.3,See-05,Validate,NotStarted,Verify actual quick-entry affordance
+OPS-SALE-CREATE,Operations,Cash or credit sale,Empty|Filled|Validation|Impact|Saving|Failure|Success,12|13.8|21.3,See-05,Validate,NotStarted,Financial logic supplied externally
+OPS-EXPENSE-CREATE,Operations,Expense entry,Empty|Filled|Validation|Saving|Failure|Success,12|21.3,See-05,Validate,NotStarted,Do not assume wallet effect
+OPS-COLLECTION,Operations,Debt collection,Partial|Full|Impact|Failure|Success,12|13.6|13.8,See-05,Validate,NotStarted,Before and after data from product
+OPS-SUPPLIER-PAY,Operations,Supplier payment,Partial|Full|Impact|Failure|Success,12|13.6|13.8,See-05,Validate,NotStarted,No fabricated balance
+OPS-PURCHASE,Operations,Purchase entry,Empty|Filled|Validation|Impact|Failure|Success,12|13.8,See-05,Validate,NotStarted,Validate product fields
+OPS-OWNER-MONEY,Operations,Owner money in or out,Entry|Impact|Failure|Success,12|13.8,See-05,Validate,NotStarted,Keep separate from revenue
+OPS-ORDERS-LIST,Operations,Orders list,Loaded|FirstUse|FilteredEmpty|Loading|Offline,10.5|21.3,See-05,Validate,NotStarted,Status coverage by real workflow
+OPS-ORDER-DETAIL,Operations,Order detail,Active|Ready|Delivered|Due|Partial|Error,11.10|21.3,See-05,Validate,NotStarted,Do not invent status transition
+OPS-ORDER-EDIT,Operations,Order entry or edit,Empty|Filled|Validation|UnsavedExit|Saving|Failure,12|21.3,See-05,Validate,NotStarted,Long task may be full-screen
+CAT-ITEMS-LIST,Catalog,Products and services,Loaded|FirstUse|FilteredEmpty|LowStock,10.2|21.3,See-05,Validate,NotStarted,Contextual screen not tab six
+CAT-ITEM-DETAIL,Catalog,Product or service detail,Product|Service|Incomplete|Error,21.3,See-05,Validate,NotStarted,Separate applicable inventory state
+CAT-ITEM-EDIT,Catalog,Add or edit item,Empty|Filled|Validation|UnsavedExit,12|21.3,See-05,Validate,NotStarted,No assumed required fields
+REL-CUSTOMERS,Relationships,Customer list,Loaded|FirstUse|FilteredEmpty|Offline,10.2|21.3,See-05,Validate,NotStarted,One person may have multiple movements
+REL-CUSTOMER-DETAIL,Relationships,Customer detail and debt,Known|Unknown|Partial|Zero|Error,13.6|13.20|21.3,See-05,Validate,NotStarted,Zero not missing
+REL-SUPPLIERS,Relationships,Supplier list,Loaded|FirstUse|FilteredEmpty|Offline,10.2|21.3,See-05,Validate,NotStarted,Validate actual product scope
+REL-SUPPLIER-DETAIL,Relationships,Supplier detail,Known|Unknown|Partial|Zero|Error,13.6|13.20|21.3,See-05,Validate,NotStarted,Do not assume settlement logic
+FIN-OVERVIEW,Finance,Finance overview,Complete|Partial|Insufficient|Zero|Negative|Offline,13.2|13.11|13.20,See-05,Validate,NotStarted,Truthful result by completeness
+FIN-WALLETS,Finance,Wallets and cash list,Loaded|Empty|Unavailable|Offline,13.7|21.3,See-05,Validate,NotStarted,Cash not equal revenue
+FIN-WALLET-DETAIL,Finance,Wallet movement detail,Loaded|Empty|LocalSaved|PendingSync|Error,13.7|13.20,See-05,Validate,NotStarted,Sync states must be truthful
+FIN-ALLOCATION,Finance,Allocation interface,Complete|Remaining|Overallocated|Validation,13.7|21.3,See-05,Validate,NotStarted,Amounts from product rules
+FIN-TRANSFER,Finance,Wallet transfer,Empty|Impact|Saving|Failure|Success,12|13.8|21.3,See-05,Validate,NotStarted,No invented effect
+FIN-DEBTS,Finance,Debts and dues,Known|Unknown|Partial|Zero|FilteredEmpty,13.6|13.20,See-05,Validate,NotStarted,Separate receivables and payables
+FIN-ACTIVITY,Finance,Financial activity list,Loaded|FilteredEmpty|Loading|Offline|PendingSync,13.5|13.20,See-05,Validate,NotStarted,Open rows not card per item
+FIN-TRANSACTION-DETAIL,Finance,Transaction detail,Loaded|Partial|Error|SensitiveAction,13.10|15.6,See-05,Validate,NotStarted,Reversal not deletion
+FIN-CHARTS,Finance,Financial charts,Line|Bar|HalfRing|MissingData|DataView|Text200,13.13|13.14|16.4,See-05,Validate,NotStarted,No chart without accurate table
+TOOL-HOME,Tools,Tools landing,Loaded|Empty|Unavailable,21.3,See-05,Validate,NotStarted,Not uniform card grid
+TOOL-CALCULATOR,Tools,Independent calculator,Entry|Result|Clear|Error,21.3,See-05,Validate,NotStarted,No implicit ledger mutation
+MKT-HOME,Market,Market home,ValueNow|Empty|Loading|Offline,11.6|21.3,See-05,Validate,NotStarted,Not Coming Soon only
+MKT-OFFER-DETAIL,Market,Market offering detail,Loaded|Unavailable|Error,11.6|21.3,See-05,Validate,NotStarted,Confirm real offerings before approval
+GLB-FILTER-PANEL,Global,Contextual filters,Default|Expanded|Applied|NoResults|Reset,10.3|11.13,See-05,Validate,NotStarted,Not chips by default
+GLB-ERROR-RECOVERY,Global,Error and recovery patterns,Inline|Local|Blocking|Retry|Offline,14.6|16.4,See-05,Validate,NotStarted,Embed in owning component
