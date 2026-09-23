@@ -1,0 +1,67 @@
+id	category	classification	title	evidence	impact	dependency	wave
+F-01	brand-assets	FIX_NOW	Retired v0 palette (#CC785C/#079FA0 + retired dark) still live in 13 public/brand SVG assets (favicon, BrandMark, PWA icons, splash, launch motion); guard scans client/src only	public/brand/{favicon,mark,pwa,splash,motion}/*.svg; scripts/design-token-guards.py:33,256-263	Visual identity contradiction in both themes; no data/financial impact	none	standalone small wave
+F-02	guard-extension	FIX_NOW	Contrast-guard pair matrix hard-coded to current roles; new V2 roles (Action/Partial/Boundary/BrandSoft/Info) uncovered	scripts/theme-contrast-guard.py TEXT_PAIRS/MARK_PAIRS	Unverified contrast on new roles	OD-01/OD-02 values	Wave 1
+F-03	documentation	FIX_NOW	Doc staleness: AGENTS 36/28 & 35/27 vs code 38/30; context.md stale SHA; current-state header; vf-tokens.css dark comment; 00-document-index missing architecture docs; R2 55 vs 56	Section 13 (C-01..C-06, C-09, C-10)	Future agents plan against wrong invariants	none	Wave 0 (separate Micro doc-only commission)
+F-04	foundations	FIX_NOW	Wave-1 token reconciliation through vf-tokens.css + parallel theme-dark.css bindings + vf-tokens.test.ts re-baseline + guard scale updates	Sections 7-8	Whole-surface visual change; financial meaning preserved via words/markers	OD-01/02/08 + F-02	Wave 1
+F-05	state-semantics	FIX_NOW	stateAdapter tone-vocabulary extension (add partial/unknown neutral tones; re-classify pending/reversed per decision)	presentation/stateAdapter.ts; stateAdapter.test.ts	Changes how partial/unknown/pending render; words unchanged	OD-02	Wave 1/2
+F-06	components	FIX_NOW	Button/action-class visual adaptation through tokens; keep Micro 8-class ladder; V2 in-button success/error to feedback regime	primitives/Button.tsx; primitives.css:122-187	Every action surface (52/52 routes)	OD-01 + F-04	Wave 1/2
+F-07	components	FIX_NOW	Field visual additions: clear-value button, LTR tel/ID isolation, focus treatment; unit placement per contract	primitives/Field.tsx; forms/EnglishNumberInput	Money input/display correctness (bidi)	OD-04	Wave 2/3
+F-08	components	FIX_NOW	Row unavailable-with-reason state + 200% grid restructure technique	primitives/Row.tsx; V2 OpenRow + [data-text-scale=200]	60+ consumers; low (additive)	Wave-1 tokens	Wave 3
+F-09	components	FIX_NOW	Net-new capabilities: StructuralLoad, TruthNote, AnchoredMenu, SnapshotDeck (Micro readers), Insight card - dynamic-loaded	Sections 8-9	Bundle budget (headroom 1228B raw); deck strong-card guardrails	OD-06, OD-11	Wave 2/3
+F-10	accessibility	FIX_NOW	Touch-target floor enforcement (V2 qty-btn 40px -> 44px); keep Micro sheet focus traps	V2 screens.css .qty-btn; U09	A11y compliance	none	every wave
+F-11	state-grammar	FIX_NOW	Strip V2 in-component word generation; fixtures exclusion enforcement at adaptation	V2 MoneyValue.tsx:26-46; SIGNAL_STATE_TEXT; EmptyState hints	Prevents state-grammar violation	none	every adaptation
+F-12	process	FIX_NOW	Per-wave visual evidence protocol: Light+Dark captures; 320-412 x 150/200%; density counts; both contrast guards	CHANGE_PROTOCOL section 3; no automated visual-regression tooling	Prevents unverified visual claims	none	every wave
+F-13	components	FIX_NOW	Icon name mapping Phosphor->lucide; never import phosphor.generated.ts	phosphor.generated.ts vs lucide-react	Prevents duplicate icon system + bundle bloat	none	every adaptation
+P-01	architecture	PRESERVE	Layered architecture + ESLint boundaries + runtime-cycle guard	eslint.config.js; scripts/check-runtime-cycles.mjs	Any V2 code must route through the ladder	none	-
+P-02	architecture	PRESERVE	Single token bridge (vf-tokens.css) + single-stylesheet convention; no second namespace	styles/vf-tokens.css; index.css	All values enter through the bridge	none	-
+P-03	components	PRESERVE	Single vaul drawer primitive composed by all feature sheets	components/ui/drawer.tsx	No second overlay system	none	-
+P-04	architecture	PRESERVE	QuickActionSheet Home ownership; no central FAB (NAV-001)	layout/QuickActionSheet.tsx; MicroAppShell	V2 shell restyle must not re-centralize	none	-
+P-05	state-grammar	PRESERVE	Micro state words & dictionaries; adapter/components never generate words	stateAdapter.ts header; StatusChip.tsx header	State-grammar integrity	none	-
+P-06	financial	PRESERVE	formatters.ts single money-format source incl. share/markdown propagation	presentation/formatters.ts Format changes propagate into exported text	none	-
+P-07	financial	PRESERVE	EventEffectPreview domain dry-run; no UI-side financial equations ever	EventEffectPreview.tsx:107-131; AGENTS 10.5	none	-
+P-08	financial	PRESERVE	Period-comparison truth; no silent 0% on missing	periodComparisonService.ts	none	-
+P-09	state-grammar	PRESERVE	Honest-state invariants: pending!=success; unknown!=failure; zero!=no-data; no-data!=no-results	stateAdapter.ts; SURFACE_TONE_SYNTAX section 3	none	-
+P-10	identity	PRESERVE	#D97757 identity + never-financial guardrail on both sides	vf-tokens.css:48; COLOR-STANDARD-V2 section 1-2	none	-
+P-11	process	PRESERVE	Full guard/CI chain + rollback protocol reused for V2 waves	package.json check; ci.yml; CHANGE_PROTOCOL section 5	none	-
+P-12	dark-mode	PRESERVE	Dark Mode as-is (ADR-009); parallel dark binding + 82-pair contrast per token change	theme-dark.css; theme-contrast-guard.py	none	-
+P-13	rtl	PRESERVE	Native-RTL approach on both sides; no conflicts	index.html:2; logical properties 116 vs 25	none	-
+P-14	tokens	PRESERVE	Micro z-ladder + documented divergence; never import z-90	vf-tokens.css:162-167; guard Z_LADDER	none	-
+P-15	components	PRESERVE	lucide icon system	lucide-react ^0.453	none	-
+P-16	components	PRESERVE	StatusChip word+marker contract (13px floor, 3:1 surface marks)	primitives/StatusChip.tsx	none	-
+P-17	components	PRESERVE	FeedbackNote explicit-channel contract (completion/advisory/error at event source)	Notice.tsx; R1/D6	none	-
+P-18	components	PRESERVE	Sheet focus trap + unsaved-changes stack (stronger than V2 Sheet)	ui/drawer.tsx; QuickActionSheet	none	-
+P-19	components	PRESERVE	Error-recovery semantics (retry in place; region isolation; refreshError-over-ready)	P-4.4-4 matrix; Home Z1.4	none	-
+P-20	theme	PRESERVE	ThemeContext: light default; dark explicit/persisted; never OS-following	contexts/ThemeContext.tsx	none	-
+P-21	architecture	PRESERVE	PWA style unity + generated SW/manifest; brand-launch-splash sanctioned one-off	pwa/; vite.config.ts VitePWA; brand-launch-splash.css	none	-
+D-01	charts	DEFER	Chart system (conditional; U-16 floors; FIN-CHARTS ConditionalVerify)	MIGRATION_STATUS follow-up 5	none	later
+D-02	sync-states	DEFER	SaveState/pending-send/offline axis (no sync target; contract 04 local_only)	STATE-MATRIX; contracts/04	none	sync waves
+D-03	auth	DEFER	Auth/password/logout semantics (AGENTS 7.6 phase gate)	V2 AppHeader; contract 37 PIN	none	post-gate
+D-04	navigation	DEFER	Page-swipe between tabs (net-new; deck-drag arbitration)	NAVIGATION-MAP 11.12	none	post-deck
+D-05	components	DEFER	SystemRibbon (sync-presuming)	V2 contextual	none	sync waves
+D-06	tokens	DEFER	Dead-token cleanup (documented list; avoid Wave-1 churn)	Section 8.1	none	later
+D-07	components	DEFER	Finance-event -> Row convergence (registered owner wave; separate from V2)	MIGRATION_STATUS preserved rows	none	registered wave
+D-08	components	DEFER	Field-primitive form convergence (registered owner wave)	MIGRATION_STATUS	none	registered wave
+D-09	screens	DEFER	Redesign of ~24 un-designed Micro screens (stay on current design)	V2 OPEN-ISSUES row 7	none	route-by-route
+D-10	validation	DEFER	Real-device + UAT validation (external gates before Pilot)	DEVICE-001; UAT-001	none	gates
+D-11	dark-mode	DEFER	Dark Mode V2 redesign (separate owner decision + wave)	Phase 0 decision 3	owner	later wave
+D-12	brand	DEFER	Brand quad-mark / final logo asset (GAP-002 pending logo review)	ASSET-MANIFEST section 3	owner	later
+O-01	studio	OUT_OF_SCOPE	Studio chrome (StudioShell/ReviewControls/StudioComponents/DeferredScreen/fixtures/simulated status bar)	TRANSFER-READINESS step 5	none	never
+O-02	studio	OUT_OF_SCOPE	studio.css --studio-* namespace + raw-hex scrim (core.css:435)	studio/studio.css	none	never
+O-03	studio	OUT_OF_SCOPE	Phosphor registry import	phosphor.generated.ts	none	never
+O-04	screens	OUT_OF_SCOPE	GLB-LOGOUT (local-first; no session)	Section 9 row 6	none	unless cloud auth
+O-05	screens	OUT_OF_SCOPE	Market offering invention (GAP-005)	MKT rows	none	never
+O-06	scope	OUT_OF_SCOPE	Any domain/data/storage/export/financial-logic change	Phase 0 decision 4	none	never
+O-07	state-grammar	OUT_OF_SCOPE	دخل/خرج direction-word transfer; review-word reuse for unknowns	S4-08	none	never
+O-08	financial	OUT_OF_SCOPE	Studio sale-impact fixture values as financial logic (GAP-004)	fixtures/ops-sale-create.json	none	never
+OD-01	action-brand	OWNER_DECISION_REQUIRED	Adopt V2 Action #A94630+white; re-classify primary/create/FAB; focus color; pressed-brand choice	SOURCE_OF_TRUTH:7; frozen tests	before Wave 1	Wave 0/1
+OD-02	state-semantics	OWNER_DECISION_REQUIRED	Semantic tone remap (info-blue -> info/attention/partial; add partial tone; fate of --vf-status reviewed role)	stateAdapter tests	before Wave 1	Wave 0/1
+OD-03	typography	OWNER_DECISION_REQUIRED	Font strategy (family; mono numeric contract; subsetting; payload; rem-ladder re-freeze)	NUMERIC_SLOT_CONTRACT; assets/fonts	before Wave 1	Wave 0/1
+OD-04	financial	OWNER_DECISION_REQUIRED	Money display format (minus glyph; decimals; unit placement; spoken label)	formatters.ts; tokens.ts	before Wave 1/2	Wave 0
+OD-05	financial	OWNER_DECISION_REQUIRED	Loss/negative semantics (amber attention vs danger red + خسارة)	index.css:2246; ResultBlock	before Wave 2	Wave 0
+OD-06	financial	OWNER_DECISION_REQUIRED	Result-card verdict words & naming (contract 05 3.2.1 conflict; brand-strong result card)	contracts/05:54-67	before Wave 2	Wave 0
+OD-07	state-semantics	OWNER_DECISION_REQUIRED	Due-today coloring (frozen neutral vs V2 amber)	stateAdapter.test.ts:99-102	before Wave 2	Wave 0
+OD-08	vocabulary	OWNER_DECISION_REQUIRED	State vocabulary reconciliation (غير معروف ban; review word; new V2 words)	Section 11.2	before Wave 1/2	Wave 0
+OD-09	architecture	OWNER_DECISION_REQUIRED	Finance/Home structural sequencing vs open Group-11 final owner gate	AGENTS 11; current-state 40	before Wave 3	Wave 0
+OD-10	shell	OWNER_DECISION_REQUIRED	Header philosophy (logo vs no-logo; account panel vs menu; nav height)	NAVIGATION-MAP 11.7; AppHeader	before Wave 2/3	Wave 0
+OD-11	performance	OWNER_DECISION_REQUIRED	Bundle strategy (dynamic-load offsets vs owner cap raise)	check-bundle-budget.mjs; R-04	before Wave 1	Wave 0
+OD-12	product	OWNER_DECISION_REQUIRED	Accept this mapping (Wave 0 gate); OVR-SNAPSHOT-ALL product decision (ISS-005)	Section 16; CSV row 12	now	Wave 0
