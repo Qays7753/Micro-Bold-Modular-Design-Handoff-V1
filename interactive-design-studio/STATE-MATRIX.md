@@ -1,6 +1,6 @@
-# STATE-MATRIX — مصفوفة الحالات
+# STATE-MATRIX — مصفوفة الحالات (V2 — مراجعة 2026-09-23)
 
-**المرجع:** §13.20 (محورا معنى القيمة والحفظ) + §14 (النظام السياقي) + 04-CSV (الحالات المطلوبة). النموذج في `src/states/types.ts`.
+**المرجع:** §13.20 (محورا معنى القيمة والحفظ) + §14 (النظام السياقي) + 04-CSV (الحالات المطلوبة) + 17 §2 (ألوان الحالات). النموذج في `src/states/types.ts`. ألوان الحالات دلالية (نجاح/انتباه/خطر/جزئي/معلومة) — لون الهوية ليس حالة.
 
 ## 1. محور معنى القيمة (MoneyValue — لا يخلط أبدًا)
 
@@ -27,17 +27,17 @@
 
 ## 3. حالات البيانات الإجمالية × الشاشات المنفذة
 
-| DataState | OVR-NOW | OPS-SALE-CREATE | FIN-OVERVIEW |
-|---|---|---|---|
-| complete | ✔ complete | ✔ filled/impact/success | ✔ complete/zero/negative |
-| partial | ✔ partial | ✔ (إجمالي جزئي بسعر غير مسجل) | ✔ partial |
-| unknown / insufficient | ✔ insufficient | — | ✔ insufficient |
-| empty | ✔ first-use (First Move) | ✔ empty (نموذج فارغ) | — |
-| loading | — (منطقة StructuralLoad متاحة بالمكون) | ✔ saving (Action Hold) | — |
-| error / recovery | ✔ error (RecoveryStage بالملخص فقط) | ✔ failure (فشل الحفظ) | — |
-| offline | ✔ offline (Ribbon + stale) | ✔ offline-save | ✔ offline |
+| DataState | OVR-NOW | OPS-SALE-CREATE | FIN-OVERVIEW | OVR-SNAPSHOT-ALL |
+|---|---|---|---|---|
+| complete | ✔ complete | ✔ filled/impact/success | ✔ complete/zero/negative | ✔ complete |
+| partial | ✔ partial | ✔ (إجمالي جزئي بسعر غير مسجل) | ✔ partial | ✔ partial |
+| unknown / insufficient | ✔ insufficient | — | ✔ insufficient | ✔ insufficient |
+| empty | ✔ first-use (First Move) | ✔ empty (نموذج فارغ) | — | — |
+| loading | — (منطقة StructuralLoad متاحة بالمكون) | ✔ saving (Action Hold) | — | — |
+| error / recovery | ✔ error (RecoveryStage بالملخص فقط) | ✔ failure (فشل الحفظ) | — | — |
+| offline | ✔ offline (Ribbon + stale) | ✔ offline-save | ✔ offline | ✔ offline |
 
-**قواعد حاكمة مطبقة:** المجهول لا يتحول صفرًا أبدًا؛ الصفر الحقيقي يوسم؛ الحالة الحرجة لا تختبئ خلف Swipe؛ الحالة تظهر من مصدرها (Anchor→Reveal→Recover)؛ بنية الشاشة لا تقفز عند تغير الحالة؛ مؤشر انتظار متحرك واحد فقط.
+**قواعد حاكمة مطبقة:** المجهول لا يتحول صفرًا أبدًا؛ الصفر الحقيقي يوسم؛ الحالة الحرجة لا تختبئ خلف Swipe (النتيجة أولًا في OVR)؛ الحالة تظهر من مصدرها (Anchor→Reveal→Recover)؛ بنية الشاشة لا تقفز عند تغير الحالة؛ **تبديل السيناريو يعيد تركيب الشاشة فلا تتسرب قيم/أخطاء من سيناريو سابق**؛ مؤشر انتظار متحرك واحد فقط.
 
 ## 4. حالات الفحص في طبقة المراجعة
 

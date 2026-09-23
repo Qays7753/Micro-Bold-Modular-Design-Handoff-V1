@@ -1,6 +1,6 @@
-# DESIGN-TO-DEVELOPMENT — تسليم التنفيذ البصري
+# DESIGN-TO-DEVELOPMENT — تسليم التنفيذ البصري (V2 — مراجعة 2026-09-23)
 
-**المرجع:** `08-DESIGN-TO-DEVELOPMENT.md` (قالب الحزمة) + §21.4. هذا الجسر من الاستوديو المرشح إلى تطوير Micro: لا يفرض Framework (§03-SPEC)، ويحدد ما يحميه التصميم وما يقرره التطوير.
+**المرجع:** `08-DESIGN-TO-DEVELOPMENT.md` (قالب الحزمة) + §21.4 + 17-COLOR-DECISION (المنظومة اللونية الحاكمة). هذا الجسر من الاستوديو المرشح إلى تطوير Micro: لا يفرض Framework (§03-SPEC)، ويحدد ما يحميه التصميم وما يقرره التطوير.
 
 ## 1. خريطة Design → Code (المكونات المنفذة)
 
@@ -8,12 +8,12 @@
 |---|---|---|---|---|---|
 | `Financial/MoneyValue` | `src/components/financial/MoneyValue.tsx` | `--type-money-*` + `--c-ink` | Known/TrueZero/Negative/Estimated/NotRecorded/CannotCompute/Unknown/Stale | يعينه فريق التنفيذ | Candidate |
 | `Financial/TruthNote` | `…/TruthNote.tsx` | `--c-surface-2` + ألوان دلالية | Complete/Partial/Insufficient/Offline/Error | يعين | Candidate |
-| `Financial/SnapshotDeck` | `…/SnapshotDeck.tsx` | `--radius-card-lg` + `--c-primary` | بطاقة قوية/جزئية/غير كافية + مؤشر n من 4 | يعين | Candidate |
+| `Financial/SnapshotDeck` | `…/SnapshotDeck.tsx` | `--radius-card-lg` + `--c-brand`/`--c-on-brand` | بطاقة النتيجة القوية (Ink فوق الهوية) / جزئية بشريط / غير كافية + **سحب مباشر حقيقي** + مؤشر n من 4 + «عرض الكل» حقيقي | يعين | Candidate |
 | `Financial/TransactionRow` | `…/TransactionRow.tsx` | `--size-row-tx` | Default/Partial/LocalSaved/PendingSync | يعين | Candidate |
-| `Financial/ResultBlock` | `…/ResultBlock.tsx` | `--c-primary`/`--c-soft-lavender`/`--c-surface-2` | Complete/Partial/Insufficient × ربح/خسارة/— | يعين | Candidate |
+| `Financial/ResultBlock` | `…/ResultBlock.tsx` | `--c-success-surface`/`--c-danger-surface`/`--c-partial-surface` | Complete (ربح)/Negative (خسارة)/Partial/Insufficient + كلمة حكم + تفصيل Sheet | يعين | Candidate |
 | `Financial/ImpactPreview` | `…/ImpactPreview.tsx` | `--c-surface-2` | قبل/بعد + غير محسوب | يعين | Candidate (القيم من منطق المنتج) |
 | `Contextual/*` (Signal/Trace/Seam/Ribbon/Recovery/Empty/Insight) | `src/components/contextual/` | `--signal-*` + أسطح دلالية | انظر COMPONENT-CATALOG | يعين | Candidate |
-| `Navigation/*` (Header/AccountPanel/BottomNav) | `src/navigation/` | `--size-tabbar`/`--size-header` | Default/Scrolled/Selected/Badge/PanelOpen | يعين | Candidate |
+| `Navigation/*` (Header/AccountPanel/BottomNav) | `src/navigation/` | `--size-tabbar`/`--size-header`/`--nav-selected-ink` | Default/Scrolled/Selected (علامة رباعية)/Badge/PanelOpen + **سحب بين الصفحات §11.12** | يعين | Candidate |
 | `Core/*` (Button/Segmented/Field/OpenRow/Sheet/Dialog/Menu/Skeleton) | `src/components/core/` | انظر TOKEN-DICTIONARY | انظر COMPONENT-CATALOG | يعين | Candidate |
 
 ## 2. لكل شاشة منفذة — ما يسلَّم للتطوير

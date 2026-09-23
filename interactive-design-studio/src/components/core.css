@@ -1,6 +1,8 @@
-/* Micro Visual System — Core components CSS (§§10، 12)
-   المرجع: tokens.css لكل القيم. لا Hex هنا — Tokens فقط. RTL عبر خصائص
-   منطقية. اللمس ≥44px. الظل للطبقات الحقيقية فقط. */
+/* Micro Visual System — Core components CSS (§§10، 12) — مراجعة الألوان V2
+   المرجع: tokens.css لكل القيم (17-COLOR-DECISION). لا Hex هنا — Tokens فقط.
+   RTL عبر خصائص منطقية. اللمس ≥44px. الظل للطبقات الحقيقية فقط.
+   الزر الصلب = Action #A94630 بأبيض عادي (5.82:1)؛ الاختيار = Action مع
+   شكل/وزن/موضع؛ التركيز = Information #305968 على الأسطح الفاتحة. */
 
 /* ===================== Buttons (§10.1) ===================== */
 .btn {
@@ -38,21 +40,23 @@
 }
 
 .btn--primary:active {
-  background: var(--c-primary-pressed);
+  background: var(--btn-primary-pressed);
   transform: scale(0.985);
 }
 
 .btn--primary.is-loading {
-  background: var(--c-primary-pressed);
+  background: var(--btn-primary-pressed);
   cursor: progress;
 }
 
+/* Accent: تأكيد غير مالي فوق الهوية — Ink فوقه (4.76:1) لا أبيض عادي */
 .btn--accent {
-  background: var(--c-accent);
-  color: var(--c-on-accent);
+  background: var(--c-brand);
+  color: var(--c-on-brand);
 }
 
 .btn--accent:active {
+  background: var(--c-brand-deep);
   transform: scale(0.985);
 }
 
@@ -69,12 +73,12 @@
 
 .btn--tertiary {
   background: transparent;
-  color: var(--c-primary);
+  color: var(--c-action);
   padding-inline: var(--space-4);
 }
 
 .btn--tertiary:active {
-  color: var(--c-primary-pressed);
+  color: var(--c-action-pressed);
 }
 
 .btn--destructive {
@@ -86,6 +90,7 @@
   transform: scale(0.985);
 }
 
+/* التركيز (§16.4): Information على الفاتح ~2px بلا Glow؛ فوق كتلة الهوية Ink */
 .btn:focus-visible,
 .icon-btn:focus-visible,
 .segmented__option:focus-visible,
@@ -108,9 +113,14 @@
 .home-link:focus-visible,
 .truth-note__trigger:focus-visible,
 .sale-extras__toggle:focus-visible {
-  /* Focus Contour (§16.4): Indigo على الفاتح، ~2px، بلا Glow */
   outline: var(--stroke-focus) solid var(--c-focus);
   outline-offset: 2px;
+}
+
+.on-brand-surface :focus-visible,
+.snapshot-card--strong :focus-visible,
+.result-block--brand :focus-visible {
+  outline-color: var(--c-ink);
 }
 
 .btn:disabled,
@@ -136,16 +146,16 @@
 }
 
 .icon-btn:active {
-  color: var(--c-primary-pressed);
+  color: var(--c-action-pressed);
 }
 
 .icon-btn.is-active {
-  color: var(--c-primary);
-  background: var(--c-primary-soft);
+  color: var(--c-action);
+  background: var(--c-brand-soft);
 }
 
 .link-action {
-  color: var(--c-primary);
+  color: var(--c-action);
   font-size: var(--type-supporting);
   font-weight: var(--weight-semibold);
   display: inline-flex;
@@ -158,7 +168,7 @@
 }
 
 .link-action:active {
-  color: var(--c-primary-pressed);
+  color: var(--c-action-pressed);
 }
 
 /* ===================== Segmented (§10.3/§12.4) ===================== */
@@ -176,7 +186,7 @@
   align-items: center;
   justify-content: center;
   gap: var(--space-3);
-  min-height: 40px;
+  min-height: 44px;
   border-radius: calc(var(--radius-segmented) - 3px);
   color: var(--c-ink-2);
   font-size: var(--type-body);
@@ -203,8 +213,8 @@
 
 .segmented__option.is-selected .segmented__dot {
   display: inline-block;
-  border-color: var(--c-primary);
-  background: var(--c-primary);
+  border-color: var(--c-selection);
+  background: var(--c-selection);
 }
 
 /* ===================== Fields (§12.3/§12.4) ===================== */
@@ -241,7 +251,7 @@
 
 .field__box:focus-within {
   border-color: var(--field-boundary-focus);
-  box-shadow: 0 0 0 3px var(--c-primary-soft);
+  box-shadow: 0 0 0 3px var(--c-focus-ring);
 }
 
 .has-error .field__box {
@@ -396,7 +406,7 @@
 }
 
 .overlay__scrim--light {
-  background: rgba(15, 17, 23, 0.18);
+  background: rgba(29, 41, 48, 0.18);
 }
 
 .overlay--menu {
@@ -503,8 +513,12 @@
 }
 
 .dialog__action--primary {
-  background: var(--c-primary);
-  color: var(--c-on-primary);
+  background: var(--c-action);
+  color: var(--c-on-action);
+}
+
+.dialog__action--primary:active {
+  background: var(--c-action-pressed);
 }
 
 .dialog__action--primary.is-destructive {
@@ -542,7 +556,7 @@
 
 .anchored-menu__item.is-selected {
   font-weight: var(--weight-semibold);
-  color: var(--c-primary);
+  color: var(--c-selection);
 }
 
 /* ===================== Skeletons (§14.4) ===================== */

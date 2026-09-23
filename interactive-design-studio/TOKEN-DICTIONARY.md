@@ -1,55 +1,48 @@
-# TOKEN-DICTIONARY — قاموس Tokens (V1)
+# TOKEN-DICTIONARY — قاموس Tokens (V2)
 
-> **Old generated dictionary:** القيم أدناه تصف الإصدار السابق ولا تشكل سلطة ألوان. يعيد ZAI التوليد من كود جديد وفق `../17-COLOR-DECISION-2026-09-23.md`.
-
-**المصدر الأعلى:** `MICRO-VISUAL-DESIGN-DECISIONS-V1.md` §§6–8، 10–12، 15–16، 21.2.
+**المرجع الأعلى للألوان:** `17-COLOR-DECISION-2026-09-23.md` (يعتمد #D97757 هوية قائدة من المالك؛ بقية القيم خط أساس تنفيذي مفوض). بقية القرارات: `MICRO-VISUAL-DESIGN-DECISIONS-V1.md` §§6–7، 10–12، 15–16، 21.2.
 **ملف القيم الحقيقي:** `src/foundations/tokens.css` — هذا التوثيق مولّد منه آليًا بواسطة `scripts/export-tokens.mjs` (خارج المستودع) لضمان التطابق.
 **الوضع:** Light Mode فقط — لا Dark Tokens ولا Hex داخل المكونات.
+**قيم مشتقة وموثقة:** `#C4663F` (عمق هوية، غير نصي)، `#8F3B27` (مضغوط Action)، `#E4EAEC` (سطح ثانٍ)، `#8A959C` (نص معطل)، `#A6AEB4` (زخرفي) — من 17 §2 «Derived and documented by ZAI».
+**دور Local (دون اتصال) = دور Information** `#305968/#DFEDF1` لأنه حالة نظام لا حالة جودة بيانات — موثق في REVISION-COVERAGE-LEDGER.md.
 **تكبير النص:** `--text-scale` (1/1.5/2) تتحكم به طبقة المراجعة لأحجام الخطوط فقط — محاكاة تكبير النص على الجهاز (§16.5) مع ثبات مقاييس التخطيط.
 
-## Core Tokens: Color Primitives (§8)
+## Core Tokens: Color Primitives (17-COLOR-DECISION §2)
 
 | Token | القيمة |
 |---|---|
-| `--p-ink` | `#171923` |
-| `--p-canvas` | `#f4f6fa` |
+| `--p-ink` | `#1d2930` |
+| `--p-ink-2` | `#53616a` |
+| `--p-ink-disabled` | `#8a959c` |
+| `--p-muted` | `#a6aeb4` |
+| `--p-canvas` | `#f0f3f4` |
 | `--p-white` | `#ffffff` |
-| `--p-surface-2` | `#eef1f7` |
-| `--p-indigo` | `#4f46e5` |
-| `--p-indigo-pressed` | `#3f37c9` |
-| `--p-indigo-soft` | `#e8e7ff` |
-| `--p-citrus` | `#d9f43b` |
-| `--p-citrus-soft` | `#f3fbcb` |
-| `--p-terracotta` | `#c45f46` |
-| `--p-terracotta-soft` | `#f7e4de` |
-| `--p-text-2` | `#5e6472` |
-| `--p-text-disabled` | `#7d8596` |
-| `--p-muted` | `#9aa1ae` |
-| `--p-border` | `#d8dde8` |
-| `--p-boundary` | `#7a8292` |
-| `--p-soft-blue` | `#dfe9ff` |
-| `--p-soft-lavender` | `#ece7ff` |
-| `--p-soft-mint` | `#dff5e7` |
-| `--p-success` | `#137a55` |
-| `--p-success-surface` | `#dcf4e8` |
-| `--p-warning` | `#a65a00` |
-| `--p-warning-surface` | `#fff0d6` |
-| `--p-danger` | `#c2354b` |
-| `--p-danger-surface` | `#fde5e9` |
-| `--p-info` | `#1d64d8` |
-| `--p-info-surface` | `#e0ecff` |
-| `--p-partial` | `#6e5aa8` |
-| `--p-partial-surface` | `#eee9fa` |
-| `--p-unknown` | `#697386` |
-| `--p-unknown-surface` | `#eef0f4` |
-| `--p-local` | `#52657a` |
-| `--p-local-surface` | `#e7edf3` |
-| `--p-overlay` | `rgba(15, 17, 23, 0.55)` |
-| `--p-chart-1` | `#4f46e5` |
-| `--p-chart-2` | `#008c8c` |
-| `--p-chart-3` | `#d97706` |
-| `--p-chart-4` | `#b83b75` |
-| `--p-chart-5` | `#657c25` |
+| `--p-surface-2` | `#e4eaec` |
+| `--p-brand` | `#d97757` |
+| `--p-brand-deep` | `#c4663f` |
+| `--p-brand-soft` | `#fbe9e2` |
+| `--p-action` | `#a94630` |
+| `--p-action-pressed` | `#8f3b27` |
+| `--p-on-action` | `#ffffff` |
+| `--p-info` | `#305968` |
+| `--p-info-surface` | `#dfedf1` |
+| `--p-success` | `#16765a` |
+| `--p-success-surface` | `#dff3e9` |
+| `--p-attention` | `#95590c` |
+| `--p-attention-surface` | `#fff0d7` |
+| `--p-danger` | `#b0324f` |
+| `--p-danger-surface` | `#ffe7eb` |
+| `--p-partial` | `#5b6770` |
+| `--p-partial-surface` | `#edf1f2` |
+| `--p-unknown` | `#5b6770` |
+| `--p-unknown-surface` | `#edf1f2` |
+| `--p-local` | `#305968` |
+| `--p-local-surface` | `#dfedf1` |
+| `--p-boundary` | `#78868d` |
+| `--p-border` | `#dce3e5` |
+| `--p-overlay` | `rgba(29, 41, 48, 0.55)` |
+| `--p-chart-current` | `#305968` |
+| `--p-chart-prior` | `#5b6770` |
 
 ## Core Tokens: Typography (§7) — قيم داخل النطاقات المعتمدة
 
@@ -115,8 +108,8 @@
 |---|---|
 | `--stroke-hairline` | `1px` |
 | `--stroke-focus` | `2px` |
-| `--elevation-layer` | `0 10px 30px rgba(23, 25, 35, 0.12)` |
-| `--elevation-menu` | `0 4px 14px rgba(23, 25, 35, 0.1)` |
+| `--elevation-layer` | `0 10px 30px rgba(29, 41, 48, 0.12)` |
+| `--elevation-menu` | `0 4px 14px rgba(29, 41, 48, 0.1)` |
 
 ## Core Tokens: Motion (§§10.4، 11.13، 15.1، 16.6)
 
@@ -161,7 +154,7 @@
 | `--size-tabbar` | `70px` |
 | `--size-header` | `56px` |
 
-## Semantic Tokens (§8 + §16.3)
+## Semantic Tokens (17-COLOR-DECISION §2)
 
 | Token | القيمة |
 |---|---|
@@ -169,54 +162,50 @@
 | `--c-surface` | `var(--p-white)` |
 | `--c-surface-2` | `var(--p-surface-2)` |
 | `--c-ink` | `var(--p-ink)` |
-| `--c-ink-2` | `var(--p-text-2)` |
-| `--c-ink-disabled` | `var(--p-text-disabled)` |
+| `--c-ink-2` | `var(--p-ink-2)` |
+| `--c-ink-disabled` | `var(--p-ink-disabled)` |
 | `--c-muted` | `var(--p-muted)` |
-| `--c-primary` | `var(--p-indigo)` |
-| `--c-primary-pressed` | `var(--p-indigo-pressed)` |
-| `--c-primary-soft` | `var(--p-indigo-soft)` |
-| `--c-on-primary` | `var(--p-white)` |
-| `--c-accent` | `var(--p-citrus)` |
-| `--c-accent-soft` | `var(--p-citrus-soft)` |
-| `--c-on-accent` | `var(--p-ink)` |
-| `--c-warm` | `var(--p-terracotta)` |
-| `--c-warm-soft` | `var(--p-terracotta-soft)` |
+| `--c-brand` | `var(--p-brand)` |
+| `--c-brand-deep` | `var(--p-brand-deep)` |
+| `--c-brand-soft` | `var(--p-brand-soft)` |
+| `--c-on-brand` | `var(--p-ink)` |
+| `--c-action` | `var(--p-action)` |
+| `--c-action-pressed` | `var(--p-action-pressed)` |
+| `--c-on-action` | `var(--p-on-action)` |
+| `--c-selection` | `var(--p-action)` |
+| `--c-focus` | `var(--p-info)` |
+| `--c-focus-ring` | `var(--p-info-surface)` |
 | `--c-border` | `var(--p-border)` |
 | `--c-boundary` | `var(--p-boundary)` |
 | `--c-overlay` | `var(--p-overlay)` |
-| `--c-focus` | `var(--p-indigo)` |
-| `--c-focus-on-primary` | `var(--p-citrus)` |
-| `--c-success` | `var(--p-success)` |
-| `--c-success-surface` | `var(--p-success-surface)` |
-| `--c-warning` | `var(--p-warning)` |
-| `--c-warning-surface` | `var(--p-warning-surface)` |
-| `--c-danger` | `var(--p-danger)` |
-| `--c-danger-surface` | `var(--p-danger-surface)` |
 | `--c-info` | `var(--p-info)` |
 | `--c-info-surface` | `var(--p-info-surface)` |
+| `--c-success` | `var(--p-success)` |
+| `--c-success-surface` | `var(--p-success-surface)` |
+| `--c-attention` | `var(--p-attention)` |
+| `--c-attention-surface` | `var(--p-attention-surface)` |
+| `--c-danger` | `var(--p-danger)` |
+| `--c-danger-surface` | `var(--p-danger-surface)` |
 | `--c-partial` | `var(--p-partial)` |
 | `--c-partial-surface` | `var(--p-partial-surface)` |
 | `--c-unknown` | `var(--p-unknown)` |
 | `--c-unknown-surface` | `var(--p-unknown-surface)` |
 | `--c-local` | `var(--p-local)` |
 | `--c-local-surface` | `var(--p-local-surface)` |
-| `--c-soft-blue` | `var(--p-soft-blue)` |
-| `--c-soft-lavender` | `var(--p-soft-lavender)` |
-| `--c-soft-mint` | `var(--p-soft-mint)` |
 
 ## Component Tokens — حاجة حقيقية فقط (§21.2)
 
 | Token | القيمة |
 |---|---|
-| `--nav-selected-surface` | `transparent` |
-| `--nav-selected-ink` | `var(--c-primary)` |
-| `--btn-primary-bg` | `var(--c-primary)` |
-| `--btn-primary-ink` | `var(--c-on-primary)` |
+| `--nav-selected-ink` | `var(--c-selection)` |
+| `--btn-primary-bg` | `var(--c-action)` |
+| `--btn-primary-ink` | `var(--c-on-action)` |
+| `--btn-primary-pressed` | `var(--c-action-pressed)` |
 | `--btn-secondary-bg` | `var(--c-surface)` |
 | `--btn-secondary-ink` | `var(--c-ink)` |
 | `--field-bg` | `var(--c-surface)` |
-| `--field-boundary` | `var(--c-border)` |
-| `--field-boundary-focus` | `var(--c-primary)` |
+| `--field-boundary` | `var(--c-boundary)` |
+| `--field-boundary-focus` | `var(--c-focus)` |
 | `--signal-unit` | `7px` |
 | `--signal-gap` | `3px` |
 | `--signal-radius` | `2.5px` |
@@ -235,3 +224,4 @@
 | `--z-sheet` | `60` |
 | `--z-dialog` | `70` |
 | `--z-studio-drawer` | `90` |
+

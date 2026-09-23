@@ -1,8 +1,12 @@
 // Micro Visual System — Screen: OPS-SALE-CREATE (تسجيل بيع — نقدي أو آجل)
-// المرجع: §12 (Guided Open Forms) + §13.8 (Impact Preview) + §13.20 + 04-CSV.
+// المرجع: §12 (Guided Open Forms) + §13.8 (Impact Preview) + §13.20 + 04-CSV
+// + 18 §1.3/§1.4 (إيقاع أقوى لمهمة هاتف سريعة).
 // نموذج سريع بمستوى ثالث: لا شريط سفلي، «إلغاء» يمينًا، الإجراء النهائي
-// ثابت أسفل الشاشة. التحقق بعد محاولة المتابعة. الفشل يحفظ المدخلات
-// ويظهر «لم تُحفظ العملية». النجاح يعود للسياق مع Echo واحد (محاكاة موسومة).
+// ثابت أسفل الشاشة بعرض كامل. سطر الصنف بشبكة صفين كي لا يُضغط على 320:
+// الاسم والمقادير فوق، السعر وإجمالي السطر أسفل (المبلغ مع «د.أ» دائمًا).
+// السلة الفارغة دعوة فعل منقطة لا نص خامد. التحقق بعد محاولة المتابعة.
+// الفشل يحفظ المدخلات ويظهر «لم تُحفظ العملية». النجاح يعود للسياق مع Echo
+// واحد (محاكاة موسومة) وإجراء «عرض العملية» بوجهة حقيقية مؤجلة.
 
 import { useMemo, useState } from 'react'
 import { SegmentedControl } from '../components/core/SegmentedControl'
@@ -22,11 +26,12 @@ export interface OpsSaleCreateProps {
   scenario: SaleScenarioFixture
   scenarioId: string
   onExit: () => void
+  onNavigate: (screenId: string) => void
 }
 
 type Mode = 'cash' | 'credit'
 
-export function OpsSaleCreate({ scenario, scenarioId, onExit }: OpsSaleCreateProps) {
+export function OpsSaleCreate({ scenario, scenarioId, onExit, onNavigate }: OpsSaleCreateProps) {
   const [mode, setMode] = useState<Mode>(scenario.mode)
   const [cart, setCart] = useState<SaleLineFixture[]>(scenario.cart)
   const [customerId, setCustomerId] = useState<string | null>(scenario.customer)
@@ -142,7 +147,7 @@ export function OpsSaleCreate({ scenario, scenarioId, onExit }: OpsSaleCreatePro
             <Button role="secondary" size="compact" onClick={onExit}>
               {echo.backAction}
             </Button>
-            <Button role="tertiary" size="compact" onClick={() => undefined}>
+            <Button role="tertiary" size="compact" onClick={() => onNavigate('FIN-TRANSACTION-DETAIL')}>
               {echo.viewAction}
             </Button>
           </div>
@@ -195,7 +200,13 @@ export function OpsSaleCreate({ scenario, scenarioId, onExit }: OpsSaleCreatePro
                 <span className="sale-customer__name type-card-title">
                   {customer ? customer.name : 'اختر عميلًا'}
                 </span>
-                {customer ? <span className="sale-customer__debt type-supporting">دين حالي: 62.50 د.أ</span> : null}
+                {customer ? (
+                  customer.debt.value !== null ? (
+                    <span className="sale-customer__debt type-supporting">دين حالي: {formatAmount(customer.debt.value)} د.أ</span>
+                  ) : (
+                    <span className="sale-customer__debt type-supporting">دين العميل غير مسجل</span>
+                  )
+                ) : null}
               </span>
               <Icon name="caret-left" size={20} />
             </button>
@@ -223,23 +234,23 @@ export function OpsSaleCreate({ scenario, scenarioId, onExit }: OpsSaleCreatePro
             </button>
           </header>
           {cart.length === 0 ? (
-            <p className="sale-form__empty type-supporting">أضف أول صنف لبدء البيع</p>
+            <button
+              type="button"
+              className="sale-form__empty"
+              onClick={() => {
+                setSearch('')
+                setPickerOpen('product')
+              }}
+            >
+              <Icon name="plus" size={20} />
+              <span className="type-body">أضف أول صنف لبدء البيع</span>
+            </button>
           ) : (
             <ul className="sale-lines">
               {cart.map((line, idx) => (
                 <li key={`${line.productId}-${idx}`} className="sale-line">
                   <div className="sale-line__body">
                     <span className="sale-line__name type-card-title">{line.name}</span>
-                    <span className="sale-line__price type-supporting">
-                      {line.price === null ? (
-                        <>
-                          <MicroSignal state="unknown" size="sm" />
-                          <span>السعر غير مسجل لهذا المنتج</span>
-                        </>
-                      ) : (
-                        <span className="ltr">{`${line.displayPrice ?? formatAmount(line.price)} د.أ / ${line.unit}`}</span>
-                      )}
-                    </span>
                   </div>
                   <div className="sale-line__ctrl">
                     <button type="button" className="qty-btn" aria-label="إنقاص الكمية" onClick={() => changeQty(idx, -1)}>
@@ -250,6 +261,16 @@ export function OpsSaleCreate({ scenario, scenarioId, onExit }: OpsSaleCreatePro
                       <Icon name="plus" size={18} />
                     </button>
                   </div>
+                  <span className="sale-line__price type-supporting">
+                    {line.price === null ? (
+                      <>
+                        <MicroSignal state="unknown" size="sm" />
+                        <span>السعر غير مسجل لهذا المنتج</span>
+                      </>
+                    ) : (
+                      <span className="ltr">{`${line.displayPrice ?? formatAmount(line.price)} د.أ / ${line.unit}`}</span>
+                    )}
+                  </span>
                   <div className="sale-line__total">
                     {line.lineTotal !== null && line.price !== null ? (
                       <span className="money-figure type-money-list">
@@ -310,7 +331,7 @@ export function OpsSaleCreate({ scenario, scenarioId, onExit }: OpsSaleCreatePro
         ) : null}
       </div>
 
-      {/* شريط الإجراء السفلي: زر واحد باسم النتيجة (§12.2/§12.7) */}
+      {/* شريط الإجراء السفلي: الإجمالي والإجراء معًا — زر واحد باسم النتيجة (§12.2/§12.7) */}
       <div className="action-bar">
         <div className="action-bar__summary">
           <span className="type-supporting">الإجمالي</span>
@@ -326,6 +347,7 @@ export function OpsSaleCreate({ scenario, scenarioId, onExit }: OpsSaleCreatePro
         {phase === 'form' ? (
           <Button
             role="primary"
+            fullWidth
             onClick={trySave}
             state={scenario.holding ? 'loading' : 'default'}
             loadingLabel={scenario.holdingLabel ?? 'جارٍ تسجيل البيع'}
@@ -333,7 +355,7 @@ export function OpsSaleCreate({ scenario, scenarioId, onExit }: OpsSaleCreatePro
             تسجيل البيع
           </Button>
         ) : phase === 'saving' ? (
-          <Button role="primary" state="loading" loadingLabel="جارٍ تسجيل البيع" onClick={() => undefined}>
+          <Button role="primary" fullWidth state="loading" loadingLabel="جارٍ تسجيل البيع" onClick={() => undefined}>
             تسجيل البيع
           </Button>
         ) : null}

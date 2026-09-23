@@ -1,6 +1,7 @@
-/* Micro Visual System — Contextual CSS (§14)
+/* Micro Visual System — Contextual CSS (§14) — مراجعة الألوان V2
    الحالات تحولات داخل بنية الواجهة: طبقات Seam وامتدادات من مصدرها،
-   لا Alert Cards. عنصر واحد عالي الحضور. الأسطح الدلالية خفيفة ومندمجة. */
+   لا Alert Cards. عنصر واحد عالي الحضور. الأسطح الدلالية من 17-COLOR-DECISION.
+   إشارة Micro Signal دلالية (نجاح/جزئي/معلومة/خطأ) — ليست لون الهوية. */
 
 /* ===================== Micro Signal (§10.4) — أصل مرشح ===================== */
 .micro-signal {
@@ -34,13 +35,13 @@
   height: var(--signal-unit-lg);
 }
 
-/* مكتمل: أربع وحدات ممتلئة */
+/* مكتمل: أربع وحدات ممتلئة — نجاح (17 §2) */
 .micro-signal.is-complete .micro-signal__unit {
-  background: var(--c-primary);
-  border-color: var(--c-primary);
+  background: var(--c-success);
+  border-color: var(--c-success);
 }
 
-/* جزئي: وحدتان ممتلئتان ووحدتان Outline */
+/* جزئي: وحدتان ممتلئتان ووحدتان Outline — Partial/Unknown */
 .micro-signal.is-partial .u1,
 .micro-signal.is-partial .u2 {
   background: var(--c-partial);
@@ -53,10 +54,10 @@
   background: transparent;
 }
 
-/* قيد التنفيذ: وحدة نشطة وثلاث هادئة */
+/* قيد التنفيذ: وحدة نشطة (Information) وثلاث هادئة */
 .micro-signal.is-in-progress .u1 {
-  background: var(--c-primary);
-  border-color: var(--c-primary);
+  background: var(--c-info);
+  border-color: var(--c-info);
 }
 
 .micro-signal.is-in-progress .u2,
@@ -107,7 +108,7 @@
   line-height: 1;
 }
 
-/* محفوظ محليًا: الوحدات داخل Outline جهاز */
+/* محفوظ محليًا: دور Information (حالة نظام — موثق في الـLedger) */
 .micro-signal.is-local-saved .micro-signal__units {
   border: 1.5px solid var(--c-local);
   border-radius: 7px;
@@ -123,7 +124,25 @@
   background: var(--c-local);
 }
 
-/* علامة Micro الرباعية المرشحة (GAP-002) — للاستوديو والهوية */
+/* داخل كتلة الهوية: الوحدات Ink — تباين مقيس فوق #D97757 (17 §2) */
+.on-brand-surface .micro-signal__unit,
+.snapshot-card--strong .micro-signal__unit {
+  border-color: var(--c-on-brand);
+}
+
+.on-brand-surface .micro-signal.is-complete .micro-signal__unit,
+.snapshot-card--strong .micro-signal.is-complete .micro-signal__unit {
+  background: var(--c-on-brand);
+  border-color: var(--c-on-brand);
+}
+
+.snapshot-card--strong .micro-signal.is-partial .u1,
+.snapshot-card--strong .micro-signal.is-partial .u2 {
+  background: var(--c-on-brand);
+  border-color: var(--c-on-brand);
+}
+
+/* علامة Micro الرباعية المرشحة (GAP-002) — لون الهوية القائدة */
 .micro-quad {
   display: inline-grid;
   grid-template-columns: repeat(2, 1fr);
@@ -134,16 +153,17 @@
 
 .micro-quad i {
   border-radius: 3px;
-  background: var(--c-primary);
+  background: var(--c-brand);
 }
 
+/* علامة الاستوديو الرباعية: الهوية + الفعل + Ink + Information */
 .micro-quad--studio i:nth-child(2) {
-  background: var(--c-accent);
+  background: var(--c-action);
   border: 1px solid var(--c-ink);
 }
 
-.micro-quad--studio i:nth-child(4) {
-  background: var(--c-warm);
+.micro-quad--studio i:nth-child(3) {
+  background: var(--c-info);
 }
 
 /* ===================== Context Trace / Seam (§14.2) ===================== */
@@ -165,7 +185,7 @@
 }
 
 .context-seam--warning {
-  background: var(--c-warning-surface);
+  background: var(--c-attention-surface);
 }
 
 .context-seam--info {
@@ -185,7 +205,7 @@
   font-size: var(--type-supporting);
 }
 
-/* ===================== System Ribbon (§14.2/§14.7) ===================== */
+/* ===================== System Ribbon (§14.2/§14.7) — دون اتصال ===================== */
 .system-ribbon {
   display: flex;
   align-items: center;
@@ -261,12 +281,13 @@
   gap: var(--space-3);
 }
 
-.insight--citrus {
-  background: var(--c-accent-soft);
+/* فرصة: حقل هوية ناعم — دافئ مرتبط بالفرصة لا بالربح المؤكد */
+.insight--opportunity {
+  background: var(--c-brand-soft);
 }
 
 .insight--warning {
-  background: var(--c-warning-surface);
+  background: var(--c-attention-surface);
 }
 
 .insight--danger {

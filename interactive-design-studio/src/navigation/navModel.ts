@@ -28,9 +28,17 @@ export const TABS: ReadonlyArray<TabDef> = [
 /** خريطة الشاشة → التبويب النشط (§21.3: معرف مستقل عن موقع التنقل). */
 export const SCREEN_TO_TAB: Record<string, string> = {
   'OVR-NOW': 'ovr',
+  'OVR-SNAPSHOT-ALL': 'ovr',
   'OPS-HOME': 'ops',
   'OPS-SALE-CREATE': 'ops',
+  'OPS-EXPENSE-CREATE': 'ops',
   'FIN-OVERVIEW': 'fin',
+  'FIN-ACTIVITY': 'fin',
+  'FIN-TRANSACTION-DETAIL': 'fin',
+  'FIN-WALLETS': 'fin',
+  'FIN-TRANSFER': 'fin',
+  'REL-CUSTOMERS': 'fin',
+  'REL-SUPPLIERS': 'fin',
   'TOOL-HOME': 'tools',
   'MKT-HOME': 'market',
 }

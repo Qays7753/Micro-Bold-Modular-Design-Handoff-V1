@@ -1,8 +1,11 @@
-// Micro Visual System — Screen: OVR-NOW (مشروعي الآن)
-// المرجع: §13.2/§13.4/§13.19/§13.20 + 04-SCREEN-COVERAGE (OVR-NOW).
+// Micro Visual System — Screen: OVR-NOW (مشروعي الآن) — مراجعة V2
+// المرجع: §13.2/§13.4/§13.19/§13.20 + 04-SCREEN-COVERAGE (OVR-NOW)
+// + 17-COLOR-DECISION + 18 §1.5.
 // الحالات: Complete|Partial|Insufficient|FirstUse|Offline|Error.
-// الكاش لا يظهر كربح؛ الحالة العاجلة لا تختبئ خلف Swipe؛ الخطأ يستبدل
-// منطقة الملخص فقط (Recovery Stage) مع بقاء بقية الشاشة.
+// التكوين V2: بطاقة النتيجة واكتمالها هي الكتلة القوية الأولى (الهوية)
+// والكاش بطاقة ثانوية بيضاء — الربح لا يختلط بالكاش. كل صف وإجراء يوصل
+// لمسار حقيقي أو بطاقة مؤجلة صادقة (لا نقر ميت). الحالة العاجلة لا تختبئ
+// خلف السحب؛ والخطأ يستبدل منطقة الملخص فقط (Recovery Stage).
 
 import { useState } from 'react'
 import { SnapshotDeck } from '../components/financial/SnapshotDeck'
@@ -34,7 +37,13 @@ export function OvrNow({ scenario, scenarioId, onNavigate }: OvrNowProps) {
   return (
     <div className="screen screen--ovr" data-screen="OVR-NOW">
       {isOffline && scenario.ribbon ? (
-        <SystemRibbon text={scenario.ribbon.text} detail={scenario.ribbon.detail} icon="wifi-slash" action="عرض العمليات المعلقة" onAction={() => undefined} />
+        <SystemRibbon
+          text={scenario.ribbon.text}
+          detail={scenario.ribbon.detail}
+          icon="wifi-slash"
+          action="عرض العمليات المعلقة"
+          onAction={() => onNavigate('FIN-ACTIVITY')}
+        />
       ) : null}
 
       <header className="screen__head">
@@ -75,6 +84,10 @@ export function OvrNow({ scenario, scenarioId, onNavigate }: OvrNowProps) {
               onShowAll={() => onNavigate('OVR-SNAPSHOT-ALL')}
               onViewCard={(cardId) => {
                 if (cardId === 'result') onNavigate('FIN-OVERVIEW')
+                else if (cardId === 'cash') onNavigate('FIN-OVERVIEW')
+                else if (cardId === 'forYou') onNavigate('REL-CUSTOMERS')
+                else if (cardId === 'onYou') onNavigate('REL-SUPPLIERS')
+                else if (cardId === 'costs') onNavigate('OPS-EXPENSE-CREATE')
               }}
             />
           ) : null}
@@ -88,11 +101,15 @@ export function OvrNow({ scenario, scenarioId, onNavigate }: OvrNowProps) {
               evidence={scenario.insight.evidence}
               completeness={scenario.insight.completeness}
               action={scenario.insight.action}
-              onAction={() => onNavigate('OPS-SALE-CREATE')}
+              onAction={() =>
+                scenario.insight?.action === 'عرض العمليات المعلقة'
+                  ? onNavigate('FIN-ACTIVITY')
+                  : onNavigate('OPS-SALE-CREATE')
+              }
             />
           ) : null}
 
-          {/* ملخص اليوم — صفوف مفتوحة */}
+          {/* ملخص اليوم — صفوف مفتوحة بوجهات حقيقية */}
           {scenario.today ? (
             <RowGroup label="ملخص اليوم">
               <OpenRow

@@ -1,15 +1,16 @@
-/* Micro Visual System — Studio Chrome CSS
-   طبقة المراجعة مفصولة بصريًا ودلاليًا عن واجهة Micro. خلفية الاستوديو
-   محايدة داكنة قليلًا لتمييز إطار الهاتف، وشريط الأدوات موسوم «Studio
-   Chrome». لا تعتمد واجهة Micro على أي قيمة من هذا الملف. */
+/* Micro Visual System — Studio Chrome CSS — مراجعة V2
+   طبقة المراجعة مفصولة بصريًا ودلاليًا عن واجهة Micro. كروم الاستوديو
+   بلون Information الداكن (#305968) — بعيد عن الهوية (#D97757) كي لا
+   يختلط بألوان الهاتف. الشريط مدمج قابل للطي كي لا يهيمن على أدلة المراجعة
+   (18 §1.7). لا تعتمد واجهة Micro على أي قيمة من هذا الملف. */
 
 :root {
-  --studio-bg: #e7ebf2;
-  --studio-ink: #171923;
-  --studio-ink-2: #5e6472;
+  --studio-bg: #e9edef;
+  --studio-ink: #1d2930;
+  --studio-ink-2: #53616a;
   --studio-surface: #ffffff;
-  --studio-border: #d8dde8;
-  --studio-accent: #4f46e5;
+  --studio-border: #d5dce0;
+  --studio-accent: #305968;
 }
 
 body {
@@ -24,17 +25,17 @@ body {
 
 /* إزاحة التمرير بحيث لا تختبئ العناصر خلف الشريط الثابت عند scrollIntoView */
 html {
-  scroll-padding-block-start: 300px;
+  scroll-padding-block-start: 220px;
 }
 
 /* ===================== شريط الاستوديو ===================== */
 .studio-bar {
   background: var(--studio-surface);
   border-block-end: var(--stroke-hairline) solid var(--studio-border);
-  padding: var(--space-5) var(--space-8);
+  padding: var(--space-4) var(--space-8);
   display: flex;
   flex-direction: column;
-  gap: var(--space-4);
+  gap: var(--space-3);
   position: sticky;
   top: 0;
   z-index: var(--z-studio-drawer);
@@ -71,6 +72,7 @@ html {
   display: flex;
   gap: var(--space-3);
   flex-wrap: wrap;
+  align-items: center;
 }
 
 .studio-bar__chrome-note {
@@ -86,7 +88,7 @@ html {
 }
 
 .studio-about {
-  background: #f4f6fa;
+  background: #f0f3f4;
   border-radius: var(--radius-card-sm);
   padding: var(--space-4) var(--space-5);
   display: flex;
@@ -102,7 +104,7 @@ html {
 .studio-controls {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--space-5) var(--space-10);
+  gap: var(--space-4) var(--space-10);
 }
 
 .studio-controls__group {
@@ -127,7 +129,7 @@ html {
   display: inline-flex;
   align-items: center;
   gap: var(--space-2);
-  min-height: 34px;
+  min-height: 32px;
   padding-inline: var(--space-4);
   border-radius: 10px;
   border: var(--stroke-hairline) solid var(--studio-border);
@@ -142,12 +144,23 @@ html {
 }
 
 .studio-chip:active {
-  background: #eef1f7;
+  background: #e4eaec;
 }
 
 .studio-chip.is-active {
   background: var(--studio-accent);
   border-color: var(--studio-accent);
+  color: #ffffff;
+}
+
+.studio-chip.is-studio {
+  border-style: dotted;
+  border-color: var(--studio-accent);
+  color: var(--studio-accent);
+}
+
+.studio-chip.is-studio.is-active {
+  background: var(--studio-accent);
   color: #ffffff;
 }
 
@@ -159,20 +172,58 @@ html {
 .studio-chip__tag {
   font-size: 11px;
   border-radius: 6px;
-  background: #eef1f7;
+  background: #e4eaec;
   padding: 1px 6px;
   color: var(--studio-ink-2);
 }
 
 .studio-chip.is-deferred.is-active {
-  background: #5e6472;
-  border-color: #5e6472;
+  background: #53616a;
+  border-color: #53616a;
   color: #ffffff;
 }
 
 .studio-chip.is-deferred.is-active .studio-chip__tag {
   background: rgba(255, 255, 255, 0.2);
   color: #ffffff;
+}
+
+/* صف الأدوات المدمج: الشاشة والحالة ظاهران دائمًا؛
+   العرض/التكبير/الفحوص خلف زر ملخص قابل للطي */
+.studio-bar__summary-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+
+.studio-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: 32px;
+  padding-inline: var(--space-4);
+  border-radius: 10px;
+  border: var(--stroke-hairline) solid var(--studio-border);
+  background: var(--studio-surface);
+  color: var(--studio-ink);
+  font-size: 13px;
+  font-weight: var(--weight-medium);
+}
+
+.studio-toggle:active {
+  background: #e4eaec;
+}
+
+.studio-toggle__value {
+  color: var(--studio-accent);
+  font-weight: var(--weight-semibold);
+  font-variant-numeric: tabular-nums;
+}
+
+.studio-toggle[aria-expanded='true'] {
+  border-color: var(--studio-accent);
+  color: var(--studio-accent);
 }
 
 /* ===================== المسرح وإطار الهاتف ===================== */
@@ -189,10 +240,10 @@ html {
   width: var(--frame-w, 360px);
   max-width: 100%;
   background: var(--c-canvas);
-  border: 1px solid #c9d0dc;
+  border: 1px solid #c3ccd1;
   border-radius: 28px;
   overflow: hidden;
-  box-shadow: 0 18px 48px rgba(23, 25, 35, 0.14);
+  box-shadow: 0 18px 48px rgba(29, 41, 48, 0.14);
   display: flex;
   flex-direction: column;
   position: relative;
@@ -260,6 +311,8 @@ html {
   display: flex;
   flex-direction: column;
   scrollbar-width: thin;
+  /* السحب الأفقي بين الصفحات (§11.12): التمرير الرأسي أصلي والسحب الأفقي لنا */
+  touch-action: pan-y;
 }
 
 .app-content > * {
@@ -270,6 +323,26 @@ html {
 
 .app-content.is-dimmed {
   opacity: 0.6;
+}
+
+/* تتبع السحب بين الصفحات: المحتوى يتبع الإصبع ثم يستقر أو يعود */
+.app-content__pager {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  will-change: transform;
+}
+
+.app-content__pager.is-dragging {
+  transition: none;
+}
+
+.app-content__pager.is-settling {
+  transition: transform var(--motion-screen) var(--ease-standard);
+}
+
+.app-content.is-swipe-locked .app-content__pager {
+  touch-action: auto;
 }
 
 /* شريط تمرير أنعم داخل الإطار */
@@ -292,7 +365,7 @@ html {
   width: min(400px, 92vw);
   background: var(--studio-surface);
   border-inline-start: var(--stroke-hairline) solid var(--studio-border);
-  box-shadow: -12px 0 40px rgba(23, 25, 35, 0.12);
+  box-shadow: -12px 0 40px rgba(29, 41, 48, 0.12);
   z-index: calc(var(--z-studio-drawer) + 5);
   display: flex;
   flex-direction: column;

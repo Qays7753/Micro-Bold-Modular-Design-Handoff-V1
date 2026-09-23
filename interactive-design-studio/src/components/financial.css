@@ -1,6 +1,8 @@
-/* Micro Visual System — Financial components CSS (§13)
-   Truth Layer واضح: القيمة وحالتها معًا؛ الكاش لا يبدو ربحًا؛ بطاقة قوية
-   واحدة (Indigo) في مساحة العرض؛ Partial سطح Lavender وInsufficient محايد. */
+/* Micro Visual System — Financial components CSS (§13) — مراجعة الألوان V2
+   Truth Layer واضح: القيمة وحالتها معًا؛ الكاش لا يبدو ربحًا. بطاقة النتيجة
+   المكتملة هي الكتلة القوية الوحيدة (الهوية #D97757 بنص Ink — لا أبيض عادي).
+   Partial/Unknown سطح محايد #EDF1F2 مع شريط جانبي — لا مشتق من الهوية.
+   المرجع: 17-COLOR-DECISION + 18-ZAI-STUDIO-REVISION-BRIEF. */
 
 /* ===================== MoneyValue (§13.3) ===================== */
 .money-value {
@@ -63,7 +65,7 @@
   color: var(--c-ink);
 }
 
-/* ===================== Snapshot Deck (§13.4) ===================== */
+/* ===================== Snapshot Deck (§13.4 + 18 §2) ===================== */
 .snapshot-deck {
   display: flex;
   flex-direction: column;
@@ -76,6 +78,7 @@
   justify-content: space-between;
 }
 
+/* البطاقة قابلة للسحب المباشر الآن: touch-action عمودي كي لا يتنازع مع التمرير */
 .snapshot-card {
   background: var(--c-surface);
   border-radius: var(--radius-card-lg);
@@ -85,30 +88,84 @@
   gap: var(--space-3);
   position: relative;
   overflow: hidden;
+  touch-action: pan-y;
+  will-change: transform;
+  transition: transform var(--motion-screen) var(--ease-standard);
 }
 
-/* الكتلة القوية الوحيدة: Indigo بنص أبيض (§13.4/§8) */
+.snapshot-card.is-dragging {
+  transition: none;
+  cursor: grabbing;
+}
+
+/* الكتلة القوية الوحيدة: الهوية القائدة بنص Ink (لا أبيض عادي — 17 §2) */
 .snapshot-card--strong {
-  background: var(--c-primary);
-  color: var(--c-on-primary);
+  background: var(--c-brand);
+  color: var(--c-on-brand);
+  box-shadow: var(--elevation-layer);
 }
 
 .snapshot-card--strong .snapshot-card__support,
-.snapshot-card--strong .snapshot-card__question {
-  color: rgba(255, 255, 255, 0.82);
+.snapshot-card--strong .snapshot-card__question,
+.snapshot-card--strong .snapshot-card__verdict {
+  color: var(--c-on-brand);
 }
 
 .snapshot-card--strong .money-value {
-  color: var(--c-on-primary);
+  color: var(--c-on-brand);
 }
 
+/* الفاصل داخل كتلة الهوية: عمق هوية غير نصي */
+.snapshot-card--strong .snapshot-card__seam {
+  border-block-start-color: var(--c-brand-deep);
+}
+
+.snapshot-card--strong .truth-note__trigger-text {
+  color: var(--c-on-brand);
+}
+
+.snapshot-card--strong .truth-note__panel {
+  background: var(--c-surface);
+  color: var(--c-ink);
+}
+
+.snapshot-card--strong .truth-note__panel dd {
+  color: var(--c-ink);
+}
+
+.snapshot-card--strong .truth-note__def--warn dd {
+  color: var(--c-attention);
+}
+
+/* Partial: سطح محايد + شريط جانبي (إشارة موضع لا لون فقط) */
 .snapshot-card--partial {
-  background: var(--c-soft-lavender);
+  background: var(--c-partial-surface);
+}
+
+.snapshot-card--partial::before {
+  content: '';
+  position: absolute;
+  inset-inline-start: 0;
+  inset-block: var(--space-6);
+  width: 3px;
+  border-radius: 2px;
+  background: var(--c-partial);
 }
 
 .snapshot-card--insufficient,
 .snapshot-card--unknown {
   background: var(--c-surface-2);
+}
+
+.snapshot-card--insufficient::before,
+.snapshot-card--unknown::before {
+  content: '';
+  position: absolute;
+  inset-inline-start: 0;
+  inset-block: var(--space-6);
+  width: 3px;
+  border-radius: 2px;
+  background: var(--c-unknown);
 }
 
 .snapshot-card__top {
@@ -144,19 +201,7 @@
   border-block-start: var(--stroke-hairline) solid var(--c-border);
 }
 
-.snapshot-card--strong .snapshot-card__seam {
-  border-block-start-color: rgba(255, 255, 255, 0.24);
-}
-
-.snapshot-card--strong .truth-note__trigger-text {
-  color: rgba(255, 255, 255, 0.82);
-}
-
-.snapshot-card--strong .truth-note__def {
-  color: inherit;
-}
-
-/* مؤشر التنقل بين البطاقات + تلميح السحب تحته (لا يغطي الأزرار) */
+/* مؤشر التنقل بين البطاقات + تلميح السحب الصادق تحته */
 .snapshot-deck__nav {
   display: flex;
   flex-direction: column;
@@ -199,7 +244,7 @@
 }
 
 .snapshot-deck__hint {
-  color: var(--c-muted);
+  color: var(--c-ink-2);
 }
 
 /* ===================== TruthNote (§13.2/§13.11) ===================== */
@@ -256,11 +301,7 @@
 }
 
 .truth-note__def--warn dd {
-  color: var(--c-warning);
-}
-
-.snapshot-card--strong .truth-note__panel {
-  background: rgba(255, 255, 255, 0.12);
+  color: var(--c-attention);
 }
 
 /* ===================== Transaction rows (§13.5) ===================== */
@@ -333,9 +374,11 @@
   color: var(--c-ink-2);
 }
 
-/* ===================== ResultBlock (§13.11) ===================== */
+/* ===================== ResultBlock (§13.11) — FIN ===================== */
+/* المكتمل: حاوية النجاح الدلالية مع كلمة حكم + إشارة (لا هوية)؛
+   السالب: حاوية الخطر؛ الجزئي: محايد مع شريط. النتيجة دلالة مالية لا هوية. */
 .result-block {
-  border-radius: var(--radius-card-lg);
+  border-radius: var(--radius-card-md);
   padding: var(--space-10);
   display: flex;
   flex-direction: column;
@@ -343,23 +386,26 @@
 }
 
 .result-block--complete {
-  background: var(--c-primary);
-  color: var(--c-on-primary);
+  background: var(--c-success-surface);
 }
 
-.result-block--complete .result-block__question,
-.result-block--complete .result-block__verdict,
-.result-block--complete .result-block__detail,
-.result-block--complete .result-block__reason {
-  color: rgba(255, 255, 255, 0.82);
-}
-
-.result-block--complete .money-value {
-  color: var(--c-on-primary);
+.result-block--negative {
+  background: var(--c-danger-surface);
 }
 
 .result-block--partial {
-  background: var(--c-soft-lavender);
+  background: var(--c-partial-surface);
+  position: relative;
+}
+
+.result-block--partial::before {
+  content: '';
+  position: absolute;
+  inset-inline-start: 0;
+  inset-block: var(--space-6);
+  width: 3px;
+  border-radius: 2px;
+  background: var(--c-partial);
 }
 
 .result-block--insufficient {
@@ -381,6 +427,31 @@
   align-items: center;
   justify-content: space-between;
   gap: var(--space-3);
+}
+
+/* كلمة الحكم: لون دلالي + وزن + إشارة — معنى النتيجة ليس لون الهوية */
+.result-block__verdict-word {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--type-supporting);
+  font-weight: var(--weight-bold);
+}
+
+.result-block--complete .result-block__verdict-word {
+  color: var(--c-success);
+}
+
+.result-block--negative .result-block__verdict-word {
+  color: var(--c-danger);
+}
+
+.result-block--partial .result-block__verdict-word {
+  color: var(--c-partial);
+}
+
+.result-block--insufficient .result-block__verdict-word {
+  color: var(--c-unknown);
 }
 
 .result-block__verdict,
@@ -429,10 +500,11 @@
   display: flex;
   align-items: baseline;
   gap: var(--space-3);
+  flex-wrap: wrap;
 }
 
 .impact-preview__arrow {
-  color: var(--c-primary);
+  color: var(--c-action);
   font-weight: var(--weight-bold);
 }
 

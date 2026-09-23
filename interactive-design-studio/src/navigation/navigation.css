@@ -1,6 +1,8 @@
-/* Micro Visual System — Navigation CSS (§11)
+/* Micro Visual System — Navigation CSS (§11) — مراجعة V2
    Header موحد Edge-to-Edge بلا اسم صفحة؛ انتقال Canvas→أبيض عند التمرير
-   (160–200ms). Bottom Nav مدمج بالحافة، أبيض، Divider علوي، 70px + Safe Area.
+   (160–200ms). Bottom Nav مدمج بالحافة، أبيض، Divider علوي، 70px أدنى
+   (يتكيف مع تكبير النص كي لا تُقص التسميات) + Safe Area. الاختيار:
+   Fill + وزن + لون Action + العلامة الرباعية للهوية (§11.2).
    لوحة الحساب امتداد من Header بزوايا سفلية فقط 24px. */
 
 /* ===================== App Header (§11.7/§11.8) ===================== */
@@ -50,8 +52,8 @@
 }
 
 .app-header__account.is-open {
-  color: var(--c-primary);
-  background: var(--c-primary-soft);
+  color: var(--c-action);
+  background: var(--c-brand-soft);
 }
 
 .app-header__actions {
@@ -75,12 +77,8 @@
   background: var(--c-surface-2);
 }
 
-.app-header__ask {
-  color: var(--c-primary);
-}
-
 .app-header__ask .micro-quad i {
-  background: var(--c-primary);
+  background: var(--c-brand);
 }
 
 /* ===================== Account Panel (§11.9) ===================== */
@@ -146,7 +144,7 @@
   border-radius: var(--radius-card-sm);
 }
 
-/* ===================== Bottom Navigation (§11.2) ===================== */
+/* ===================== Bottom Navigation (§11.2 + 18 §1.6) ===================== */
 .bottom-nav {
   position: relative;
   z-index: var(--z-nav);
@@ -155,14 +153,17 @@
   padding-block-end: var(--safe-bottom, 0px);
 }
 
+/* ارتفاع تكيفي: أدنى 70px وينمو مع تكبير النص كي لا تُقص التسميات العربية */
 .bottom-nav__list {
   display: flex;
-  height: var(--size-tabbar);
+  align-items: stretch;
+  min-height: var(--size-tabbar);
 }
 
 .bottom-nav__item {
   flex: 1;
   display: flex;
+  min-width: 0;
 }
 
 .bottom-nav__target {
@@ -173,6 +174,7 @@
   justify-content: center;
   gap: 3px;
   min-width: var(--size-touch-lg);
+  padding-block: var(--space-3) var(--space-2);
   color: var(--c-ink-2);
   transition: color var(--motion-selection) var(--ease-standard);
 }
@@ -188,7 +190,31 @@
 }
 
 .bottom-nav__target.is-selected .bottom-nav__icon {
-  color: var(--c-primary);
+  color: var(--nav-selected-ink);
+}
+
+/* العلامة الرباعية كإشارة اختيار خاصة بالهوية (§11.2) — بلا اعتماد على اللون وحده */
+.bottom-nav__target .micro-quad {
+  position: absolute;
+  inset-inline-start: -6px;
+  top: -4px;
+  width: 8px;
+  height: 8px;
+  gap: 1px;
+  opacity: 0;
+  transform: scale(0.6);
+  transition:
+    opacity var(--motion-selection) var(--ease-standard),
+    transform var(--motion-selection) var(--ease-standard);
+}
+
+.bottom-nav__target .micro-quad i {
+  border-radius: 1.5px;
+}
+
+.bottom-nav__target.is-selected .micro-quad {
+  opacity: 1;
+  transform: scale(1);
 }
 
 .bottom-nav__badge {
@@ -199,8 +225,8 @@
   height: 18px;
   padding-inline: 4px;
   border-radius: 9px;
-  background: var(--c-primary);
-  color: var(--c-on-primary);
+  background: var(--c-action);
+  color: var(--c-on-action);
   font-size: 11px;
   font-weight: var(--weight-semibold);
   display: inline-flex;
@@ -214,24 +240,11 @@
   font-weight: var(--weight-medium);
   color: inherit;
   text-align: center;
-  /* عند التكبير الكبير جدًا تصبح التسمية سطرين بدل القص (§11.14) */
+  /* لا قصّ للتسمية العربية عند التكبير: تلتف بحرية والشريط ينمو (18 §1.6) */
   overflow-wrap: break-word;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
+  line-height: var(--leading-snug);
 }
 
 .bottom-nav__target.is-selected .bottom-nav__label {
   font-weight: var(--weight-semibold);
-}
-
-.bottom-nav__target .micro-signal {
-  position: absolute;
-  inset-inline-start: 4px;
-  top: 0;
-  opacity: 0;
-}
-
-.bottom-nav__target.is-selected .micro-signal {
-  opacity: 1;
 }

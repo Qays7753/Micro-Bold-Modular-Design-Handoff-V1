@@ -1,7 +1,8 @@
-// Micro Visual System — TypeScript token mirror + financial formatting.
-// المرجع: §§7، 8، 13.3، 16.2. أرقام إنجليزية 0–9 فقط، فاصلة آلاف «,»،
-// فاصلة عشرية «.», منزلتان افتراضيًا والثالثة عند كونها قيمة حقيقية،
-// علامة السالب «−» (U+2212)، والوحدة «د.أ» تُعرض مع المبلغ الرئيسي.
+// Micro Visual System — TypeScript token mirror + financial formatting (V2).
+// المرجع: 17-COLOR-DECISION-2026-09-23.md §§2–3 + §§7، 13.3، 16.2 من القرارات القائمة.
+// أرقام إنجليزية 0–9 فقط، فاصلة آلاف «,»، فاصلة عشرية «.», منزلتان افتراضيًا
+// والثالثة عند كونها قيمة حقيقية، علامة السالب «−» (U+2212)، والوحدة «د.أ»
+// تُعرض مع المبلغ الرئيسي.
 
 export const CURRENCY_UNIT = 'د.أ' as const
 export const CURRENCY_SPOKEN = 'دينار أردني' as const
@@ -49,34 +50,38 @@ export function formatPhone(raw: string): string {
 }
 
 /**
- * أزواج الألوان المعتمدة (§8 + §16.3) — تُستخدم لحساب التباين برمجيًا
- * في أدلة QA. هذه هي المصادر الوحيدة المسموح بها للتركيب.
+ * أزواج الألوان المعتمدة للمراجعة (17-COLOR-DECISION §3) — تُستخدم لحساب
+ * التباين برمجيًا في تقارير QA. الأزواج المركبة فعليًا في الواجهة فقط.
+ * فوق كتلة الهوية #D97757 لا يوضع أبيض عادي؛ النص الأساسي Ink (#1D2930).
  */
 export const APPROVED_COLOR_PAIRS = [
-  { id: 'ink-on-canvas', fg: '#171923', bg: '#F4F6FA', usage: 'النص الأساسي على Canvas' },
-  { id: 'ink-2-on-canvas', fg: '#5E6472', bg: '#F4F6FA', usage: 'النص المساند على Canvas' },
-  { id: 'ink-on-white', fg: '#171923', bg: '#FFFFFF', usage: 'النص الأساسي على السطح الأبيض' },
-  { id: 'ink-2-on-white', fg: '#5E6472', bg: '#FFFFFF', usage: 'النص المساند على الأبيض' },
-  { id: 'white-on-indigo', fg: '#FFFFFF', bg: '#4F46E5', usage: 'نص الزر الأساسي / الكتلة القوية' },
-  { id: 'ink-on-citrus', fg: '#171923', bg: '#D9F43B', usage: 'نص Accent فوق Citrus' },
-  { id: 'ink-on-soft-semantic', fg: '#171923', bg: '#E8E7FF', usage: 'نص فوق سطح Soft Indigo' },
-  { id: 'ink-2-on-soft-semantic', fg: '#5E6472', bg: '#E8E7FF', usage: 'مساند فوق سطح Soft' },
-  { id: 'success-on-surface', fg: '#137A55', bg: '#DCF4E8', usage: 'كلمة حالة نجاح' },
-  { id: 'warning-on-surface', fg: '#A65A00', bg: '#FFF0D6', usage: 'كلمة حالة تحذير' },
-  { id: 'danger-on-surface', fg: '#C2354B', bg: '#FDE5E9', usage: 'كلمة حالة خطر' },
-  { id: 'partial-on-surface', fg: '#6E5AA8', bg: '#EEE9FA', usage: 'كلمة حالة جزئي' },
-  { id: 'indigo-on-white', fg: '#4F46E5', bg: '#FFFFFF', usage: 'إجراء نصي/تركيز على الفاتح' },
+  { id: 'ink-on-canvas', fg: '#1D2930', bg: '#F0F3F4', usage: 'النص الأساسي على Canvas' },
+  { id: 'ink-2-on-canvas', fg: '#53616A', bg: '#F0F3F4', usage: 'النص المساند على Canvas' },
+  { id: 'ink-on-white', fg: '#1D2930', bg: '#FFFFFF', usage: 'النص الأساسي على السطح الأبيض' },
+  { id: 'ink-2-on-white', fg: '#53616A', bg: '#FFFFFF', usage: 'النص المساند على الأبيض' },
+  { id: 'ink-on-brand', fg: '#1D2930', bg: '#D97757', usage: 'كل النص فوق كتلة الهوية (لا أبيض عادي)' },
+  { id: 'white-on-action', fg: '#FFFFFF', bg: '#A94630', usage: 'نص الزر الصلب' },
+  { id: 'white-on-action-pressed', fg: '#FFFFFF', bg: '#8F3B27', usage: 'نص الزر المضغوط (مشتق)' },
+  { id: 'ink-on-brand-soft', fg: '#1D2930', bg: '#FBE9E2', usage: 'نص فوق حقل الهوية الناعم' },
+  { id: 'action-on-white', fg: '#A94630', bg: '#FFFFFF', usage: 'إجراء نصي/اختيار على الفاتح' },
+  { id: 'info-on-surface', fg: '#305968', bg: '#DFEDF1', usage: 'معلومة/دون اتصال على سطحها' },
+  { id: 'success-on-surface', fg: '#16765A', bg: '#DFF3E9', usage: 'كلمة حالة نجاح/نتيجة مؤكدة' },
+  { id: 'attention-on-surface', fg: '#95590C', bg: '#FFF0D7', usage: 'كلمة حالة انتباه' },
+  { id: 'danger-on-surface', fg: '#B0324F', bg: '#FFE7EB', usage: 'كلمة حالة خطر/خسارة' },
+  { id: 'partial-on-surface', fg: '#5B6770', bg: '#EDF1F2', usage: 'كلمة حالة جزئي/غير معروف' },
+  { id: 'focus-on-canvas', fg: '#305968', bg: '#F0F3F4', usage: 'حد التركيز على Canvas (غير نصي 3:1)' },
+  { id: 'boundary-on-canvas', fg: '#78868D', bg: '#F0F3F4', usage: 'حد حقل ضروري على Canvas (غير نصي)' },
 ] as const
 
-/** دلالات ألوان الحالة (§8) للاستخدام الدلالي المقيد في المكونات. */
+/** دلالات ألوان الحالة (17 §2) للاستخدام الدلالي المقيد في المكونات. */
 export const SEMANTIC_STATE_COLORS = {
-  success: { fg: '#137A55', surface: '#DCF4E8' },
-  warning: { fg: '#A65A00', surface: '#FFF0D6' },
-  danger: { fg: '#C2354B', surface: '#FDE5E9' },
-  info: { fg: '#1D64D8', surface: '#E0ECFF' },
-  partial: { fg: '#6E5AA8', surface: '#EEE9FA' },
-  unknown: { fg: '#697386', surface: '#EEF0F4' },
-  local: { fg: '#52657A', surface: '#E7EDF3' },
+  success: { fg: '#16765A', surface: '#DFF3E9' },
+  warning: { fg: '#95590C', surface: '#FFF0D7' },
+  danger: { fg: '#B0324F', surface: '#FFE7EB' },
+  info: { fg: '#305968', surface: '#DFEDF1' },
+  partial: { fg: '#5B6770', surface: '#EDF1F2' },
+  unknown: { fg: '#5B6770', surface: '#EDF1F2' },
+  local: { fg: '#305968', surface: '#DFEDF1' },
 } as const
 
 export type SemanticStateKey = keyof typeof SEMANTIC_STATE_COLORS

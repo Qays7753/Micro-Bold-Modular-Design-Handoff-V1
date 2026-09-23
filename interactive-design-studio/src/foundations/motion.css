@@ -58,7 +58,8 @@
 }
 
 .anim-slide-in-rtl {
-  animation: micro-screen-in-rtl var(--motion-screen) var(--ease-standard) both;
+  /* بلا fill-mode كي لا يحجز التحويل بعد انتهائها — يسمح لتتبع سحب الصفحات */
+  animation: micro-screen-in-rtl var(--motion-screen) var(--ease-standard);
 }
 
 /* Sheet من الأسفل (11.13) */
@@ -113,7 +114,7 @@
     background-color: transparent;
   }
   30% {
-    background-color: var(--c-primary-soft);
+    background-color: var(--c-brand-soft);
   }
   100% {
     background-color: transparent;

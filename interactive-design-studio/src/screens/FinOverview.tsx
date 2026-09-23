@@ -1,7 +1,11 @@
-// Micro Visual System — Screen: FIN-OVERVIEW (المالية)
-// المرجع: §13.2 (Question-First) + §13.3 + §13.7 + §13.11 + §13.12 + §13.20.
+// Micro Visual System — Screen: FIN-OVERVIEW (المالية) — مراجعة V2
+// المرجع: §13.2 (Question-First) + §13.3 + §13.7 + §13.11 + §13.12 + §13.20
+// + 17-COLOR-DECISION + 18 §1.2/§1.4.
 // الحالات: Complete|Partial|Insufficient|Zero|Negative|Offline.
-// الرصيد والإيراد والنتيجة والدين مفصولة بوضوح؛ كل كتلة تجيب عن سؤال واحد.
+// التكوين: لا كتلة ملونة مهيمنة — أسئلة على Canvas بسطر فاصل رقيق ولوحات
+// بيضاء هادئة وأرقام Ink كبيرة (إيقاع «بيان» مميز عن OVR). المحافظ خارج
+// أي كتلة ملونة بتدفق نظيف: الاسم والتاريخ يلتفان والمبلغ مع «د.أ» دائمًا.
+// الرصيد والإيراد والنتيجة والدين مفصولة؛ النتيجة دلالة (نجاح/خطر) لا هوية.
 // لا Chart في هذه الجولة — النمط مشروط بسؤال وبيانات مثبتة (FIN-CHARTS).
 
 import { useState } from 'react'
@@ -19,9 +23,10 @@ import { formatAmount } from '../foundations/tokens'
 export interface FinOverviewProps {
   scenario: FinOverviewScenarioFixture
   scenarioId: string
+  onNavigate: (screenId: string) => void
 }
 
-export function FinOverview({ scenario, scenarioId }: FinOverviewProps) {
+export function FinOverview({ scenario, scenarioId, onNavigate }: FinOverviewProps) {
   const [periodMenuOpen, setPeriodMenuOpen] = useState(false)
   const [period, setPeriod] = useState(scenario.period)
   const isOffline = scenarioId === 'offline'
@@ -29,7 +34,13 @@ export function FinOverview({ scenario, scenarioId }: FinOverviewProps) {
   return (
     <div className="screen screen--fin" data-screen="FIN-OVERVIEW">
       {isOffline && scenario.ribbon ? (
-        <SystemRibbon text={scenario.ribbon.text} detail={scenario.ribbon.detail} icon="wifi-slash" action="عرض العمليات المعلقة" onAction={() => undefined} />
+        <SystemRibbon
+          text={scenario.ribbon.text}
+          detail={scenario.ribbon.detail}
+          icon="wifi-slash"
+          action="عرض العمليات المعلقة"
+          onAction={() => onNavigate('FIN-ACTIVITY')}
+        />
       ) : null}
 
       <header className="screen__head">
@@ -46,7 +57,7 @@ export function FinOverview({ scenario, scenarioId }: FinOverviewProps) {
         </button>
       </header>
 
-      {/* السؤال 1: كم معي الآن؟ — الكتلة القوية */}
+      {/* السؤال 1: كم معي الآن؟ — لوحة بيضاء هادئة ورقم كبير (لا كتلة ملونة) */}
       <section className="fin-cash" aria-labelledby="fin-cash-q">
         <div className="fin-cash__head">
           <span id="fin-cash-q" className="type-supporting">
@@ -59,10 +70,10 @@ export function FinOverview({ scenario, scenarioId }: FinOverviewProps) {
         <h2 className="fin-cash__title type-card-title">الكاش المتاح الآن</h2>
         <MoneyValue money={scenario.cash.value} size="hero" />
         <div className="fin-cash__actions">
-          <button type="button" className="link-action">
+          <button type="button" className="link-action" onClick={() => onNavigate('FIN-WALLETS')}>
             {scenario.cash.distributionAction}
           </button>
-          <button type="button" className="link-action">
+          <button type="button" className="link-action" onClick={() => onNavigate('FIN-TRANSFER')}>
             {scenario.cash.transferAction}
           </button>
         </div>
@@ -79,12 +90,12 @@ export function FinOverview({ scenario, scenarioId }: FinOverviewProps) {
                 </span>
               }
               chevron
-              onClick={() => undefined}
+              onClick={() => onNavigate('FIN-WALLETS')}
             />
           ))}
           {scenario.cash.unallocated ? (
             <div className="fin-cash__unallocated">
-              <ContextSeam tone="warning" action={scenario.cash.unallocated.action} onAction={() => undefined}>
+              <ContextSeam tone="warning" action={scenario.cash.unallocated.action} onAction={() => onNavigate('FIN-WALLETS')}>
                 <span className="type-supporting">
                   {scenario.cash.unallocated.note} — <span className="ltr">{formatAmount(scenario.cash.unallocated.value)}</span> د.أ
                 </span>
@@ -106,7 +117,7 @@ export function FinOverview({ scenario, scenarioId }: FinOverviewProps) {
 
       {/* السؤال 2: ماذا دخل وماذا خرج؟ */}
       <section className="screen__section" aria-labelledby="fin-flow-q">
-        <header className="screen__section-head">
+        <header className="fin-question">
           <h2 id="fin-flow-q" className="type-section-title">
             {scenario.flow.question}
           </h2>
@@ -120,7 +131,7 @@ export function FinOverview({ scenario, scenarioId }: FinOverviewProps) {
               supporting={row.detail || undefined}
               trailing={<MoneyValue money={row.value} size="list" />}
               chevron
-              onClick={() => undefined}
+              onClick={() => onNavigate('FIN-ACTIVITY')}
             />
           ))}
         </RowGroup>
@@ -143,7 +154,7 @@ export function FinOverview({ scenario, scenarioId }: FinOverviewProps) {
 
       {/* السؤال 3: ما لي وما عليّ؟ */}
       <section className="screen__section" aria-labelledby="fin-debt-q">
-        <header className="screen__section-head">
+        <header className="fin-question">
           <h2 id="fin-debt-q" className="type-section-title">
             {scenario.obligations.question}
           </h2>
@@ -160,7 +171,7 @@ export function FinOverview({ scenario, scenarioId }: FinOverviewProps) {
               supporting={scenario.obligations.forYou.detail || undefined}
               trailing={<MoneyValue money={scenario.obligations.forYou.value} size="list" />}
               chevron={Boolean(scenario.obligations.forYou.view)}
-              onClick={scenario.obligations.forYou.view ? () => undefined : undefined}
+              onClick={scenario.obligations.forYou.view ? () => onNavigate('REL-CUSTOMERS') : undefined}
             />
           )}
           <OpenRow
@@ -170,7 +181,7 @@ export function FinOverview({ scenario, scenarioId }: FinOverviewProps) {
             trailing={<MoneyValue money={scenario.obligations.onYou.value} size="list" />}
             chevron={Boolean(scenario.obligations.onYou.view)}
             divider={false}
-            onClick={scenario.obligations.onYou.view ? () => undefined : undefined}
+            onClick={scenario.obligations.onYou.view ? () => onNavigate('REL-SUPPLIERS') : undefined}
           />
         </RowGroup>
         <div className="fin-debt-truth">
@@ -191,8 +202,8 @@ export function FinOverview({ scenario, scenarioId }: FinOverviewProps) {
         </div>
       </section>
 
-      {/* السؤالان 4 و5: النتيجة واكتمالها */}
-      <ResultBlock result={scenario.result} />
+      {/* السؤالان 4 و5: النتيجة واكتمالها — دلالة مالية مع تفصيل حقيقي */}
+      <ResultBlock result={scenario.result} flowRows={scenario.flow.rows} onNavigate={onNavigate} />
 
       <footer className="screen__foot">
         <ContextTrace state={isOffline ? 'offline' : scenario.result.state}>

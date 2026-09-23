@@ -1,10 +1,8 @@
-# Micro Interactive Design Reference Studio — Micro Visual System V1
+# Micro Interactive Design Reference Studio — Micro Visual System V2 (مراجعة الألوان والتكوين 2026-09-23)
 
-> **Revision pending (2026-09-23):** الكود واللقطات والأدلة المدرجة أدناه من نسخة Indigo/Citrus السابقة؛ المرجع الحاكم الآن `../17-COLOR-DECISION-2026-09-23.md` ومطالب التصحيح `../18-ZAI-STUDIO-REVISION-BRIEF-2026-09-23.md`. لا تُنسب هذه الأدلة إلى اللون الجديد `#D97757` قبل تعديل الاستوديو وإعادة الفحص.
+استوديو تصميم مرجعي **مستقل وقابل للتشغيل والتعديل** لتصميم Micro. **النسخة الحالية هي المراجعة V2:** منظومة الألوان الجديدة وفق `../17-COLOR-DECISION-2026-09-23.md` (الهوية القائدة `#D97757` المعتمدة من المالك، بلا عائلة Indigo/Citrus في أي مصدر نشط)، وتكوينات معاد تصميمها وفق `../18-ZAI-STUDIO-REVISION-BRIEF-2026-09-23.md`، وتغطية كاملة وفق `../19-STUDIO-COMPLETE-COVERAGE-GATE-2026-09-23.md`. هذا ليس كود Micro الإنتاجي ولا صفحة HTML ثابتة — إنه نظام Tokens ومكونات وشاشات وحالات حية.
 
-استوديو تصميم مرجعي **مستقل وقابل للتشغيل والتعديل** لتصميم Micro، مبني من مصدر الحقيقة `MICRO-VISUAL-DESIGN-DECISIONS-V1.md`. هذا ليس كود Micro الإنتاجي ولا صفحة HTML ثابتة ولا معرض لقطات — إنه نظام Tokens ومكونات وشاشات وحالات حية تُراجع ثم تُستخدم مرجعًا للتطوير.
-
-**الحالة:** `Candidate — Ready for Owner Review` (بوابة العينات الثلاث من ملف 16) · **الإصدار:** 0.1.0 · **التاريخ:** 2026-09-23 · **المنفذ:** Zed AI (GLM)
+**الحالة:** `Candidate — Ready for Owner Review` · **الإصدار:** 0.2.0 · **التاريخ:** 2026-09-23 · **المنفذ:** ZAI (GLM)
 
 ## التشغيل
 
@@ -20,18 +18,14 @@ npm run preview    # معاينة نسخة البناء: http://localhost:4173
 
 كل البيانات **Fixtures موسومة** من `fixtures/` — لا اتصال بأي API ولا بيانات حقيقية، وأي «حفظ» في نموذج البيع محاكاة عرض موسومة لا عملية حقيقية.
 
-## طريقة المراجعة (لوحة الأدوات أعلى الشاشة)
+## طريقة المراجعة (شريط الأدوات المدمج أعلى الشاشة)
 
-- **الشاشة:** التبديل بين الشاشات الثلاث المنفذة والشاشات المؤجلة.
-- **الحالة:** كل شاشة لها حالات مراجعة (افتراضي/جزئي/غير كافٍ/فراغ أول استخدام/دون اتصال/خطأ…).
-- **العرض:** 320 / 360 / 390 / 412 / متجاوب — داخل إطار هاتف محاكى.
-- **تكبير النص:** 100% / 150% / 200% — تكبير خطوط فعلي مع Reflow (كما على الجهاز)، لا تكبير متصفح متناسب.
-- **رمادي (Grayscale):** اختبار إزالة اللون — يجب أن تبقى الهرمية واضحة.
-- **حركة مخفضة:** محاكاة Reduced Motion.
+- **الشاشة والحالة ظاهران دائمًا:** التبديل بين الشاشات المنفذة (3 عينات + كل البطاقات + مساحة مراجعة المكوّنات) والشاشات المؤجلة، وكل شاشة بحالاتها.
+- **أدوات العرض خلف زر ملخص قابل للطي** (`360 · 100% · رمادي…`): العرض 320/360/390/412/متجاوب · تكبير النص 100/150/200% · رمادي · حركة مخفضة — كي لا يهيمن كروم المراجعة على واجهة الهاتف (18 §1.7).
 - **معلومات الشاشة:** درج يعرض Screen ID والقرارات والمصدر وملف Fixtures والرابط العميق.
 - **روابط عميقة قابلة للمشاركة:** مثل `#/FIN-OVERVIEW?state=partial&w=320&z=150&gray=1&rm=1`.
 
-شريط الأدوات **Studio Chrome** لأغراض المراجعة فقط وليس جزءًا من واجهة Micro (§21.2)، وشريط النظام داخل الإطار محاكاة عرض موثقة الحدود.
+شريط الأدوات **Studio Chrome** (بلون Information الداكن المنفصل عن هوية الهاتف) لأغراض المراجعة فقط وليس جزءًا من واجهة Micro (§21.2)، وشريط النظام داخل الإطار محاكاة عرض موثقة الحدود.
 
 ## بنية المجلد
 
@@ -44,37 +38,41 @@ npm run preview    # معاينة نسخة البناء: http://localhost:4173
 | `src/components/icons/` | Icon (Phosphor MIT) + سجل مولد من أصول `assets/icons/` |
 | `src/navigation/` | الهيكل: AppHeader + AccountPanel + BottomNav (خمسة تبويبات V1) + navModel |
 | `src/app/` | AppFrame (GLB-SHELL) + سجل المسارات routes.tsx |
-| `src/screens/` | OVR-NOW، OPS-SALE-CREATE، FIN-OVERVIEW + DeferredScreen + StudioHome |
+| `src/screens/` | OVR-NOW، OPS-SALE-CREATE، FIN-OVERVIEW، OVR-SNAPSHOT-ALL + DeferredScreen + StudioHome |
 | `src/states/` | نموذج الحالات (DataState/ValueState/SaveState + تسمياتها) |
-| `src/studio/` | طبقة المراجعة: urlState (راوتر Hash) + StudioShell + درج المعلومات |
+| `src/studio/` | طبقة المراجعة: urlState (راوتر Hash) + StudioShell + StudioComponents (مساحة مراجعة المكوّنات) |
 | `src/fixtures/` | أنواع وتحميل Fixtures الموسومة |
 | `fixtures/` | بيانات JSON بحقل provenance لكل ملف |
 | `assets/fonts/` | Alexandria + Noto Sans Arabic (OFL) مع التراخيص |
 | `assets/icons/` | Phosphor SVG (MIT) مع الترخيص |
-| `evidence/` | لقطات الفحص البصري (68 لقطة) + دليلها |
-| `reports/` | تقارير Preflight وQA والتسليم والفجوات والتباين |
+| `evidence/screenshots/` | لقطات الفحص للنسخة V2 (عنصرية مقروئة لإطار الهاتف) + ورقة مقارنة قبل/بعد |
+| `evidence/history-v1-indigo/` | لقطات الإصدار الأول (Indigo) — **تاريخية موسومة، ليست دليلًا للنسخة الحالية** |
+| `reports/` | تقارير Preflight وQA والتسليم والفجوات والتباين + `REVISION-COVERAGE-LEDGER.md` |
 | `TOKEN-DICTIONARY.md/.json` | قاموس Tokens مولّد آليًا من `tokens.css` |
 | `DESIGN-SYSTEM.md` … `DESIGN-TO-DEVELOPMENT.md` | توثيق النظام (انظر الفهرس أدناه) |
 
-## الشاشات المنفذة (بوابة العينات)
+## الشاشات المنفذة
 
 | Screen ID | العنوان | الحالات |
 |---|---|---|
 | `OVR-NOW` | مشروعي الآن | complete · partial · insufficient · first-use · offline · error |
 | `OPS-SALE-CREATE` | تسجيل بيع | empty · filled · validation · impact · impact-credit · saving · failure · success · offline-save |
 | `FIN-OVERVIEW` | المالية | complete · partial · insufficient · zero · negative · offline |
+| `OVR-SNAPSHOT-ALL` | كل البطاقات المالية (عرض استوديو حقيقي) | complete · partial · insufficient · offline |
+| `STUDIO-COMPONENTS` | مراجعة المكوّنات (استوديو فقط — ليست شاشة منتج) | all |
 
-بقية الشاشات (43 من جرد 04-CSV) **Not Started — Deferred pending owner review** وتظهر كبطاقات توثيق داخل الاستوديو مع معرفاتها وقراراتها.
+بقية شاشات 04-CSV **Not Started — Deferred pending owner review** وتظهر كبطاقات توثيق، وكل إجراء مرئي داخل الواجهة يوصل لمساره المؤجل الصادق (لا نقر ميت).
 
 ## حدود الاستوديو (اقرأها قبل المراجعة)
 
 1. **Figma: NOT AVAILABLE** في بيئة التنفيذ — لم يُنشأ ملف أو رابط Figma، والاستوديو التفاعلي هو المرجع.
-2. كل القيم **Fixtures** من `fixtures/` بمصدر موثق (`14-JORDANIAN-CONTENT-FIXTURES.md`)؛ «أثر العملية» في نموذج البيع يعرض **تنسيق** قبل/بعد بقيم عرض فقط — الأثر المالي الفعلي يحدده منطق المنتج (GAP-004).
-3. الفحوص المنفذة فحوص **متصفح داخل بيئة التنفيذ** (بناء نظيف، صفر أخطاء Console، صفر تجاوز أفقي، لقطات 320–412 وتكبير 150/200 ورمادي، تفاعلات مُعادة). اختبار Android فعلي وTalkBack ومستخدمون أردنيون **UNVERIFIED** (§21.5 يفصل تسليم التصميم عن التحقق الواقعي).
-4. علامة Micro الرباعية وMicro Financial Glyphs **أصول مرشحة (GAP-002/003)** ترتبط بمراجعة الشعار النهائي — لا تُعد أصلًا معتمدًا.
-5. لا يوجد Dark Mode. الأرقام إنجليزية `0–9` والعملة `د.أ` والسالب `−`. RTL أصلي بخصائص منطقية لا Mirror.
-6. هذا المصدر داخل مستودع الـHandoff فقط؛ لم يُلمس مستودع `Qays7753/Micro` ولا كوده الإنتاجي.
+2. كل القيم **Fixtures** من `fixtures/` بمصدر موثق؛ «أثر العملية» في نموذج البيع يعرض **تنسيق** قبل/بعد بقيم عرض فقط (GAP-004).
+3. الفحوص المنفذة فحوص **متصفح داخل بيئة التنفيذ** (بناء نظيف، صفر أخطاء Console، صفر تجاوز أفقي بعد تحميل الخطوط، 21 سيناريو + عروض وتكبير ورمادي وحركة مخفضة، سحب بطاقات وصفحات فعلي بالPointer، تبديل سيناريو بلا تسرب — راجع `reports/QA-SUMMARY.md`). اختبار Android فعلي وTalkBack ومستخدمون أردنيون **UNVERIFIED** (§21.5).
+4. علامة Micro الرباعية وMicro Financial Glyphs **أصول مرشحة (GAP-002/003)**.
+5. لا Dark Mode. الأرقام إنجليزية `0–9` والعملة `د.أ` والسالب `−`. RTL أصلي بخصائص منطقية لا Mirror.
+6. هذا المصدر داخل مستودع الـHandoff فقط؛ لم يُلمس مستودع `Qays7753/Micro` ولا كوده الإنتاجي، ولا `main`.
+7. **القبول بصريًا بيد المالك:** قرار الألوان (17) مثبت كسياسة، لكن مظهر النسخة الجديدة «Candidate» حتى مراجعة المالك — لا شيء هنا يُعد موافقة.
 
 ## فهرس التوثيق
 
-`DESIGN-SYSTEM.md` · `TOKEN-DICTIONARY.md` · `COMPONENT-CATALOG.md` · `SCREEN-CATALOG.md` · `NAVIGATION-MAP.md` · `STATE-MATRIX.md` · `MOTION-MAP.md` · `RTL-ACCESSIBILITY.md` · `FIXTURE-CATALOG.md` · `ASSET-MANIFEST.md` · `DESIGN-TO-DEVELOPMENT.md` · `reports/` (Preflight الخمسة + `VISUAL-PROOF-REVIEW` + `QA-SUMMARY` + `CONTRAST-REPORT` + `OPEN-ISSUES` + `DELIVERY-REPORT`) · `evidence/README.md`
+`DESIGN-SYSTEM.md` · `TOKEN-DICTIONARY.md` · `COMPONENT-CATALOG.md` · `SCREEN-CATALOG.md` · `NAVIGATION-MAP.md` · `STATE-MATRIX.md` · `MOTION-MAP.md` · `RTL-ACCESSIBILITY.md` · `FIXTURE-CATALOG.md` · `ASSET-MANIFEST.md` · `DESIGN-TO-DEVELOPMENT.md` · `reports/` (Preflight الخمسة + `VISUAL-PROOF-REVIEW` + `QA-SUMMARY` + `CONTRAST-REPORT` + `OPEN-ISSUES` + `DELIVERY-REPORT` + **`REVISION-COVERAGE-LEDGER`**) · `evidence/README.md`

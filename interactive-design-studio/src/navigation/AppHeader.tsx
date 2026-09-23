@@ -61,7 +61,15 @@ export function AppHeader({ scrolled, accountOpen, onToggleAccount, onAskMicro, 
   )
 }
 
-export function AccountPanel({ open, onClose }: { open: boolean; onClose: () => void }) {
+export function AccountPanel({
+  open,
+  onClose,
+  onNavigate,
+}: {
+  open: boolean
+  onClose: () => void
+  onNavigate: (screenId: string) => void
+}) {
   const [logoutOpen, setLogoutOpen] = useState(false)
   const panelRef = useRef<HTMLDivElement>(null)
 
@@ -96,16 +104,16 @@ export function AccountPanel({ open, onClose }: { open: boolean; onClose: () => 
               <span className="type-supporting">{incomplete ? 'بيانات المشروع غير مكتملة' : 'بيانات المشروع مكتملة'}</span>
             </span>
             {incomplete ? (
-              <button type="button" className="account-panel__complete link-action">
+              <button type="button" className="account-panel__complete link-action" onClick={() => onNavigate('GLB-PROJECT')}>
                 {project.accountAction}
               </button>
             ) : null}
           </div>
 
           <div className="account-panel__menu">
-            <OpenRow icon="user-circle" title="حسابي" supporting="الاسم والهاتف وكلمة المرور" chevron divider={false} />
-            <OpenRow icon="storefront" title="بيانات المشروع" supporting={incomplete ? 'غير مكتملة' : 'مكتملة'} chevron divider={false} />
-            <OpenRow icon="sliders-horizontal" title="إعدادات النظام" supporting="اللغة والإشعارات والنسخ الاحتياطي" chevron divider={false} />
+            <OpenRow icon="user-circle" title="حسابي" supporting="الاسم والهاتف وكلمة المرور" chevron divider={false} onClick={() => onNavigate('GLB-ACCOUNT')} />
+            <OpenRow icon="storefront" title="بيانات المشروع" supporting={incomplete ? 'غير مكتملة' : 'مكتملة'} chevron divider={false} onClick={() => onNavigate('GLB-PROJECT')} />
+            <OpenRow icon="sliders-horizontal" title="إعدادات النظام" supporting="اللغة والإشعارات والنسخ الاحتياطي" chevron divider={false} onClick={() => onNavigate('GLB-SETTINGS')} />
           </div>
 
           <div className="account-panel__logout">

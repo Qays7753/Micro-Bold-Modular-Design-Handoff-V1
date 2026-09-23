@@ -1,29 +1,28 @@
-# Final Completion Report — Micro Visual System V1 (بوابة العينات الثلاث)
+# Final Completion Report — Micro Visual System V2 (مراجعة الألوان والتكوين 2026-09-23)
 
 **التاريخ:** 2026-09-23
-**الإصدار:** Micro Visual System — V1 · `interactive-design-studio` 0.1.0
-**Agent أو فريق التصميم:** Zed AI (GLM) — منفذ واحد
-**حالة التسليم:** `Design Delivered for Owner Review`
+**الإصدار:** Micro Visual System — V2 · `interactive-design-studio` 0.2.0 (مراجعة الكود القائم نفسه — ليست استوديو جديدًا)
+**Agent أو فريق التصميم:** ZAI (GLM) — منفذ واحد
+**حالة التسليم:** `Design Delivered for Owner Review` (مراجعة V2: منظومة #D97757 كاملة + تكوينات معاد تصميمها + وظائف مصلحة + تغطية كاملة بسجل REVISION-COVERAGE-LEDGER)
 **حالة التحقق الواقعي:** `Pending` (كل بنود الجهاز/المستخدم `UNVERIFIED`)
-**لا تملأ `Accepted by Owner` بنفسك** — محفوظة لقرار المالك.
+**لا تملأ `Accepted by Owner` بنفسك** — محفوظة لقرار المالك. توثيق V1 السابق محفوظ في تاريخ Git.
 
 ## 1. ما أنتج فعليًا
 
 | المخرج | رابط مباشر | Version | يمكن للمالك فتحه؟ | الحالة |
 |---|---|---|---|---|
-| الاستوديو: مصدر + تعليمات تشغيل | `interactive-design-studio/` + `README.md` | 0.1.0 | نعم — من المصدر (npm install→dev) | Delivered (Candidate) |
+| الاستوديو المراجَع: مصدر + تعليمات تشغيل | `interactive-design-studio/` + `README.md` | 0.2.0 | نعم — من المصدر (npm ci→dev/preview) | Delivered (Candidate) |
 | المعاينة الحية | لوحة Preview لجلسة المراجعة | نفس Commit | خلال الجلسة؛ الاستضافة الدائمة `Blocked` (D-02/ISS-004) | Partial — Blocked (hosting) |
-| Tokens + Typography | `src/foundations/` + `TOKEN-DICTIONARY.md/.json` | V1 | نعم | Delivered |
-| Core/Financial/Contextual Components | `src/components/**` + `COMPONENT-CATALOG.md` | V1 | نعم — داخل الاستوديو | Delivered (Candidate) |
-| الشاشات الثلاث وحالاتها | `#/OVR-NOW` · `#/OPS-SALE-CREATE` · `#/FIN-OVERVIEW` | V1 | نعم — روابط عميقة | Delivered (Candidate — In Review) |
-| Fixtures موسومة | `fixtures/*.json` + `FIXTURE-CATALOG.md` | V1 | نعم | Delivered |
-| أدلة QA | `evidence/` (68 لقطة) + `reports/*` | V1 | نعم | Delivered |
+| Tokens + Typography (منظومة 17) | `src/foundations/` + `TOKEN-DICTIONARY.md/.json` | V2 | نعم | Delivered |
+| Core/Financial/Contextual Components | `src/components/**` + `COMPONENT-CATALOG.md` | V2 | نعم — داخل الاستوديو ومساحة STUDIO-COMPONENTS | Delivered (Candidate) |
+| الشاشات الثلاث + عرض كل البطاقات + مساحة المكوّنات | `#/OVR-NOW` · `#/OPS-SALE-CREATE` · `#/FIN-OVERVIEW` · `#/OVR-SNAPSHOT-ALL` · `#/STUDIO-COMPONENTS` | V2 | نعم — روابط عميقة | Delivered (Candidate — In Review) |
+| Fixtures موسومة | `fixtures/*.json` + `FIXTURE-CATALOG.md` | V2 (ترتيب بطاقات فقط تغيّر) | نعم | Delivered |
+| أدلة QA وسجل التغطية | `evidence/screenshots/` (V2) + `reports/*` + `REVISION-COVERAGE-LEDGER.md` | V2 | نعم | Delivered |
 
 **فحص التسليم الفعلي:**
-- أمر التثبيت والتشغيل والبناء: `cd interactive-design-studio && npm install && npm run dev` (و`npm run build` — نظيف، 76 وحدة).
-- رابط نسخة المعاينة ورقم commit المطابق: معاينة الجلسة تخدم نسخة `dist/` من Commit التنفيذ (SHA يُذكر في محادثة Zed عند الدفع).
-- اختبار فتح الرابط من هاتف مستقل: **لم يُتحقق** — المعاينة عبر لوحة Preview أو تشغيل محلي؛ الاستضافة العامة تحتاج تفويضًا.
-- الاستضافة وتفويضها: `Blocked` (ISS-004).
+- أمر التثبيت والتشغيل والبناء: `cd interactive-design-studio && npm ci && npm run build && npm run preview` (بناء نظيف — 79 وحدة).
+- سكربت فحص المتصفح الكامل (خارج المستودع): **47/47 فحصًا ناجحًا** — صفر أخطاء Console، 21 سيناريو بتحقق توجيه، سحب فعلي للبطاقات والصفحات، لا نقر ميت، تبديل سيناريو بلا تسرب، تسميات بلا قصّ عند 320/200%، تباين 25/25 من الأزواج الجديدة.
+- اختبار فتح الرابط من هاتف مستقل: **لم يُتحقق** — المعاينة عبر لوحة Preview أو تشغيل محلي؛ الاستضافة العامة تحتاج تفويضًا (ISS-004).
 - هل جميع البيانات fixtures وليست سجلات فعلية؟ نعم — بـprovenance لكل ملف وشارة Fixtures ظاهرة (FIXTURE-CATALOG).
 
 راجع بنود `11-DELIVERY-MANIFEST.md` (D-01..D-23) كاملة — كلها Delivered عدا D-02 Blocked (استضافة) وبنود UNVERIFIED الموثقة.

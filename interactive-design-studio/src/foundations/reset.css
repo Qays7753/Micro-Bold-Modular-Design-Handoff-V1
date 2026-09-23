@@ -68,6 +68,6 @@ a {
 }
 
 ::selection {
-  background: var(--c-primary-soft);
+  background: var(--c-brand-soft);
   color: var(--c-ink);
 }

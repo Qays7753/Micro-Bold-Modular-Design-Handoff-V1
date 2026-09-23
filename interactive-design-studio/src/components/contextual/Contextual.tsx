@@ -152,9 +152,9 @@ export function EmptyState({
 }
 
 const INSIGHT_TONE: Record<InsightLevel, string> = {
-  opportunity: 'citrus',
+  opportunity: 'opportunity',
   attention: 'warning',
-  'action-now': 'danger',
+  'action-now': 'warning',
   'missing-data': 'partial',
   clear: 'neutral',
 }

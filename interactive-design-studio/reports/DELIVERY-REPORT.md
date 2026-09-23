@@ -1,50 +1,61 @@
-# DELIVERY-REPORT — تقرير تسليم الاستوديو (بوابة العينات الثلاث)
+# DELIVERY-REPORT — تسليم المراجعة V2 (2026-09-23)
 
-> **Historical 0.1.0 delivery:** يصف نسخة Indigo/Citrus قبل قرار `#D97757`. يجب تحديث التقرير بعد تنفيذ `../../17-COLOR-DECISION-2026-09-23.md` و`../../18-ZAI-STUDIO-REVISION-BRIEF-2026-09-23.md`، لا نقل PASS القديم.
+**المهمة:** تنفيذ مراجعة شاملة للاستوديو التفاعلي القائم وفق `17-COLOR-DECISION-2026-09-23.md` (منظومة `#D97757` الكاملة) و`18-ZAI-STUDIO-REVISION-BRIEF-2026-09-23.md` (إعادة التركيب + إصلاح الوظائف) و`19-STUDIO-COMPLETE-COVERAGE-GATE-2026-09-23.md` (تغطية كل ما نُفذ).
+**الحالة:** `Ready for Owner Review` — ليست Approved/Accepted. **الفرع:** `exec/interactive-design-studio-zed-20260923` (بلا PR ولا دمج ولا force، و`main` لم يُمس).
 
-**الحزمة:** Micro Visual System — V1 (Interactive Design Reference Studio) · **الإصدار:** 0.1.0
-**التاريخ:** 2026-09-23 · **المنفذ:** Zed AI (GLM) · **الفرع:** `exec/interactive-design-studio-zed-20260923`
-**حالة التسليم:** `Design Delivered for Owner Review` · **حالة التحقق الواقعي:** `Pending` (UNVERIFIED موسومة — §21.5)
+## 1. ما تغيّر — الألوان
 
-## 1. ملخص ما سُلّم
+- **المنظومة كاملة** من التوكنز إلى المكونات إلى كل واجهة مرئية: الهوية القائدة `#D97757` (معتمدة المالك)، الفعل/الاختيار `#A94630`، Ink `#1D2930`، Canvas `#F0F3F4`، والمساندات الدلالية (معلومة `#305968`، نجاح `#16765A`، انتباه `#95590C`، خطر `#B0324F`، جزئي/غير معروف `#5B6770`…) وفق 17 §2.
+- **أُزيلت عائلة Indigo/Citrus كاملة من المصدر النشط والواجهة** — توكنز وأسماء وتعليقات وأيقونة Favicon ومشتقات (تدقيق grep نصي وHEX على src/fixtures/public/dist: نظيف). لقطات V1 القديمة (68) نُقلت إلى `evidence/history-v1-indigo/` موسومة **تاريخيًا**.
+- **فوق الهوية Ink حصرًا** (4.76:1) — لا أبيض عادي فوق `#D97757` في أي موضع؛ تقرير تباين جديد من الأزواج الفعلية: **25/25 PASS** (القديم لا ينتقل).
+- قيم مشتقة موثقة بتفويض 17 §2: مضغوط `#8F3B27`، عمق هوية غير نصي `#C4663F`، سطح ثانٍ `#E4EAEC`، معطل `#8A959C`، زخرفي `#A6AEB4`. دور Local (دون اتصال) أُسند لدور Information بقرار موثق (ISS-006).
+- إشارة MicroSignal صارت **دلالية** (نجاح/جزئي/معلومة/خطر) بدل Indigo؛ العلامة الرباعية بلون الهوية.
 
-استوديو تفاعلي مستقل قابل للتشغيل من المصدر داخل `interactive-design-studio/`: Tokens ثلاثية الطبقات (174 توكن)، طباعة عربية RTL بخطين موثقي الترخيص، مكتبة Core/Financial/Contextual Components، هيكل تنقل بخمسة تبويبات V1 مع Header ولوحة حساب، **ثلاث شاشات كاملة بحالاتها** (OVR-NOW: 6 حالات · OPS-SALE-CREATE: 9 · FIN-OVERVIEW: 6)، Fixtures أردنية موسومة بمصدرها، طبقة مراجعة (شاشة/حالة/عرض/تكبير/رمادي/حركة مخفضة + روابط عميقة + درج معلومات)، توثيق كامل (14 ملفًا + 9 تقارير)، وأدلة فحص (68 لقطة + تقرير تباين برمجي). البقية (43 شاشة) `Not Started — Deferred pending owner review` ببطاقات توثيق داخل الاستوديو.
+## 2. ما تغيّر — التكوين (لا HEX فقط)
 
-## 2. بنود Delivery Manifest (D-01..D-23 من 11-DELIVERY-MANIFEST.md)
+| الشاشة | قبل (تاريخي) | بعد |
+|---|---|---|
+| OVR-NOW | الكاش بطاقة قوية أولًا؛ النتيجة تُوصل بالسحب | **بطاقة النتيجة واكتمالها أولًا** (هوية/Ink، «ربح 420.00» + السؤال + بيان النزاهة) والكاش بطاقة بيضاء تالية — الفرق بين الكاش والربح أوضح وأصدق |
+| FIN-OVERVIEW | كتلة داكنة مهيمنة تجمع المحافظ والتواريخ بازدحام | **لوحة بيضاء هادئة برقم Ink كبير**، المحافظ صفوف نظيفة داخلها (لا ازدحام)، أسئلة على Canvas بخط فاصل (إيقاع بيان)، النتيجة حاوية دلالية بكلمة حكم — **متمايزة عن OVR حتى في الرمادي** (فحص VLM) |
+| OPS-SALE-CREATE | أسطر مضغوطة بعمود واحد؛ سلة فارغة نص | **سطر شبكي صفين** بعمود إجمالي ثابت، سلة فارغة دعوة فعل، طريقة بارزة 48px، زر الإجراء كامل العرض بـ`#A94630` |
+| الشريط السفلي | قصّ التسميات عند التكبير | ارتفاع **تكيفي** بلا قصّ + علامة رباعية + لون Action |
+| شريط الاستوديو | ضخم ثابت يهيمن على الأدلة | **مدمج قابل للطي** بزرد ملخص، الشاشة والحالة فقط ظاهران دائمًا |
 
-| ID | البند | الحالة | الدليل/المسار |
-|---|---|---|---|
-| D-01 | مصدر الاستوديو + README | **Delivered** | `interactive-design-studio/` + `README.md` |
-| D-02 | رابط معاينة هاتف دائم | **Blocked (استضافة)** | لا نشر مصرح خارج المستودع؛ التشغيل المحلي موثق والمعاينة متاحة عبر لوحة Preview لجلسة المراجعة. النشر العام يحتاج تفويضًا مستقلًا (ISS-004) |
-| D-03 | Foundations/Tokens/Typography | **Delivered** | `src/foundations/` + `TOKEN-DICTIONARY.md/.json` |
-| D-04 | Core Components | **Delivered (Candidate)** | `src/components/core/` + `COMPONENT-CATALOG.md` |
-| D-05 | Financial/Contextual | **Delivered (Candidate)** | `src/components/financial|contextual/` |
-| D-06 | الشاشات والحالات الحرجة | **Delivered (3 شاشات · Candidate)** | `SCREEN-CATALOG.md` |
-| D-07 | Screen Coverage Ledger | **Delivered (محدّث بالأدلة)** | `04-SCREEN-COVERAGE.csv` (جذر المستودع) |
-| D-08 | Navigation Mapping | **Delivered (محدّث)** | `05-NAVIGATION-MAPPING.csv` + `NAVIGATION-MAP.md` |
-| D-09 | Component Inventory | **Delivered (محدّث)** | `06-COMPONENT-INVENTORY.csv` + `COMPONENT-CATALOG.md` |
-| D-10 | Decision Traceability | **Delivered (محدّث)** | `07-DECISION-TRACEABILITY.csv` |
-| D-11 | Token Dictionary + Asset Manifest | **Delivered** | `TOKEN-DICTIONARY.*` + `ASSET-MANIFEST.md` |
-| D-12 | RTL/Accessibility Annotations | **Delivered** | `RTL-ACCESSIBILITY.md` |
-| D-13 | Motion Map | **Delivered** | `MOTION-MAP.md` |
-| D-14 | Design-to-Development | **Delivered** | `DESIGN-TO-DEVELOPMENT.md` |
-| D-15 | QA Evidence + Open Issues | **Delivered** | `reports/QA-SUMMARY.md` + `CONTRAST-REPORT.md` + `OPEN-ISSUES.md` + `evidence/` |
-| D-16 | Legacy Contamination + Template Audit | **Delivered (إقرار مستند)** | لم تُنسخ واجهة Micro الحالية بصريًا (لم يُطلع المنفذ عليها إطلاقًا — البناء كله من المرجع §§3–16). فحص القوالب: ثلاث تركيبات متمايزة + Color Removal Test — تفصيل VISUAL-PROOF-REVIEW §6/§7 |
-| D-17 | Gap/Conflict Logs | **Delivered** | `reports/CONFLICT-AND-GAP-LOG.md` (8 فجوات + قيدان) |
-| D-18 | Final Completion Report | **Delivered** | `12-FINAL-COMPLETION-REPORT.md` (جذر) + هذا التقرير |
-| D-19 | Visual Proof Review | **Delivered** | `reports/VISUAL-PROOF-REVIEW.md` (9 أسئلة × أدلة) |
-| D-20 | مخرجات منشورة في المستودع | **Delivered** | Commit على فرع التنفيذ (SHA في التقرير النهائي للمحادثة) |
-| D-21 | تعليمات تشغيل + dependencies مثبتة | **Delivered** | `README.md` + `package.json` (نسخ مثبتة) |
-| D-22 | Fixtures معلّمة | **Delivered** | `fixtures/*.json` + `FIXTURE-CATALOG.md` |
-| D-23 | دليل عروض RTL/تكبير/حركة | **Delivered (متصفح)** | `evidence/` — الجهاز الفعلي UNVERIFIED |
+## 3. الوظائف المصلحة (كلها بفحص آلي فعلي)
 
-## 3. الحالات الإجمالية
+1. **«اسحب» صادقة:** سحب مباشر حقيقي لبطاقة SnapshotDeck — المحتوى يتبع الإصبع، مقاومة حواف بلا Loop، أزرار الوصول باقية، ولا تعارض مع سحب الصفحات.
+2. **السحب بين الصفحات (§11.12) منفذ:** يتبع الإصبع بين التبويبات الخمس، معطل في النماذج المالية والطبقات المفتوحة والبطاقات الأفقية.
+3. **«عرض الكل» حقيقي:** شاشة `OVR-SNAPSHOT-ALL` بالبطاقات الأربع مكشوفة + عودة تحفظ التسلسل (كان نقرًا ميتًا).
+4. **لا نقر ميت إطلاقًا:** 12 مسارًا مؤجلًا حقيقيًا من 04-CSV لأكل إجراء مرئي (صفوف، عرض التوزيع/النقل/العملاء/الموردين، اسأل Micro، التوصيل، صفوف لوحة الحساب، عرض العملية، إضافة التكاليف، العمليات المعلقة) + «عرض التفاصيل» للنتيجة يفتح Sheet تفصيلًا حقيقيًا.
+5. **تبديل سيناريو البيع نظيف:** إعادة تركيب حتمية عبر key — لا تسرب سلة/عميل/أخطاء/طريقة/echo من سيناريو سابق، مع بقاء التعديلات حية داخل السيناريو نفسه.
+6. **مساحة مراجعة مكوّنات** `STUDIO-COMPONENTS` (موسومة استوديو لا منتج): كل مكوّن وvariant غير متاح في السيناريوهات صار قابل الفحص (AmountField، Skeleton، أنماط الفراغ الخمسة، نغمات Seam، الحالات السبع للإشارة، مصفوفة الأزرار).
 
-- **Delivered (بأدلة قابلة للفتح):** كل ما أعلاه عدا D-02.
-- **Blocked:** المعاينة المستضافة الدائمة (D-02) — قيد استضافة خارج التفويض؛ البديل الموثق: تشغيل محلي كامل + معاينة الجلسة.
-- **Deferred by Owner (بانتظار قراره):** التعميم على 43 شاشة، اعتماد العلامة الرباعية المرشحة، المحتوى المشروط (السوق/اسأل Micro/التوصيل/الرسوم).
-- **UNVERIFIED:** Android فعلي، TalkBack/VoiceOver، لوحة مفاتيح فعلية، Swipe/Safe Areas، الضوء/الواقي، مستخدمون أردنيون 5–7، أداء 60fps. الفصل وفق §21.5: تسليم التصميم المرحلي قائم؛ ادعاء قبول التجربة غير مسموح.
+## 4. التحقق والبناء
 
-## 4. إقرار التسليم الصادق (نموذج 12-FCR)
+- `npm ci` + `npm run build`: نظيف (79 وحدة، صفر أخطاء أنواع).
+- **47/47 فحصًا آليًا ناجحًا** في متصفح حقيقي (Playwright): صفر أخطاء Console عبر الجولة، 21 سيناريو بتحقق توجيه ولقطة، صفر تجاوز أفقي (بعد انتظار الخطوط)، سحب/تبديل/طبقات/قوائم/تركيز/ضغط فعلية، تسميات بلا قصّ عند 320/200%، صدق القيم (د.أ معًا، −80.00 بـ«خسارة»، لا 0.00 للناقص). التفصيل: `reports/QA-SUMMARY.md`.
+- **فحص VLM بصري:** عربية سليمة بلا Tofu، الكتلة البرتقالية تجيب عن الربح أولًا، صفوف المحافظ خالية من الازدحام، تمييز OVR/FIN في الرمادي جوهري، ورقة المقارنة سليمة.
+- **UNVERIFIED بصدق:** جهاز Android فعلي، TalkBack، لمس إصبع حقيقي، ضوء النهار، مستخدمون أردنيون، 60fps.
 
-أنجزت الملفات المشار إليها أعلاه بمسارات قابلة للفتح داخل المستودع. لم أنفذ أي اختبار مسجل `UNVERIFIED`. تسليم التصميم لا يعني موافقة المالك ولا انتهاء التحقق الواقعي. لم أنسخ واجهة Micro الحالية بصريًا — لم أطلع عليها أصلًا وكل الأصل البصري من ملف القرارات §§3–16. رفعت مخرجات هذا التصميم إلى مستودع الـHandoff المعتمد فقط، ولم أعدل كود تطبيق Micro الإنتاجي أو مستودعه ولا `main`، ولم أفتح PR. لا أسرار ولا Tokens في أي ملف أو Commit. الحالة النهائية: **Ready for Owner Review** — وليست `Accepted`.
+## 5. الأدلة
+
+- `evidence/screenshots/` — لقطات V2 الجديدة (عنصرية مقروئة للهاتف DPR2): 21 سيناريو + عروض 320/390/412 + z150/z200 + رمادي + حركة مخفضة + 12 لقطة تفاعل + OVR-SNAPSHOT-ALL + STUDIO-COMPONENTS + المؤجلة + **ورقة مقارنة قبل/بعد** `comparison-contact-sheet.png`.
+- `evidence/history-v1-indigo/` — لقطات V1 **تاريخية موسومة**.
+- `reports/REVISION-COVERAGE-LEDGER.md` — سجل كل جزء منفذ ونتيجته ودليله (بوابة 19).
+
+## 6. الملفات المتأثرة (ملخص)
+
+`src/foundations/{tokens.css,tokens.ts,reset.css,motion.css}` · `src/components/{core,financial,contextual}.css` + `core/{Button,Overlays}.tsx` + `financial/{SnapshotDeck,ResultBlock}.tsx` + `contextual/Contextual.tsx` · `src/navigation/{navigation.css,BottomNav,AppHeader,navModel}` · `src/app/{AppFrame,routes}.tsx` · `src/screens/{OvrNow,OpsSaleCreate,FinOverview}.tsx` + **جديد** `OvrSnapshotAll.tsx` · `src/studio/{StudioShell,StudioComponents جديد}.tsx` + `studio.css` · `src/App.tsx` · `public/favicon.svg` · `fixtures/ovr-now.json` (ترتيب فقط) · التوثيق كله محدّث/مولّد · السجلات الجذرية 04/11/12/13 محدّثة بصدق.
+
+## 7. المتبقي (صريح)
+
+ISS-001 (حكم المالك على V2) · ISS-005 (حدود OVR-SNAPSHOT-ALL كشاشة منتج) · ISS-006 (دور Local) · ISS-007 (ارتفاع الشريط عند 200%) · بنود UNVERIFIED الواقعية — التفصيل في `reports/OPEN-ISSUES.md`.
+
+## 8. التشغيل للمراجعة
+
+```bash
+cd interactive-design-studio && npm ci && npm run build && npm run preview   # http://localhost:4173
+# أو للتطوير: npm run dev
+```
+
+روابط مباشرة: `#/OVR-NOW?state=complete` · `#/OPS-SALE-CREATE?state=impact` · `#/FIN-OVERVIEW?state=complete` · `#/OVR-SNAPSHOT-ALL` · `#/STUDIO-COMPONENTS` — مع `&w=320..412&z=150/200&gray=1&rm=1`.

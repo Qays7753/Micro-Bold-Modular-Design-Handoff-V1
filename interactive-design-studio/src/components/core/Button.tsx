@@ -2,7 +2,8 @@
 // Primary/Accent/Secondary/Tertiary/Destructive/IconOnly. ارتفاع 48 (مضغوط 44)،
 // نصف قطر 16، أيقونة قبل النص من جهة اليمين في RTL والسهم في الطرف المقابل.
 // تسمية «فعل + مفعول». حالة Loading تحافظ على الهندسة وتمنع التكرار.
-// Citrus لا يُستخدم لتأكيد مالي (Accent لغير الحساس فقط).
+// الزر الصلب = Action #A94630 (17 §2)؛ Accent فوق الهوية بـInk — لا يصنف
+// مبلغًا كربح أو خسارة، ولا يصبح كل إجراء حبة ملونة موحدة.
 
 import type { ReactNode } from 'react'
 import { Icon, type IconName } from '../icons/Icon'
@@ -52,7 +53,6 @@ export function Button({
     .join(' ')
 
   const disabled = state === 'disabled' || state === 'loading'
-  const isFinancialConfirm = role === 'primary' || role === 'destructive'
 
   return (
     <button
@@ -76,8 +76,6 @@ export function Button({
           {state === 'success' ? <MicroSignal state="complete" size="sm" label="تم" /> : null}
         </>
       )}
-      {/* Citrus محجوز Accent لغير المالي — يُفرض في CSS أيضًا */}
-      <span className="sr-only" hidden={isFinancialConfirm ? true : undefined} />
     </button>
   )
 }

@@ -1,6 +1,9 @@
-// Micro Visual System — App root
+// Micro Visual System — App root — مراجعة V2
 // يربط: طبقة المراجعة (Studio Chrome) + إطار التطبيق (GLB-SHELL) + الشاشات.
 // الحالة في الـHash (روابط عميقة قابلة للمشاركة). Light Mode فقط. RTL أصلي.
+// V2 (18 §2): تبديل السيناريو يعيد تركيب الشاشة (key) فيُعاد ضبط النموذج
+// حتميًا بلا تسرب قيم أو رسائل من سيناريو سابق — مع بقاء التعديلات حية
+// ما دام السيناريو نفسه نشطًا.
 
 import { useEffect, useState } from 'react'
 import { AppFrame } from './app/AppFrame'
@@ -8,7 +11,9 @@ import { ROUTES } from './app/routes'
 import { OvrNow } from './screens/OvrNow'
 import { OpsSaleCreate } from './screens/OpsSaleCreate'
 import { FinOverview } from './screens/FinOverview'
+import { OvrSnapshotAll } from './screens/OvrSnapshotAll'
 import { DeferredScreen } from './screens/DeferredScreen'
+import { StudioComponents } from './studio/StudioComponents'
 import { StudioBar, ReviewControls, ScreenInfoDrawer, StudioStatusBar, StudioFrameCaption } from './studio/StudioShell'
 import { parseHash, onHashChange, navigateTo, DEFAULT_PARAMS, type StudioParams } from './studio/urlState'
 import { ovrNow, finOverview, sale } from './fixtures'
@@ -33,32 +38,48 @@ export default function App() {
     if (!params.screenId) return <StudioHome />
     if (!route) return <StudioHome />
     if (route.status === 'deferred') {
-      return <DeferredScreen route={route} onNavigate={onNavigate} />
+      return <DeferredScreen key={`deferred-${params.screenId}`} route={route} onNavigate={onNavigate} />
     }
     switch (route.screenId) {
       case 'OVR-NOW':
         return (
           <OvrNow
+            key={`ovr-${params.state}`}
             scenario={ovrNow.scenarios[params.state] ?? ovrNow.scenarios.complete}
             scenarioId={params.state in ovrNow.scenarios ? params.state : 'complete'}
             onNavigate={onNavigate}
           />
         )
+      case 'OVR-SNAPSHOT-ALL':
+        return (
+          <OvrSnapshotAll
+            key={`snapall-${params.state}`}
+            scenario={ovrNow.scenarios[params.state] ?? ovrNow.scenarios.complete}
+            scenarioId={params.state in ovrNow.scenarios ? params.state : 'complete'}
+            onBack={() => onNavigate('OVR-NOW')}
+          />
+        )
       case 'OPS-SALE-CREATE':
         return (
           <OpsSaleCreate
+            key={`sale-${params.state}`}
             scenario={sale.scenarios[params.state] ?? sale.scenarios.empty}
             scenarioId={params.state in sale.scenarios ? params.state : 'empty'}
             onExit={() => onNavigate('OPS-HOME')}
+            onNavigate={onNavigate}
           />
         )
       case 'FIN-OVERVIEW':
         return (
           <FinOverview
+            key={`fin-${params.state}`}
             scenario={finOverview.scenarios[params.state] ?? finOverview.scenarios.complete}
             scenarioId={params.state in finOverview.scenarios ? params.state : 'complete'}
+            onNavigate={onNavigate}
           />
         )
+      case 'STUDIO-COMPONENTS':
+        return <StudioComponents key="studio-components" />
       default:
         return <StudioHome />
     }
@@ -99,7 +120,7 @@ function StudioHome() {
     <div className="screen screen--home" data-screen="STUDIO-HOME">
       <header className="screen__head">
         <h1 className="type-screen-title">استوديو مرجع التصميم التفاعلي</h1>
-        <p className="type-supporting">Micro Visual System — V1 · بوابة العينات الثلاث</p>
+        <p className="type-supporting">Micro Visual System — V2 · مراجعة الألوان والتكوين 2026-09-23</p>
       </header>
       <section className="home-intro">
         <p className="type-body">
@@ -109,7 +130,7 @@ function StudioHome() {
         </p>
         <ul className="home-links">
           {Object.values(ROUTES)
-            .filter((r) => r.status === 'built')
+            .filter((r) => r.status === 'built' && !r.studioOnly)
             .map((r) => (
               <li key={r.screenId}>
                 <button type="button" className="home-link" onClick={() => navigateTo({ screenId: r.screenId, state: r.scenarios[0]?.id ?? DEFAULT_PARAMS.state })}>
@@ -126,7 +147,7 @@ function StudioHome() {
         <p className="type-supporting">
           بقية الشاشات <strong>Not Started — Deferred pending owner review</strong> وفق بوابة العينات في ملف{' '}
           <span className="ltr">16-EXECUTION-STAGES-AND-PROOF-GATES.md</span>، وتظهر كبطاقات توثيق عند اختيارها من مبدّل
-          الشاشة.
+          الشاشة أو النقر على إجراءاتها داخل الواجهة.
         </p>
       </section>
     </div>

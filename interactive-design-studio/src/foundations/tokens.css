@@ -1,54 +1,57 @@
-/* Micro Visual System — Tokens V1
-   المرجع الأعلى: MICRO-VISUAL-DESIGN-DECISIONS-V1.md §§6–8، 10.1–10.2، 11، 15.1، 16.6 و21.2.
+/* Micro Visual System — Tokens V2 (مراجعة الألوان 2026-09-23)
+   المرجع الأعلى للألوان: 17-COLOR-DECISION-2026-09-23.md (يقدم §§6/8/16.3 القديمة).
+   بقية القرارات: MICRO-VISUAL-DESIGN-DECISIONS-V1.md §§6–7، 10.1–10.2، 11، 15.1، 16.6، 21.2.
    ثلاث طبقات: Core Primitives → Semantic → Component (عند حاجة حقيقية).
    Light Mode فقط — لا Dark Tokens. لا Hex داخل المكونات.
+
+   قيم مشتقة وموثقة (17 §2: Pressed/Disabled «Derived and documented by ZAI»):
+   - --p-brand-deep #C4663F: فاصل/حد سفلي فوق كتلة الهوية — عنصر غير نصي فقط.
+   - --p-action-pressed #8F3B27: حالة الضغط للزر الصلب (أبيض فوقه ≈ 9:1).
+   - --p-surface-2 #E4EAEC: سطح ثانٍ/مضغوط مرئي فوق الأبيض والـCanvas (16.6: الضغط يجب أن يكون مميزًا).
+   - --p-ink-disabled #8A959C: نص معطل أفتح من Unknown (#5B6770) كي لا يبدو بياناتٍ مجهولة.
+   - --p-muted #A6AEB4: سكلتون زخرفي فقط.
+   دور Local (دون اتصال/محفوظ محليًا) أُسند إلى دور Information (#305968/#DFEDF1)
+   لأنه حالة نظام لا حالة جودة بيانات — موثق في REVISION-COVERAGE-LEDGER.
 
    ملاحظة --text-scale: مضاعف تكبير النص (1 / 1.5 / 2) تتحكم به طبقة المراجعة
    لمحاكاة «تكبير النص» (§16.5) — أحجام الخطوط فقط تتضخم، ومقاييس التخطيط
    الحدودية تبقى ثابتة فيرتد التدفق (Reflow) كما على الجهاز. */
 
 :root {
-  /* ===== Core Tokens: Color Primitives (§8) ===== */
-  --p-ink: #171923;            /* Deep Ink */
-  --p-canvas: #f4f6fa;         /* Canvas Cool Cloud */
+  /* ===== Core Tokens: Color Primitives (17-COLOR-DECISION §2) ===== */
+  --p-ink: #1d2930;            /* Primary Text — أساسي */
+  --p-ink-2: #53616a;          /* Secondary Text — مساند */
+  --p-ink-disabled: #8a959c;   /* Disabled Text — مشتق وموثق */
+  --p-muted: #a6aeb4;          /* Skeleton/زخرفي — مشتق */
+  --p-canvas: #f0f3f4;         /* Canvas */
   --p-white: #ffffff;          /* Primary Surface White */
-  --p-surface-2: #eef1f7;      /* Secondary Surface */
-  --p-indigo: #4f46e5;         /* Electric Indigo */
-  --p-indigo-pressed: #3f37c9; /* Pressed Indigo */
-  --p-indigo-soft: #e8e7ff;    /* Soft Indigo */
-  --p-citrus: #d9f43b;         /* Citrus Lime */
-  --p-citrus-soft: #f3fbcb;    /* Soft Citrus */
-  --p-terracotta: #c45f46;     /* Terracotta — مساند فقط */
-  --p-terracotta-soft: #f7e4de;/* Soft Terracotta */
-  --p-text-2: #5e6472;         /* Secondary Text */
-  --p-text-disabled: #7d8596;  /* Disabled Text */
-  --p-muted: #9aa1ae;          /* Decorative Muted / Skeleton */
-  --p-border: #d8dde8;         /* Border زخرفي */
-  --p-boundary: #7a8292;       /* Interactive Boundary */
-  --p-soft-blue: #dfe9ff;
-  --p-soft-lavender: #ece7ff;
-  --p-soft-mint: #dff5e7;
-  --p-success: #137a55;
-  --p-success-surface: #dcf4e8;
-  --p-warning: #a65a00;
-  --p-warning-surface: #fff0d6;
-  --p-danger: #c2354b;
-  --p-danger-surface: #fde5e9;
-  --p-info: #1d64d8;
-  --p-info-surface: #e0ecff;
-  --p-partial: #6e5aa8;
-  --p-partial-surface: #eee9fa;
-  --p-unknown: #697386;
-  --p-unknown-surface: #eef0f4;
-  --p-local: #52657a;
-  --p-local-surface: #e7edf3;
-  --p-overlay: rgba(15, 17, 23, 0.55);
-  /* لوحة الرسوم عند الحاجة (§13.13) — غير مستخدمة في هذه الجولة */
-  --p-chart-1: #4f46e5;
-  --p-chart-2: #008c8c;
-  --p-chart-3: #d97706;
-  --p-chart-4: #b83b75;
-  --p-chart-5: #657c25;
+  --p-surface-2: #e4eaec;      /* Secondary Surface — مشتق للضغط/الثانوي */
+  --p-brand: #d97757;          /* Brand Lead — اعتماد المالك */
+  --p-brand-deep: #c4663f;     /* عمق الهوية — غير نصي فقط (مشتق) */
+  --p-brand-soft: #fbe9e2;     /* Brand Soft — حقل مساند للهوية/الشرح */
+  --p-action: #a94630;         /* Action — الفعل الصلب والاختيار */
+  --p-action-pressed: #8f3b27; /* Pressed Action — مشتق */
+  --p-on-action: #ffffff;      /* On Action — أبيض عادي جائز (5.82:1) */
+  --p-info: #305968;           /* Information — معلومات/شرح/تركيز */
+  --p-info-surface: #dfedf1;
+  --p-success: #16765a;        /* Success — نتيجة مؤكدة/حفظ ناجح */
+  --p-success-surface: #dff3e9;
+  --p-attention: #95590c;      /* Attention — انتباه قابل للتصرف */
+  --p-attention-surface: #fff0d7;
+  --p-danger: #b0324f;         /* Danger — خطأ/خسارة جسيمة/تأخر حرج */
+  --p-danger-surface: #ffe7eb;
+  --p-partial: #5b6770;        /* Partial/Unknown — جزئي أو غير معروف */
+  --p-partial-surface: #edf1f2;
+  --p-unknown: #5b6770;
+  --p-unknown-surface: #edf1f2;
+  --p-local: #305968;          /* Offline/Local-saved → دور Information (موثق) */
+  --p-local-surface: #dfedf1;
+  --p-boundary: #78868d;       /* Necessary Control Outline */
+  --p-border: #dce3e5;         /* Decorative Divider */
+  --p-overlay: rgba(29, 41, 48, 0.55);
+  /* لوحة الرسوم (17 §2 Chart series) — غير مستخدمة في هذه الجولة (FIN-CHARTS مشروط) */
+  --p-chart-current: #305968;
+  --p-chart-prior: #5b6770;
 
   /* ===== Core Tokens: Typography (§7) — قيم داخل النطاقات المعتمدة ===== */
   --text-scale: 1;
@@ -104,8 +107,8 @@
   /* ===== Core Tokens: Stroke / Elevation ===== */
   --stroke-hairline: 1px;
   --stroke-focus: 2px;
-  --elevation-layer: 0 10px 30px rgba(23, 25, 35, 0.12); /* طبقة حقيقية فوق أخرى فقط */
-  --elevation-menu: 0 4px 14px rgba(23, 25, 35, 0.1);
+  --elevation-layer: 0 10px 30px rgba(29, 41, 48, 0.12); /* طبقة حقيقية فوق أخرى فقط */
+  --elevation-menu: 0 4px 14px rgba(29, 41, 48, 0.1);
 
   /* ===== Core Tokens: Motion (§§10.4، 11.13، 15.1، 16.6) ===== */
   --motion-press: 100ms;      /* 80–120 */
@@ -138,59 +141,55 @@
   --size-field: 54px;         /* 52–56 */
   --size-row: 56px;           /* أدنى ارتفاع صف */
   --size-row-tx: 68px;        /* صف معاملة 64–72 */
-  --size-tabbar: 70px;        /* 68–74 + Safe Area */
+  --size-tabbar: 70px;        /* 68–74 + Safe Area (أدنى — يتكيف مع تكبير النص) */
   --size-header: 56px;        /* + Safe Area العلوية */
 
-  /* ===== Semantic Tokens (§8 + §16.3) ===== */
+  /* ===== Semantic Tokens (17-COLOR-DECISION §2) ===== */
   --c-canvas: var(--p-canvas);
   --c-surface: var(--p-white);
   --c-surface-2: var(--p-surface-2);
   --c-ink: var(--p-ink);
-  --c-ink-2: var(--p-text-2);
-  --c-ink-disabled: var(--p-text-disabled);
+  --c-ink-2: var(--p-ink-2);
+  --c-ink-disabled: var(--p-ink-disabled);
   --c-muted: var(--p-muted);
-  --c-primary: var(--p-indigo);
-  --c-primary-pressed: var(--p-indigo-pressed);
-  --c-primary-soft: var(--p-indigo-soft);
-  --c-on-primary: var(--p-white);      /* On Indigo = White */
-  --c-accent: var(--p-citrus);
-  --c-accent-soft: var(--p-citrus-soft);
-  --c-on-accent: var(--p-ink);         /* On Citrus = Deep Ink */
-  --c-warm: var(--p-terracotta);
-  --c-warm-soft: var(--p-terracotta-soft);
+  --c-brand: var(--p-brand);           /* الهوية القائدة */
+  --c-brand-deep: var(--p-brand-deep);
+  --c-brand-soft: var(--p-brand-soft);
+  --c-on-brand: var(--p-ink);          /* فوق الهوية: Ink (4.76:1) — الأبيض لنص عادي ممنوع */
+  --c-action: var(--p-action);         /* الفعل الصلب */
+  --c-action-pressed: var(--p-action-pressed);
+  --c-on-action: var(--p-on-action);
+  --c-selection: var(--p-action);      /* لون الاختيار — مع إشارة شكل/وزن/موضع */
+  --c-focus: var(--p-info);            /* تركيز على الأسطح الفاتحة */
+  --c-focus-ring: var(--p-info-surface);
   --c-border: var(--p-border);
   --c-boundary: var(--p-boundary);
   --c-overlay: var(--p-overlay);
-  --c-focus: var(--p-indigo);          /* Focus on Light = Indigo */
-  --c-focus-on-primary: var(--p-citrus); /* Focus on Indigo = Citrus */
-  --c-success: var(--p-success);
-  --c-success-surface: var(--p-success-surface);
-  --c-warning: var(--p-warning);
-  --c-warning-surface: var(--p-warning-surface);
-  --c-danger: var(--p-danger);
-  --c-danger-surface: var(--p-danger-surface);
   --c-info: var(--p-info);
   --c-info-surface: var(--p-info-surface);
+  --c-success: var(--p-success);
+  --c-success-surface: var(--p-success-surface);
+  --c-attention: var(--p-attention);
+  --c-attention-surface: var(--p-attention-surface);
+  --c-danger: var(--p-danger);
+  --c-danger-surface: var(--p-danger-surface);
   --c-partial: var(--p-partial);
   --c-partial-surface: var(--p-partial-surface);
   --c-unknown: var(--p-unknown);
   --c-unknown-surface: var(--p-unknown-surface);
   --c-local: var(--p-local);
   --c-local-surface: var(--p-local-surface);
-  --c-soft-blue: var(--p-soft-blue);
-  --c-soft-lavender: var(--p-soft-lavender);
-  --c-soft-mint: var(--p-soft-mint);
 
   /* ===== Component Tokens — حاجة حقيقية فقط (§21.2) ===== */
-  --nav-selected-surface: transparent;   /* لا خلفية للتبويب المحدد (§11.2) */
-  --nav-selected-ink: var(--c-primary);
-  --btn-primary-bg: var(--c-primary);
-  --btn-primary-ink: var(--c-on-primary);
+  --nav-selected-ink: var(--c-selection);   /* مع Fill + وزن + العلامة الرباعية (§11.2) */
+  --btn-primary-bg: var(--c-action);
+  --btn-primary-ink: var(--c-on-action);
+  --btn-primary-pressed: var(--c-action-pressed);
   --btn-secondary-bg: var(--c-surface);
   --btn-secondary-ink: var(--c-ink);
   --field-bg: var(--c-surface);
-  --field-boundary: var(--c-border);
-  --field-boundary-focus: var(--c-primary);
+  --field-boundary: var(--c-boundary);
+  --field-boundary-focus: var(--c-focus);
   --signal-unit: 7px;        /* وحدة Micro Signal المرشحة */
   --signal-gap: 3px;
   --signal-radius: 2.5px;
