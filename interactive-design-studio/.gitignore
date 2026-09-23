@@ -1,0 +1,28 @@
+# Credentials and secrets
+.env
+.env.*
+!.env.example
+*.token
+*.secret
+*.pem
+*.key
+*credentials*.json
+*service-account*.json
+
+# Local runtime and build output
+node_modules/
+dist/
+build/
+.cache/
+.vite/
+.DS_Store
+
+# Local-only evidence or exports that may contain private data
+local-secrets/
+private-exports/
+
+# Temporary logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
