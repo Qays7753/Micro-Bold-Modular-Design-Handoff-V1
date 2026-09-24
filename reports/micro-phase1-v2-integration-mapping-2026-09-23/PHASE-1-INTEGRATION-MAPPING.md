@@ -37,7 +37,7 @@ This Phase 1 audit mapped the approved Bold Modular V2 visual direction (`Qays77
 | Repository | Boundary | Status |
 |---|---|---|
 | Micro (`Qays7753/Micro`) | `READ_ONLY` | `VERIFIED` — no file created/edited/deleted/moved; no branch/commit/PR; no Tracker/UX-001/current-state/contracts updates; no `vf-tokens.css`/Dark Mode/component/screen/route/test/dependency changes; no destructive git operations; no installs; no lockfile changes. The only Micro-side git operations were read-only (`clone`, `rev-parse`, `log`, `show`, `ls-remote`, `status`, `worktree` inspection of the analysis clone). |
-| V2 design repo | `REPORT_BRANCH_AND_PR_ONLY` | `VERIFIED` — the report branch contains only the report artifacts. No V2 source design file, token, component, catalog, decision document, or application code was modified. Closeout PR [#1](https://github.com/Qays7753/Micro-Bold-Modular-Design-Handoff-V1/pull/1) is open for owner review and intentionally not merged. |
+| V2 design repo | `REPORT_BRANCH_AND_PR_ONLY` | `VERIFIED` — the report branch contains only the report artifacts. No V2 source design file, token, component, catalog, decision document, or application code was modified. Closeout PR [#1](https://github.com/Qays7753/Micro-Bold-Modular-Design-Handoff-V1/pull/1) is the review vehicle; its current merge state is authoritative at the linked PR. |
 
 **Credentials mode:** the V2 fine-grained PAT was used exclusively through a local credential helper file (mode 0600, outside both repositories, removed after publication) for: (a) a read-only open-PR state check on the V2 repository, (b) the report branch push, (c) PR creation. The token does not appear in this report, in any committed file, in any command echoed to logs, in the PR body, or in shell arguments (it was referenced via the credential store and a file-derived environment variable only). No Micro credential was requested or used; Micro was accessed anonymously and read-only. `VERIFIED`
 
@@ -599,14 +599,14 @@ No wave is implemented or claimed in this phase. Each later wave requires its ow
 
 ## 19. Exact files and commits written to the V2 report repository
 
-**Repository:** `Qays7753/Micro-Bold-Modular-Design-Handoff-V1` · **Original report branch:** `reports/micro-phase1-v2-integration-mapping-20260923` · **Closeout branch:** `reports/micro-phase1-v2-integration-mapping-20260923-closeout` · **Closeout PR:** [#1](https://github.com/Qays7753/Micro-Bold-Modular-Design-Handoff-V1/pull/1) (open, not merged)
+**Repository:** `Qays7753/Micro-Bold-Modular-Design-Handoff-V1` · **Original report branch:** `reports/micro-phase1-v2-integration-mapping-20260923` · **Closeout branch:** `reports/micro-phase1-v2-integration-mapping-20260923-closeout` · **Closeout PR:** [#1](https://github.com/Qays7753/Micro-Bold-Modular-Design-Handoff-V1/pull/1) (review/merge state authoritative at the link)
 
 **Files added (exactly these, nothing else):**
 1. `reports/micro-phase1-v2-integration-mapping-2026-09-23/PHASE-1-INTEGRATION-MAPPING.md` (this report)
 2. `reports/micro-phase1-v2-integration-mapping-2026-09-23/TOKEN-MAPPING.tsv` (machine-readable token map)
 3. `reports/micro-phase1-v2-integration-mapping-2026-09-23/FINDINGS.tsv` (machine-readable findings register)
 
-**Commits:** the closeout branch carries the original report commit plus closeout commit `c374833fc79a371c52df1492d40ea3734dbbaeb9`. No V2 source file was touched; PR #1 is open for owner review and is not merged.
+**Commits:** the closeout branch carries the original report commit plus closeout commits `c374833fc79a371c52df1492d40ea3734dbbaeb9` and `13c4b8cc355c42e735b6a3127a7739c99a05f74d`. No V2 source file was touched; PR #1 remains the single review/merge vehicle.
 
 ---
 
