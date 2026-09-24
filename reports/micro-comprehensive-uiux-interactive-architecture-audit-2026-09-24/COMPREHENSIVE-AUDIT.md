@@ -384,3 +384,35 @@ Only decisions that materially change scope or behavior are listed (each maps to
 3. `INTERACTIVE-COMPONENT-INVENTORY.tsv` — 74 grouped rows, code-linked interactive-component inventory
 4. `TOKEN-CONSUMER-INVENTORY.tsv` — 130 rows, definition → consumers → guards → dark bindings → semantic risk
 5. `STRUCTURE-SCAN.tsv` — 38 rows, all 10 mandated structural dimensions
+
+
+---
+
+# ADDENDUM — 2026-09-25 · Visual & Interactive Evidence Pass (continuation)
+
+*Appended by the continuation audit on 2026-09-25. Nothing above this line was modified; all 2026-09-24 sections, findings, and appendices stand as published.*
+
+This addendum closes the rendered-evidence gap recorded in the verification statements above ("rendered-visual verification — static code + prior captures"). A browser session against the exact audited baseline (Micro @ `c02fb458`, production bundle `index-Cr7zSxsR.js`, byte-identical to the recorded CI budget PASS) produced 33 rendered captures and 18 reversible interaction probes across Home/Work/Finance/Tools at 320/360/390/430 px, light and dark, with **zero console errors and every financial store provably unchanged at 0 records** (IndexedDB census before/after). First-use states were produced through the product's own minimal path (dummy name → «تخطَّ المحفظة الآن»), creating no wallet and no financial record.
+
+**New artifacts published in this directory:**
+
+1. `HOME-DEEP-AUDIT.md` — the promised 20-region Home review (+2 shell overlays), each region classified by evidence class, rendered/interactive evidence where available. (This artifact was prepared during the 2026-09-24 session but never published; it is now released with the rendered evidence integrated.)
+2. `VISUAL-INTERACTION-REVIEW.md` — method + four-surface reviews + cross-surface rules that generalize + the honest NOT_EXECUTED list.
+3. `VISUAL-FINDINGS.tsv` — 18-row machine-readable register (VIS-001…VIS-018) in the mandated schema.
+4. `AUDIT-CORRIGENDUM-2026-09-25.md` — per-finding confirmation/upgrade/retraction table against this report, the V2 re-opening check (none found), and the owner-decision delta.
+5. `EVIDENCE-MANIFEST.tsv` — sha256 manifest of every capture, probe log, and metrics document produced by the continuation, plus the published capture subset under `evidence/2026-09-25/`.
+
+**Headline changes to the finding register** (details in the corrigendum):
+
+- **AUD-009 upgraded and generalized → VIS-001 (MEDIUM, FIX_NOW):** the seat-name duplication is systemic — 3 of 4 surfaces duplicate the seat name in the first ~150 px by two different mechanisms (Home: context label = overline; Work: context label = h1; Tools: context label = overline). Finance is the model case. One light owner decision (which element owns the seat name) unblocks a mechanical shell fix.
+- **AUD-008 rendered-confirmed → VIS-002:** the numbers grid stays 2-col at 320 px; the CSS comment's claimed narrow wrap does not exist; no overflow (low visual severity; fix remains comment-or-collapse).
+- **AUD-014 sharpened → VIS-003:** the peach/side-border emphasis grammar carries ≥3 semantic roles in 4 parameter variants (rendered parameters documented).
+- **AUD-021 rendered-confirmed → VIS-010:** Finance first-use renders 3,825 px ≈ 5 viewports / 2,846 chars with zero records.
+- **New positive confirmations (VIS-006/007/008/009/011/016):** interaction-safety sweep, offline PWA behavior, touch floors, responsive containment, dark-mode geometry parity, honest-value grammar, and the first-run journey all verified in-browser and PASSED.
+- **One observation retracted before publication (VIS-018, META):** an apparent permanently-visible corrections-loading row was a `content-visibility` measurement artifact; the layer is honest (probe P-18 PASS). Method lesson recorded.
+
+**Not executed (unchanged gates, honestly stated):** populated-state visual review (would require prohibited financial writes — re-run on an owner-supplied preview with disposable data); real devices, TalkBack/VoiceOver, physical gestures, iOS sheet physics (DEVICE-001); external users (UAT-001); route-loading render (service-worker precache makes it unreachable in preview — static evidence stands).
+
+**No conclusions above are invalidated by this pass.** No prior VERIFIED claim failed under rendered testing. The three strategic owner decisions (§20 items 1–4) remain exactly as recorded; three new light decisions are added (VIS-001 seat-name ownership; VIS-003 emphasis-grammar rule; VIS-005 primary-tile treatment — see corrigendum §6).
+
+This addendum does not claim, imply, or advance Pilot readiness.
