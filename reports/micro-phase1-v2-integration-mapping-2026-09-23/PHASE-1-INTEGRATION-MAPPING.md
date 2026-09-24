@@ -19,12 +19,12 @@ This Phase 1 audit mapped the approved Bold Modular V2 visual direction (`Qays77
 3. **A semantic remap is unavoidable and is the highest-risk area.** Micro currently renders *pending*, *reversed*, and *partial* states in blue (`--vf-info` `#2C84DB`, test-frozen); V2 renders partial/unknown in gray and reserves amber for actionable attention. Transferring V2 roles without a deliberate `stateAdapter` tone-vocabulary change would silently change what users infer about money states. `VERIFIED`
 4. **Micro is far ahead of the V2 ledger.** Of the 46 coverage entries, 32 have a live Micro counterpart route, 8 are partial, 5 are not started in either repo, and 1 (GLB-LOGOUT) is not applicable to local-first Micro. V2 has actually designed only 3 product screens (21 states) plus shell/error patterns; ~24 screens Micro already runs are *not designed* in V2 and must stay on the current design until later, individually authorized waves. `VERIFIED`
 5. **Financial meaning is heavily guarded but has 10 specific stop conditions.** Micro's financial display truth is concentrated in `presentation/formatters.ts`, `presentation/stateAdapter.ts`, and the word dictionaries — all test-frozen. The sharpest conflicts: V2's result-card verdict word «ربح» (contract 05 §3.2.1 forbids renaming «نتيجة الفترة المسجلة» or calling it final net profit), V2 amber for *due-today* (Micro freezes due as neutral; only overdue may escalate), V2 danger-red for losses (Micro renders negatives in amber attention), V2's `pending-send`/offline states (Micro is `local_only` — no sync target exists), and V2's «دخل/خرج» direction words («دخل» reads as *income* next to collections Micro deliberately labels «نقدي داخل»). `VERIFIED`
-6. **The guard apparatus is strong and wave-ready, but three Wave-1 collisions are mechanical:** Micro's `design-token-guards.py` freezes spacing/radius/type/z scales that V2's values (radii 14/18/22/24, spacing 6/10/14/18/28, type 34px) violate; `vf-tokens.test.ts` freezes the current 18 hexes byte-for-byte (the test rewrite itself is the authorization artifact); and the bundle budget headroom is 1,228 raw bytes at the last recorded CI-parity measurement (fonts as delivered by V2 add ~1.12MB unsubsetted). `VERIFIED`
+6. **The guard apparatus is strong and wave-ready, but three Wave-1 collisions are mechanical:** Micro's `design-token-guards.py` freezes spacing/radius/type/z scales that V2's values (radii 14/18/22/24, spacing 6/10/14/18/28, type 34px) violate; `vf-tokens.test.ts` freezes the current 18 hexes byte-for-byte (the test rewrite itself is the authorization artifact); and the bundle budget headroom is **`RECORDED_HISTORICAL_EVIDENCE — NOT_CURRENTLY_REMEASURED`**: 1,228 raw bytes at the last recorded CI-parity measurement (fonts as delivered by V2 add ~1.12MB unsubsetted). `VERIFIED` for the recorded report, not a current Phase-2 guarantee.
 7. **Dark Mode is safe by construction but will go *stale*, not break.** `theme-dark.css` rebinds all 59 color-material `--vf-*` tokens independently — a light value change cannot silently alter dark; instead dark retains old values until edited in the same change. Every Wave-1 token change needs a parallel dark binding plus an 82-pair contrast-guard pass in both themes. `VERIFIED`
 8. **Two pre-existing hygiene findings surfaced (recommended for a small later wave, not Phase 1):** 13 live SVG brand assets in `public/brand/` (favicon, PWA icons, splash, launch-motion layers) still carry the *retired v0* palette (`#CC785C`, `#079FA0`, and retired dark values) that the runtime guard bans — the guard does not scan `public/`; and Micro's entry documents carry stale numeric authority (code = schema 38/export 30; `AGENTS.md` §10 says 36/28; §11.3 says 35/27; `context.md` says 35/27 and a stale main SHA). `VERIFIED`
-9. **Recommended wave order:** Wave 0 (owner acceptance of this mapping + decision register + doc corrections) → Wave 1 (foundations: token reconciliation through `vf-tokens.css` + parallel dark bindings + guard/test re-baseline + font strategy) → Wave 2 (OVR-NOW slice on Home with Micro data) → Wave 3 (OPS-SALE-CREATE quick-form and FIN-OVERVIEW presentation + remaining shared components) → later route-by-route waves → real-device/UAT gates. No implementation is claimed or started in this phase.
+9. **Recommended wave order:** Closeout (this report correction, source reconciliation, and owner-direction record) → Wave 0 Micro documentation/Tracker alignment → Wave 1 foundations (token bridge, state semantics, typography, action roles, guards, and budget measurement) → Wave 2 OVR-NOW/Home slice → Wave 3 shell and reference screens with any Finance structural work gated separately → later route-by-route waves → real-device/UAT gates. No implementation is claimed or started in this phase.
 
-**Finding counts:** 66 consolidated findings — 13 `FIX_NOW` (for later authorized waves), 21 `PRESERVE`, 12 `DEFER`, 8 `OUT_OF_SCOPE`, 12 `OWNER_DECISION_REQUIRED`. Twelve discrete owner decisions are required before Wave 1 (Section 17).
+**Finding counts:** 66 consolidated findings — 13 `FIX_NOW` (for later authorized waves), 21 `PRESERVE`, 12 `DEFER`, 8 `OUT_OF_SCOPE`, 12 `OWNER_DECISION_REQUIRED`. The owner has now supplied direction for OD-01..OD-12; remaining gates are implementation verification and any genuinely new conflict, not a second identity vote.
 
 ---
 
@@ -37,7 +37,7 @@ This Phase 1 audit mapped the approved Bold Modular V2 visual direction (`Qays77
 | Repository | Boundary | Status |
 |---|---|---|
 | Micro (`Qays7753/Micro`) | `READ_ONLY` | `VERIFIED` — no file created/edited/deleted/moved; no branch/commit/PR; no Tracker/UX-001/current-state/contracts updates; no `vf-tokens.css`/Dark Mode/component/screen/route/test/dependency changes; no destructive git operations; no installs; no lockfile changes. The only Micro-side git operations were read-only (`clone`, `rev-parse`, `log`, `show`, `ls-remote`, `status`, `worktree` inspection of the analysis clone). |
-| V2 design repo | `REPORT_BRANCH_AND_PR_ONLY` | `VERIFIED` — exactly: create `reports/micro-phase1-v2-integration-mapping-20260923`, add this report + `TOKEN-MAPPING.tsv` + `FINDINGS.tsv` under `reports/micro-phase1-v2-integration-mapping-2026-09-23/`, push the branch, open one PR to `main`. No V2 source design file, token, component, catalog, decision document, or application code was modified. The report PR is NOT merged. |
+| V2 design repo | `REPORT_BRANCH_AND_PR_ONLY` | `VERIFIED` — the report branch contains only the report artifacts. No V2 source design file, token, component, catalog, decision document, or application code was modified. The closeout PR is created from the report branch and is intentionally not merged. |
 
 **Credentials mode:** the V2 fine-grained PAT was used exclusively through a local credential helper file (mode 0600, outside both repositories, removed after publication) for: (a) a read-only open-PR state check on the V2 repository, (b) the report branch push, (c) PR creation. The token does not appear in this report, in any committed file, in any command echoed to logs, in the PR body, or in shell arguments (it was referenced via the credential store and a file-derived environment variable only). No Micro credential was requested or used; Micro was accessed anonymously and read-only. `VERIFIED`
 
@@ -84,7 +84,7 @@ This Phase 1 audit mapped the approved Bold Modular V2 visual direction (`Qays77
 - No Micro modification of any kind; no Micro branch, commit, PR, Tracker/UX-001/current-state update; no workstream claim created in Micro (claims are required *before modifying*; Phase 1 modifies nothing, per `UX-001.next_action` and §70). `VERIFIED`
 - No full application build, no full test suite run, no browser test suite, no dependency install, no deployment, no workflow rerun, no `pnpm check`, no `npm` command in the studio, no visual rendering of any screen, no image rendering of V2 evidence screenshots. All marked `NOT_EXECUTED` in Section 18.
 - No V2 source modification; no merge of the report PR; no cleanup, reset, rebase, force-push, or deletion anywhere.
-- No attempt to resolve owner decisions (Section 17) — those are reserved to the owner by protocol.
+- No implementation was performed. The owner-direction addendum was recorded after the original audit; it constrains later planning but does not authorize Phase 2 code changes.
 
 ---
 
@@ -127,7 +127,7 @@ This Phase 1 audit mapped the approved Bold Modular V2 visual direction (`Qays77
 | Domain | Authoritative source | Status / notes |
 |---|---|---|
 | **V2 visual direction (target)** | V2 repo @ `026541d`: `DESIGN-DECISIONS-V2.md` (direction), `COLOR-STANDARD-V2.md` (color roles), `interactive-design-studio/src/foundations/` (live token values), studio catalogs (component/screen/state references) | `VERIFIED`. Covers visual identity, composition, typography, shape, components, visible interaction and states. Explicitly does **not** declare Micro migrated. |
-| **Micro runtime token authority (current)** | `apps/prototype-web/client/src/styles/vf-tokens.css` — "the ONE place where Standard hex values live in Micro" — fed by the external Standard package `Documents/main micro-standard-v2/design-tokens.css` @ `f919982c` (not present in this repository) | `VERIFIED`. Per Phase 0 (PR #231), this file **remains the single implementation bridge** until an explicit mapping (this document) is accepted; no second token source may be created. |
+| **Micro runtime token authority (current)** | `apps/prototype-web/client/src/styles/vf-tokens.css` — "the ONE place where Standard hex values live in Micro" — reconciled against `Documents/micro-standard-v2/design-tokens.css` at Documents `main` `2396ff09fa52bb7872ae40c10adfc86ee7a0808d` during closeout | `VERIFIED`. Per Phase 0 (PR #231), this file **remains the single implementation bridge** until an explicit mapping is accepted; no second token source may be created. Documents is a visual-contract source, not Micro implementation. |
 | **Micro financial/domain/storage/export authority** | `docs/contracts/` (esp. 01, 02, 03, 04, 05), `src/domain/`, `client/src/application/`, `client/src/storage/` | `VERIFIED`. All out of UI/UX scope per Phase 0 decision 4. |
 | **Micro state words & display grammar** | `presentation/stateAdapter.ts` + `presentation/{activityLabels,financialEventLabels,orderAgreementPresentation}.ts` + `docs/architecture/SURFACE_TONE_SYNTAX.md`; words frozen by tests | `VERIFIED`. The adapter and components never generate words. |
 | **Micro UI/AUX architecture & change protocol** | `docs/architecture/{UI_AUX_ARCHITECTURE,SOURCE_OF_TRUTH,CHANGE_PROTOCOL,COMPONENT_CONTRACTS,EXTENSION_PLAYBOOK,MIGRATION_STATUS}.md` + `ADRs/` | `VERIFIED`. These govern how any V2 change must enter Micro. |
@@ -135,6 +135,14 @@ This Phase 1 audit mapped the approved Bold Modular V2 visual direction (`Qays77
 | **Operational state/gates** | `docs/operations/current-state.md` (§70 = Phase 0 record), operations-control system (64 items, 23 workstreams, 0 active claims), `UX-001` (DEFERRED, `next_action` = this Phase 1) | `VERIFIED`. |
 | **Legacy / retired values** | Retired v0 identity: `#CC785C`, `#964E33`, `#5F3120`, `#079FA0` + 12 retired v0 dark values — banned by `scripts/design-token-guards.py:41-48` | `VERIFIED` in runtime CSS/TS. **Exception found:** still present in 13 `public/brand/**` SVG assets (unguarded zone) — see F-01 and R-06. |
 | **Retired-document traps** | `context.md` (stale SHA + 35/27), `AGENTS.md` §10/§11.3 (36/28 vs 35/27 vs code 38/30), `current-state.md` header (stale "last update"), `vf-tokens.css` header (dark described as pending gate), `docs/00-document-index.md` (missing the entire architecture set) | `VERIFIED` — full register in Section 13. |
+
+#### External Documents Standard cross-check — closeout evidence
+
+The external `Documents/micro-standard-v2/` package was read at Documents `main` revision `2396ff09fa52bb7872ae40c10adfc86ee7a0808d`. `MANIFEST.json` marks the package final (29 core files plus 2 metadata records); `README.md` defines it as the official visual foundation, not Micro product implementation; `color-system.md` confirms the current warm Micro palette and action classes; and `data-display-system.md` confirms honest-void and no-data rules. `VERIFIED`
+
+The cross-check confirms the authority ladder rather than replacing it: V2 is the approved visual direction; Micro runtime and Micro contracts own implementation, data, and financial meaning; Documents is a visual-contract source reviewed by topic and revision. The owner-approved `#A94630` solid-action direction is recorded as a **new future Micro direction** that supersedes the current Standard role for the relevant action class, but it is not implemented here and Documents is not modified. Any implementation change remains blocked until its Micro-side documentation/Tracker record and Phase 2 acceptance exist. `VERIFIED`
+
+No claim is made that Documents contains Micro runtime implementation. `NOT_APPLICABLE` for implementation search; `NO_DOCUMENTS_WRITES_PERFORMED`.
 
 ### 6.2 The three questions (per `SOURCE_OF_TRUTH.md`) applied to this mapping
 - *Where is each concept authoritatively defined?* Answered per row in Sections 7–9.
@@ -513,9 +521,9 @@ No wave is implemented or claimed in this phase. Each later wave requires its ow
 | Wave | Content | Dependencies | Acceptance criteria (minimum) | Rollback boundary |
 |---|---|---|---|---|
 | **0 — Authority & mapping acceptance** | Owner review of this report; resolution of OD-01..OD-12 (values recorded); F-03 doc corrections (separate Micro doc-only commission); mint ops-control items for V2's 8 open issues; snapshot-verify TOKEN-DICTIONARY (zero deltas at `026541d` — done in this audit) | This PR merged in the V2 repo | Decision register has recorded owner answers; Micro docs match code; items tracked | Doc-only commits; trivially revertible |
-| **1 — Foundations & only the required shared primitives** | Token reconciliation through `vf-tokens.css` (+ parallel `theme-dark.css` bindings) per OD-01/02/08; guard scale updates; `vf-tokens.test.ts` deliberate re-baseline; contrast-pair extension (F-02); font strategy implementation per OD-03 (subset/repackage); disabled-state real implementation (opacity ban); focus treatment | Wave 0; OD-01/02/03/08/11 resolved | Full `pnpm check` green incl. design-guards + 82-pair contrast (both themes, incl. new pairs); Light+Dark captures of representative surfaces; migration notes old→new with dates; bundle within caps | Pre-wave SHA; single revertible commit; dark layer independently revertible (ADR-009 additive property) |
-| **2 — First integrated screen slice: OVR-NOW (Home)** | SnapshotDeck (Micro readers, dynamic-loaded), insight card, TruthNote, structural loading; quick-record actions preserved (NAV-001); state tone adaptation (F-05) applied per OD-02 | Wave 1; OD-06 guardrails; OD-11 | New DOM/journey tests for the slice; density caps green (or owner-recorded raises); 320–412 × 150/200% × both themes captures; dark regression; budget within caps | Home-slice commit; deck dynamic-import removable; pre-slice SHA |
-| **3 — Other shared components + reference screens** | OPS-SALE-CREATE quick-form skin (QuickSaleForm; optionally DirectSaleEditor); FIN-OVERVIEW presentation layer (visual-only inside existing `Finance.tsx`); Row `unavailable` + 200% technique; remaining shared components | Wave 1–2; **OD-09 for any Finance structural work** (visual-only edits inside the existing file do not trigger the §11 gate) | Same standard as Wave 2 per surface; Finance changes visual-only unless the Group-11 gate explicitly authorizes structure | Per-surface commits; pre-wave SHA |
+| **1 — Foundations & only the required shared primitives** | Measure current build first; reconcile approved roles through `vf-tokens.css` (+ parallel `theme-dark.css` bindings); record the owner-approved future Action extension (`#A94630`) without changing Documents in this phase; separate state meaning from urgency; optimize/subset Alexandria while keeping IBM Plex Mono for numeric slots; extend guards and tests only with the approved mapping | Wave 0; owner-direction record; current Standard/runtime cross-check; live Group-11 status; no unresolved conflict affecting the foundation | Full `pnpm check` green incl. design-guards + contrast; Light+Dark captures; migration notes; measured bundle within caps; no financial wording/export drift | Pre-wave SHA; single revertible commit; dark layer independently revertible |
+| **2 — First integrated screen slice: OVR-NOW (Home)** | Implement the approved V2 Shell direction incrementally where it supports the screen; SnapshotDeck/insight/TruthNote/loading from Micro readers only; preserve quick-record actions; apply state tone meaning without changing financial words; keep `عرض الكل` as an approved follow-up slice | Wave 1; current Shell impact map; no unresolved financial wording conflict; measured budget | New DOM/journey tests; density caps; 320–412 × 150/200% × both themes captures; dark regression; budget within caps | Home-slice commit; deck dynamic-import removable; pre-slice SHA |
+| **3 — Other shared components + reference screens** | OPS-SALE-CREATE quick-form skin; FIN-OVERVIEW presentation layer; Row `unavailable` + 200% technique; `عرض الكل` follow-up; remaining shared components. Limited structural changes are allowed only when necessary for an approved screen and after impact analysis; broad Finance/Home reorganization remains separately gated | Wave 1–2; live Group-11 status; financial wording/display decisions; shell decision; **separate structural gate for broad reorganization** | Same standard as Wave 2 per surface; no financial meaning/export/storage change; structural gate evidence where applicable | Per-surface commits; pre-wave SHA |
 | **4+ — Route-by-route waves** | Remaining surfaces individually authorized (only where V2 has approved patterns or shared components changed underneath); un-designed screens stay on current design (D-09) | Waves 1–3; per-screen owner authorization | Per-surface: tests + captures + density + dark regression | Per-surface commits |
 | **Standing gates (all waves)** | Dark regression per wave; real-device validation (DEVICE-001) and UAT (UAT-001) before Pilot — never marked DONE from static evidence | — | External gate evidence | — |
 
@@ -523,7 +531,7 @@ No wave is implemented or claimed in this phase. Each later wave requires its ow
 
 ## 17. Unresolved questions and decisions required from the owner
 
-**Decision register (each requires an explicit owner answer before the dependent wave):**
+**Decision register status:** The owner has answered OD-01..OD-12 after the initial audit. The records below are retained for traceability; the owner-direction addendum immediately below supersedes the original binary alternatives. Any implementation detail not explicitly fixed remains `OWNER_DECISION_REQUIRED`.
 
 | ID | Decision | Why it cannot be resolved by an agent | Evidence |
 |---|---|---|---|
@@ -540,7 +548,26 @@ No wave is implemented or claimed in this phase. Each later wave requires its ow
 | OD-11 | Bundle strategy: dynamic-load offsets only (recommended), or an owner cap raise for V2 additions + fonts? | Guarded numeric limits are owner-owned (double-diff rule) | §12.5; R-04 |
 | OD-12 | Accept this mapping (Wave 0 gate) and decide OVR-SNAPSHOT-ALL's product fate (ISS-005)? | The program's next gate; product-scope decision | §9 row 11 |
 
-**Open questions (informational, not blocking Wave 0):** PNG/ICO brand twins are binary and were not auditable by grep (visual check recommended in F-01); the external Standard package (`Documents/main micro-standard-v2/` @ `f919982c`) was not accessible from these clones — its future reconciliation is part of Wave 1's Standard-side step; Cloudflare Pages behavior is external to the repo; the V2 TOKEN-DICTIONARY generator lives outside the V2 repo (zero deltas verified at `026541d`).
+### 17.1 Owner-direction addendum — accepted 2026-09-24
+
+| ID | Accepted direction | Implementation boundary |
+|---|---|---|
+| OD-01 | `#D97757` remains identity; `#A94630` is the future solid primary action. Retired action colors are not preserved merely because they exist. | Record as a new Micro direction; do not modify Documents or runtime tokens in this closeout. |
+| OD-02 | Separate state meaning from urgency: pending is not always Attention; partial/unknown are neutral with explanation; reversed follows actual meaning; needs_review remains an independent lock. | Exact consumer mapping remains a Wave 1 design/verification task. |
+| OD-03 | Alexandria for interface after optimization/subsetting; IBM Plex Mono remains for numeric slots until loading and legibility are verified. | No font implementation in closeout. |
+| OD-04 | Preserve Micro's two-decimal screen/share/export contract; accessibility wording may improve without changing values or contractual strings. | No formatter/export change in closeout. |
+| OD-05 | Negative is not automatically a loss or Danger. A clearly qualified calculated period loss may receive stronger treatment only without implying a final result. | Financial wording and tone require focused Wave 2/financial review. |
+| OD-06 | Keep `نتيجة الفترة المسجلة`; do not imply completeness or use `ربح نهائي`. `ربح` may describe a correct, bounded recorded calculation. | Contract 05 remains authoritative for wording. |
+| OD-07 | Due-today is semantically neutral; overdue escalates. A required action today may be highlighted without changing the financial state. | Preserve state semantics in implementation tests. |
+| OD-08 | Preserve established Micro operational vocabulary; do not globally replace `غير معروف`; reserve `يحتاج مراجعة` for the actual lock state. | Choose wording by cause during screen adaptation; no global dictionary rewrite now. |
+| OD-09 | Verify the live Group-11 status first. Limited necessary structural changes may be proposed for an approved screen after impact analysis; broad reorganization requires a separate structural gate. | No bulk move or structural refactor in Phase 2 without the required scan/acceptance path. |
+| OD-10 | V2 Shell is the approved direction: logo/name-free top bar, clickable account entry, five approved tabs, transferred incrementally while preserving Micro functions and familiar navigation. | Shell implementation is a later wave; no current Shell write. |
+| OD-11 | Do not raise bundle cap in advance. Measure first, optimize fonts/loading selectively, and raise a precise decision only for a measured residual overage. | Historical bundle numbers are not current guarantees. |
+| OD-12 | Accept the corrected Phase 1 map; summary-card swipe and `عرض الكل` are approved directions. `عرض الكل` may follow the first screen but is not cancelled or left undefined. | Product/screen sequencing remains a later implementation plan. |
+| SOURCE-HIERARCHY | V2 is visual-direction authority; Micro is authority for functionality, data, financial contracts, and operational behavior; Documents is reviewed by topic and revision date. Historical documents are marked historical. | Stop only the specific change affected by a real unresolved conflict. |
+
+
+**Remaining implementation checks (not identity decisions):** PNG/ICO brand twins are binary and were not auditable by grep (visual check recommended in F-01); Documents `micro-standard-v2/` was cross-checked during closeout at `2396ff09fa52bb7872ae40c10adfc86ee7a0808d` and remains a visual-contract source, not an implementation repository; Cloudflare Pages behavior is external to the repo; the V2 TOKEN-DICTIONARY generator lives outside the V2 repo (zero deltas verified at `026541d`).
 
 ---
 ## 18. Verification commands and results
@@ -561,6 +588,8 @@ No wave is implemented or claimed in this phase. Each later wave requires its ow
 | V-10 | Targeted `rg` verifications (schema versions, retired palette in SVGs, bundle figures, contract wording, V2 token values, font asset sizes) | All claims verified — see Section 5 |
 | V-11 | Read-only GitHub API attempt (anonymous, both repos, open-PR check) | **RATE_LIMITED** (unauthenticated quota for this IP exhausted) — mitigated via V-07/V-08 + control docs; V2 open-PR state re-checked via the token at publication time |
 | V-12 | Five specialist read-only audits + main-agent spot-verification | Complete (2-a retried once after an environment context deadline) |
+| V-13 | Documents `micro-standard-v2/` closeout cross-check at Documents `main` `2396ff09fa52bb7872ae40c10adfc86ee7a0808d` | PASS — package marked final; authority ladder and action roles read; no Documents write performed |
+| V-14 | Owner-direction record supplied after the initial audit | PASS — OD-01..OD-12 and source hierarchy recorded in §17.1; no implementation authorized |
 
 ### NOT_EXECUTED (deliberately — out of Phase 1 scope)
 
@@ -577,7 +606,7 @@ No wave is implemented or claimed in this phase. Each later wave requires its ow
 2. `reports/micro-phase1-v2-integration-mapping-2026-09-23/TOKEN-MAPPING.tsv` (machine-readable token map)
 3. `reports/micro-phase1-v2-integration-mapping-2026-09-23/FINDINGS.tsv` (machine-readable findings register)
 
-**Commits:** the branch carries the commit(s) adding exactly the three files above. A commit cannot embed its own hash; the tip commit's full SHA and the PR URL are recorded in the PR body and in the final handoff message accompanying this report. No V2 source file was touched; the PR is left open for owner review (not merged).
+**Commits:** the branch carries the original report commit plus this closeout commit. No V2 source file was touched; the closeout PR is opened for owner review and is not merged. The exact PR URL and final tip SHA are recorded in the final handoff after publication.
 
 ---
 
@@ -587,7 +616,7 @@ No wave is implemented or claimed in this phase. Each later wave requires its ow
 
 - No Micro file was created, edited, deleted, renamed, or formatted. The analysis clone's worktree remained clean throughout (`git status --porcelain` empty).
 - No Micro branch was created or modified; no commit, PR, merge, rebase, reset, force-push, or tag; `main` untouched at `4e1bab9`.
-- No Micro Tracker/UX-001/current-state/contract/architecture update; no workstream claim (none is required for a read-only phase — claims precede *modification* per Operations Control v2; `UX-001.next_action` defines Phase 1 as read-only).
+- No Micro Tracker/UX-001/current-state/contract/architecture update; no workstream claim and no Micro write. The owner-direction record is a report-side closeout only; a separate Micro doc-only Tracker PR is required before implementation.
 - No `vf-tokens.css`, Dark Mode, component, screen, route, test, or dependency change; no lockfile change; no installs; no CI/workflow trigger; no deployment.
 - The only Micro-remote operations were read-only git protocol reads (clone/fetch refs).
 - Recommended-but-not-performed Micro items (F-01 asset fix, F-03 doc corrections, all FIX_NOW findings) await separate owner commission.
@@ -598,9 +627,9 @@ No wave is implemented or claimed in this phase. Each later wave requires its ow
 
 The next gate is the owner's. Concretely:
 
-1. **Review this mapping** (this PR) and the decision register (Section 17, OD-01..OD-12). Resolve and record each decision — OD-01/02/03/04/08 minimum, before Wave 1 can be scoped.
-2. **Accept or amend the wave map** (Section 16) and the classification register (Section 15).
-3. **Commission Wave 0's Micro-side doc corrections** (F-03) as a separate doc-only PR in Micro, and mint ops-control items for V2's 8 open issues.
-4. Only after Wave 0 acceptance, commission Wave 1 through Micro's Operations Control v2 (workstream claim → PR → `MERGED_UNVERIFIED` → `VERIFIED` on main with evidence).
+1. Review and accept this corrected report PR; the owner-direction addendum in §17.1 is the current direction.
+2. Record the same direction in Micro's Operations Control/decision log through a separate doc-only PR; do not change runtime code or tokens in that PR.
+3. Verify the live Group-11 gate status and the current bundle measurement before scoping Wave 1; historical figures are not guarantees.
+4. Only after the report PR and Micro documentation PR are accepted, commission Wave 1 through Micro Operations Control v2 (workstream claim → PR → `MERGED_UNVERIFIED` → `VERIFIED` on main with evidence).
 
 No implementation of Phase 2 was started, claimed, or authorized by this report. `UX-001` remains `DEFERRED`; its acceptance criteria (full RTL design system, per-screen purpose/states/accessibility, user testing before adoption) are unchanged and unaffected by this mapping.
