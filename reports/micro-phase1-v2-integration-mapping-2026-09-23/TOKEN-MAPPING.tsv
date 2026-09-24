@@ -1,0 +1,41 @@
+v2_token	v2_value	micro_token	micro_value	delta	semantic_fit	migration_note	risk	classification_dependency
+--p-brand	#D97757	--vf-clay	#D97757	IDENTICAL	Brand/identity anchor	Keep Micro never-financial rule; V2 allows large brand blocks with ink text	LOW	none
+--p-brand-deep	#C4663F	--vf-clay-interactive	#C96442	DIFFERENT	Pressed-brand/edge derivative	Owner picks one; Micro value test-frozen (U09)	MED	OD-01
+--p-brand-soft	#FBE9E2	(none; --color-brand-soft aliases --vf-tint #E8E6DC)	n/a	V2_ONLY	Clay-tinted support field	NEW palette value; owner gate	MED	OD-01
+--p-action	#A94630	--vf-action-create / --vf-btn-primary-bg	#D97757(clay)+ink / #141413(ink)+white	DIFFERENT	Solid action vs clay-create/ink-commit	Core divergence; re-classify primary/create/FAB; update --primary alias + tests	HIGH	OD-01
+--p-on-action	#FFFFFF	--vf-action-create-ink / --vf-btn-primary-ink	#141413 / #FFFFFF	DIFFERENT	White-on-action vs ink-on-clay	Follows OD-01	HIGH	OD-01
+--p-action-pressed	#8F3B27	--vf-btn-primary-bg-pressed / create-pressed	#3D3D3A / #C96442	DIFFERENT	Pressed solid action	Follows OD-01	MED	OD-01
+--p-canvas	#F0F3F4	--vf-canvas	#FAF9F5	DIFFERENT	Cool canvas vs warm paper	Whole-page temperature flip; alias-layer rebind	HIGH	F-04
+--p-white	#FFFFFF	--vf-surface	#FFFFFF	IDENTICAL	Primary surface	none	LOW	none
+--p-surface-2	#E4EAEC	--vf-tint/--vf-soft	#E8E6DC/#D1CFC5	DIFFERENT	Secondary/pressed surface	6-step warm ladder collapses to 3-step cool; 44 bg-well + 12 tint consumers	MED	F-04
+--p-ink	#1D2930	--vf-ink	#141413	DIFFERENT	Blue-black vs warm-black ink	~295 text-alias consumers; mechanical swap	HIGH	F-04
+--p-ink-2	#53616A	--vf-ink-secondary	#4D4C48	DIFFERENT	Secondary text	Mechanical	MED	F-04
+--p-ink-disabled	#8A959C	--vf-disabled-ink	#55524A (DEAD token)	DIFFERENT	Disabled text	Micro disabled is opacity-based; V2 bans opacity-disabled; real a11y work	MED	F-04
+--p-muted	#A6AEB4	(none)	n/a	V2_ONLY	Skeleton/decorative	New value if adopted	LOW	OD-01
+--p-info	#305968	--vf-info	#2C84DB	DIFFERENT	Blue-gray info vs blue attention/pending/partial	SEMANTIC REMAP required; re-classify each consumer (chip/notice/stripe)	HIGH	OD-02
+--p-info-surface	#DFEDF1	(none)	n/a	V2_ONLY	Info container	New paired surface	MED	OD-02
+--p-success	#16765A	--vf-success	#629987	DIFFERENT	Success mark/label	Mark+text-pair collapse into one pair; re-baseline vf-tokens.test	MED	F-04
+--p-success-surface	#DFF3E9	--color-success-bg (Micro pair #E4F2EA)	#E4F2EA	DIFFERENT	Success container	Contained in index.css	MED	F-04
+--p-attention	#95590C	(none; --color-warning-text #7A5C20)	#7A5C20	DIFFERENT	Attention vs warning-knowledge pair	Role-compatible value swap; overdue/due semantics separate (OD-07)	MED	OD-02/OD-07
+--p-attention-surface	#FFF0D7	--color-warning-bg	#F6ECCF	DIFFERENT	Attention container	Contained in index.css	MED	OD-02
+--p-danger	#B0324F	--vf-error	#B53333	DIFFERENT	Danger/error text-safe	Hue shift; loss-semantics separate (OD-05)	MED	OD-05
+--p-danger-surface	#FFE7EB	--color-danger-bg (→ ground)	#F5F4ED	DIFFERENT	Red surface vs neutral ground	V2 adds surface Micro deliberately lacks	MED	OD-05
+--p-partial	#5B6770	(none; partial tone = info blue)	n/a	V2_ONLY	Partial/unknown role	Micro renders partial BLUE; needs adapter tone split	HIGH	OD-02
+--p-unknown	#5B6770	(none)	n/a	V2_ONLY	Unknown role	Same as partial	MED	OD-02
+--p-local	#305968	(none; data-tone=offline)	n/a	V2_ONLY	Local/offline=Information	Tied to deferred sync states	LOW	D-02
+--p-boundary	#78868D	--vf-border-interactive	#87867F	DIFFERENT	Control outline	Cool vs warm gray	LOW	F-04
+--p-border	#DCE3E5	--vf-border	#D1CFC5	DIFFERENT	Decorative divider	Mechanical	LOW	F-04
+--p-overlay	rgba(294148055)	--vf-scrim	rgba(202019045)	DIFFERENT	Scrim	Exact string test-frozen; re-baseline in wave	LOW	F-04
+--c-focus	#305968	--vf-focus	#141413	DIFFERENT	Focus ring	Global focus re-style; V2 adds focus-ring halo token	MED	OD-01
+--p-chart-current	#305968	(none - no charts)	n/a	V2_ONLY	Chart current series	Contract-only until first chart (U-16)	LOW	D-01
+--p-chart-prior	#5B6770	(none)	n/a	V2_ONLY	Chart prior series	Same	LOW	D-01
+--type-hero..--type-nav (px × --text-scale)	12-34px	--vf-text-* rem ladder	11-31px	DIFFERENT	Type scale	px vs rem; 34px exceeds frozen max; --text-scale mechanism new	HIGH	OD-03/OD-08
+--font-primary	Alexandria VF + Noto Sans Arabic VF	--font-arabic/--font-numeric	IBM Plex Sans Arabic + IBM Plex Mono	DIFFERENT	Font family	312KB woff2 vs 1177KB TTF; mono contract frozen; subsetting required	HIGH	OD-03
+formatAmount (tokens.ts)	2-3 decimals; U+2212 minus	formatMoneyMinor (formatters.ts)	2 decimals; ASCII minus	DIFFERENT	Numeric/currency presentation	Propagates into share/markdown exports; sub-qirsh rejected at input	MED-HIGH	OD-04
+--space-*	4/6/8/10/12/14/16/18/20/24/28/32	--space-1..6 + guard set	4/8/12/16/20/24/32	DIFFERENT	Spacing scale	6/10/14/18/28 off Micro 4px rhythm; guard collision	MED	OD-08
+--radius-*	12/14/16/20/22/24	--vf-radius-*	12/16/18/20/999	DIFFERENT	Radii scale	14/22/24 and 18 off each other's scales; guard collision	MED	OD-08
+--motion-*	100-280ms; ease (02 0 1)	--vf-motion-*	80-5000ms; ease (04 0 02 1)	DIFFERENT	Motion system	Micro motion tokens mostly unconsumed; data-motion attribute new	LOW-MED	F-04
+--elevation-*	rgba(294148) warm-cool	--vf-shadow-*	rgba(605040)	DIFFERENT	Elevation tone	Flips with canvas	MED	F-04
+--size-touch/button/field/row/tabbar	44/48/54/56/70	--vf-control-height/touch-target/nav-min	48/44/64	DIFFERENT	Control sizes	Field 54 vs 48; tabbar 70 vs 64; both honor 44px floor	LOW	F-04
+--z-*	1/20/30/40/50/60/70/90	--vf z-ladder (guard)	0/1/20/30/40/50/60/70	NEAR_IDENTICAL	Z-ladder	Keep Micro ladder; z-90 is studio-only	LOW	P-14
+--signal-*	7/3/2.5/9/4px	(none)	n/a	V2_ONLY	MicroSignal geometry	Component-level decision	LOW	D-12
