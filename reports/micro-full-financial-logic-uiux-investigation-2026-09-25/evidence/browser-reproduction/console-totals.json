@@ -1,0 +1,97 @@
+{
+ "per_run": {
+  "s3-01-console.json": {
+   "console_msgs": 0,
+   "console_errors": 0,
+   "pageerrors": 0
+  },
+  "s3-01b-console.json": {
+   "console_msgs": 0,
+   "console_errors": 0,
+   "pageerrors": 1
+  },
+  "s3-02-console.json": {
+   "console_msgs": 0,
+   "console_errors": 0,
+   "pageerrors": 0
+  },
+  "s3-03-console.json": {
+   "console_msgs": 0,
+   "console_errors": 0,
+   "pageerrors": 5
+  },
+  "s3-03b-console.json": {
+   "console_msgs": 0,
+   "console_errors": 0,
+   "pageerrors": 0
+  },
+  "s3-03c-console.json": {
+   "console_msgs": 0,
+   "console_errors": 0,
+   "pageerrors": 0
+  },
+  "s3-04-console.json": {
+   "console_msgs": 0,
+   "console_errors": 0,
+   "pageerrors": 0
+  },
+  "s3-04b-console.json": {
+   "console_msgs": 0,
+   "console_errors": 0,
+   "pageerrors": 0
+  },
+  "s3-04c-console.json": {
+   "console_msgs": 0,
+   "console_errors": 0,
+   "pageerrors": 0
+  },
+  "s3-04d-console.json": {
+   "console_msgs": 0,
+   "console_errors": 0,
+   "pageerrors": 0
+  },
+  "s3-05-console.json": {
+   "console_msgs": 0,
+   "console_errors": 0,
+   "pageerrors": 1
+  },
+  "s3-05b-console.json": {
+   "console_msgs": 0,
+   "console_errors": 0,
+   "pageerrors": 0
+  },
+  "s3-06a-console.json": {
+   "console_msgs": 0,
+   "console_errors": 0,
+   "pageerrors": 1
+  },
+  "s3-06a2-console.json": {
+   "console_msgs": 0,
+   "console_errors": 0,
+   "pageerrors": 0
+  },
+  "s3-06b-console.json": {
+   "console_msgs": 0,
+   "console_errors": 0,
+   "pageerrors": 0
+  },
+  "s3-06b2-console.json": {
+   "console_msgs": 0,
+   "console_errors": 0,
+   "pageerrors": 0
+  },
+  "s3-07-console.json": {
+   "console_msgs": 0,
+   "console_errors": 0,
+   "pageerrors": 0
+  },
+  "s3-08-console.json": {
+   "console_msgs": 0,
+   "console_errors": 0,
+   "pageerrors": 0
+  }
+ },
+ "total_console_msgs": 0,
+ "total_console_error_msgs": 0,
+ "total_pageerror_events": 8
+}

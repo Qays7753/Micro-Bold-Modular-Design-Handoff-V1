@@ -1,0 +1,23 @@
+FI-5 Operations Control validator run — 2026-09-25, micro-audit @ c02fb458
+Command: python3 scripts/operations-control/validate.py
+Read-only proof: validate.py runs git rev-parse/cat-file/merge-base/remote get-url (read-only),
+JSON schema validation, and generate_tracker.py --check (check mode only reads/compares; writes
+occur only without --check). gh CLI absent in sandbox so the optional gh PR cross-check is skipped.
+Repo dirty count before = 0, after = 0.
+
+OUTPUT:
+Operations Control valid: 64 items, 25 workstreams, 0 active claims, origin/main=c02fb458b1c97d30f67ca7f5a82de82bbc77325d.
+Warnings:
+- WS-170: historical base_sha differs from current origin/main
+- gh CLI unavailable: GitHub PR/workstream merge-state cross-check skipped
+EXIT: 0
+
+Item status census (from items/*.json): VERIFIED 37 · DEFERRED 20 · BLOCKED 3 (DEVICE-001,
+LEGAL-001, PILOT-001) · IN_PROGRESS 1 (UX-001) · BACKLOG 2 (AUDIT-001, UAT-001) ·
+REVIEW_REQUIRED 1 (GOV-001). Total 64.
+Workstreams: 25 (all in workstreams/review/ = closed); 0 active claims.
+UX-001: IN_PROGRESS, stage-5, FIX_BEFORE_PILOT, DEPENDENCY_GATE_REQUIRED_BEFORE_PILOT.
+WS-182 (V2 foundations): merged main @ f2d5aa6 via PR #235, VERIFIED (current-state §72/§73).
+WS-183 (full-surface adaptation): merged main @ 6fdfe32 via PR #236 (squash), VERIFIED after
+main verification; HEAD commit c02fb45 itself is the "ops-control: verify WS-183 after main
+verification" record (current-state §74).

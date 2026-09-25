@@ -1,0 +1,300 @@
+{
+ "home@n320": {
+  "h1": 1,
+  "interactive": 18,
+  "sub44_count": 0,
+  "sub44_min_h": 99,
+  "sub44_min_w": 99,
+  "overflowX": 0,
+  "bdi": 4,
+  "bdiLtr": 4,
+  "ariaCurrentPage": 1,
+  "headings": [
+   [
+    "H1",
+    "UXFLASH-INVESTIGATION-20260925-A11Y"
+   ],
+   [
+    "H2",
+    "سجّل بسرعة"
+   ],
+   [
+    "H2",
+    "أرقامك"
+   ],
+   [
+    "H3",
+    "اليوم"
+   ],
+   [
+    "H3",
+    "هذا الشهر"
+   ],
+   [
+    "H2",
+    "المالية"
+   ]
+  ]
+ },
+ "work@n320": {
+  "h1": 1,
+  "interactive": 13,
+  "sub44_count": 0,
+  "sub44_min_h": 99,
+  "sub44_min_w": 99,
+  "overflowX": 0,
+  "bdi": 0,
+  "bdiLtr": 0,
+  "ariaCurrentPage": 1,
+  "headings": [
+   [
+    "H1",
+    "العمل"
+   ],
+   [
+    "H2",
+    "مبيعاتي"
+   ],
+   [
+    "H2",
+    "المواعيد"
+   ],
+   [
+    "H2",
+    "يومك مفتوح — سجّل أول بيع"
+   ]
+  ]
+ },
+ "finance@n320": {
+  "h1": 1,
+  "interactive": 20,
+  "sub44_count": 0,
+  "sub44_min_h": 99,
+  "sub44_min_w": 99,
+  "overflowX": 0,
+  "bdi": 4,
+  "bdiLtr": 4,
+  "ariaCurrentPage": 1,
+  "headings": [
+   [
+    "H1",
+    "المالية"
+   ],
+   [
+    "H2",
+    "قبض ودين ونتائج"
+   ],
+   [
+    "H2",
+    "شو عليّ؟"
+   ],
+   [
+    "H2",
+    "مال المالك"
+   ],
+   [
+    "H2",
+    "ما نعرفه الآن"
+   ],
+   [
+    "H2",
+    ""
+   ],
+   [
+    "H2",
+    ""
+   ],
+   [
+    "H2",
+    ""
+   ]
+  ]
+ },
+ "tools@n320": {
+  "h1": 1,
+  "interactive": 9,
+  "sub44_count": 0,
+  "sub44_min_h": 99,
+  "sub44_min_w": 99,
+  "overflowX": 0,
+  "bdi": 0,
+  "bdiLtr": 0,
+  "ariaCurrentPage": 1,
+  "headings": [
+   [
+    "H1",
+    "احسب قبل أن تلتزم"
+   ],
+   [
+    "H2",
+    "تقديراتي المحفوظة"
+   ]
+  ]
+ },
+ "market@n320": {
+  "h1": 1,
+  "interactive": 10,
+  "sub44_count": 0,
+  "sub44_min_h": 99,
+  "sub44_min_w": 99,
+  "overflowX": 0,
+  "bdi": 0,
+  "bdiLtr": 0,
+  "ariaCurrentPage": 1,
+  "headings": [
+   [
+    "H1",
+    "السوق"
+   ]
+  ]
+ },
+ "home@n412": {
+  "h1": 1,
+  "interactive": 23,
+  "sub44_count": 0,
+  "sub44_min_h": 99,
+  "sub44_min_w": 99,
+  "overflowX": 0,
+  "bdi": 4,
+  "bdiLtr": 4,
+  "ariaCurrentPage": 1,
+  "headings": [
+   [
+    "H1",
+    "UXFLASH-INVESTIGATION-20260925-A11Y"
+   ],
+   [
+    "H2",
+    "سجّل بسرعة"
+   ],
+   [
+    "H2",
+    "أرقامك"
+   ],
+   [
+    "H3",
+    "اليوم"
+   ],
+   [
+    "H3",
+    "هذا الشهر"
+   ],
+   [
+    "H2",
+    "المالية"
+   ]
+  ]
+ },
+ "work@n412": {
+  "h1": 1,
+  "interactive": 13,
+  "sub44_count": 0,
+  "sub44_min_h": 99,
+  "sub44_min_w": 99,
+  "overflowX": 0,
+  "bdi": 0,
+  "bdiLtr": 0,
+  "ariaCurrentPage": 1,
+  "headings": [
+   [
+    "H1",
+    "العمل"
+   ],
+   [
+    "H2",
+    "مبيعاتي"
+   ],
+   [
+    "H2",
+    "المواعيد"
+   ],
+   [
+    "H2",
+    "يومك مفتوح — سجّل أول بيع"
+   ]
+  ]
+ },
+ "finance@n412": {
+  "h1": 1,
+  "interactive": 24,
+  "sub44_count": 0,
+  "sub44_min_h": 99,
+  "sub44_min_w": 99,
+  "overflowX": 0,
+  "bdi": 4,
+  "bdiLtr": 4,
+  "ariaCurrentPage": 1,
+  "headings": [
+   [
+    "H1",
+    "المالية"
+   ],
+   [
+    "H2",
+    "قبض ودين ونتائج"
+   ],
+   [
+    "H2",
+    "شو عليّ؟"
+   ],
+   [
+    "H2",
+    "مال المالك"
+   ],
+   [
+    "H2",
+    "ما نعرفه الآن"
+   ],
+   [
+    "H2",
+    ""
+   ],
+   [
+    "H2",
+    ""
+   ],
+   [
+    "H2",
+    ""
+   ]
+  ]
+ },
+ "tools@n412": {
+  "h1": 1,
+  "interactive": 9,
+  "sub44_count": 0,
+  "sub44_min_h": 99,
+  "sub44_min_w": 99,
+  "overflowX": 0,
+  "bdi": 0,
+  "bdiLtr": 0,
+  "ariaCurrentPage": 1,
+  "headings": [
+   [
+    "H1",
+    "احسب قبل أن تلتزم"
+   ],
+   [
+    "H2",
+    "تقديراتي المحفوظة"
+   ]
+  ]
+ },
+ "market@n412": {
+  "h1": 1,
+  "interactive": 10,
+  "sub44_count": 0,
+  "sub44_min_h": 99,
+  "sub44_min_w": 99,
+  "overflowX": 0,
+  "bdi": 0,
+  "bdiLtr": 0,
+  "ariaCurrentPage": 1,
+  "headings": [
+   [
+    "H1",
+    "السوق"
+   ]
+  ]
+ }
+}

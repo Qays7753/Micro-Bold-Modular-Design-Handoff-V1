@@ -1,0 +1,82 @@
+FI-1 static census evidence @ c02fb458b1c97d30f67ca7f5a82de82bbc77325d (2026-09-25)
+All commands run read-only in /home/z/my-project/work/micro-audit.
+
+== ROUTE CENSUS (app/MicroRouter.tsx, 258L file) ==
+- 66 <Route> elements total = 65 path-bearing + 1 pathless catch-all (NotFound, line 239)
+  (rg '<Route' = 67 matches incl. <RouteLoadingState at line 112)
+- 2 path routes are redirects w/o own page: /review -> /finance (line 233), /finance/new/owner_withdrawal_cash -> OwnerWithdrawalLegacyRedirect (line 146, component defined in MicroRouter.tsx:98-102)
+- 63 path routes render page components; 60 unique pages in pages/ (all referenced; 4 pages serve 2 routes: DirectSaleEditor, MaterialEditor, SupplierPurchaseEditor, RecurringExpenseEditor)
+- pages/ = 73 files = 60 page components + 13 co-located test files (11 pages covered)
+
+== ROUTE_TEMPLATES lag (NEW finding) ==
+application/diagnostics/routeTemplate.ts ROUTE_TEMPLATES = 55 entries (file untouched since f6565a9 2026-09-11)
+Missing 10 vs router: /market, /finance/more, /finance/upcoming, /finance/recurring, /finance/recurring/new, /finance/recurring/:id, /finance/recurring/:id/edit, /loans/received/new, /loans/received/:id, /finance/new/owner_withdrawal_cash
+=> routeTemplateFor() returns /unknown on these 10 routes; consumed by ErrorBoundary.tsx + pwa/register.ts + localDiagnosticsService
+No test syncs ROUTE_TEMPLATES to MicroRouter (routeKnowledgeSync.test.ts covers classifier/nav only; SOURCE_OF_TRUTH.md line 38 claims the sync)
+
+== RENDER SMOKE (R2.renderSmoke.test.tsx) ==
+56 route literals vs 65 path-bearing router routes; 9 missing:
+/finance/new/owner_withdrawal_cash, /finance/more, /finance/upcoming, /finance/recurring x4, /loans/received x2  (= AUD-002, still open)
+
+== SIZE / TOP FILES (git ls-files, prod only) ==
+index.css 6837L | IndexedDbLocalStore.ts 4134L | MemoryLocalStore.ts 2095L | OrderDetail.tsx 1888L | transferFamilyValidators.ts 1715L | Finance.tsx 1639L | integrityCheckService.ts 1469L | craft-order/policies.ts 1436L | inventoryMaterialService.ts 1432L | projectFinancialService.ts 1401L | FinancialEventEditor.tsx 1285L | SupplierPurchaseEditor.tsx 1184L | OwnerEntitlement.tsx 1157L | transferSnapshotValidation.ts 1155L | ownerEntitlementService.ts 1109L | Schedule.tsx 1035L | DirectSaleEditor.tsx 1022L
+
+== index.css metrics ==
+- 6837 lines (wc -l and awk NR agree)  [briefing/AUD-016 said 6838 — off by one]
+- rule blocks: 1180 style blocks (non-@), 1160 contain .micro-*, 1311 individual selectors, 1279 contain .micro-*
+- .micro-* class tokens in selector position: 1412; UNIQUE .micro-* class names: 465
+  [prior scan "1205 .micro-* selectors" not reproducible by any method; order of magnitude holds]
+- hex literals outside comments: 0 (7 matches all in comments) — WS-182 claim holds
+- rem literals outside comments: 370 [prior ~369 confirmed within 1]; px literals outside comments: 566
+- .micro-field-error dual definitions STILL LIVE: index.css:1052 (inline red text w/ !important) + index.css:4219 (boxed bg+border+padding); 62 non-test consumer files, 90 prod occurrences (AUD-016 verified)
+
+== DEPENDENCY DIRECTION ==
+- application -> @/presentation VALUE imports: 12 files / 14 import statements (AUD-012 "12-14" reconciled: 12 files, 14 statements)
+  files: homeControlCenterService(x2), shareMessageService, collectionService, deliveryReviewService, dailyFollowUpService(x2), agreements/followUpDate, projectFinancialService, withdrawalWalletGuard, statementService(:126), statementMarkdownService, correctionHistoryService, integrityCheckService
+- application -> @/pages: 0 ; application -> @/components: 0
+- presentation -> @/application: catalogPresentation.ts:9 VALUE import englishNumeric (+ :12 type), activityLabels.ts:5 TYPE-only
+- domain -> client imports: 0 (verified rg over src/domain for ../apps, @/, @/components, @/pages, @/application)
+- VALUE-import cycles in client/src (258 prod files, own resolver): 0
+- TYPE-only cycles: 2 (both known): storage/local/types.ts<->supplierScheduleCommitGuard.ts (types.ts:39 / guard:7); pages/Finance.tsx<->components/finance/FinancePeriodResultSection.tsx (V-3 edge)
+- root-level client/src/*.test.* files: 93, match NO eslint config block (blocks cover only subdirs) — prior row 14 verified exactly
+
+== FIELD / ROW / EMPTY-STATE SPECIES ==
+- Field primitive (components/primitives/Field.tsx): 0 production consumers (imports are LocalDateField, a different component)
+- .micro-field* prod occurrences: 495 across 75 files (370 bare + 90 error + 17 grid + 15 hint + 3 wide) [+5 error usages in tests = 95 incl tests; prior row counted 95]
+- Row/RowList primitive: 1 consumer (Home.tsx, 2 usages); .micro-list/.micro-list-item: 6 files/18 usages; .micro-draft-row: 2 files/5 usages; .micro-finance-event* card rows: 4 screens (documented preserved)
+- EmptyState primitive: 6 pages (Orders, Schedule, Assets, Loans, FinanceActivity, OwnerEntitlement)
+- CSS void species: .micro-empty-state (Loans x3 + ReceivedLoanEditor x1 — as load-error geometry, documented preserved), .micro-empty-copy (13 uses/7 files — only Statement documented), .micro-empty-inline (4 uses/3 files — NOT in preserved list), .micro-empty-symbol (ErrorBoundary x1)
+
+== TOKEN SPOT-VERIFICATION (vs TOKEN-CONSUMER-INVENTORY.tsv) ==
+- --vf-tint #dce3e5 (light) / #353028 (dark): VERIFIED values; direct consumers 3 (primitives.css:198,450 + index.css:69) EXACT; alias-mediated var(--color-border) = 129 occurrences [inventory said 127 — off by 2]; var(--color-accent-soft) = 24 [said 23]
+- --vf-action-commit-bg/-ink/-pressed: DEAD at bridge (0 var() consumers anywhere) — VERIFIED (vf-tokens.css:84-86)
+- --vf-border-soft: DEAD — VERIFIED (defined vf-tokens.css:41, only comment ref index.css:69)
+- --vf-btn-save-bg: 2 consumers (primitives.css:138,142) — EXACT
+- --vf-info-surface #dfedf1: 1 consumer (index.css:1050 focus halo) — EXACT
+- --vf-ink-on-dark: 0 direct, chains via --vf-action-create-icon-ink (vf-tokens.css:80) + --vf-btn-primary-ink (:92) — VERIFIED
+- --vf-btn-secondary-bg: 4 total (primitives.css:156,233 + alias index.css:100, theme-dark.css:153) — EXACT
+- DEAD bridge tokens: 48 of 130 light --vf-* definitions unreferenced — EXACT match to AUD-013 (48/130)
+
+== DOC PIN TESTS ==
+- group6Docs.test.ts:100-101 pins code truth 38/30 correctly; :90,:110 pin current-state §36 historical "٣٥/٢٧ بلا تغيير"
+- group2ClosureDocs.test.ts:35 pins §31 "٣٥ / ٢٧ بلا تغيير" (historical); :36-37 pin 38/30; :24,:48,:62,:70,:85 pin "PR #159 مفتوح وغير مدموج" (STALE vs git: merged c0469e2 2026-09-13, 241 commits before HEAD)
+- AGENTS.md:130 (§10) says "36/28 اليوم" — stale vs types.ts:55,71 = 38/30 (schema 38, export 30); NO test pins the 36/28 string (fix is test-safe)
+- AGENTS.md:140 (§11.3) says "35/27" — historical, still stale as "كما هي"
+- ARCHITECTURE.md (apps/prototype-web): "13 وحدة نطاقية" (line 23) — actual 18 dirs (17 feature + shared; 4 added since doc fix at 4af025d: recurring-expense 09-21, budget 09-22, owner-safe-withdrawal 09-23, received-loan 09-23); "32 object stores, schema 35" (line 25) — actual 37 stores / schema 38; "44 *Service.ts" (line 22, pinned at 9a8c949) — actual 53; "40 services wired" — actual 43 new *Service( in PrototypeServicesContext.tsx
+
+== GOVERNANCE / GATE ==
+- PR #159 (four-group plan) merged as c0469e2 2026-09-13; merge-base --is-ancestor c0469e2 HEAD = true; 241 commits after
+- todo.md:116-124 still says "PR #159 مفتوح وغير مدموج" per group; :122 four-group umbrella still "- [ ]" unchecked
+- current-state.md header line 4 "آخر تحديث: 18/19 سبتمبر 2026" vs §74 dated 2026-09-24 (staleness row 24 verified)
+- AGENTS.md §11 = the structural gate: scan closed (Group 7, external report @ 17b264c), four-group plan (8-11) owner-approved and now COMPLETE+MERGED => plan exhausted; any new structural work needs fresh owner decision; no features/ layer; no splitting of the 7 named files without approved wave
+
+== COMPONENT DIR TEST COVERAGE (prior row 28 delta) ==
+finance 17 prod/0 tests (prior scan said 14 — grew by 3), catalog 4/0, owner 3/0, settings 4/0, security 3/0, presentation 5/0, orders 1/0, order 3/1, forms 7/6, layout 4/3, brand 2/3, direct-sales 1/0, loans 2/0, cost 1/0, ui 1/0 (drawer, 4 consumers)
+
+== MISC VERIFIED ==
+- src/domain: 55 prod files, 9610 lines, 18 dirs — exact match to prior scan row 2
+- navigation truth: navigation.ts 56L, navigationContract.ts 216L, routeClassifier.ts 85L, MicroRouter.tsx 257L(wc)/258L(read), routeKnowledgeSync.test.ts 332L — all match prior row 22
+- drawer.tsx 117L, 4 consumers (RepaymentSheet, ReceivedLoanRepaymentSheet, MaterialSheet, QuickActionSheet) — prior row 4 verified
+- page-level service construction deviations still present: Loans.tsx:58, ReceivedLoanEditor.tsx:86, ReceivedLoanDetail.tsx:62 (new module.ReceivedLoanService(getPrototypeLocalStore())), Statement.tsx:175 (new StatementMarkdownService()) — prior row 26 verified (line cites 20/62/86 = import lines)
+- persistent-entity-touchpoints.json: 37 object stores + 3 local records; indexedDbStores.ts exports 37 store-name constants — consistent
+- micro-fab: dead in prod (index.css:759-788; only Nav001.dom.test.tsx references) — AUD-022 still open

@@ -1,0 +1,535 @@
+{
+ "localStorage": {},
+ "indexedDB": [
+  {
+   "name": "micro-prototype-local",
+   "version": 38,
+   "stores": [
+    {
+     "name": "activity-profile",
+     "count": 1,
+     "records": [
+      {
+       "id": "local-profile",
+       "activityName": "UXFLASH-INVESTIGATION-20260925",
+       "currency": "JOD",
+       "activityType": "custom_craft",
+       "createdAt": "2026-09-25T00:07:07.214Z",
+       "updatedAt": "2026-09-25T00:08:20.312Z"
+      }
+     ],
+     "error": null
+    },
+    {
+     "name": "actual-time-records",
+     "count": 0,
+     "records": [],
+     "error": null
+    },
+    {
+     "name": "allocation-policies",
+     "count": 0,
+     "records": [],
+     "error": null
+    },
+    {
+     "name": "assets",
+     "count": 0,
+     "records": [],
+     "error": null
+    },
+    {
+     "name": "cash-continuity-entries",
+     "count": 2,
+     "records": [
+      {
+       "id": "0bdad44b-74d3-4470-9305-4ac1da03811c",
+       "walletId": "e5c5d4b0-86f5-473b-a6d5-c8071275db6f",
+       "type": "allocation",
+       "occurredOn": "2026-09-25",
+       "recordedAt": "2026-09-25T00:11:38.845Z",
+       "cashDeltaMinor": 1275,
+       "note": "توزيع قبض بيع من محرر البيع",
+       "reason": null,
+       "operationKey": "direct-sale-ui-782012a8-5d46-455b-9859-591decd9686c:attribute",
+       "transferId": null,
+       "reversesEntryId": null,
+       "sourceRefId": "603e751d-0090-4a64-bc34-bcd7d9dd7d93",
+       "sourceRefKind": "sale"
+      },
+      {
+       "id": "842d7c15-19ef-43fd-848b-6481f720b496",
+       "walletId": "e5c5d4b0-86f5-473b-a6d5-c8071275db6f",
+       "type": "allocation",
+       "occurredOn": "2026-09-25",
+       "recordedAt": "2026-09-25T00:14:22.456Z",
+       "cashDeltaMinor": -250,
+       "note": "تغطية مصروف من رصيد المحفظة",
+       "reason": null,
+       "operationKey": "sheet-expense-cab2db3c-fa9e-41ef-a386-0da5d4cfb32a:attribute",
+       "transferId": null,
+       "reversesEntryId": null,
+       "sourceRefId": "2bfb9847-d7f3-4106-b56a-d0b5fc299c81",
+       "sourceRefKind": "expense"
+      }
+     ],
+     "error": null
+    },
+    {
+     "name": "cash-wallets",
+     "count": 1,
+     "records": [
+      {
+       "id": "e5c5d4b0-86f5-473b-a6d5-c8071275db6f",
+       "name": "الدرج",
+       "kind": "cash_drawer",
+       "createdAt": "2026-09-25T00:08:20.314Z",
+       "createdOperationKey": "setup-wallet-local-profile",
+       "openingStatus": "unknown"
+      }
+     ],
+     "error": null
+    },
+    {
+     "name": "catalog-items",
+     "count": 0,
+     "records": [],
+     "error": null
+    },
+    {
+     "name": "catalog-templates",
+     "count": 0,
+     "records": [],
+     "error": null
+    },
+    {
+     "name": "cost-estimates",
+     "count": 1,
+     "records": [
+      {
+       "id": "4ef67714-8795-44cb-a5f1-7b452d41f5ee",
+       "title": "UXFLASH-INVESTIGATION-20260925 تقدير",
+       "currency": "JOD",
+       "materialItems": [
+        {
+         "name": "UXFLASH-INVESTIGATION-20260925 خشب",
+         "quantity": 2,
+         "unit": "قطعة",
+         "unitPriceMinor": 325,
+         "confidence": "known",
+         "materialId": null
+        }
+       ],
+       "time": null,
+       "packagingMinor": 0,
+       "deliveryMinor": 0,
+       "wasteMinor": 0,
+       "safetyBufferMinor": 0,
+       "quantity": 4,
+       "plannedCostMinor": 650,
+       "unitCostMinor": 163,
+       "priceFloorMinor": 163,
+       "knowledgeState": "incomplete",
+       "note": null,
+       "createdAt": "2026-09-25T00:28:54.103Z",
+       "updatedAt": "2026-09-25T00:28:54.103Z"
+      }
+     ],
+     "error": null
+    },
+    {
+     "name": "craft-orders",
+     "count": 0,
+     "records": [],
+     "error": null
+    },
+    {
+     "name": "direct-conversions",
+     "count": 0,
+     "records": [],
+     "error": null
+    },
+    {
+     "name": "direct-sales",
+     "count": 1,
+     "records": [
+      {
+       "id": "603e751d-0090-4a64-bc34-bcd7d9dd7d93",
+       "itemName": "UXFLASH-INVESTIGATION-20260925 كوب",
+       "quantity": 1,
+       "currency": "JOD",
+       "revenueMinor": 1275,
+       "collectedMinor": 1275,
+       "collectionStatus": "collected_in_full",
+       "catalogItemId": null,
+       "customerName": null,
+       "costMinor": 550,
+       "profitMinor": 725,
+       "occurredOn": "2026-09-25",
+       "recordedAt": "2026-09-25T00:11:38.840Z",
+       "note": "بيع مباشر UXFLASH-INVESTIGATION-20260925",
+       "idempotencyKey": "direct-sale-ui-782012a8-5d46-455b-9859-591decd9686c",
+       "status": "active",
+       "cancelledAt": null,
+       "cancellationReason": null,
+       "revisions": []
+      }
+     ],
+     "error": null
+    },
+    {
+     "name": "expense-budgets",
+     "count": 0,
+     "records": [],
+     "error": null
+    },
+    {
+     "name": "financial-events",
+     "count": 3,
+     "records": [
+      {
+       "id": "2bfb9847-d7f3-4106-b56a-d0b5fc299c81",
+       "type": "operating_expense_cash",
+       "currency": "JOD",
+       "amountMinor": 250,
+       "occurredOn": "2026-09-25",
+       "recordedAt": "2026-09-25T00:14:22.448Z",
+       "idempotencyKey": "sheet-expense-cab2db3c-fa9e-41ef-a386-0da5d4cfb32a",
+       "note": "UXFLASH-INVESTIGATION-20260925 أكياس",
+       "counterparty": null,
+       "relatedEventId": null,
+       "expenseContext": {
+        "relationship": "project",
+        "behavior": "unknown",
+        "purpose": "project_general",
+        "knowledge": "known",
+        "sharedProjectShare": null,
+        "categoryLabel": null
+       },
+       "assetContext": null,
+       "loanContext": null,
+       "depositContext": null,
+       "correctionType": null,
+       "correctionOfEventId": null,
+       "correctionReason": null,
+       "cashDeltaMinor": -250,
+       "payableDeltaMinor": 0,
+       "ownerCapitalDeltaMinor": 0,
+       "operatingExpenseDeltaMinor": 250,
+       "amanahDeltaMinor": 0,
+       "assetDeltaMinor": 0,
+       "loanDeltaMinor": 0,
+       "revenueDeltaMinor": 0,
+       "loanPayableDeltaMinor": 0
+      },
+      {
+       "id": "event-a65f59cd-6c41-48db-b8d8-ffab889d1e4f",
+       "type": "loan_received_cash",
+       "currency": "JOD",
+       "amountMinor": 1000,
+       "occurredOn": "2026-09-25",
+       "recordedAt": "2026-09-25T00:23:46.197Z",
+       "idempotencyKey": "rloan-6f73a54a-f045-47d1-adcb-08baf59b22eb:principal",
+       "note": "قرض مستلم من UXFLASH-INVESTIGATION-20260925 مقرض",
+       "counterparty": "UXFLASH-INVESTIGATION-20260925 مقرض",
+       "relatedEventId": null,
+       "expenseContext": null,
+       "assetContext": null,
+       "loanContext": {
+        "loanId": "rloan-6f73a54a-f045-47d1-adcb-08baf59b22eb",
+        "borrower": "UXFLASH-INVESTIGATION-20260925 مقرض",
+        "lender": "UXFLASH-INVESTIGATION-20260925 مقرض"
+       },
+       "depositContext": null,
+       "correctionType": null,
+       "correctionOfEventId": null,
+       "correctionReason": null,
+       "cashDeltaMinor": 1000,
+       "payableDeltaMinor": 0,
+       "ownerCapitalDeltaMinor": 0,
+       "operatingExpenseDeltaMinor": 0,
+       "amanahDeltaMinor": 0,
+       "assetDeltaMinor": 0,
+       "loanDeltaMinor": 0,
+       "revenueDeltaMinor": 0,
+       "loanPayableDeltaMinor": 1000
+      },
+      {
+       "id": "event-dbabb613-a81d-4c7b-ab9a-8f2b607605de",
+       "type": "loan_outgoing_cash",
+       "currency": "JOD",
+       "amountMinor": 2000,
+       "occurredOn": "2026-09-25",
+       "recordedAt": "2026-09-25T00:19:57.555Z",
+       "idempotencyKey": "loan-8f98825a-dd01-432a-95b0-84cc349503b2:principal",
+       "note": "قرض لـ UXFLASH-INVESTIGATION-20260925 مستدين",
+       "counterparty": "UXFLASH-INVESTIGATION-20260925 مستدين",
+       "relatedEventId": null,
+       "expenseContext": null,
+       "assetContext": null,
+       "loanContext": {
+        "loanId": "loan-8f98825a-dd01-432a-95b0-84cc349503b2",
+        "borrower": "UXFLASH-INVESTIGATION-20260925 مستدين",
+        "lender": null
+       },
+       "depositContext": null,
+       "correctionType": null,
+       "correctionOfEventId": null,
+       "correctionReason": null,
+       "cashDeltaMinor": -2000,
+       "payableDeltaMinor": 0,
+       "ownerCapitalDeltaMinor": 0,
+       "operatingExpenseDeltaMinor": 0,
+       "amanahDeltaMinor": 0,
+       "assetDeltaMinor": 0,
+       "loanDeltaMinor": 2000,
+       "revenueDeltaMinor": 0,
+       "loanPayableDeltaMinor": 0
+      }
+     ],
+     "error": null
+    },
+    {
+     "name": "form-drafts",
+     "count": 1,
+     "records": [
+      {
+       "id": "direct_sale:new",
+       "formKind": "direct_sale",
+       "scopeId": "new",
+       "valuesVersion": 1,
+       "values": {
+        "itemName": "UXFLASH-INVESTIGATION-20260925 بيع متروك ٢",
+        "quantity": 1,
+        "revenueMinor": 900,
+        "collectedEmpty": true,
+        "collectedMinor": 0,
+        "costKnown": false,
+        "costMinor": 0,
+        "customerName": "",
+        "catalogItemId": "",
+        "occurredOn": "2026-09-25",
+        "note": "بيع مباشر"
+       },
+       "createdAt": "2026-09-25T00:12:40.112Z",
+       "updatedAt": "2026-09-25T00:12:40.132Z"
+      }
+     ],
+     "error": null
+    },
+    {
+     "name": "inventory-activations",
+     "count": 0,
+     "records": [],
+     "error": null
+    },
+    {
+     "name": "inventory-movements",
+     "count": 0,
+     "records": [],
+     "error": null
+    },
+    {
+     "name": "inventory-shortages",
+     "count": 0,
+     "records": [],
+     "error": null
+    },
+    {
+     "name": "loans",
+     "count": 1,
+     "records": [
+      {
+       "id": "loan-8f98825a-dd01-432a-95b0-84cc349503b2",
+       "borrowerName": "UXFLASH-INVESTIGATION-20260925 مستدين",
+       "principalMinor": 2000,
+       "loanDate": "2026-09-25",
+       "purposeNote": null,
+       "sourceWalletId": null,
+       "principalEventId": "event-dbabb613-a81d-4c7b-ab9a-8f2b607605de",
+       "repayments": [],
+       "corrections": [],
+       "operationKey": "loan-8f98825a-dd01-432a-95b0-84cc349503b2:create",
+       "createdAt": "2026-09-25T00:19:57.555Z",
+       "updatedAt": "2026-09-25T00:19:57.555Z"
+      }
+     ],
+     "error": null
+    },
+    {
+     "name": "local-preferences",
+     "count": 1,
+     "records": [
+      {
+       "id": "local-preferences",
+       "theme": "light",
+       "dailyScheduleCapacityMinutes": null,
+       "workMode": null,
+       "actualTimeTrackingEnabled": false,
+       "installBannerDismissedAt": null,
+       "lastVerifiedExportAt": null,
+       "backupReminderEnabled": true,
+       "disabledCapabilities": [],
+       "updatedAt": "2026-09-25T00:27:34.700Z",
+       "lowStockThresholdsMilli": null
+      }
+     ],
+     "error": null
+    },
+    {
+     "name": "local-security",
+     "count": 0,
+     "records": [],
+     "error": null
+    },
+    {
+     "name": "materials",
+     "count": 0,
+     "records": [],
+     "error": null
+    },
+    {
+     "name": "measurement-units",
+     "count": 0,
+     "records": [],
+     "error": null
+    },
+    {
+     "name": "order-drafts",
+     "count": 1,
+     "records": [
+      {
+       "id": "7145c83a-17d5-4067-8388-f19ac41cd9bd",
+       "intent": "customer_order",
+       "customerName": "",
+       "orderName": null,
+       "itemName": "UXFLASH-INVESTIGATION-20260925 مسودة أ",
+       "catalogItemId": null,
+       "specifications": "",
+       "quantity": 1,
+       "costSnapshots": [],
+       "activeCostSnapshotId": null,
+       "linkedOrderId": null,
+       "sourceEstimateId": null,
+       "createdAt": "2026-09-25T00:17:33.553Z",
+       "updatedAt": "2026-09-25T00:17:33.553Z"
+      }
+     ],
+     "error": null
+    },
+    {
+     "name": "owner-entitlement-opening-balances",
+     "count": 0,
+     "records": [],
+     "error": null
+    },
+    {
+     "name": "owner-entitlement-policies",
+     "count": 0,
+     "records": [],
+     "error": null
+    },
+    {
+     "name": "owner-entitlement-records",
+     "count": 0,
+     "records": [],
+     "error": null
+    },
+    {
+     "name": "owner-movements",
+     "count": 0,
+     "records": [],
+     "error": null
+    },
+    {
+     "name": "owner-profile",
+     "count": 1,
+     "records": [
+      {
+       "id": "local-owner-profile",
+       "ownerId": "owner-5fabdb0a-6efd-408a-8a59-e4de5654b92a",
+       "displayName": null,
+       "email": null,
+       "provider": null,
+       "externalAccountId": null,
+       "createdAt": "2026-09-25T00:07:07.228Z",
+       "updatedAt": "2026-09-25T00:07:07.228Z"
+      }
+     ],
+     "error": null
+    },
+    {
+     "name": "received-loans",
+     "count": 1,
+     "records": [
+      {
+       "id": "rloan-6f73a54a-f045-47d1-adcb-08baf59b22eb",
+       "lenderName": "UXFLASH-INVESTIGATION-20260925 مقرض",
+       "lenderType": "person",
+       "principalMinor": 1000,
+       "receivedOn": "2026-09-25",
+       "dueOn": null,
+       "note": null,
+       "walletId": null,
+       "principalEventId": "event-a65f59cd-6c41-48db-b8d8-ffab889d1e4f",
+       "repayments": [],
+       "corrections": [],
+       "operationKey": "rloan-6f73a54a-f045-47d1-adcb-08baf59b22eb:create",
+       "createdAt": "2026-09-25T00:23:46.197Z",
+       "updatedAt": "2026-09-25T00:23:46.197Z"
+      }
+     ],
+     "error": null
+    },
+    {
+     "name": "recurring-expense-occurrences",
+     "count": 0,
+     "records": [],
+     "error": null
+    },
+    {
+     "name": "recurring-expense-revisions",
+     "count": 0,
+     "records": [],
+     "error": null
+    },
+    {
+     "name": "recurring-expense-series",
+     "count": 0,
+     "records": [],
+     "error": null
+    },
+    {
+     "name": "schedule-entries",
+     "count": 0,
+     "records": [],
+     "error": null
+    },
+    {
+     "name": "schedule-recurrences",
+     "count": 0,
+     "records": [],
+     "error": null
+    },
+    {
+     "name": "short-cash-declarations",
+     "count": 0,
+     "records": [],
+     "error": null
+    },
+    {
+     "name": "supplier-purchases",
+     "count": 0,
+     "records": [],
+     "error": null
+    }
+   ]
+  }
+ ],
+ "databases_api": [
+  {
+   "name": "micro-prototype-local",
+   "version": 38
+  }
+ ]
+}

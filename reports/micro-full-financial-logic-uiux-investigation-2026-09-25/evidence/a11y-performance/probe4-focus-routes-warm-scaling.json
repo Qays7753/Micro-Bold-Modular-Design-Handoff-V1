@@ -1,0 +1,261 @@
+{
+ "sheet_open_focus": {
+  "tag": "BUTTON",
+  "label": "سجّل بيعًا",
+  "cls": "micro-quick-action micro-quick-action-primar",
+  "inSheet": false,
+  "outer": "<button class=\"micro-quick-action micro-quick-action-primary\" type=\"button\"><svg xmlns=\"http://www.w3.org/2000/svg\" widt"
+ },
+ "sheet_tab_stops": [
+  {
+   "tag": "BUTTON",
+   "label": "سجّل مصروفًا",
+   "inSheet": false
+  },
+  {
+   "tag": "BUTTON",
+   "label": "طلب من عميل",
+   "inSheet": false
+  },
+  {
+   "tag": "BUTTON",
+   "label": "منتجاتي وخدماتي",
+   "inSheet": false
+  },
+  {
+   "tag": "BUTTON",
+   "label": "المزيد",
+   "inSheet": false
+  },
+  {
+   "tag": "BUTTON",
+   "label": "افتح مبيعات اليوم",
+   "inSheet": false
+  },
+  {
+   "tag": "BUTTON",
+   "label": "افتح نتيجة اليوم",
+   "inSheet": false
+  },
+  {
+   "tag": "BUTTON",
+   "label": "افتح مبيعات الشهر",
+   "inSheet": false
+  },
+  {
+   "tag": "BUTTON",
+   "label": "افتح نتيجة الشهر",
+   "inSheet": false
+  },
+  {
+   "tag": "BUTTON",
+   "label": "غير مسجل — سجّله",
+   "inSheet": false
+  },
+  {
+   "tag": "BUTTON",
+   "label": "غير مسجل — سجّله",
+   "inSheet": false
+  },
+  {
+   "tag": "BUTTON",
+   "label": "غير مسجل — سجّله",
+   "inSheet": false
+  },
+  {
+   "tag": "BUTTON",
+   "label": "غير مسجل — سجّله",
+   "inSheet": false
+  },
+  {
+   "tag": "BUTTON",
+   "label": "صفحة الأساس",
+   "inSheet": false
+  },
+  {
+   "tag": "BUTTON",
+   "label": "افتح",
+   "inSheet": false
+  },
+  {
+   "tag": "BUTTON",
+   "label": "مشروعي الآن",
+   "inSheet": false
+  },
+  {
+   "tag": "BUTTON",
+   "label": "العمل",
+   "inSheet": false
+  }
+ ],
+ "sheet_trap_summary": {
+  "stops_in_sheet": "0/16",
+  "first_outside_stop": 0
+ },
+ "focus_after_x_close": {
+  "tag": "BODY",
+  "label": "مايكرو\nمشروعي الآن\nمشروعي الآن\nUXFLA",
+  "cls": "",
+  "inSheet": false,
+  "outer": "<body style=\"\">\n    <div id=\"root\"><div class=\"micro-app\" data-route-kind=\"surface\" data-keyboard-open=\"false\" dir=\"rtl\""
+ },
+ "focus_after_escape_close": {
+  "tag": "BUTTON",
+  "label": "سجّل بيعًا",
+  "cls": "micro-quick-action micro-quick-action-primar",
+  "inSheet": false,
+  "outer": "<button class=\"micro-quick-action micro-quick-action-primary\" type=\"button\"><svg xmlns=\"http://www.w3.org/2000/svg\" widt"
+ },
+ "sheet_closed_after_escape": true,
+ "logo_menu_enter": {
+  "opens": true,
+  "focus_after_enter": {
+   "tag": "BUTTON",
+   "label": "قائمة Micro",
+   "cls": "micro-logo-button",
+   "inSheet": false,
+   "outer": "<button class=\"micro-logo-button\" type=\"button\" aria-label=\"قائمة Micro\" aria-haspopup=\"menu\" aria-expanded=\"true\" data-"
+  },
+  "arrowdown": {
+   "tag": "BUTTON",
+   "label": "أكمل إعداد الحساب",
+   "cls": "micro-logo-menu-item",
+   "inSheet": false,
+   "outer": "<button class=\"micro-logo-menu-item\" type=\"button\" role=\"menuitem\" data-account-state=\"false\"><svg xmlns=\"http://www.w3."
+  },
+  "arrowup_back": {
+   "tag": "BUTTON",
+   "label": "الإعدادات",
+   "cls": "micro-logo-menu-item",
+   "inSheet": false,
+   "outer": "<button class=\"micro-logo-menu-item\" type=\"button\" role=\"menuitem\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" he"
+  },
+  "escape_focus": {
+   "tag": "BUTTON",
+   "label": "قائمة Micro",
+   "cls": "micro-logo-button",
+   "inSheet": false,
+   "outer": "<button class=\"micro-logo-button\" type=\"button\" aria-label=\"قائمة Micro\" aria-haspopup=\"menu\" aria-expanded=\"false\" data"
+  },
+  "closed": true
+ },
+ "route_change_ms": {
+  "work": 856,
+  "finance": 818,
+  "home": 1013
+ },
+ "warm_load": {
+  "dcl_ms": 48,
+  "settled_ms": 154,
+  "paints": null,
+  "nav": {
+   "responseStart": 3,
+   "transferSize": 0,
+   "type": "navigate"
+  },
+  "sw": "controlled"
+ },
+ "text_scaling": {
+  "125%@320": {
+   "before": {
+    "sw": 320,
+    "cw": 320
+   },
+   "after": {
+    "sw": 320,
+    "cw": 320,
+    "overflowX": 0,
+    "overflowing": [
+     {
+      "tag": "BUTTON",
+      "cls": "micro-quick-action",
+      "text": "طلب من عميل",
+      "right": 58,
+      "left": -83
+     }
+    ]
+   }
+  },
+  "125%@390": {
+   "before": {
+    "sw": 390,
+    "cw": 390
+   },
+   "after": {
+    "sw": 390,
+    "cw": 390,
+    "overflowX": 0,
+    "overflowing": [
+     {
+      "tag": "BUTTON",
+      "cls": "micro-quick-action",
+      "text": "طلب من عميل",
+      "right": 128,
+      "left": -13
+     }
+    ]
+   }
+  },
+  "200%@320": {
+   "before": {
+    "sw": 320,
+    "cw": 320
+   },
+   "after": {
+    "sw": 419,
+    "cw": 320,
+    "overflowX": 99,
+    "overflowing": [
+     {
+      "tag": "BUTTON",
+      "cls": "micro-quick-action",
+      "text": "طلب من عميل",
+      "right": 50,
+      "left": -161
+     },
+     {
+      "tag": "BUTTON",
+      "cls": "micro-nav-item",
+      "text": "أدواتي",
+      "right": 70,
+      "left": -10
+     },
+     {
+      "tag": "BUTTON",
+      "cls": "micro-nav-item",
+      "text": "السوق",
+      "right": -10,
+      "left": -91
+     }
+    ]
+   }
+  },
+  "200%@390": {
+   "before": {
+    "sw": 390,
+    "cw": 390
+   },
+   "after": {
+    "sw": 420,
+    "cw": 390,
+    "overflowX": 30,
+    "overflowing": [
+     {
+      "tag": "BUTTON",
+      "cls": "micro-quick-action",
+      "text": "طلب من عميل",
+      "right": 50,
+      "left": -161
+     },
+     {
+      "tag": "BUTTON",
+      "cls": "micro-nav-item",
+      "text": "السوق",
+      "right": 59,
+      "left": -22
+     }
+    ]
+   }
+  }
+ }
+}

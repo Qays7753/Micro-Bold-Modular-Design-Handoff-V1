@@ -1,0 +1,20 @@
+FI-5 focused test runs — micro-visual @ c02fb458b1c97d30f67ca7f5a82de82bbc77325d (2026-09-25)
+Method: ./node_modules/.bin/vitest run <file> from apps/prototype-web (pnpm unavailable in sandbox;
+local vitest binary v4.1.11 = same engine as pnpm vitest run). git status --porcelain | wc -l = 0
+BEFORE and AFTER every run. No watch mode, no coverage flags.
+
+1. client/src/R2.renderSmoke.test.tsx
+   PASS — 3 tests (light theme 2.58s, dark theme 2.33s, keyboard operability 2.03s)
+   Test time 6.94s / total wall 9.49s
+2. client/src/application/fulfillment/reviewLockBoundary.test.ts
+   PASS — 3 tests, 7ms (total 615ms)
+3. client/src/exact-values.cross-surface.test.ts
+   PASS — 6 tests, 10ms (total 568ms)
+4. client/src/group6Docs.test.ts
+   PASS — 8 tests, 12ms (total 208ms)
+5. client/src/components/layout/QuickActionSheet.guard.test.tsx
+   PASS — 5 tests, 627ms (total 1.80s)
+6. client/src/U09.css.test.ts
+   PASS — 4 tests, 3ms (total 156ms)
+
+Aggregate: 6/6 files PASS, 29/29 tests PASS. Zero failures. Zero dirty files after each run.

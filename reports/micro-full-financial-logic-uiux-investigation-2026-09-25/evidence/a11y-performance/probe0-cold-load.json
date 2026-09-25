@@ -1,0 +1,439 @@
+{
+ "url": "https://micro-prototype.pages.dev",
+ "dcl_s": 0.178,
+ "loaded_s": 1.514,
+ "settled_s": 1.536,
+ "fout_frame_times_s": [
+  0.525,
+  0.866,
+  1.062,
+  1.252
+ ],
+ "fout_frames": 4,
+ "metrics": {
+  "paints": [
+   {
+    "name": "res:https://micro-prototype.pages.dev/fonts/fonts.css",
+    "startTime": 74
+   },
+   {
+    "name": "res:https://micro-prototype.pages.dev/assets/iconography-ebC7MZWM.js",
+    "startTime": 74
+   },
+   {
+    "name": "res:https://micro-prototype.pages.dev/assets/index-DeKn-51T.css",
+    "startTime": 74
+   },
+   {
+    "name": "res:https://micro-prototype.pages.dev/assets/react-runtime-D-o6Z9it.js",
+    "startTime": 74
+   },
+   {
+    "name": "first-paint",
+    "startTime": 120
+   },
+   {
+    "name": "res:https://micro-prototype.pages.dev/assets/index-JwnWFGWt.js",
+    "startTime": 74
+   },
+   {
+    "name": "res:https://micro-prototype.pages.dev/brand/motion/light/1-top-ink.svg",
+    "startTime": 190
+   },
+   {
+    "name": "res:https://micro-prototype.pages.dev/brand/motion/light/2-right-turquoise.svg",
+    "startTime": 190
+   },
+   {
+    "name": "res:https://micro-prototype.pages.dev/brand/motion/light/4-left-terracotta.svg",
+    "startTime": 190
+   },
+   {
+    "name": "res:https://micro-prototype.pages.dev/assets/workbox-window.prod.es5-BBnX5xw4.js",
+    "startTime": 173
+   },
+   {
+    "name": "res:https://micro-prototype.pages.dev/assets/drawer-BXb-JqFP.js",
+    "startTime": 186
+   },
+   {
+    "name": "res:https://micro-prototype.pages.dev/assets/interaction-runtime-BHsuzWF6.js",
+    "startTime": 186
+   },
+   {
+    "name": "res:https://micro-prototype.pages.dev/brand/mark/micro-quad.svg",
+    "startTime": 189
+   },
+   {
+    "name": "res:https://micro-prototype.pages.dev/brand/motion/light/3-bottom-taupe.svg",
+    "startTime": 190
+   },
+   {
+    "name": "res:https://micro-prototype.pages.dev/fonts/Alexandria-VF.woff2",
+    "startTime": 192
+   },
+   {
+    "name": "res:https://micro-prototype.pages.dev/assets/QuickActionSheet-n4fptAJg.js",
+    "startTime": 186
+   },
+   {
+    "name": "res:https://micro-prototype.pages.dev/assets/EnglishNumberInput-tq1Xeq6H.js",
+    "startTime": 186
+   },
+   {
+    "name": "res:https://micro-prototype.pages.dev/assets/radix-runtime-Bn-oMfrd.js",
+    "startTime": 186
+   },
+   {
+    "name": "res:https://micro-prototype.pages.dev/assets/LocalDateField-CULd-c9L.js",
+    "startTime": 186
+   },
+   {
+    "name": "res:https://micro-prototype.pages.dev/assets/expenseFormModel-C6DTFJII.js",
+    "startTime": 186
+   },
+   {
+    "name": "res:https://micro-prototype.pages.dev/assets/resultFeedback-DFIDaclk.js",
+    "startTime": 186
+   },
+   {
+    "name": "res:https://micro-prototype.pages.dev/assets/loanService-PGjfHTAC.js",
+    "startTime": 257
+   },
+   {
+    "name": "res:https://micro-prototype.pages.dev/assets/localTransferService-C9rbX2ig.js",
+    "startTime": 258
+   },
+   {
+    "name": "res:https://micro-prototype.pages.dev/assets/guidedOpeningImportService-DTlREGxT.js",
+    "startTime": 258
+   },
+   {
+    "name": "res:https://micro-prototype.pages.dev/assets/policies-BJXEjwgh.js",
+    "startTime": 258
+   },
+   {
+    "name": "res:https://micro-prototype.pages.dev/assets/recurringExpenseService-Ys7z4Qvi.js",
+    "startTime": 258
+   },
+   {
+    "name": "first-contentful-paint",
+    "startTime": 232
+   },
+   {
+    "name": "res:https://micro-prototype.pages.dev/assets/Setup-DoV18tDt.js",
+    "startTime": 406
+   },
+   {
+    "name": "res:https://micro-prototype.pages.dev/assets/legacyFormDraftMigration-Cu7rUlpd.js",
+    "startTime": 407
+   },
+   {
+    "name": "res:https://micro-prototype.pages.dev/fonts/IBMPlexMono-500-latin.woff2",
+    "startTime": 709
+   },
+   {
+    "name": "res:https://micro-prototype.pages.dev/fonts/IBMPlexSansArabic-400-latin.woff2",
+    "startTime": 770
+   },
+   {
+    "name": "res:https://micro-prototype.pages.dev/fonts/IBMPlexSansArabic-700-latin.woff2",
+    "startTime": 726
+   },
+   {
+    "name": "res:https://micro-prototype.pages.dev/fonts/IBMPlexMono-600-latin.woff2",
+    "startTime": 723
+   }
+  ],
+  "nav": {
+   "domContentLoaded": 173,
+   "loadEvent": 173,
+   "responseStart": 62,
+   "transferSize": 1596
+  },
+  "fontsReadyMs": 248,
+  "fontStatus": [
+   "IBM Plex Mono 500 unloaded",
+   "IBM Plex Mono 600 unloaded",
+   "IBM Plex Sans Arabic 400 unloaded",
+   "IBM Plex Sans Arabic 400 unloaded",
+   "IBM Plex Sans Arabic 500 unloaded",
+   "IBM Plex Sans Arabic 500 unloaded",
+   "IBM Plex Sans Arabic 600 unloaded",
+   "IBM Plex Sans Arabic 600 unloaded",
+   "IBM Plex Sans Arabic 700 unloaded",
+   "IBM Plex Sans Arabic 700 unloaded",
+   "Alexandria 100 900 loaded"
+  ],
+  "errors": [],
+  "sw": "none",
+  "dir": "rtl",
+  "lang": "ar",
+  "bodyTextSample": "مايكرو\nتأسيس محلي\nقرار البداية\nما اسم مشروعك؟\n\nاسم واحد فقط إلزامي — كل ما بعده اختياري ويمكن إكماله لاحقًا.\n\nMicro يساعدك تدير، حسب ما تسجله أنت: المبيعات والمصاريف والطلبات والكاش والديون، ونتيجة عملك المتاحة من بيناتك المسجلة.\n\nسجلات مشروعك محفوظة على هذا الجهاز فقط في هذه النسخة — لا مزامنة سحاب",
+  "fontsCount": 11,
+  "fontFaces": [
+   {
+    "family": "IBM Plex Mono",
+    "weight": "500",
+    "status": "loaded"
+   },
+   {
+    "family": "IBM Plex Mono",
+    "weight": "600",
+    "status": "loaded"
+   },
+   {
+    "family": "IBM Plex Sans Arabic",
+    "weight": "400",
+    "status": "unloaded"
+   },
+   {
+    "family": "IBM Plex Sans Arabic",
+    "weight": "400",
+    "status": "loaded"
+   },
+   {
+    "family": "IBM Plex Sans Arabic",
+    "weight": "500",
+    "status": "unloaded"
+   },
+   {
+    "family": "IBM Plex Sans Arabic",
+    "weight": "500",
+    "status": "unloaded"
+   },
+   {
+    "family": "IBM Plex Sans Arabic",
+    "weight": "600",
+    "status": "unloaded"
+   },
+   {
+    "family": "IBM Plex Sans Arabic",
+    "weight": "600",
+    "status": "unloaded"
+   },
+   {
+    "family": "IBM Plex Sans Arabic",
+    "weight": "700",
+    "status": "unloaded"
+   },
+   {
+    "family": "IBM Plex Sans Arabic",
+    "weight": "700",
+    "status": "loaded"
+   },
+   {
+    "family": "Alexandria",
+    "weight": "100 900",
+    "status": "loaded"
+   }
+  ]
+ },
+ "census_before": {
+  "label": "before-setup-cold",
+  "localStorage": {},
+  "indexeddb": [
+   {
+    "name": "micro-prototype-local",
+    "version": 38
+   }
+  ],
+  "cookies": []
+ },
+ "requests": [
+  {
+   "method": "GET",
+   "url": "https://micro-prototype.pages.dev/",
+   "resource_type": "document",
+   "post_data": null
+  },
+  {
+   "method": "GET",
+   "url": "https://micro-prototype.pages.dev/fonts/fonts.css",
+   "resource_type": "stylesheet",
+   "post_data": null
+  },
+  {
+   "method": "GET",
+   "url": "https://micro-prototype.pages.dev/assets/index-JwnWFGWt.js",
+   "resource_type": "script",
+   "post_data": null
+  },
+  {
+   "method": "GET",
+   "url": "https://micro-prototype.pages.dev/assets/react-runtime-D-o6Z9it.js",
+   "resource_type": "script",
+   "post_data": null
+  },
+  {
+   "method": "GET",
+   "url": "https://micro-prototype.pages.dev/assets/iconography-ebC7MZWM.js",
+   "resource_type": "script",
+   "post_data": null
+  },
+  {
+   "method": "GET",
+   "url": "https://micro-prototype.pages.dev/assets/index-DeKn-51T.css",
+   "resource_type": "stylesheet",
+   "post_data": null
+  },
+  {
+   "method": "GET",
+   "url": "https://micro-prototype.pages.dev/assets/workbox-window.prod.es5-BBnX5xw4.js",
+   "resource_type": "script",
+   "post_data": null
+  },
+  {
+   "method": "GET",
+   "url": "https://micro-prototype.pages.dev/assets/QuickActionSheet-n4fptAJg.js",
+   "resource_type": "script",
+   "post_data": null
+  },
+  {
+   "method": "GET",
+   "url": "https://micro-prototype.pages.dev/assets/drawer-BXb-JqFP.js",
+   "resource_type": "script",
+   "post_data": null
+  },
+  {
+   "method": "GET",
+   "url": "https://micro-prototype.pages.dev/assets/interaction-runtime-BHsuzWF6.js",
+   "resource_type": "script",
+   "post_data": null
+  },
+  {
+   "method": "GET",
+   "url": "https://micro-prototype.pages.dev/assets/radix-runtime-Bn-oMfrd.js",
+   "resource_type": "script",
+   "post_data": null
+  },
+  {
+   "method": "GET",
+   "url": "https://micro-prototype.pages.dev/assets/EnglishNumberInput-tq1Xeq6H.js",
+   "resource_type": "script",
+   "post_data": null
+  },
+  {
+   "method": "GET",
+   "url": "https://micro-prototype.pages.dev/assets/expenseFormModel-C6DTFJII.js",
+   "resource_type": "script",
+   "post_data": null
+  },
+  {
+   "method": "GET",
+   "url": "https://micro-prototype.pages.dev/assets/LocalDateField-CULd-c9L.js",
+   "resource_type": "script",
+   "post_data": null
+  },
+  {
+   "method": "GET",
+   "url": "https://micro-prototype.pages.dev/assets/resultFeedback-DFIDaclk.js",
+   "resource_type": "script",
+   "post_data": null
+  },
+  {
+   "method": "GET",
+   "url": "https://micro-prototype.pages.dev/brand/mark/micro-quad.svg",
+   "resource_type": "image",
+   "post_data": null
+  },
+  {
+   "method": "GET",
+   "url": "https://micro-prototype.pages.dev/brand/motion/light/1-top-ink.svg",
+   "resource_type": "image",
+   "post_data": null
+  },
+  {
+   "method": "GET",
+   "url": "https://micro-prototype.pages.dev/brand/motion/light/2-right-turquoise.svg",
+   "resource_type": "image",
+   "post_data": null
+  },
+  {
+   "method": "GET",
+   "url": "https://micro-prototype.pages.dev/brand/motion/light/3-bottom-taupe.svg",
+   "resource_type": "image",
+   "post_data": null
+  },
+  {
+   "method": "GET",
+   "url": "https://micro-prototype.pages.dev/brand/motion/light/4-left-terracotta.svg",
+   "resource_type": "image",
+   "post_data": null
+  },
+  {
+   "method": "GET",
+   "url": "https://micro-prototype.pages.dev/fonts/Alexandria-VF.woff2",
+   "resource_type": "font",
+   "post_data": null
+  },
+  {
+   "method": "GET",
+   "url": "https://micro-prototype.pages.dev/assets/loanService-PGjfHTAC.js",
+   "resource_type": "script",
+   "post_data": null
+  },
+  {
+   "method": "GET",
+   "url": "https://micro-prototype.pages.dev/assets/localTransferService-C9rbX2ig.js",
+   "resource_type": "script",
+   "post_data": null
+  },
+  {
+   "method": "GET",
+   "url": "https://micro-prototype.pages.dev/assets/policies-BJXEjwgh.js",
+   "resource_type": "script",
+   "post_data": null
+  },
+  {
+   "method": "GET",
+   "url": "https://micro-prototype.pages.dev/assets/guidedOpeningImportService-DTlREGxT.js",
+   "resource_type": "script",
+   "post_data": null
+  },
+  {
+   "method": "GET",
+   "url": "https://micro-prototype.pages.dev/assets/recurringExpenseService-Ys7z4Qvi.js",
+   "resource_type": "script",
+   "post_data": null
+  },
+  {
+   "method": "GET",
+   "url": "https://micro-prototype.pages.dev/assets/Setup-DoV18tDt.js",
+   "resource_type": "script",
+   "post_data": null
+  },
+  {
+   "method": "GET",
+   "url": "https://micro-prototype.pages.dev/assets/legacyFormDraftMigration-Cu7rUlpd.js",
+   "resource_type": "script",
+   "post_data": null
+  },
+  {
+   "method": "GET",
+   "url": "https://micro-prototype.pages.dev/fonts/IBMPlexMono-500-latin.woff2",
+   "resource_type": "font",
+   "post_data": null
+  },
+  {
+   "method": "GET",
+   "url": "https://micro-prototype.pages.dev/fonts/IBMPlexMono-600-latin.woff2",
+   "resource_type": "font",
+   "post_data": null
+  },
+  {
+   "method": "GET",
+   "url": "https://micro-prototype.pages.dev/fonts/IBMPlexSansArabic-700-latin.woff2",
+   "resource_type": "font",
+   "post_data": null
+  },
+  {
+   "method": "GET",
+   "url": "https://micro-prototype.pages.dev/fonts/IBMPlexSansArabic-400-latin.woff2",
+   "resource_type": "font",
+   "post_data": null
+  }
+ ],
+ "synthetic_strings_in_requests": [],
+ "non_get_requests": []
+}

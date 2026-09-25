@@ -1,0 +1,63 @@
+{
+ "count_changes": {
+  "micro-prototype-local/form-drafts": {
+   "before": 1,
+   "after": 0
+  },
+  "micro-prototype-local/cash-continuity-entries": {
+   "before": 0,
+   "after": 1
+  },
+  "micro-prototype-local/direct-sales": {
+   "before": 0,
+   "after": 1
+  }
+ },
+ "record_changes": {
+  "micro-prototype-local/cash-continuity-entries::0bdad44b-74d3-4470-9305-4ac1da03811c": {
+   "added": true,
+   "record": {
+    "id": "0bdad44b-74d3-4470-9305-4ac1da03811c",
+    "walletId": "e5c5d4b0-86f5-473b-a6d5-c8071275db6f",
+    "type": "allocation",
+    "occurredOn": "2026-09-25",
+    "recordedAt": "2026-09-25T00:11:38.845Z",
+    "cashDeltaMinor": 1275,
+    "note": "توزيع قبض بيع من محرر البيع",
+    "reason": null,
+    "operationKey": "direct-sale-ui-782012a8-5d46-455b-9859-591decd9686c:attribute",
+    "transferId": null,
+    "reversesEntryId": null,
+    "sourceRefId": "603e751d-0090-4a64-bc34-bcd7d9dd7d93",
+    "sourceRefKind": "sale"
+   }
+  },
+  "micro-prototype-local/direct-sales::603e751d-0090-4a64-bc34-bcd7d9dd7d93": {
+   "added": true,
+   "record": {
+    "id": "603e751d-0090-4a64-bc34-bcd7d9dd7d93",
+    "itemName": "UXFLASH-INVESTIGATION-20260925 كوب",
+    "quantity": 1,
+    "currency": "JOD",
+    "revenueMinor": 1275,
+    "collectedMinor": 1275,
+    "collectionStatus": "collected_in_full",
+    "catalogItemId": null,
+    "customerName": null,
+    "costMinor": 550,
+    "profitMinor": 725,
+    "occurredOn": "2026-09-25",
+    "recordedAt": "2026-09-25T00:11:38.840Z",
+    "note": "بيع مباشر UXFLASH-INVESTIGATION-20260925",
+    "idempotencyKey": "direct-sale-ui-782012a8-5d46-455b-9859-591decd9686c",
+    "status": "active",
+    "cancelledAt": null,
+    "cancellationReason": null,
+    "revisions": []
+   }
+  },
+  "micro-prototype-local/form-drafts::direct_sale:new": {
+   "removed": true
+  }
+ }
+}
